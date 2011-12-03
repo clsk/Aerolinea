@@ -59,11 +59,12 @@
     <Compile Include="Asiento\IAsiento.cs" />
     <Compile Include="Avion\IAvion.cs" />
     <Compile Include="IReservacion.cs" />
+    <Compile Include="Reservacion\TransReservacion.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario\TransUsuario.cs" />
-    <Compile Include="Asiento\TrasAsiento.cs" />
+    <Compile Include="Asiento\TransAsiento.cs" />
     <Compile Include="Avion\TrasAvion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +76,7 @@
   <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reservacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
