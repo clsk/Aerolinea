@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avion\TrasAvion.cs" />
     <Compile Include="DAL\DALAsiento.cs" />
     <Compile Include="DAL\DALAvion.cs" />
     <Compile Include="DAL\DALCliente.cs" />
@@ -61,12 +62,12 @@
     <Compile Include="Destino\TransAeropuerto.cs" />
     <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
+    <Compile Include="TransVuelo.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario\TransUsuario.cs" />
     <Compile Include="Asiento\TransAsiento.cs" />
-    <Compile Include="Avion\TransAvion.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataBase.edmx">

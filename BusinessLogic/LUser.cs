@@ -18,5 +18,25 @@ namespace BusinessLogic
             else
                 return false;
         }
+
+        public string Nombre
+        {
+            get
+            {
+                return d_usuario.Nombre;
+            }
+            set
+            {
+                d_usuario.Nombre = value;
+            }
+        }
+
+        public int nivel
+        {
+            get
+            {
+                return d_usuario.Nivel;
+            }
+        }
     }
 }
