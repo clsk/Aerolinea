@@ -229,13 +229,13 @@
           </Key>
           <Property Name="idVuelo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idAvion" Type="int" Nullable="false" />
-          <Property Name="idAeropuerto" Type="int" Nullable="false" />
+          <Property Name="idPuertoLlegada" Type="int" Nullable="false" />
           <Property Name="FechaSalida" Type="date" Nullable="false" />
           <Property Name="HoraSalida" Type="time" Nullable="false" Precision="2" />
           <Property Name="FechaLlegada" Type="date" Nullable="false" />
           <Property Name="HoraLlegada" Type="time" Nullable="false" Precision="2" />
           <Property Name="Comentario" Type="varchar" MaxLength="300" />
-          <Property Name="idDestinoAero" Type="int" Nullable="false" />
+          <Property Name="idPuertoSalida" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Aeropuerto_Ciudad">
           <End Role="Ciudad" Type="ReservaVuelosModel.Store.Ciudad" Multiplicity="1" />
@@ -413,7 +413,7 @@
               <PropertyRef Name="idAeropuerto" />
             </Principal>
             <Dependent Role="Vuelo">
-              <PropertyRef Name="idAeropuerto" />
+              <PropertyRef Name="idPuertoLlegada" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -425,7 +425,7 @@
               <PropertyRef Name="idAeropuerto" />
             </Principal>
             <Dependent Role="Vuelo">
-              <PropertyRef Name="idDestinoAero" />
+              <PropertyRef Name="idPuertoSalida" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -494,6 +494,10 @@
         </Function>
         <Function Name="spGetNivelUsuarioFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idNivel" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetPersonaLikeName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spGetUsuarioFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
@@ -686,18 +690,9 @@
           <EntitySet Name="SerieAvions" EntityType="ReservaVuelosModel.SerieAvion" />
           <EntitySet Name="TipoClases" EntityType="ReservaVuelosModel.TipoClase" />
           <EntitySet Name="Usuarios" EntityType="ReservaVuelosModel.Usuario" />
-          <EntitySet Name="Vueloes" EntityType="ReservaVuelosModel.Vuelo" />
           <AssociationSet Name="FK_Aeropuerto_Ciudad" Association="ReservaVuelosModel.FK_Aeropuerto_Ciudad">
             <End Role="Ciudad" EntitySet="Ciudads" />
             <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vuelo_Aeropuerto" Association="ReservaVuelosModel.FK_Vuelo_Aeropuerto">
-            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
-            <End Role="Vuelo" EntitySet="Vueloes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vuelo_AeropuertoDestino" Association="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino">
-            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
-            <End Role="Vuelo" EntitySet="Vueloes" />
           </AssociationSet>
           <AssociationSet Name="FK_Asiento_Avion" Association="ReservaVuelosModel.FK_Asiento_Avion">
             <End Role="Avion" EntitySet="Avions" />
@@ -719,10 +714,6 @@
             <End Role="Avion" EntitySet="Avions" />
             <End Role="PlantaAvion" EntitySet="PlantaAvions" />
           </AssociationSet>
-          <AssociationSet Name="FK_Vuelo_Avion1" Association="ReservaVuelosModel.FK_Vuelo_Avion1">
-            <End Role="Avion" EntitySet="Avions" />
-            <End Role="Vuelo" EntitySet="Vueloes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ciudad_Pais" Association="ReservaVuelosModel.FK_Ciudad_Pais">
             <End Role="Pais" EntitySet="Pais1" />
             <End Role="Ciudad" EntitySet="Ciudads" />
@@ -741,10 +732,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Reservacion_Usuario" Association="ReservaVuelosModel.FK_Reservacion_Usuario">
             <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Reservacion" EntitySet="Reservacions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservacion_Vuelo" Association="ReservaVuelosModel.FK_Reservacion_Vuelo">
-            <End Role="Vuelo" EntitySet="Vueloes" />
             <End Role="Reservacion" EntitySet="Reservacions" />
           </AssociationSet>
           <FunctionImport Name="spNewUsuario">
@@ -815,9 +802,26 @@
             <End Role="TipoClase" EntitySet="TipoClases" />
             <End Role="Precio" EntitySet="Precios" />
           </AssociationSet>
+          <EntitySet Name="Vueloes" EntityType="ReservaVuelosModel.Vuelo" />
+          <AssociationSet Name="FK_Vuelo_Aeropuerto" Association="ReservaVuelosModel.FK_Vuelo_Aeropuerto">
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
+            <End Role="Vuelo" EntitySet="Vueloes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vuelo_AeropuertoDestino" Association="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino">
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
+            <End Role="Vuelo" EntitySet="Vueloes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vuelo_Avion1" Association="ReservaVuelosModel.FK_Vuelo_Avion1">
+            <End Role="Avion" EntitySet="Avions" />
+            <End Role="Vuelo" EntitySet="Vueloes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Precio_Vuelo" Association="ReservaVuelosModel.FK_Precio_Vuelo">
             <End Role="Vuelo" EntitySet="Vueloes" />
             <End Role="Precio" EntitySet="Precios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservacion_Vuelo" Association="ReservaVuelosModel.FK_Reservacion_Vuelo">
+            <End Role="Vuelo" EntitySet="Vueloes" />
+            <End Role="Reservacion" EntitySet="Reservacions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -960,25 +964,6 @@
           <NavigationProperty Name="NivelUsuario" Relationship="ReservaVuelosModel.FK_Usuario_NivelUsuario" FromRole="Usuario" ToRole="NivelUsuario" />
           <NavigationProperty Name="Reservacions" Relationship="ReservaVuelosModel.FK_Reservacion_Usuario" FromRole="Usuario" ToRole="Reservacion" />
         </EntityType>
-        <EntityType Name="Vuelo">
-          <Key>
-            <PropertyRef Name="idVuelo" />
-          </Key>
-          <Property Name="idVuelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idAvion" Type="Int32" Nullable="false" />
-          <Property Name="idAeropuerto" Type="Int32" Nullable="false" />
-          <Property Name="FechaSalida" Type="DateTime" Nullable="false" />
-          <Property Name="HoraSalida" Type="Time" Nullable="false" />
-          <Property Name="FechaLlegada" Type="DateTime" Nullable="false" />
-          <Property Name="HoraLlegada" Type="Time" Nullable="false" />
-          <Property Name="Comentario" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
-          <Property Name="idDestinoAero" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Aeropuerto" Relationship="ReservaVuelosModel.FK_Vuelo_Aeropuerto" FromRole="Vuelo" ToRole="Aeropuerto" />
-          <NavigationProperty Name="Aeropuerto1" Relationship="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino" FromRole="Vuelo" ToRole="Aeropuerto" />
-          <NavigationProperty Name="Avion" Relationship="ReservaVuelosModel.FK_Vuelo_Avion1" FromRole="Vuelo" ToRole="Avion" />
-          <NavigationProperty Name="Reservacions" Relationship="ReservaVuelosModel.FK_Reservacion_Vuelo" FromRole="Vuelo" ToRole="Reservacion" />
-          <NavigationProperty Name="Precios" Relationship="ReservaVuelosModel.FK_Precio_Vuelo" FromRole="Vuelo" ToRole="Precio" />
-        </EntityType>
         <Association Name="FK_Aeropuerto_Ciudad">
           <End Role="Ciudad" Type="ReservaVuelosModel.Ciudad" Multiplicity="1" />
           <End Role="Aeropuerto" Type="ReservaVuelosModel.Aeropuerto" Multiplicity="*" />
@@ -988,30 +973,6 @@
             </Principal>
             <Dependent Role="Aeropuerto">
               <PropertyRef Name="idCiudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vuelo_Aeropuerto">
-          <End Role="Aeropuerto" Type="ReservaVuelosModel.Aeropuerto" Multiplicity="1" />
-          <End Role="Vuelo" Type="ReservaVuelosModel.Vuelo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Aeropuerto">
-              <PropertyRef Name="idAeropuerto" />
-            </Principal>
-            <Dependent Role="Vuelo">
-              <PropertyRef Name="idAeropuerto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vuelo_AeropuertoDestino">
-          <End Role="Aeropuerto" Type="ReservaVuelosModel.Aeropuerto" Multiplicity="1" />
-          <End Role="Vuelo" Type="ReservaVuelosModel.Vuelo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Aeropuerto">
-              <PropertyRef Name="idAeropuerto" />
-            </Principal>
-            <Dependent Role="Vuelo">
-              <PropertyRef Name="idDestinoAero" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1071,18 +1032,6 @@
               <PropertyRef Name="idAvion" />
             </Principal>
             <Dependent Role="PlantaAvion">
-              <PropertyRef Name="idAvion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vuelo_Avion1">
-          <End Role="Avion" Type="ReservaVuelosModel.Avion" Multiplicity="1" />
-          <End Role="Vuelo" Type="ReservaVuelosModel.Vuelo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Avion">
-              <PropertyRef Name="idAvion" />
-            </Principal>
-            <Dependent Role="Vuelo">
               <PropertyRef Name="idAvion" />
             </Dependent>
           </ReferentialConstraint>
@@ -1147,18 +1096,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reservacion_Vuelo">
-          <End Role="Vuelo" Type="ReservaVuelosModel.Vuelo" Multiplicity="1" />
-          <End Role="Reservacion" Type="ReservaVuelosModel.Reservacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vuelo">
-              <PropertyRef Name="idVuelo" />
-            </Principal>
-            <Dependent Role="Reservacion">
-              <PropertyRef Name="idVuelo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -1192,6 +1129,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Vuelo">
+          <Key>
+            <PropertyRef Name="idVuelo" />
+          </Key>
+          <Property Type="Int32" Name="idVuelo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idAvion" Nullable="false" />
+          <Property Type="Int32" Name="idPuertoLlegada" Nullable="false" />
+          <Property Type="DateTime" Name="FechaSalida" Nullable="false" />
+          <Property Type="Time" Name="HoraSalida" Nullable="false" />
+          <Property Type="DateTime" Name="FechaLlegada" Nullable="false" />
+          <Property Type="Time" Name="HoraLlegada" Nullable="false" />
+          <Property Type="String" Name="Comentario" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idPuertoSalida" Nullable="false" />
+          <NavigationProperty Name="Aeropuerto" Relationship="ReservaVuelosModel.FK_Vuelo_Aeropuerto" FromRole="Vuelo" ToRole="Aeropuerto" />
+          <NavigationProperty Name="Aeropuerto1" Relationship="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino" FromRole="Vuelo" ToRole="Aeropuerto" />
+          <NavigationProperty Name="Avion" Relationship="ReservaVuelosModel.FK_Vuelo_Avion1" FromRole="Vuelo" ToRole="Avion" />
+          <NavigationProperty Name="Precios" Relationship="ReservaVuelosModel.FK_Precio_Vuelo" FromRole="Vuelo" ToRole="Precio" />
+          <NavigationProperty Name="Reservacions" Relationship="ReservaVuelosModel.FK_Reservacion_Vuelo" FromRole="Vuelo" ToRole="Reservacion" />
+        </EntityType>
+        <Association Name="FK_Vuelo_Aeropuerto">
+          <End Type="ReservaVuelosModel.Aeropuerto" Role="Aeropuerto" Multiplicity="1" />
+          <End Type="ReservaVuelosModel.Vuelo" Role="Vuelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aeropuerto">
+              <PropertyRef Name="idAeropuerto" />
+            </Principal>
+            <Dependent Role="Vuelo">
+              <PropertyRef Name="idPuertoLlegada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vuelo_AeropuertoDestino">
+          <End Type="ReservaVuelosModel.Aeropuerto" Role="Aeropuerto" Multiplicity="1" />
+          <End Type="ReservaVuelosModel.Vuelo" Role="Vuelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aeropuerto">
+              <PropertyRef Name="idAeropuerto" />
+            </Principal>
+            <Dependent Role="Vuelo">
+              <PropertyRef Name="idPuertoSalida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vuelo_Avion1">
+          <End Type="ReservaVuelosModel.Avion" Role="Avion" Multiplicity="1" />
+          <End Type="ReservaVuelosModel.Vuelo" Role="Vuelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Avion">
+              <PropertyRef Name="idAvion" />
+            </Principal>
+            <Dependent Role="Vuelo">
+              <PropertyRef Name="idAvion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Precio_Vuelo">
           <End Type="ReservaVuelosModel.Vuelo" Role="Vuelo" Multiplicity="1" />
           <End Type="ReservaVuelosModel.Precio" Role="Precio" Multiplicity="*" />
@@ -1200,6 +1192,18 @@
               <PropertyRef Name="idVuelo" />
             </Principal>
             <Dependent Role="Precio">
+              <PropertyRef Name="idVuelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservacion_Vuelo">
+          <End Type="ReservaVuelosModel.Vuelo" Role="Vuelo" Multiplicity="1" />
+          <End Type="ReservaVuelosModel.Reservacion" Role="Reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vuelo">
+              <PropertyRef Name="idVuelo" />
+            </Principal>
+            <Dependent Role="Reservacion">
               <PropertyRef Name="idVuelo" />
             </Dependent>
           </ReferentialConstraint>
@@ -1303,17 +1307,6 @@
                 </UpdateFunction>
               </ModificationFunctionMapping>
             </EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Vueloes"><EntityTypeMapping TypeName="ReservaVuelosModel.Vuelo"><MappingFragment StoreEntitySet="Vuelo">
-            <ScalarProperty Name="idVuelo" ColumnName="idVuelo" />
-            <ScalarProperty Name="idAvion" ColumnName="idAvion" />
-            <ScalarProperty Name="idAeropuerto" ColumnName="idAeropuerto" />
-            <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
-            <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
-            <ScalarProperty Name="FechaLlegada" ColumnName="FechaLlegada" />
-            <ScalarProperty Name="HoraLlegada" ColumnName="HoraLlegada" />
-            <ScalarProperty Name="Comentario" ColumnName="Comentario" />
-            <ScalarProperty Name="idDestinoAero" ColumnName="idDestinoAero" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spNewUsuario" FunctionName="ReservaVuelosModel.Store.spNewUsuario" />
           <FunctionImportMapping FunctionImportName="spUpdateUsuario" FunctionName="ReservaVuelosModel.Store.spUpdateUsuario" />
           <FunctionImportMapping FunctionImportName="spGetUsuarioFromID" FunctionName="ReservaVuelosModel.Store.spGetUsuarioFromID" />
@@ -1325,7 +1318,6 @@
           <FunctionImportMapping FunctionImportName="spNewPais" FunctionName="ReservaVuelosModel.Store.spNewPais" />
           <FunctionImportMapping FunctionImportName="spNewCiudad" FunctionName="ReservaVuelosModel.Store.spNewCiudad" />
           <FunctionImportMapping FunctionImportName="spNewAeropuerto" FunctionName="ReservaVuelosModel.Store.spNewAeropuerto" />
-          <FunctionImportMapping FunctionImportName="spUdateAeropuerto" FunctionName="ReservaVuelosModel.Store.spUpdateAeropuerto" />
           <FunctionImportMapping FunctionImportName="spUpdateCiudad" FunctionName="ReservaVuelosModel.Store.spUpdateCiudad" />
           <FunctionImportMapping FunctionImportName="spUpdatePais" FunctionName="ReservaVuelosModel.Store.spUpdatePais" />
           <FunctionImportMapping FunctionImportName="spGetAllPaises" FunctionName="ReservaVuelosModel.Store.spGetAllPaises" />
@@ -1348,6 +1340,21 @@
                 <ScalarProperty Name="idVuelo" ColumnName="idVuelo" />
                 <ScalarProperty Name="idTipoClase" ColumnName="idTipoClase" />
                 <ScalarProperty Name="idPrecio" ColumnName="idPrecio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vueloes">
+            <EntityTypeMapping TypeName="ReservaVuelosModel.Vuelo">
+              <MappingFragment StoreEntitySet="Vuelo">
+                <ScalarProperty Name="idPuertoSalida" ColumnName="idPuertoSalida" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="HoraLlegada" ColumnName="HoraLlegada" />
+                <ScalarProperty Name="FechaLlegada" ColumnName="FechaLlegada" />
+                <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="idPuertoLlegada" ColumnName="idPuertoLlegada" />
+                <ScalarProperty Name="idAvion" ColumnName="idAvion" />
+                <ScalarProperty Name="idVuelo" ColumnName="idVuelo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1385,23 +1392,14 @@
         <EntityTypeShape EntityType="ReservaVuelosModel.SerieAvion" Width="1.5" PointX="3" PointY="5.75" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="ReservaVuelosModel.TipoClase" Width="1.5" PointX="5.25" PointY="9.375" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="ReservaVuelosModel.Usuario" Width="1.5" PointX="7.5" PointY="15.25" Height="2.5571907552083353" IsExpanded="true" />
-        <EntityTypeShape EntityType="ReservaVuelosModel.Vuelo" Width="1.5" PointX="7.5" PointY="1" Height="3.7109993489583326" IsExpanded="true" />
         <AssociationConnector Association="ReservaVuelosModel.FK_Aeropuerto_Ciudad" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="2.7401432291666667" />
           <ConnectorPoint PointX="5.25" PointY="2.7401432291666667" />
         </AssociationConnector>
-        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_Aeropuerto" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="2.3402498372395892" />
-          <ConnectorPoint PointX="7.5" PointY="2.3402498372395892" />
-        </AssociationConnector>
-        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="3.2275695800781286" />
-          <ConnectorPoint PointX="7.5" PointY="3.2275695800781286" />
-        </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Asiento_Avion" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="5.65625" />
-          <ConnectorPoint PointX="7.28125" PointY="5.65625" />
-          <ConnectorPoint PointX="7.28125" PointY="8.625" />
+          <ConnectorPoint PointX="7.25781125" PointY="5.65625" />
+          <ConnectorPoint PointX="7.25781125" PointY="8.625" />
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Asiento_TipoClase" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="10.268992513020834" />
@@ -1409,10 +1407,10 @@
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Reservacion_Asiento" ManuallyRouted="false">
           <ConnectorPoint PointX="8.625" PointY="10.192047526041666" />
-          <ConnectorPoint PointX="9.8893197916666669" PointY="10.192047526041666" />
-          <ConnectorPoint PointX="10.055986458333335" PointY="10.192047526041666" />
-          <ConnectorPoint PointX="10.4003903125" PointY="10.192047526041666" />
-          <ConnectorPoint PointX="10.4003903125" PointY="4.1244921875000031" />
+          <ConnectorPoint PointX="10.021156510416665" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="10.187823177083333" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="10.5214846875" PointY="10.192047526041666" />
+          <ConnectorPoint PointX="10.5214846875" PointY="4.1244921875" />
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Avion_SerieAvion" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="6.7401432291666659" />
@@ -1420,15 +1418,9 @@
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_PlantaAvion_Avion" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="6.7401432291666659" />
-          <ConnectorPoint PointX="7.197916666666667" PointY="6.740143229166665" />
-          <ConnectorPoint PointX="7.364583333333333" PointY="6.7401432291666659" />
+          <ConnectorPoint PointX="7.1744779166666666" PointY="6.740143229166665" />
+          <ConnectorPoint PointX="7.3411445833333326" PointY="6.7401432291666659" />
           <ConnectorPoint PointX="7.5" PointY="6.7401432291666659" />
-        </AssociationConnector>
-        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_Avion1" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="5.625" />
-          <ConnectorPoint PointX="7.125" PointY="5.25" />
-          <ConnectorPoint PointX="7.125" PointY="4.0005364645182242" />
-          <ConnectorPoint PointX="7.5" PointY="4.0005364645182242" />
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Ciudad_Pais" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.797841796875" />
@@ -1444,47 +1436,56 @@
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Reservacion_Persona" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="13.490143229166666" />
-          <ConnectorPoint PointX="9.972653125" PointY="13.490143229166666" />
-          <ConnectorPoint PointX="9.972653125" PointY="4.1244921875000031" />
+          <ConnectorPoint PointX="10.104489843749999" PointY="13.490143229166666" />
+          <ConnectorPoint PointX="10.104489843749999" PointY="4.1244921875" />
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Reservacion_Usuario" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="16.528595377604169" />
-          <ConnectorPoint PointX="10.8281275" PointY="16.528595377604169" />
-          <ConnectorPoint PointX="10.8281275" PointY="4.1244921875000031" />
-        </AssociationConnector>
-        <AssociationConnector Association="ReservaVuelosModel.FK_Reservacion_Vuelo" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="2.7497460937500016" />
-          <ConnectorPoint PointX="9.75" PointY="2.7497460937500016" />
+          <ConnectorPoint PointX="10.91699484375" PointY="16.528595377604169" />
+          <ConnectorPoint PointX="10.91699484375" PointY="4.1244921875" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ReservaVuelosModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="ReservaVuelosModel.Precio" Width="1.5" PointX="11.625" PointY="4.875" Height="2.172587890624996" />
         <AssociationConnector Association="ReservaVuelosModel.FK_Precio_TipoClase" >
           <ConnectorPoint PointX="6" PointY="9.375" />
           <ConnectorPoint PointX="6" PointY="8.047587890625" />
-          <ConnectorPoint PointX="7.197916666666667" PointY="8.047587890625" />
-          <ConnectorPoint PointX="7.364583333333333" PointY="8.047587890625" />
-          <ConnectorPoint PointX="9.8893197916666669" PointY="8.047587890625" />
-          <ConnectorPoint PointX="10.055986458333335" PointY="8.047587890625" />
-          <ConnectorPoint PointX="10.317056979166667" PointY="8.047587890625" />
-          <ConnectorPoint PointX="10.483723645833335" PointY="8.047587890625" />
-          <ConnectorPoint PointX="10.744794166666667" PointY="8.047587890625" />
-          <ConnectorPoint PointX="10.911460833333335" PointY="8.047587890625" />
+          <ConnectorPoint PointX="7.1744779166666666" PointY="8.047587890625" />
+          <ConnectorPoint PointX="7.3411445833333326" PointY="8.047587890625" />
+          <ConnectorPoint PointX="10.021156510416665" PointY="8.047587890625" />
+          <ConnectorPoint PointX="10.187823177083333" PointY="8.047587890625" />
+          <ConnectorPoint PointX="10.438151354166665" PointY="8.047587890625" />
+          <ConnectorPoint PointX="10.604818020833333" PointY="8.047587890625" />
+          <ConnectorPoint PointX="10.833661510416667" PointY="8.047587890625" />
+          <ConnectorPoint PointX="11.000328177083334" PointY="8.047587890625" />
           <ConnectorPoint PointX="11.25" PointY="8.047587890625" />
-          <ConnectorPoint PointX="11.25" PointY="5.961293945312498" />
-          <ConnectorPoint PointX="11.625" PointY="5.961293945312498" />
+          <ConnectorPoint PointX="11.25" PointY="5.9612939453125" />
+          <ConnectorPoint PointX="11.625" PointY="5.9612939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ReservaVuelosModel.Vuelo" Width="1.5" PointX="7.5" PointY="0.875" Height="3.7109993489583388" />
+        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_Aeropuerto" >
+          <ConnectorPoint PointX="6.75" PointY="2.8074446614583337" />
+          <ConnectorPoint PointX="7.5" PointY="2.8074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_AeropuertoDestino" >
+          <ConnectorPoint PointX="6.75" PointY="2.1537223307291669" />
+          <ConnectorPoint PointX="7.5" PointY="2.1537223307291669" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReservaVuelosModel.FK_Vuelo_Avion1" >
+          <ConnectorPoint PointX="6.75" PointY="5.625" />
+          <ConnectorPoint PointX="7.125" PointY="5.25" />
+          <ConnectorPoint PointX="7.125" PointY="3.72797400520833" />
+          <ConnectorPoint PointX="7.5" PointY="3.72797400520833" />
         </AssociationConnector>
         <AssociationConnector Association="ReservaVuelosModel.FK_Precio_Vuelo" >
-          <ConnectorPoint PointX="9" PointY="4.4489957682291674" />
-          <ConnectorPoint PointX="9.8893197916666669" PointY="4.4489957682291665" />
-          <ConnectorPoint PointX="10.055986458333335" PointY="4.4489957682291674" />
-          <ConnectorPoint PointX="10.317056979166667" PointY="4.4489957682291665" />
-          <ConnectorPoint PointX="10.483723645833335" PointY="4.4489957682291674" />
-          <ConnectorPoint PointX="10.744794166666667" PointY="4.4489957682291665" />
-          <ConnectorPoint PointX="10.911460833333335" PointY="4.4489957682291674" />
-          <ConnectorPoint PointX="12.375" PointY="4.4489957682291674" />
+          <ConnectorPoint PointX="9" PointY="1.09375" />
+          <ConnectorPoint PointX="12.375" PointY="1.09375" />
           <ConnectorPoint PointX="12.375" PointY="4.875" />
         </AssociationConnector>
-      </Diagram>
+        <AssociationConnector Association="ReservaVuelosModel.FK_Reservacion_Vuelo" >
+          <ConnectorPoint PointX="9" PointY="2.74974609375" />
+          <ConnectorPoint PointX="9.75" PointY="2.74974609375" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

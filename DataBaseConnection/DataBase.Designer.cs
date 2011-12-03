@@ -19,22 +19,22 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Aeropuerto_Ciudad", "Ciudad", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Ciudad), "Aeropuerto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Aeropuerto), true)]
-[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_Aeropuerto", "Aeropuerto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Aeropuerto), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
-[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_AeropuertoDestino", "Aeropuerto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Aeropuerto), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Asiento_Avion", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Avion), "Asiento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Asiento), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Asiento_TipoClase", "TipoClase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.TipoClase), "Asiento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Asiento), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Asiento", "Asiento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Asiento), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Reservacion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Avion_SerieAvion", "SerieAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.SerieAvion), "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Avion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_PlantaAvion_Avion", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Avion), "PlantaAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.PlantaAvion), true)]
-[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_Avion1", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Avion), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Ciudad_Pais", "Pais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Pais), "Ciudad", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Ciudad), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_SerieAvion_MarcaAvion", "MarcaAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.MarcaAvion), "SerieAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.SerieAvion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Usuario_NivelUsuario", "NivelUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.NivelUsuario), "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Usuario), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Persona", "Persona", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Persona), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Reservacion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Usuario", "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Usuario), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Reservacion), true)]
-[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Vuelo", "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Vuelo), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Reservacion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Precio_TipoClase", "TipoClase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.TipoClase), "Precio", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Precio), true)]
+[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_Aeropuerto", "Aeropuerto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Aeropuerto), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
+[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_AeropuertoDestino", "Aeropuerto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Aeropuerto), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
+[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_Avion1", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Avion), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Vuelo), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Precio_Vuelo", "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Vuelo), "Precio", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Precio), true)]
+[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Vuelo", "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataBaseConnection.Vuelo), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataBaseConnection.Reservacion), true)]
 
 #endregion
 
@@ -297,22 +297,6 @@ namespace DataBaseConnection
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Vuelo> Vueloes
-        {
-            get
-            {
-                if ((_Vueloes == null))
-                {
-                    _Vueloes = base.CreateObjectSet<Vuelo>("Vueloes");
-                }
-                return _Vueloes;
-            }
-        }
-        private ObjectSet<Vuelo> _Vueloes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<sysdiagram> sysdiagrams
         {
             get
@@ -341,6 +325,22 @@ namespace DataBaseConnection
             }
         }
         private ObjectSet<Precio> _Precios;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Vuelo> Vueloes
+        {
+            get
+            {
+                if ((_Vueloes == null))
+                {
+                    _Vueloes = base.CreateObjectSet<Vuelo>("Vueloes");
+                }
+                return _Vueloes;
+            }
+        }
+        private ObjectSet<Vuelo> _Vueloes;
 
         #endregion
         #region AddTo Methods
@@ -450,14 +450,6 @@ namespace DataBaseConnection
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Vueloes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToVueloes(Vuelo vuelo)
-        {
-            base.AddObject("Vueloes", vuelo);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTosysdiagrams(sysdiagram sysdiagram)
@@ -471,6 +463,14 @@ namespace DataBaseConnection
         public void AddToPrecios(Precio precio)
         {
             base.AddObject("Precios", precio);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Vueloes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToVueloes(Vuelo vuelo)
+        {
+            base.AddObject("Vueloes", vuelo);
         }
 
         #endregion
@@ -3926,23 +3926,23 @@ namespace DataBaseConnection
         /// </summary>
         /// <param name="idVuelo">Initial value of the idVuelo property.</param>
         /// <param name="idAvion">Initial value of the idAvion property.</param>
-        /// <param name="idAeropuerto">Initial value of the idAeropuerto property.</param>
+        /// <param name="idPuertoLlegada">Initial value of the idPuertoLlegada property.</param>
         /// <param name="fechaSalida">Initial value of the FechaSalida property.</param>
         /// <param name="horaSalida">Initial value of the HoraSalida property.</param>
         /// <param name="fechaLlegada">Initial value of the FechaLlegada property.</param>
         /// <param name="horaLlegada">Initial value of the HoraLlegada property.</param>
-        /// <param name="idDestinoAero">Initial value of the idDestinoAero property.</param>
-        public static Vuelo CreateVuelo(global::System.Int32 idVuelo, global::System.Int32 idAvion, global::System.Int32 idAeropuerto, global::System.DateTime fechaSalida, global::System.TimeSpan horaSalida, global::System.DateTime fechaLlegada, global::System.TimeSpan horaLlegada, global::System.Int32 idDestinoAero)
+        /// <param name="idPuertoSalida">Initial value of the idPuertoSalida property.</param>
+        public static Vuelo CreateVuelo(global::System.Int32 idVuelo, global::System.Int32 idAvion, global::System.Int32 idPuertoLlegada, global::System.DateTime fechaSalida, global::System.TimeSpan horaSalida, global::System.DateTime fechaLlegada, global::System.TimeSpan horaLlegada, global::System.Int32 idPuertoSalida)
         {
             Vuelo vuelo = new Vuelo();
             vuelo.idVuelo = idVuelo;
             vuelo.idAvion = idAvion;
-            vuelo.idAeropuerto = idAeropuerto;
+            vuelo.idPuertoLlegada = idPuertoLlegada;
             vuelo.FechaSalida = fechaSalida;
             vuelo.HoraSalida = horaSalida;
             vuelo.FechaLlegada = fechaLlegada;
             vuelo.HoraLlegada = horaLlegada;
-            vuelo.idDestinoAero = idDestinoAero;
+            vuelo.idPuertoSalida = idPuertoSalida;
             return vuelo;
         }
 
@@ -4005,24 +4005,24 @@ namespace DataBaseConnection
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 idAeropuerto
+        public global::System.Int32 idPuertoLlegada
         {
             get
             {
-                return _idAeropuerto;
+                return _idPuertoLlegada;
             }
             set
             {
-                OnidAeropuertoChanging(value);
-                ReportPropertyChanging("idAeropuerto");
-                _idAeropuerto = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idAeropuerto");
-                OnidAeropuertoChanged();
+                OnidPuertoLlegadaChanging(value);
+                ReportPropertyChanging("idPuertoLlegada");
+                _idPuertoLlegada = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idPuertoLlegada");
+                OnidPuertoLlegadaChanged();
             }
         }
-        private global::System.Int32 _idAeropuerto;
-        partial void OnidAeropuertoChanging(global::System.Int32 value);
-        partial void OnidAeropuertoChanged();
+        private global::System.Int32 _idPuertoLlegada;
+        partial void OnidPuertoLlegadaChanging(global::System.Int32 value);
+        partial void OnidPuertoLlegadaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4149,24 +4149,24 @@ namespace DataBaseConnection
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 idDestinoAero
+        public global::System.Int32 idPuertoSalida
         {
             get
             {
-                return _idDestinoAero;
+                return _idPuertoSalida;
             }
             set
             {
-                OnidDestinoAeroChanging(value);
-                ReportPropertyChanging("idDestinoAero");
-                _idDestinoAero = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("idDestinoAero");
-                OnidDestinoAeroChanged();
+                OnidPuertoSalidaChanging(value);
+                ReportPropertyChanging("idPuertoSalida");
+                _idPuertoSalida = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idPuertoSalida");
+                OnidPuertoSalidaChanged();
             }
         }
-        private global::System.Int32 _idDestinoAero;
-        partial void OnidDestinoAeroChanging(global::System.Int32 value);
-        partial void OnidDestinoAeroChanged();
+        private global::System.Int32 _idPuertoSalida;
+        partial void OnidPuertoSalidaChanging(global::System.Int32 value);
+        partial void OnidPuertoSalidaChanged();
 
         #endregion
     
@@ -4292,28 +4292,6 @@ namespace DataBaseConnection
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_Reservacion_Vuelo", "Reservacion")]
-        public EntityCollection<Reservacion> Reservacions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservacion>("ReservaVuelosModel.FK_Reservacion_Vuelo", "Reservacion");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservacion>("ReservaVuelosModel.FK_Reservacion_Vuelo", "Reservacion", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_Precio_Vuelo", "Precio")]
         public EntityCollection<Precio> Precios
         {
@@ -4326,6 +4304,28 @@ namespace DataBaseConnection
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Precio>("ReservaVuelosModel.FK_Precio_Vuelo", "Precio", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_Reservacion_Vuelo", "Reservacion")]
+        public EntityCollection<Reservacion> Reservacions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservacion>("ReservaVuelosModel.FK_Reservacion_Vuelo", "Reservacion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservacion>("ReservaVuelosModel.FK_Reservacion_Vuelo", "Reservacion", value);
                 }
             }
         }
