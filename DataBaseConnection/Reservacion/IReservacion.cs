@@ -10,7 +10,7 @@ namespace DataBaseConnection
         int IdVuelo {get; set; }
 
         int idAsiento { get; set; }
-        //bahusahduashdasi;dasd
+
 
     }
 }
