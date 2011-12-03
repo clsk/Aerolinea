@@ -1,0 +1,225 @@
+--CREATE PROCEDURE spNewPais @Nombre varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO Pais(NombrePais)
+--	VALUES (@Nombre)
+--END
+
+--CREATE PROCEDURE spUpdatePais @idPais int, @Nombre varchar(50)
+--AS
+--BEGIN
+--	UPDATE Pais
+--	SET NombrePais=@Nombre
+--	WHERE idPais=@idPais
+--END
+------------------------------------------------------------
+--CREATE PROCEDURE spNewCiudad @Nombre varchar(50), @idpais int
+--AS
+--BEGIN
+--	INSERT INTO Ciudad(NombreCiudad,idPais)
+--	VALUES (@Nombre,@idpais)
+--END
+
+--CREATE PROCEDURE spUpdateCiudad @idCiudad int, @Nombre varchar(50), @idpais int
+--AS
+--BEGIN
+--	UPDATE Ciudad
+--	SET NombreCiudad=@Nombre, idPais=@idpais
+--	WHERE idCiudad=@idCiudad
+--END
+----------------------------------------------------------------------
+--CREATE PROCEDURE spNewAeropuerto @Nombre varchar(50), @idCiudad int, @Siglas varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO Aeropuerto(idCiudad,NombreAeropuerto,Siglas)
+--	VALUES (@idCiudad,@Nombre,@Siglas)
+--END
+
+--CREATE PROCEDURE spUpdateAeropuerto @idAeropuerto int, @Nombre varchar(50), @idCiudad int, @Siglas varchar(50)
+--AS
+--BEGIN
+--	UPDATE Aeropuerto
+--	SET NombreAeropuerto=@Nombre, idCiudad=@idCiudad, Siglas=@Siglas
+--	WHERE idAeropuerto=@idAeropuerto
+--END
+-------------------------------------------------------------------------
+--CREATE PROCEDURE spNewMarcaAvion @Nombre varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO MarcaAvion(NombreMarca)
+--	VALUES (@Nombre)
+--END
+
+--CREATE PROCEDURE spUpdateMarcaAvion @idMarca int, @Nombre varchar(50)
+--AS
+--BEGIN
+--	UPDATE MarcaAvion
+--	SET NombreMarca=@Nombre
+--	WHERE idMarca=@idMarca
+--END
+-------------------------------------------------------------------------
+--CREATE PROCEDURE spNewSerieAvion @Nombre varchar(50), @idMarca int
+--AS
+--BEGIN
+--	INSERT INTO SerieAvion(Nombremarca,idMarca)
+--	VALUES (@Nombre,@idMarca)
+--END
+
+--CREATE PROCEDURE spUpdateSerieAvion @idSerie int, @Nombre varchar(50), @idMarca int
+--AS
+--BEGIN
+--	UPDATE SerieAvion
+--	SET Nombremarca=@Nombre, @idMarca = @idMarca
+--	WHERE idSerie=@idSerie
+--END
+-------------------------------------------------------------------------
+--CREATE PROCEDURE spNewAvion @idSerie int
+--AS
+--BEGIN
+--	INSERT INTO Avion(idSerie)
+--	VALUES (@idSerie)
+--END
+
+--CREATE PROCEDURE spUpdateAvion @idAvion int, @idSerie int
+--AS
+--BEGIN
+--	UPDATE Avion
+--	SET idSerie=@idSerie
+--	WHERE idAvion=@idAvion
+--END
+--------------------------------------------------------------------------
+--CREATE PROCEDURE spNewPlanta @idAvion int, @Imagen image, @Piso int
+--AS
+--BEGIN
+--	INSERT INTO PlantaAvion(idAvion,ImagenPlanta,Piso)
+--	VALUES (@idAvion,@Imagen,@Piso)
+--END
+
+--CREATE PROCEDURE spUpdatePlanta @idPlanta int, @idAvion int, @Imagen image, @Piso int
+--AS
+--BEGIN
+--	UPDATE PlantaAvion
+--	SET idAvion=@idAvion, ImagenPlanta=@Imagen, Piso=@Piso
+--	WHERE idPlanta=@idPlanta
+--END
+---------------------------------------------------------------------------
+--CREATE PROCEDURE spNewAsiento @idAvion int, @idTipoClase int, @Numero varchar(10), @Fila int, @CordX int, @CordY int, @Piso int
+--AS
+--BEGIN
+--	INSERT INTO Asiento(idAvion,idTipoClase,Numero,Fila,CordX,CordY,Piso)
+--	VALUES (@idAvion,@idTipoClase,@Numero,@Fila,@CordX,@CordY,@Piso)
+--END
+
+--CREATE PROCEDURE spUpdateAsiento @idAsiento int, @idAvion int, @idTipoClase int, @Numero varchar(10), @Fila int, @CordX int, @CordY int, @Piso int
+--AS
+--BEGIN
+--	UPDATE Asiento
+--	SET idAvion=@idAvion, idTipoClase=@idTipoClase, Numero=@Numero, Fila=@Fila, CordX=@CordX, CordY=@CordY, Piso=@Piso
+--	WHERE idAsiento=@idAsiento
+--END
+---------------------------------------------------------------------------
+--CREATE PROCEDURE spNewReservacion @idPersona int, @idVuelo int, @idAsiento int, @idUsuario int
+--AS
+--BEGIN
+--	INSERT INTO Reservacion(idPersona,idVuelo,idAsiento,idUsuario)
+--	VALUES (@idPersona,@idVuelo,@idAsiento,@idUsuario)
+--END
+
+--CREATE PROCEDURE spUpdateReservacion @idReservacion int, @idPersona int, @idVuelo int, @idAsiento int, @idUsuario int
+--AS
+--BEGIN
+--	UPDATE Reservacion
+--	SET idPersona=@idPersona, idVuelo=@idVuelo, idAsiento=@idAsiento, idUsuario=@idUsuario
+--	WHERE idReservacion=@idReservacion
+--END
+----------------------------------------------------------------------------
+--CREATE PROCEDURE spNewPersona @Nombre varchar(50), @Apellidos varchar(50), @Pasaporte varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO Persona(NombrePersona,ApellidosPersona,Pasaporte)
+--	VALUES (@Nombre,@Apellidos,@Pasaporte)
+--END
+
+--CREATE PROCEDURE spUpdatePersona @idPersona int, @Nombre varchar(50), @Apellidos varchar(50), @Pasaporte varchar(50)
+--AS
+--BEGIN
+--	UPDATE Persona
+--	SET NombrePersona=@Nombre, ApellidosPersona=@Apellidos, Pasaporte=@Pasaporte
+--	WHERE idPersona=@idPersona
+--END
+-----------------------------------------------------------------------------
+--CREATE PROCEDURE spNewVuelo @idAvion int, @idAeropuerto int, @FechaSalida date, @HoraSalida time(2), @FechaLlegada date, @HoraLlegada time(2), @Comentario varchar(300)
+--AS
+--BEGIN
+--	INSERT INTO Vuelo(idAvion,idAeropuerto,FechaSalida,HoraSalida,FechaLlegada,HoraLlegada,Comentario)
+--	VALUES (@idAvion,@idAeropuerto,@FechaSalida,@HoraSalida,@FechaLlegada,@HoraLlegada,@Comentario)
+--END
+
+--CREATE PROCEDURE spUpdateVuelo @idVuelo int, @idAvion int, @idAeropuerto int, @FechaSalida date, @HoraSalida time(2), @FechaLlegada date, @HoraLlegada time(2), @Comentario varchar(300)
+--AS
+--BEGIN
+--	UPDATE Vuelo
+--	SET idAvion=@idAvion, idAeropuerto=@idAeropuerto, FechaSalida=@FechaSalida, HoraSalida=@HoraSalida, FechaLlegada=@FechaLlegada, HoraLlegada=@HoraLlegada, Comentario=@Comentario
+--	WHERE idVuelo=@idVuelo
+--END
+-----------------------------------------------------------------------------
+--CREATE PROCEDURE spNewUsuario @idNivel int, @Nombre varchar(50), @Login varchar(50), @Password varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO Usuario(idNivel,Nombre, Login, Password)
+--	VALUES (@idNivel,@Nombre, @Login, @Password)
+--END
+
+--CREATE PROCEDURE spUpdateUsuario @idUsuario int, @idNivel int, @Nombre varchar(50), @Login varchar(50), @Password varchar(50)
+--AS
+--BEGIN
+--	UPDATE Usuario
+--	SET idNivel=@idNivel, Nombre=@Nombre, Login=@Login, Password=@Password
+--	WHERE idUsuario=@idUsuario
+--END
+-----------------------------------------------------------------------------
+--CREATE PROCEDURE spNewNivelUsuario @Nivel varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO NivelUsuario(NombreNivel)
+--	VALUES (@Nivel)
+--END
+
+--CREATE PROCEDURE spUpdateNivelUsuario @idNivel int, @Nivel varchar(50)
+--AS
+--BEGIN
+--	UPDATE NivelUsuario
+--	SET NombreNivel=@Nivel
+--	WHERE idNivel=@idNivel
+--END
+-----------------------------------------------------------------------------
+--CREATE PROCEDURE spNewTipoClase @Nombre varchar(50)
+--AS
+--BEGIN
+--	INSERT INTO TipoClase(NombreClase)
+--	VALUES (@Nombre)
+--END
+
+--CREATE PROCEDURE spUpdateTipoClase @idTipo int, @Nombre varchar(50)
+--AS
+--BEGIN
+--	UPDATE TipoClase
+--	SET NombreClase=@Nombre
+--	WHERE idTipoClase=@idTipo
+--END
+------------------------------------------------------------------------------
+--CREATE PROCEDURE spNewPrecio @idTipoClase int, @idVuelo int, @Precio money
+--AS
+--BEGIN
+--	INSERT INTO Precio(idTipoClase,idVuelo,Precio)
+--	VALUES (@idTipoClase,@idVuelo,@Precio)
+--END
+
+--CREATE PROCEDURE spUpdatePrecio @idPrecio int, @idTipoClase int, @idVuelo int, @Precio money
+--AS
+--BEGIN
+--	UPDATE Precio
+--	SET idTipoClase=@idTipoClase, idVuelo=@idVuelo, Precio=@Precio
+--	WHERE idPrecio=@idPrecio
+--END
+-------------------------------------------------------------------------------
