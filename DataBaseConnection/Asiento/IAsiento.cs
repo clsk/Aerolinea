@@ -14,5 +14,7 @@ namespace DataBaseConnection
         string Numero { get; set; }
 
         int Fila { get; set; }
+
+        int IdAsiento { get; set; }
     }
 }

@@ -11,6 +11,5 @@ namespace DataBaseConnection
 
         int idAsiento { get; set; }
 
-
     }
 }
