@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class TransReservacion
+    public class TransReservacion
     {
         public string NombrePersona
         {

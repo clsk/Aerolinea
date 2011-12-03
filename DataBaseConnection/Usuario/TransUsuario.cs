@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class TransUsuario :IUsuario
+    public class TransUsuario :IUsuario
     {
          public int IdUsuario
         {

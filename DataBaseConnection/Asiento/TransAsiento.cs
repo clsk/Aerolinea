@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class TransAsiento : IAsiento
+    public class TransAsiento : IAsiento
     {
         public TransAsiento(int ID)
         {
