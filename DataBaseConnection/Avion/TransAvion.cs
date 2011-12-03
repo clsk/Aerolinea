@@ -5,12 +5,13 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class TrasAvion: IAvion
+    public class TransAvion: IAvion
     {
 
-        public TrasAvion(int idAvion)
+        public TransAvion(int idAvion)
         {
         }
+
         private Avion avion;
 
         private MarcaAvion marca;
