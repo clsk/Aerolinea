@@ -58,14 +58,15 @@
     </Compile>
     <Compile Include="Asiento\IAsiento.cs" />
     <Compile Include="Avion\IAvion.cs" />
-    <Compile Include="IReservacion.cs" />
+    <Compile Include="Destino\TransAeropuerto.cs" />
+    <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario\TransUsuario.cs" />
     <Compile Include="Asiento\TransAsiento.cs" />
-    <Compile Include="Avion\TrasAvion.cs" />
+    <Compile Include="Avion\TransAvion.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataBase.edmx">

@@ -48,6 +48,7 @@ namespace DataBaseConnection
 
         public TransUsuario(int idUsuario)
         {
+
         }
 
         public TransUsuario(string login, string password)
