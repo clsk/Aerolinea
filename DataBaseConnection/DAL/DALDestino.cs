@@ -159,9 +159,9 @@ namespace DataBaseConnection
         }
         #endregion
 
-        #region Obtener un aeropuerto dado
+        #region Obtener un aeropuerto dado un ID
         /**
-        * @brief Obtiene un aeropuerto dado.
+        * @brief Obtiene un aeropuerto dado un ID.
         * 
         * @param idAeropuerto        ID del aeropuerto que se desea buscar
         * 

@@ -63,5 +63,25 @@ namespace DataBaseConnection
         }
         #endregion
 
+        #region Obtener reservación dado un ID
+        static Reservacion GetReservacionFromID(int ID)
+        {
+            return null;
+        }
+        #endregion
+
+        #region Obtener persona dado un pasaporte
+        static Persona GetPersonaFromPasaporte(string pasaporte)
+        {
+            return null;
+        }
+        #endregion
+
+        #region Obtener persona dado un Apellido y un nombre
+        static List<Persona> GetPersonasFromApellidoAndNombre(string nombre, string apellido)
+        {
+            return null;
+        }
+        #endregion
     }
 }
