@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="DAL\DALVuelo.cs" />
     <Compile Include="DAL\Provider.cs" />
-    <Compile Include="ITrans.cs" />
     <Compile Include="TransAeropuerto.cs" />
     <Compile Include="Avion\TransAvion.cs" />
     <Compile Include="AbstractBuilder.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="Avion\IAvion.cs" />
     <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
+    <Compile Include="Usuario\UsuarioBuilder.cs" />
     <Compile Include="Vuelo\VueloBuilder.cs" />
     <Compile Include="Vuelo\TransVuelo.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
