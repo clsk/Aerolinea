@@ -7,42 +7,41 @@ namespace DataBaseConnection
 {
     public class TransVuelo
     {
-        private Vuelo pers_vuelo;
+        private Vuelo persVuelo;
 
-        public Vuelo Persistent
+        internal TransVuelo(Vuelo persistent)
         {
-            get { return pers_vuelo; }
-            set { pers_vuelo = value; }
+            persVuelo = persistent;
         }
 
         public DateTime FechaLlegada
         {
-            get { return pers_vuelo.FechaLlegada; }
-            set { pers_vuelo.FechaLlegada = value; }
+            get { return persVuelo.FechaLlegada; }
+            set { persVuelo.FechaLlegada = value; }
         }
 
         public DateTime FechaSalida
         {
-            get { return pers_vuelo.FechaSalida; }
-            set { pers_vuelo.FechaSalida = value; }
+            get { return persVuelo.FechaSalida; }
+            set { persVuelo.FechaSalida = value; }
         }
 
         public TimeSpan HoraLlegada
         {
-            get { return pers_vuelo.HoraLlegada; }
-            set { pers_vuelo.HoraLlegada = value; }
+            get { return persVuelo.HoraLlegada; }
+            set { persVuelo.HoraLlegada = value; }
         }
 
         public TimeSpan HoraSalida
         {
-            get { return pers_vuelo.HoraSalida; }
-            set { pers_vuelo.HoraSalida = value; }
+            get { return persVuelo.HoraSalida; }
+            set { persVuelo.HoraSalida = value; }
         }
 
         public string Comentario
         {
-            get { return pers_vuelo.Comentario; }
-            set { pers_vuelo.Comentario = value; }
+            get { return persVuelo.Comentario; }
+            set { persVuelo.Comentario = value; }
         }
 
         

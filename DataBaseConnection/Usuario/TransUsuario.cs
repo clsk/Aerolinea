@@ -5,9 +5,14 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class TransUsuario
+    public class TransUsuario : IUsuario
     {
         Usuario persUser;
+
+        internal TransUsuario(Usuario persistent)
+        {
+            persUser = persistent;
+        }
 
         public int ID
         {

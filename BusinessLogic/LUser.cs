@@ -12,7 +12,7 @@ namespace BusinessLogic
 
         public bool Login(string username, string password)
         {
-            d_usuario = new TransUsuario(username, password);
+            // d_usuario = new TransUsuario(username, password);
             if (d_usuario.IsValid())
                 return true;
             else
