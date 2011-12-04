@@ -5,17 +5,17 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class UsuarioBuilder : AbstractBuilder<TransUsuario, Usuario>
+    class UsuarioFactory : AbstractFactory<TransUsuario, Usuario>
     {
-        public UsuarioBuilder()
+        public UsuarioFactory()
             : base(DALUsuario.GetUsuarioFromID)
         {
         }
     }
 
-    class UsuarioLoginBuilder : AbstractBuilder<TransUsuario, Usuario, string>
+    class UsuarioLoginFactory : AbstractFactory<TransUsuario, Usuario, string>
     {
-        public UsuarioLoginBuilder()
+        public UsuarioLoginFactory()
             : base(DALUsuario.GetUsuarioFromLogin)
         {
         }

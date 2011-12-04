@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="DAL\DALVuelo.cs" />
     <Compile Include="DAL\Provider.cs" />
-    <Compile Include="ITrans.cs" />
     <Compile Include="TransAeropuerto.cs" />
     <Compile Include="Avion\TransAvion.cs" />
     <Compile Include="AbstractBuilder.cs" />
