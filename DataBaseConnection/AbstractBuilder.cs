@@ -5,12 +5,19 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    abstract class AbstractBuilder<ProductType, DBType, DAL>
+    abstract class AbstractBuilder<ProductType, DBType> where ProductType : ITrans<DBType>, new()
     {
-        virtual public void BuildProduct(int id)
+        public AbstractBuilder(Func<int, DBType> create_delegate)
         {
-            DBType db_type = DAL.Create(id);
-            product = new ProductType(db_type);
+            create_function = create_delegate;
+        }
+    
+  
+        virtual public void BuildProduct(int id) 
+        {
+            DBType db_type = create_function(id);
+            product = new ProductType();
+            product.Persistent = db_type;
         }
 
         public ProductType GetProduct()
@@ -19,5 +26,6 @@ namespace DataBaseConnection
         }
 
         protected ProductType product;
+        protected Func<int, DBType> create_function;
     }
 }

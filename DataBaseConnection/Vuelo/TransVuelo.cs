@@ -5,15 +5,14 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class TransVuelo
+    public class TransVuelo : ITrans<Vuelo>
     {
-        private TransAeropuerto PuertoSalida;
-        private TransAeropuerto PuertoLlegada;
         private Vuelo pers_vuelo;
 
-        internal TransVuelo(Vuelo vuelo)
+        public Vuelo Persistent
         {
-            pers_vuelo = vuelo;
+            get { return pers_vuelo; }
+            set { pers_vuelo = value; }
         }
 
         public DateTime FechaLlegada

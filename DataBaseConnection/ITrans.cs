@@ -5,12 +5,12 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class VueloBuilder : AbstractBuilder<TransVuelo, Vuelo>
+    internal interface ITrans<T>
     {
-        VueloBuilder()
-            : base(DALVuelo.GetVueloFromID)
+        T Persistent
         {
+            get;
+            set;
         }
     }
-     
 }

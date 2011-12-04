@@ -35,7 +35,7 @@ namespace DataBaseConnection
         #endregion
 
         #region GetVueloFromID
-        Vuelo GetVueloFromID(int ID)
+        public static Vuelo GetVueloFromID(int ID)
         {
             return null;
         }
