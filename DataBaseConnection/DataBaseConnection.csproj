@@ -2,20 +2,18 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D24B0308-43C2-459B-91F0-45E2E15E9D04}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{56155DD4-142B-425C-8A90-0E7764CE2DA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataBaseConnection</RootNamespace>
     <AssemblyName>DataBaseConnection</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,8 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -46,34 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\DALVuelo.cs" />
-    <Compile Include="DAL\Provider.cs" />
-    <Compile Include="TransAeropuerto.cs" />
-    <Compile Include="Avion\TransAvion.cs" />
     <Compile Include="AbstractFactory.cs" />
+    <Compile Include="Asiento\IAsiento.cs" />
+    <Compile Include="Asiento\TransAsiento.cs" />
+    <Compile Include="Avion\IAvion.cs" />
+    <Compile Include="Avion\TransAvion.cs" />
     <Compile Include="DAL\DALAsiento.cs" />
     <Compile Include="DAL\DALAvion.cs" />
     <Compile Include="DAL\DALCliente.cs" />
     <Compile Include="DAL\DALDestino.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="DAL\DALVuelo.cs" />
+    <Compile Include="DAL\Provider.cs" />
     <Compile Include="DataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Asiento\IAsiento.cs" />
-    <Compile Include="Avion\IAvion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
+    <Compile Include="TransAeropuerto.cs" />
+    <Compile Include="Usuario\IUsuario.cs" />
+    <Compile Include="Usuario\TransUsuario.cs" />
     <Compile Include="Usuario\UsuarioFactory.cs" />
     <Compile Include="Vuelo\IVuelo.cs" />
-    <Compile Include="Vuelo\VueloFactory.cs" />
     <Compile Include="Vuelo\TransVuelo.cs" />
-    <Compile Include="Usuario\IUsuario.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario\TransUsuario.cs" />
-    <Compile Include="Asiento\TransAsiento.cs" />
+    <Compile Include="Vuelo\VueloFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataBase.edmx">
@@ -82,10 +78,10 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <Folder Include="Destino\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Destino\" />
+    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
