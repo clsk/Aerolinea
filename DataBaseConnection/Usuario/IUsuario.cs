@@ -7,7 +7,7 @@ namespace DataBaseConnection
 {
     interface IUsuario
     {
-        int IdUsuario
+        int ID
         {
             get;
             set;
@@ -30,7 +30,7 @@ namespace DataBaseConnection
             set;
         }
 
-        int Nivel
+        int NivelAcceso
         {
             get;
             set;

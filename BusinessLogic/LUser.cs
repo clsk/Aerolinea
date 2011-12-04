@@ -40,7 +40,7 @@ namespace BusinessLogic
         {
             get
             {
-                return d_usuario.Nivel;
+                return d_usuario.NivelAcceso;
             }
         }
 
