@@ -9,8 +9,6 @@ namespace DataBaseConnection
     {
         static void Main(string[] args)
         {
-            DALUsuario UserConnect = new DALUsuario() ;
-            Usuario unUsuario = UserConnect.GetUsuarioFromLogin("jmoreno");
         }
     }
 }

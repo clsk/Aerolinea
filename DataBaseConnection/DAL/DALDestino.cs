@@ -7,11 +7,7 @@ namespace DataBaseConnection
 {
     class DALDestino
     {
-        ReservaVuelosEntities context;
-        public DALDestino()
-        {
-            context = new ReservaVuelosEntities();
-        }
+
         #region Crear pais
         /**
         * @brief Crea un país
@@ -22,9 +18,9 @@ namespace DataBaseConnection
         *
         * @remark el idPais NO necesita ser inicializado.
         */
-        public bool CreatePais(Pais unPais)
+        static public bool CreatePais(Pais unPais)
         {
-            try { context.spNewPais(unPais.NombrePais); }
+            try { Provider.GetProvider().spNewPais(unPais.NombrePais); }
             catch { return false; }
             return true;
         }
@@ -40,9 +36,9 @@ namespace DataBaseConnection
         *
         * @remark el idCiudad NO necesita ser inicializado.
         */
-        public bool CreateCiudad(Ciudad UnaCiudad)
+        static public bool CreateCiudad(Ciudad UnaCiudad)
         {
-            try { context.spNewCiudad(UnaCiudad.NombreCiudad, UnaCiudad.idPais); }
+            try { Provider.GetProvider().spNewCiudad(UnaCiudad.NombreCiudad, UnaCiudad.idPais); }
             catch { return false; }
             return true;
         }
@@ -58,9 +54,9 @@ namespace DataBaseConnection
         *
         * @remark el idAeropuerto NO necesita ser inicializado.
         */
-        public bool CreateCiudad(Aeropuerto UnAeropuerto)
+        static public bool CreateCiudad(Aeropuerto UnAeropuerto)
         {
-            try { context.spNewAeropuerto(UnAeropuerto.NombreAeropuerto, UnAeropuerto.idCiudad, UnAeropuerto.Siglas); }
+            try { Provider.GetProvider().spNewAeropuerto(UnAeropuerto.NombreAeropuerto, UnAeropuerto.idCiudad, UnAeropuerto.Siglas); }
             catch { return false; }
             return true;
         }
@@ -76,9 +72,9 @@ namespace DataBaseConnection
         *
         * @warning el idAeropuerto DEBE estar inicializado.
         */
-        public bool UpdatePais(Pais unPais)
+        static public bool UpdatePais(Pais unPais)
         {
-            try { context.spUpdatePais(unPais.idPais, unPais.NombrePais); }
+            try { Provider.GetProvider().spUpdatePais(unPais.idPais, unPais.NombrePais); }
             catch { return false; }
             return true;
         }
@@ -94,9 +90,9 @@ namespace DataBaseConnection
         *
         * @warning el idCiudad DEBE estar inicializado.
         */
-        public bool UpdateCiudad(Ciudad unaCiudad)
+        static public bool UpdateCiudad(Ciudad unaCiudad)
         {
-            try { context.spUpdateCiudad(unaCiudad.idCiudad, unaCiudad.NombreCiudad, unaCiudad.idPais); }
+            try { Provider.GetProvider().spUpdateCiudad(unaCiudad.idCiudad, unaCiudad.NombreCiudad, unaCiudad.idPais); }
             catch { return false; }
             return true;
         }
@@ -112,9 +108,9 @@ namespace DataBaseConnection
         *
         * @warning el idAeropuerto DEBE estar inicializado.
         */
-        public bool UpdatePais(Aeropuerto unAeropuerto)
+        static public bool UpdatePais(Aeropuerto unAeropuerto)
         {
-            try { context.spUdateAeropuerto(unAeropuerto.idAeropuerto, unAeropuerto.NombreAeropuerto, unAeropuerto.idCiudad, unAeropuerto.Siglas); }
+            try { Provider.GetProvider().spUdateAeropuerto(unAeropuerto.idAeropuerto, unAeropuerto.NombreAeropuerto, unAeropuerto.idCiudad, unAeropuerto.Siglas); }
             catch { return false; }
             return true;
         }
@@ -126,9 +122,9 @@ namespace DataBaseConnection
         * 
         * @return Una lista de paises si todo salió bien, NULL caso contrário.
         */
-        public List<Pais> GetAllPaises()
+        static public List<Pais> GetAllPaises()
         {
-            try { return context.spGetAllPaises().ToList(); }
+            try { return Provider.GetProvider().spGetAllPaises().ToList(); }
             catch { return null; }
         }
         #endregion
@@ -141,9 +137,9 @@ namespace DataBaseConnection
         * 
         * @return Una lista de ciudades si todo salió bien, NULL caso contrário.
         */
-        public List<Ciudad> GetCiudadesFromPais(int idPais)
+        static public List<Ciudad> GetCiudadesFromPais(int idPais)
         {
-            try { return context.spGetCiudadesFromPais(idPais).ToList();}
+            try { return Provider.GetProvider().spGetCiudadesFromPais(idPais).ToList(); }
             catch { return null; }
         }
         #endregion
@@ -156,9 +152,9 @@ namespace DataBaseConnection
         * 
         * @return Una lista de aeropuertos si todo salió bien, NULL caso contrário
         */
-        public List<Aeropuerto> GetAeropuertosFromCiudad(int idCiudad)
+        static public List<Aeropuerto> GetAeropuertosFromCiudad(int idCiudad)
         {
-            try { return context.spGetAeropuertoFromCiudad(idCiudad).ToList(); }
+            try { return Provider.GetProvider().spGetAeropuertoFromCiudad(idCiudad).ToList(); }
             catch { return null; }
         }
         #endregion
@@ -171,9 +167,9 @@ namespace DataBaseConnection
         * 
         * @return Una aeropuerto si todo salió bien, NULL caso contrário
         */
-        public Aeropuerto GetAeropuertoFromID(int idAeropuerto)
+        static public Aeropuerto GetAeropuertoFromID(int idAeropuerto)
         {
-            try { return context.spGetAeropuertoFromID(idAeropuerto).FirstOrDefault(); }
+            try { return Provider.GetProvider().spGetAeropuertoFromID(idAeropuerto).FirstOrDefault(); }
             catch { return null; }
         }
         #endregion

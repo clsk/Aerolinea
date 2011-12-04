@@ -8,12 +8,6 @@ namespace DataBaseConnection
 
     class DALAvion
     {
-        ReservaVuelosEntities context;
-        public DALAvion()
-        {
-            context = new ReservaVuelosEntities();
-        }
-
         #region Crear una marca de avión
         /**
          * @brief Crea una marca de avión.
@@ -24,7 +18,7 @@ namespace DataBaseConnection
          * 
          * @remarks el idMarcaAvion no tiene que estár inicializado.
          */
-        public bool CreateMarcaAvion(MarcaAvion unaMarca)
+        static public bool CreateMarcaAvion(MarcaAvion unaMarca)
         {
             return false;
         }
@@ -40,7 +34,7 @@ namespace DataBaseConnection
          * 
          * @remarks el idSerieAvion no tiene que estár inicializado.
          */
-        public bool CreateSerieAvion(SerieAvion unaSerie)
+        static public bool CreateSerieAvion(SerieAvion unaSerie)
         {
             return false;
         }
@@ -56,7 +50,7 @@ namespace DataBaseConnection
          * 
          * @remarks el idAvion no tiene que estár inicializado.
          */
-        public bool CreateAvion(Avion unAvion)
+        static public bool Create(Avion unAvion)
         {
             return false;
         }
@@ -72,7 +66,7 @@ namespace DataBaseConnection
          * 
          * @remarks el idPlantaAvion no tiene que estár inicializado.
          */
-        public bool CreatePlantaAvion(PlantaAvion unaPlanta)
+        static public bool CreatePlantaAvion(PlantaAvion unaPlanta)
         {
             return false;
         }
@@ -88,7 +82,7 @@ namespace DataBaseConnection
          * 
          * @warning el idMarcaAvion DEBE estár inicializado.
          */
-        public bool UpdateMarcaAvion(MarcaAvion unaMarca)
+        static public bool UpdateMarcaAvion(MarcaAvion unaMarca)
         {
             return false;
         }
@@ -104,7 +98,7 @@ namespace DataBaseConnection
          * 
          * @warning el idSerieAvion DEBE estár inicializado.
          */
-        public bool UpdateSerieAvion(SerieAvion unaSerie)
+        static public bool UpdateSerieAvion(SerieAvion unaSerie)
         {
             return false;
         }
@@ -120,7 +114,7 @@ namespace DataBaseConnection
          * 
          * @warning el idMarcaAvion DEBE estár inicializado.
          */
-        public bool UpdateAvion(Avion unAvion)
+        static public bool UpdateAvion(Avion unAvion)
         {
             return false;
         }
@@ -136,7 +130,7 @@ namespace DataBaseConnection
          * 
          * @warning el idPlantaAvion DEBE estár inicializado.
          */
-        public bool UpdatePlantaAvion(PlantaAvion unaPlanta)
+        static public bool UpdatePlantaAvion(PlantaAvion unaPlanta)
         {
             return false;
         }
@@ -148,7 +142,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de marca de avión si todo salió bien y null caso contrário.
          */
-        public List<MarcaAvion> GetAllMarcaAvion()
+        static public List<MarcaAvion> GetAllMarcaAvion()
         {
             return null;
         }
@@ -162,7 +156,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de serie de avión si todo salió bien y null caso contrário.
          */
-        public List<SerieAvion> GetSerieAvionFromMarcaAvion(int idMarca)
+        static public List<SerieAvion> GetSerieAvionFromMarcaAvion(int idMarca)
         {
             return null;
         }
@@ -176,7 +170,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de avión si todo salió bien y null caso contrário.
          */
-        public List<Avion> GetAvionFromSerieAvion(int idSerie)
+        static public List<Avion> GetAvionFromSerieAvion(int idSerie)
         {
             return null;
         }
@@ -190,7 +184,7 @@ namespace DataBaseConnection
          * 
          * @return Un avión si todo salió bien y null caso contrário.
          */
-        public Avion GetAvionFromID(int idAvion)
+        static public Avion GetAvionFromID(int idAvion)
         {
             return null;
         }
@@ -204,7 +198,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de plantas de avión si todo salió bien y null caso contrário.
          */
-        public List<PlantaAvion> GetPlantaAvionFromAvion(int idAvion)
+        static public List<PlantaAvion> GetPlantaAvionFromAvion(int idAvion)
         {
             return null;
         }

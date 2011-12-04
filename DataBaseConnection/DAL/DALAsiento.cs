@@ -15,7 +15,7 @@ namespace DataBaseConnection
          * 
          * @return true si fue posible crear el asiento, false caso contrário.
          */
-        static public bool CreateAsiento(Asiento unAsiento)
+        static public bool Create(Asiento unAsiento)
         {
             return false;
         }

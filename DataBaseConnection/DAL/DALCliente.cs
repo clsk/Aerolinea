@@ -7,12 +7,6 @@ namespace DataBaseConnection
 {
     class DALCliente
     {
-        ReservaVuelosEntities context;
-        public DALCliente()
-        {
-            context = new ReservaVuelosEntities();
-        }
-
         #region Agregar reserva.
         /**
          * @brief Agrega una reservación.
@@ -21,7 +15,7 @@ namespace DataBaseConnection
          * 
          * @return true si se pudo crear la nueva reserva, false caso contrário.
          */
-        public bool CreateReserva(Reservacion unaReserva)
+        static public bool Create(Reservacion unaReserva)
         {
             return false;
         }
@@ -35,7 +29,7 @@ namespace DataBaseConnection
          * 
          * @return true si se pudo crear la nueva persona, false caso contrário.
          */
-        public bool CreatePersona(Persona unaPersona)
+        static public bool CreatePersona(Persona unaPersona)
         {
             return false;
         }
@@ -49,7 +43,7 @@ namespace DataBaseConnection
          * 
          * @return true si se pudo actualizar la nueva reserva, false caso contrário.
          */
-        public bool UpdateReserva(Reservacion unaReserva)
+        static public bool UpdateReserva(Reservacion unaReserva)
         {
             return false;
         }
@@ -63,7 +57,7 @@ namespace DataBaseConnection
          * 
          * @return true si se pudo actualizar la nueva persona, false caso contrário.
          */
-        public bool UpdatePersona(Persona unaPersona)
+        static public bool UpdatePersona(Persona unaPersona)
         {
             return false;
         }

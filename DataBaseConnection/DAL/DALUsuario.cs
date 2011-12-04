@@ -19,7 +19,7 @@ namespace DataBaseConnection
          * 
          * @remark el idUsuario NO necesita estar inicializado, este se genera automáticamenta.
          */
-        static public bool CreateUsuario(Usuario user)
+        static public bool Create(Usuario user)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace DataBaseConnection
         {
             try
             {
-                return context.spGetUsuarioFromID(idUsuario).FirstOrDefault();
+                return Provider.GetProvider().spGetUsuarioFromID(idUsuario).FirstOrDefault();
             }
             catch
             {
@@ -87,11 +87,11 @@ namespace DataBaseConnection
          * @return Un usuario si se encontró y NULL si no se encontró
          */
 
-        public Usuario GetUsuarioFromLogin(string login)
+        static public Usuario GetUsuarioFromLogin(string login)
         {
             try
             {
-                return context.spGetUsuarioFromLogin(login).FirstOrDefault();
+                return Provider.GetProvider().spGetUsuarioFromLogin(login).FirstOrDefault();
             }
             catch
             {
@@ -108,10 +108,9 @@ namespace DataBaseConnection
         */
        static  public List<NivelUsuario> GetAllNivelUsuario()
         {
-            ReservaVuelosEntities whatever = new ReservaVuelosEntities();
             try
             {
-                return whatever.spGetAllNivelUsuario().ToList();
+                return Provider.GetProvider().spGetAllNivelUsuario().ToList();
             }
             catch
             {
@@ -128,11 +127,11 @@ namespace DataBaseConnection
          * 
          * @return Tabla NivelUsuario si se encontró o NULL caso contrário.
          */
-        public NivelUsuario GetNivelUsuarioFromID(int idNivel)
+        static NivelUsuario GetNivelUsuarioFromID(int idNivel)
         {
             try
             {
-                return context.spGetNivelUsuarioFromID(idNivel).FirstOrDefault();
+                return Provider.GetProvider().spGetNivelUsuarioFromID(idNivel).FirstOrDefault();
             }
             catch
             {
