@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseConnection", "DataBaseConnection\DataBaseConnection.csproj", "{D24B0308-43C2-459B-91F0-45E2E15E9D04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseConnection", "DataBaseConnection\DataBaseConnection.csproj", "{56155DD4-142B-425C-8A90-0E7764CE2DA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{E534CA4D-FAD0-4664-AD0B-11011D142BC6}"
 EndProject
@@ -17,16 +17,16 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Debug|x86.ActiveCfg = Debug|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Debug|x86.Build.0 = Debug|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Release|Any CPU.ActiveCfg = Release|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Release|Mixed Platforms.Build.0 = Release|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Release|x86.ActiveCfg = Release|x86
-		{D24B0308-43C2-459B-91F0-45E2E15E9D04}.Release|x86.Build.0 = Release|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Debug|x86.ActiveCfg = Debug|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Debug|x86.Build.0 = Debug|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Release|Any CPU.ActiveCfg = Release|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Release|Mixed Platforms.Build.0 = Release|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Release|x86.ActiveCfg = Release|x86
+		{56155DD4-142B-425C-8A90-0E7764CE2DA7}.Release|x86.Build.0 = Release|x86
 		{E534CA4D-FAD0-4664-AD0B-11011D142BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E534CA4D-FAD0-4664-AD0B-11011D142BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E534CA4D-FAD0-4664-AD0B-11011D142BC6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
