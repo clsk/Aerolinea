@@ -7,11 +7,6 @@ namespace DataBaseConnection
 {
     class DALAsiento
     {
-        ReservaVuelosEntities context;
-        public DALAsiento()
-        {
-            context = new ReservaVuelosEntities();
-        }
         #region Crear asiento.
         /**
          * @brief Crea un nuevo asiento
@@ -20,7 +15,7 @@ namespace DataBaseConnection
          * 
          * @return true si fue posible crear el asiento, false caso contrário.
          */
-        public bool CreateAsiento(Asiento unAsiento)
+        static public bool CreateAsiento(Asiento unAsiento)
         {
             return false;
         }
@@ -34,8 +29,9 @@ namespace DataBaseConnection
          * 
          * @return true si fue posible crear la clase, false caso contrário.
          */
-        public bool CreateTipoClase(TipoClase unaClase)
+        static public bool CreateTipoClase(TipoClase unaClase)
         {
+       
             return false;
         }
         #endregion
@@ -48,7 +44,7 @@ namespace DataBaseConnection
          * 
          * @return true si fue posible actualizar el asiento, false caso contrário.
          */
-        public bool UpdateAsiento(Asiento unAsiento)
+        static public bool UpdateAsiento(Asiento unAsiento)
         {
             return false;
         }
@@ -62,7 +58,7 @@ namespace DataBaseConnection
          * 
          * @return true si fue posible actualizar la clase, false caso contrário.
          */
-        public bool UpdateTipoClase(TipoClase unaClase)
+        static public bool UpdateTipoClase(TipoClase unaClase)
         {
             return false;
         }
@@ -76,7 +72,7 @@ namespace DataBaseConnection
          * 
          * @return Un asiento si se pudo encontrar, null caso contrário.
          */
-        public Asiento GetAsientoFromID(int idAsiento)
+        static public Asiento GetAsientoFromID(int idAsiento)
         {
             return null;
         }
@@ -90,7 +86,7 @@ namespace DataBaseConnection
          * 
          * @return Un TipoClase si se pudo encontrar, null caso contrário.
          */
-        public TipoClase GetTipoClaseFromID(int idClase)
+        static public TipoClase GetTipoClaseFromID(int idClase)
         {
             return null;
         }
@@ -105,7 +101,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de asiento si se pudo encontrar, null caso contrário.
          */
-        public List<Asiento> GetAsientoFromPisoAvion(int idAvion, int Piso)
+        static public List<Asiento> GetAsientoFromPisoAvion(int idAvion, int Piso)
         {
             return null;
         }
@@ -119,7 +115,7 @@ namespace DataBaseConnection
          * 
          * @return Una lista de asientos NO ocupados si se pudo encontrar, null caso contrário.
          */
-        public List<Asiento> GetAsientosNoOcupados(int idVuelo)
+        static public List<Asiento> GetAsientosNoOcupados(int idVuelo)
         {
             return null;
         }

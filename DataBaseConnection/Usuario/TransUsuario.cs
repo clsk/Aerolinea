@@ -7,39 +7,41 @@ namespace DataBaseConnection
 {
     public class TransUsuario :IUsuario
     {
-         public int IdUsuario
+        NivelUsuario persNivel;
+        Usuario persUser;
+        public int IdUsuario
         {
-            get;
-            set;
+            get { return persUser.idUsuario;}
+            set { persUser.idUsuario = value; }
         }
 
         public string Nombre
         {
-            get;
-            set;
+            get { return persUser.Nombre; }
+            set { persUser.Nombre = value; }
         }
 
         public string Login
         {
-            get;
-            set;
+            get { return persUser.Login; }
+            set { persUser.Login = value; }
         }
         public string Password
         {
-            get;
-            set;
+            get { return persUser.Password; }
+            set { persUser.Password = value; }
         }
 
         public int Nivel
         {
-            get;
-            set;
+            get { return persUser.idNivel; }
+            set { persUser.idNivel = value; }
         }
 
         public string NombreNivel
         {
-            get;
-            set;
+            get { return persNivel.NombreNivel; }
+            set { persNivel.NombreNivel = value; }
         }
 
         public void Flush()
@@ -63,10 +65,5 @@ namespace DataBaseConnection
             persUser = User;
             persNivel = UserNivel;
         }
-
-        Usuario persUser;
-        
-        NivelUsuario persNivel;
-
     }
 }

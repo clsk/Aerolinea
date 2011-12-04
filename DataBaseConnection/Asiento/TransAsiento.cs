@@ -13,19 +13,19 @@ namespace DataBaseConnection
         }
         private Asiento asiento;
 
-        public int PosX { get; set; }
-
-        public int PosY { get; set; }
-
-        public string Numero { get; set; }
-
-        public int Fila { get; set; }
-
-        public int IdAsiento { get; set; }
-
         private TipoClase clase;
 
-        public TipoClase Clase { get; set; }
+        public int PosX { get { return asiento.CordX; } set { asiento.CordX = value;} }
+
+        public int PosY { get { return asiento.CordY; } set { asiento.CordY = value; } }
+
+        public string Numero { get { return asiento.Numero; } set { asiento.Numero = value; } }
+
+        public int Fila { get { return asiento.Fila; } set { asiento.Fila = value; } }
+
+        public int IdAsiento { get { return asiento.idAsiento; } set { asiento.idAsiento = value; } }
+
+        public string NombreClase { get { return clase.NombreClase; } set { clase.NombreClase = value; } }
 
     }
 }

@@ -7,8 +7,8 @@ namespace DataBaseConnection
 {
     public class TransVuelo
     {
-        // private TransAeropuerto PuertoSalida;
-        // private TransAeropuerto PuertoLlegada;
+        private TransAeropuerto PuertoSalida;
+        private TransAeropuerto PuertoLlegada;
         private Vuelo pers_vuelo;
 
         public DateTime FechaLlegada

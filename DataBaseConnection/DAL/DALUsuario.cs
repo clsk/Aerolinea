@@ -9,11 +9,6 @@ namespace DataBaseConnection
 {
     class DALUsuario
     {
-        ReservaVuelosEntities context;
-        public DALUsuario()
-        {
-            context = new ReservaVuelosEntities();
-        }
         #region Agregar Usuario
         /**
          * @brief Agrega un nuevo usuario a la base de datos
@@ -24,11 +19,11 @@ namespace DataBaseConnection
          * 
          * @remark el idUsuario NO necesita estar inicializado, este se genera automáticamenta.
          */
-        public bool CreateUsuario(Usuario user)
+        static public bool CreateUsuario(Usuario user)
         {
             try
             {
-                context.spNewUsuario(user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
+                Provider.GetProvider().spNewUsuario(user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
             catch
             {
@@ -48,11 +43,11 @@ namespace DataBaseConnection
          * 
          * @warning El idUsuario DEBE estar incializado
          */
-        public bool UpdateUsuario(Usuario user)
+        static public bool UpdateUsuario(Usuario user)
         {  
             try
             {
-                context.spUpdateUsuario(user.idUsuario, user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
+                Provider.GetProvider().spUpdateUsuario(user.idUsuario, user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
             catch
             {
@@ -70,7 +65,7 @@ namespace DataBaseConnection
          * 
          * @return Un usuario si se encontró y NULL si no se encontró
          */
-        public Usuario GetUsuarioFromID(int idUsuario)
+        static public Usuario GetUsuarioFromID(int idUsuario)
         {
             try
             {
