@@ -11,6 +11,11 @@ namespace DataBaseConnection
         // private TransAeropuerto PuertoLlegada;
         private Vuelo pers_vuelo;
 
+        internal TransVuelo(Vuelo vuelo)
+        {
+            pers_vuelo = vuelo;
+        }
+
         public DateTime FechaLlegada
         {
             get { return pers_vuelo.FechaLlegada; }
