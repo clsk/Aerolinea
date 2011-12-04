@@ -49,6 +49,7 @@
     <Compile Include="DAL\Provider.cs" />
     <Compile Include="TransAeropuerto.cs" />
     <Compile Include="Avion\TransAvion.cs" />
+    <Compile Include="AbstractBuilder.cs" />
     <Compile Include="DAL\DALAsiento.cs" />
     <Compile Include="DAL\DALAvion.cs" />
     <Compile Include="DAL\DALCliente.cs" />
@@ -63,7 +64,8 @@
     <Compile Include="Avion\IAvion.cs" />
     <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
-    <Compile Include="TransVuelo.cs" />
+    <Compile Include="Vuelo\VueloBuilder.cs" />
+    <Compile Include="Vuelo\TransVuelo.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
