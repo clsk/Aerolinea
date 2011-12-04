@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class UsuarioFactory : AbstractFactory<TransUsuario, Usuario>
+    public class UsuarioFactory : AbstractFactory<TransUsuario, Usuario>
     {
         public UsuarioFactory()
             : base(DALUsuario.GetUsuarioFromID)
@@ -13,7 +13,7 @@ namespace DataBaseConnection
         }
     }
 
-    class UsuarioLoginFactory : AbstractFactory<TransUsuario, Usuario, string>
+    public class UsuarioLoginFactory : AbstractFactory<TransUsuario, Usuario, string>
     {
         public UsuarioLoginFactory()
             : base(DALUsuario.GetUsuarioFromLogin)

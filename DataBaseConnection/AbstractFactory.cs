@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    abstract class AbstractFactory<ProductType, DBType, ParameterType>
+    public abstract class AbstractFactory<ProductType, DBType, ParameterType>
     {
         public AbstractFactory(Func<ParameterType, DBType> create_delegate)
         {
@@ -28,7 +28,7 @@ namespace DataBaseConnection
     }
 
     // Specialize default type (int)
-    abstract class AbstractFactory<ProductType, DBType> : AbstractFactory<ProductType, DBType, int>
+    public abstract class AbstractFactory<ProductType, DBType> : AbstractFactory<ProductType, DBType, int>
     {
         public AbstractFactory(Func<int, DBType> create_delegate)
             : base(create_delegate)

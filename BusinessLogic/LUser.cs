@@ -12,7 +12,8 @@ namespace BusinessLogic
 
         public bool Login(string username, string password)
         {
-            // d_usuario = new TransUsuario(username, password);
+            UsuarioFactory user_factory = new UsuarioFactory();
+
             if (d_usuario.IsValid())
                 return true;
             else
