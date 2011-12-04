@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class TransVuelo : ITrans<Vuelo>
+    public class TransVuelo
     {
         private Vuelo pers_vuelo;
 

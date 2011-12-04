@@ -5,11 +5,11 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class TransUsuario :IUsuario
+    public class TransUsuario
     {
-        NivelUsuario persNivel;
         Usuario persUser;
-        public int IdUsuario
+
+        public int ID
         {
             get { return persUser.idUsuario;}
             set { persUser.idUsuario = value; }
@@ -32,38 +32,22 @@ namespace DataBaseConnection
             set { persUser.Password = value; }
         }
 
-        public int Nivel
+        public int NivelAcceso
         {
-            get { return persUser.idNivel; }
-            set { persUser.idNivel = value; }
+            get { return persUser.NivelUsuario.PesoNivel; }
+            set { persUser.NivelUsuario.PesoNivel = value; }
         }
 
         public string NombreNivel
         {
-            get { return persNivel.NombreNivel; }
-            set { persNivel.NombreNivel = value; }
+            get { return persUser.NivelUsuario.NombreNivel; }
+            set { persUser.NivelUsuario.NombreNivel = value; }
         }
 
         public void Flush()
         {
         }
 
-        public TransUsuario(int idUsuario)
-        {
-
-        }
-
-        public TransUsuario(string login, string password)
-        {
-
-        }
-
         public bool IsValid() { return persUser != null; }
-
-        internal TransUsuario(Usuario User, NivelUsuario UserNivel)
-        {
-            persUser = User;
-            persNivel = UserNivel;
-        }
     }
 }
