@@ -505,6 +505,12 @@
         <Function Name="spGetUsuarioFromLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spGetVueloFromFechaAndPuerto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha_salida1" Type="date" Mode="In" />
+          <Parameter Name="fecha_salida2" Type="date" Mode="In" />
+          <Parameter Name="Origen" Type="int" Mode="In" />
+          <Parameter Name="Destino" Type="int" Mode="In" />
+        </Function>
         <Function Name="spNewAeropuerto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="idCiudad" Type="int" Mode="In" />
