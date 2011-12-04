@@ -54,7 +54,7 @@ namespace DataBaseConnection
         *
         * @remark el idAeropuerto NO necesita ser inicializado.
         */
-        static public bool CreateCiudad(Aeropuerto UnAeropuerto)
+        static public bool Create(Aeropuerto UnAeropuerto)
         {
             try { Provider.GetProvider().spNewAeropuerto(UnAeropuerto.NombreAeropuerto, UnAeropuerto.idCiudad, UnAeropuerto.Siglas); }
             catch { return false; }

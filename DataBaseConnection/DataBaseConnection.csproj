@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DALVuelo.cs" />
     <Compile Include="DAL\Provider.cs" />
     <Compile Include="TransAeropuerto.cs" />
     <Compile Include="Avion\TransAvion.cs" />
