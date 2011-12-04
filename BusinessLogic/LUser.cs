@@ -19,6 +19,11 @@ namespace BusinessLogic
                 return false;
         }
 
+        public void Logout()
+        {
+            d_usuario = null;
+        }
+
         public string Nombre
         {
             get
@@ -38,5 +43,17 @@ namespace BusinessLogic
                 return d_usuario.Nivel;
             }
         }
+
+        private static LUser instance;
+
+        static LUser GetInstance()
+        {
+            if (instance == null)
+                instance = new LUser();
+
+            return instance;
+        }
+
+        private LUser() { }
     }
 }
