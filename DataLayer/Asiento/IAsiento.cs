@@ -5,8 +5,10 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    interface IAsiento
+    public interface IAsiento
     {
+        TipoClase Clase { get; set; }
+
         int PosX { get; set; }
 
         int PosY { get; set; }
@@ -16,7 +18,5 @@ namespace DataBaseConnection
         int Fila { get; set; }
 
         int IdAsiento { get; set; }
-
-        string NombreClase { get; set; }
     }
 }

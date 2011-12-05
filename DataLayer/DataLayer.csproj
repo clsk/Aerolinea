@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactory.cs" />
+    <Compile Include="Asiento\AsientoFactory.cs" />
     <Compile Include="Asiento\IAsiento.cs" />
     <Compile Include="Asiento\TransAsiento.cs" />
     <Compile Include="Avion\AvionFactory.cs" />

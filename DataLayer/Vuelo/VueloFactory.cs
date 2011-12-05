@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class VueloFactory : AbstractFactory<IVuelo, TransVuelo, Vuelo, int>
+    public class VueloFactory : AbstractFactory<IVuelo, TransVuelo, Vuelo>
     {
         public VueloFactory()
             : base(DALVuelo.GetVueloFromID)

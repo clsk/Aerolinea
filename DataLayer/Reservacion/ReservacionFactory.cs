@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class ReservacionFactory : AbstractFactory<IReservacion, TransReservacion, Reservacion, int>
+    public class ReservacionFactory : AbstractFactory<IReservacion, TransReservacion, Reservacion>
     {
         ReservacionFactory()
             : base(DALReservacion.GetReservacionByID)

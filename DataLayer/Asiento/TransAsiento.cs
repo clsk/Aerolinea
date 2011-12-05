@@ -7,25 +7,27 @@ namespace DataBaseConnection
 {
     public class TransAsiento : IAsiento
     {
-        public TransAsiento(int ID)
+        public TransAsiento(Asiento persistent)
         {
-
+            persAsiento = persistent;
         }
-        private Asiento asiento;
 
-        private TipoClase clase;
+        private Asiento persAsiento;
 
-        public int PosX { get { return asiento.CordX; } set { asiento.CordX = value;} }
+        public TipoClase Clase
+        {
+            get { return persAsiento.TipoClase; }
+            set { persAsiento.TipoClase = value; }
+        }
 
-        public int PosY { get { return asiento.CordY; } set { asiento.CordY = value; } }
+        public int PosX { get { return persAsiento.CordX; } set { persAsiento.CordX = value; } }
 
-        public string Numero { get { return asiento.Numero; } set { asiento.Numero = value; } }
+        public int PosY { get { return persAsiento.CordY; } set { persAsiento.CordY = value; } }
 
-        public int Fila { get { return asiento.Fila; } set { asiento.Fila = value; } }
+        public string Numero { get { return persAsiento.Numero; } set { persAsiento.Numero = value; } }
 
-        public int IdAsiento { get { return asiento.idAsiento; } set { asiento.idAsiento = value; } }
+        public int Fila { get { return persAsiento.Fila; } set { persAsiento.Fila = value; } }
 
-        public string NombreClase { get { return clase.NombreClase; } set { clase.NombreClase = value; } }
-
+        public int IdAsiento { get { return persAsiento.idAsiento; } set { persAsiento.idAsiento = value; } }
     }
 }

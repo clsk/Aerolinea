@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    public class UsuarioFactory : AbstractFactory<IUsuario, TransUsuario, Usuario, int>
+    public class UsuarioFactory : AbstractFactory<IUsuario, TransUsuario, Usuario>
     {
         public UsuarioFactory()
             : base(DALUsuario.GetUsuarioFromID)

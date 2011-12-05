@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataBaseConnection
 {
-    class AvionFactory : AbstractFactory<IAvion, TransAvion, Avion, int>
+    class AvionFactory : AbstractFactory<IAvion, TransAvion, Avion>
     {
         AvionFactory()
             : base(DALAvion.GetAvionFromID)

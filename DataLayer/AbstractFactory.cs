@@ -28,14 +28,12 @@ namespace DataBaseConnection
     }
 
     // Specialize default type (int)
-    /*
-    public abstract class AbstractFactory<InterfaceType, ProductType, DBType> : AbstractFactory<InterfaceType, ProductType, DBType, int>
+    public abstract class AbstractFactory<InterfaceType, ProductType, DBType> : AbstractFactory<InterfaceType, ProductType, DBType, int> where ProductType : InterfaceType
     {
         public AbstractFactory(Func<int, DBType> create_delegate)
             : base(create_delegate)
         { }
     }
-     * */
 
 }
 
