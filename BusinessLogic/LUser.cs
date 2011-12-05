@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataBaseConnection;
+using DataLayer;
 
 namespace BusinessLogic
 {
@@ -45,7 +45,7 @@ namespace BusinessLogic
         {
             get
             {
-                return d_usuario.NivelAcceso;
+                return d_usuario.Nivel.PesoNivel;
             }
         }
 

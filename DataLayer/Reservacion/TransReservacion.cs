@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DataBaseConnection
+namespace DataLayer
 {
     public class TransReservacion : IReservacion
     {

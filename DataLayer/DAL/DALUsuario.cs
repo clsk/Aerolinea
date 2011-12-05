@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.Objects;
 
-namespace DataBaseConnection
+namespace DataLayer
 {
     class DALUsuario
     {
