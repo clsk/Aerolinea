@@ -11,12 +11,22 @@ namespace DataBaseConnection
             : base(DALUsuario.GetUsuarioFromID)
         {
         }
+
+        public UsuarioFactory(Func<int, Usuario> create_delegate)
+            : base(create_delegate)
+        {
+        }
     }
 
     public class UsuarioLoginFactory : AbstractFactory<IUsuario, TransUsuario, Usuario, string>
     {
         public UsuarioLoginFactory()
             : base(DALUsuario.GetUsuarioFromLogin)
+        {
+        }
+
+        public UsuarioLoginFactory(Func<string, Usuario> create_delegate)
+            : base(create_delegate)
         {
         }
     }

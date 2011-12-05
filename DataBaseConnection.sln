@@ -7,7 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{2714
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory Unit Test", "Factory Unit Test\Factory Unit Test.csproj", "{0CED6196-8633-4D6A-A103-1ECD103BFEC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4A41C88-3FC5-4448-91D9-F9E0DFCD7B9D}"
+	ProjectSection(SolutionItems) = preProject
+		DataBaseConnection.vsmdi = DataBaseConnection.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = DataBaseConnection.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -47,6 +59,16 @@ Global
 		{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0CED6196-8633-4D6A-A103-1ECD103BFEC2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
