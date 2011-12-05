@@ -37,16 +37,10 @@ namespace DataBaseConnection
             set { persUser.Password = value; }
         }
 
-        public int NivelAcceso
+        public NivelUsuario Nivel
         {
-            get { return persUser.NivelUsuario.PesoNivel; }
-            set { persUser.NivelUsuario.PesoNivel = value; }
-        }
-
-        public string NombreNivel
-        {
-            get { return persUser.NivelUsuario.NombreNivel; }
-            set { persUser.NivelUsuario.NombreNivel = value; }
+            get { return persUser.NivelUsuario; }
+            set { persUser.NivelUsuario = value; }
         }
 
         public void Flush()

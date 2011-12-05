@@ -74,7 +74,10 @@ namespace Factory_Unit_Test
             UsuarioLoginFactory target = new UsuarioLoginFactory(create_delegate);
             target.BuildProduct("aalvarez");
             IUsuario usuario = target.GetProduct();
+
+            //Tests
             Assert.AreEqual<string>(usuario.Nombre, (string)"Alan Alvarez");
+            Assert.AreEqual<string>(usuario.Nivel.NombreNivel, (string)"Administrador");
         }
 
         public static Usuario CreateUsuario(string login)

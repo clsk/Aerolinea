@@ -30,15 +30,10 @@ namespace DataBaseConnection
             set;
         }
 
-        int NivelAcceso
+        NivelUsuario Nivel
         {
             get;
             set;
-        }
-
-        string NombreNivel
-        {
-            get;
         }
 
         void Flush();
