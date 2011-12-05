@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataBaseConnection\DataBaseConnection.csproj">
-      <Project>{D24B0308-43C2-459B-91F0-45E2E15E9D04}</Project>
-      <Name>DataBaseConnection</Name>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}</Project>
+      <Name>DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

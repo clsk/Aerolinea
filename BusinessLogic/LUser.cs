@@ -8,14 +8,18 @@ namespace BusinessLogic
 {
     public class LUser
     {
-        public TransUsuario d_usuario;
+        public IUsuario d_usuario;
 
         public bool Login(string username, string password)
         {
-            UsuarioFactory user_factory = new UsuarioFactory();
+
+            UsuarioLoginFactory factory = new UsuarioLoginFactory();
+            factory.BuildProduct(username);
+
+            d_usuario = factory.GetProduct();
 
             if (d_usuario.IsValid())
-                return true;
+                return d_usuario.Password == password;
             else
                 return false;
         }
@@ -47,7 +51,7 @@ namespace BusinessLogic
 
         private static LUser instance;
 
-        static LUser GetInstance()
+        public static LUser GetInstance()
         {
             if (instance == null)
                 instance = new LUser();
