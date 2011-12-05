@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BusinessLogic;
 
 namespace UI
 {
@@ -26,7 +27,11 @@ namespace UI
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            // if (tbUsername
+            if (LUser.GetInstance().Login(tbUsername.Text, tbPassword.Password))
+                MessageBox.Show("Login Successful with nivel " + LUser.GetInstance().nivel.ToString());
+            else
+                MessageBox.Show("Login Failed");
+
         }
     }
 }
