@@ -1467,6 +1467,436 @@ namespace DataLayer
     
             return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", mergeOption, idVueloParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewAvion(Nullable<global::System.Int32> idSerie)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewAvion", idSerieParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewMarcaAvion(global::System.String nombre)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewMarcaAvion", nombreParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="idMarca">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewSerieAvion(global::System.String nombre, Nullable<global::System.Int32> idMarca)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter idMarcaParameter;
+            if (idMarca.HasValue)
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", idMarca);
+            }
+            else
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewSerieAvion", nombreParameter, idMarcaParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAvion(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idSerie)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAvion", idAvionParameter, idSerieParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idMarca">No Metadata Documentation available.</param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateMarcaAvion(Nullable<global::System.Int32> idMarca, global::System.String nombre)
+        {
+            ObjectParameter idMarcaParameter;
+            if (idMarca.HasValue)
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", idMarca);
+            }
+            else
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateMarcaAvion", idMarcaParameter, nombreParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="idMarca">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateSerieAvion(Nullable<global::System.Int32> idSerie, global::System.String nombre, Nullable<global::System.Int32> idMarca)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter idMarcaParameter;
+            if (idMarca.HasValue)
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", idMarca);
+            }
+            else
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateSerieAvion", idSerieParameter, nombreParameter, idMarcaParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="imagen">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewPlanta(Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter imagenParameter;
+            if (imagen != null)
+            {
+                imagenParameter = new ObjectParameter("Imagen", imagen);
+            }
+            else
+            {
+                imagenParameter = new ObjectParameter("Imagen", typeof(global::System.Byte[]));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPlanta", idAvionParameter, imagenParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPlanta">No Metadata Documentation available.</param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="imagen">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePlanta(Nullable<global::System.Int32> idPlanta, Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idPlantaParameter;
+            if (idPlanta.HasValue)
+            {
+                idPlantaParameter = new ObjectParameter("idPlanta", idPlanta);
+            }
+            else
+            {
+                idPlantaParameter = new ObjectParameter("idPlanta", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter imagenParameter;
+            if (imagen != null)
+            {
+                imagenParameter = new ObjectParameter("Imagen", imagen);
+            }
+            else
+            {
+                imagenParameter = new ObjectParameter("Imagen", typeof(global::System.Byte[]));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePlanta", idPlantaParameter, idAvionParameter, imagenParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<MarcaAvion> spGetAllMarcaAvion()
+        {
+            return base.ExecuteFunction<MarcaAvion>("spGetAllMarcaAvion");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<MarcaAvion> spGetAllMarcaAvion(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<MarcaAvion>("spGetAllMarcaAvion", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idMarca">No Metadata Documentation available.</param>
+        public ObjectResult<SerieAvion> spGetSerieAvionFromMarca(Nullable<global::System.Int32> idMarca)
+        {
+            ObjectParameter idMarcaParameter;
+            if (idMarca.HasValue)
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", idMarca);
+            }
+            else
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<SerieAvion>("spGetSerieAvionFromMarca", idMarcaParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idMarca">No Metadata Documentation available.</param>
+        public ObjectResult<SerieAvion> spGetSerieAvionFromMarca(Nullable<global::System.Int32> idMarca, MergeOption mergeOption)
+        {
+            ObjectParameter idMarcaParameter;
+            if (idMarca.HasValue)
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", idMarca);
+            }
+            else
+            {
+                idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<SerieAvion>("spGetSerieAvionFromMarca", mergeOption, idMarcaParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionesFromSerie(Nullable<global::System.Int32> idSerie)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionesFromSerie", idSerieParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionesFromSerie(Nullable<global::System.Int32> idSerie, MergeOption mergeOption)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionesFromSerie", mergeOption, idSerieParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionFromID(Nullable<global::System.Int32> idAvion)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionFromID", idAvionParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionFromID(Nullable<global::System.Int32> idAvion, MergeOption mergeOption)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionFromID", mergeOption, idAvionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", idAvionParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion, MergeOption mergeOption)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", mergeOption, idAvionParameter);
+        }
 
         #endregion
     }

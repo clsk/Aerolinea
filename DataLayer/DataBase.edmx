@@ -478,6 +478,7 @@
         <Function Name="spGetAeropuertosFromCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCiudad" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetAllMarcaAvion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllNivelUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllPaises" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllTipoClases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -491,6 +492,12 @@
         <Function Name="spGetAsientosNoOcupados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idVuelo" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetAvionesFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAvion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetAvionesFromSerie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSerie" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetCiudadesFromPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idPais" Type="int" Mode="In" />
         </Function>
@@ -500,6 +507,12 @@
         <Function Name="spGetPersonaLikeName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetPlantasFromAvion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAvion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetSerieAvionFromMarca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMarca" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetUserFromLoginAndPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
@@ -846,7 +859,7 @@
             <Parameter Name="Piso" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spNewTipoClase" ReturnType="Collection(Boolean)">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
+          <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spUpdateAsiento" ReturnType="Collection(Boolean)">
             <Parameter Name="idAsiento" Mode="In" Type="Int32" />
@@ -863,14 +876,61 @@
             <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetAsientoFromID" EntitySet="Asientoes" ReturnType="Collection(ReservaVuelosModel.Asiento)">
-            <Parameter Name="idAsiento" Mode="In" Type="Int32" />
+          <Parameter Name="idAsiento" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetAsientosFromAvion" EntitySet="Asientoes" ReturnType="Collection(ReservaVuelosModel.Asiento)">
             <Parameter Name="idAvion" Mode="In" Type="Int32" />
             <Parameter Name="Piso" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetAsientosNoOcupados" EntitySet="Asientoes" ReturnType="Collection(ReservaVuelosModel.Asiento)">
-            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewAvion" ReturnType="Collection(Boolean)">
+          <Parameter Name="idSerie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewMarcaAvion" ReturnType="Collection(Boolean)">
+          <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spNewSerieAvion" ReturnType="Collection(Boolean)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateAvion" ReturnType="Collection(Boolean)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateMarcaAvion" ReturnType="Collection(Boolean)">
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateSerieAvion" ReturnType="Collection(Boolean)">
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewPlanta" ReturnType="Collection(Boolean)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+            <Parameter Name="Imagen" Mode="In" Type="Binary" />
+            <Parameter Name="Piso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdatePlanta" ReturnType="Collection(Boolean)">
+            <Parameter Name="idPlanta" Mode="In" Type="Int32" />
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+            <Parameter Name="Imagen" Mode="In" Type="Binary" />
+            <Parameter Name="Piso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAllMarcaAvion" EntitySet="MarcaAvions" ReturnType="Collection(ReservaVuelosModel.MarcaAvion)" />
+          <FunctionImport Name="spGetSerieAvionFromMarca" EntitySet="SerieAvions" ReturnType="Collection(ReservaVuelosModel.SerieAvion)">
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAvionesFromSerie" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAvionFromID" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetPlantasFromAvion" EntitySet="PlantaAvions" ReturnType="Collection(ReservaVuelosModel.PlantaAvion)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1415,6 +1475,19 @@
           <FunctionImportMapping FunctionImportName="spGetAsientoFromID" FunctionName="ReservaVuelosModel.Store.spGetAsientoFromID" />
           <FunctionImportMapping FunctionImportName="spGetAsientosFromAvion" FunctionName="ReservaVuelosModel.Store.spGetAsientosFromAvion" />
           <FunctionImportMapping FunctionImportName="spGetAsientosNoOcupados" FunctionName="ReservaVuelosModel.Store.spGetAsientosNoOcupados" />
+          <FunctionImportMapping FunctionImportName="spNewAvion" FunctionName="ReservaVuelosModel.Store.spNewAvion" />
+          <FunctionImportMapping FunctionImportName="spNewMarcaAvion" FunctionName="ReservaVuelosModel.Store.spNewMarcaAvion" />
+          <FunctionImportMapping FunctionImportName="spNewSerieAvion" FunctionName="ReservaVuelosModel.Store.spNewSerieAvion" />
+          <FunctionImportMapping FunctionImportName="spUpdateAvion" FunctionName="ReservaVuelosModel.Store.spUpdateAvion" />
+          <FunctionImportMapping FunctionImportName="spUpdateMarcaAvion" FunctionName="ReservaVuelosModel.Store.spUpdateMarcaAvion" />
+          <FunctionImportMapping FunctionImportName="spUpdateSerieAvion" FunctionName="ReservaVuelosModel.Store.spUpdateSerieAvion" />
+          <FunctionImportMapping FunctionImportName="spNewPlanta" FunctionName="ReservaVuelosModel.Store.spNewPlanta" />
+          <FunctionImportMapping FunctionImportName="spUpdatePlanta" FunctionName="ReservaVuelosModel.Store.spUpdatePlanta" />
+          <FunctionImportMapping FunctionImportName="spGetAllMarcaAvion" FunctionName="ReservaVuelosModel.Store.spGetAllMarcaAvion" />
+          <FunctionImportMapping FunctionImportName="spGetSerieAvionFromMarca" FunctionName="ReservaVuelosModel.Store.spGetSerieAvionFromMarca" />
+          <FunctionImportMapping FunctionImportName="spGetAvionesFromSerie" FunctionName="ReservaVuelosModel.Store.spGetAvionesFromSerie" />
+          <FunctionImportMapping FunctionImportName="spGetAvionFromID" FunctionName="ReservaVuelosModel.Store.spGetAvionesFromID" />
+          <FunctionImportMapping FunctionImportName="spGetPlantasFromAvion" FunctionName="ReservaVuelosModel.Store.spGetPlantasFromAvion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
