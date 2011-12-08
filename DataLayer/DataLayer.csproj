@@ -54,7 +54,6 @@
     <Compile Include="DAL\DALAvion.cs" />
     <Compile Include="DAL\DALCliente.cs" />
     <Compile Include="DAL\DALDestino.cs" />
-    <Compile Include="DAL\DALReservacion.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
     <Compile Include="DAL\DALVuelo.cs" />
     <Compile Include="DAL\Provider.cs" />
