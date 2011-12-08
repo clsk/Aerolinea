@@ -1085,6 +1085,388 @@ namespace DataLayer
     
             return base.ExecuteFunction<Aeropuerto>("spGetAeropuertoFromID", mergeOption, idAeropuertoParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<TipoClase> spGetAllTipoClases()
+        {
+            return base.ExecuteFunction<TipoClase>("spGetAllTipoClases");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<TipoClase> spGetAllTipoClases(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<TipoClase>("spGetAllTipoClases", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="idTipoClase">No Metadata Documentation available.</param>
+        /// <param name="numero">No Metadata Documentation available.</param>
+        /// <param name="fila">No Metadata Documentation available.</param>
+        /// <param name="cordX">No Metadata Documentation available.</param>
+        /// <param name="cordY">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewAsiento(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idTipoClaseParameter;
+            if (idTipoClase.HasValue)
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", idTipoClase);
+            }
+            else
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter numeroParameter;
+            if (numero != null)
+            {
+                numeroParameter = new ObjectParameter("Numero", numero);
+            }
+            else
+            {
+                numeroParameter = new ObjectParameter("Numero", typeof(global::System.String));
+            }
+    
+            ObjectParameter filaParameter;
+            if (fila.HasValue)
+            {
+                filaParameter = new ObjectParameter("Fila", fila);
+            }
+            else
+            {
+                filaParameter = new ObjectParameter("Fila", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter cordXParameter;
+            if (cordX.HasValue)
+            {
+                cordXParameter = new ObjectParameter("CordX", cordX);
+            }
+            else
+            {
+                cordXParameter = new ObjectParameter("CordX", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter cordYParameter;
+            if (cordY.HasValue)
+            {
+                cordYParameter = new ObjectParameter("CordY", cordY);
+            }
+            else
+            {
+                cordYParameter = new ObjectParameter("CordY", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewAsiento", idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewTipoClase(global::System.String nombre)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewTipoClase", nombreParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="idTipoClase">No Metadata Documentation available.</param>
+        /// <param name="numero">No Metadata Documentation available.</param>
+        /// <param name="fila">No Metadata Documentation available.</param>
+        /// <param name="cordX">No Metadata Documentation available.</param>
+        /// <param name="cordY">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAsiento(Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idTipoClaseParameter;
+            if (idTipoClase.HasValue)
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", idTipoClase);
+            }
+            else
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter numeroParameter;
+            if (numero != null)
+            {
+                numeroParameter = new ObjectParameter("Numero", numero);
+            }
+            else
+            {
+                numeroParameter = new ObjectParameter("Numero", typeof(global::System.String));
+            }
+    
+            ObjectParameter filaParameter;
+            if (fila.HasValue)
+            {
+                filaParameter = new ObjectParameter("Fila", fila);
+            }
+            else
+            {
+                filaParameter = new ObjectParameter("Fila", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter cordXParameter;
+            if (cordX.HasValue)
+            {
+                cordXParameter = new ObjectParameter("CordX", cordX);
+            }
+            else
+            {
+                cordXParameter = new ObjectParameter("CordX", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter cordYParameter;
+            if (cordY.HasValue)
+            {
+                cordYParameter = new ObjectParameter("CordY", cordY);
+            }
+            else
+            {
+                cordYParameter = new ObjectParameter("CordY", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAsiento", idAsientoParameter, idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idTipo">No Metadata Documentation available.</param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateTipoClase(Nullable<global::System.Int32> idTipo, global::System.String nombre)
+        {
+            ObjectParameter idTipoParameter;
+            if (idTipo.HasValue)
+            {
+                idTipoParameter = new ObjectParameter("idTipo", idTipo);
+            }
+            else
+            {
+                idTipoParameter = new ObjectParameter("idTipo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateTipoClase", idTipoParameter, nombreParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientoFromID(Nullable<global::System.Int32> idAsiento)
+        {
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientoFromID", idAsientoParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientoFromID(Nullable<global::System.Int32> idAsiento, MergeOption mergeOption)
+        {
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientoFromID", mergeOption, idAsientoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosFromAvion(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosFromAvion", idAvionParameter, pisoParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosFromAvion(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> piso, MergeOption mergeOption)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosFromAvion", mergeOption, idAvionParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", idVueloParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo, MergeOption mergeOption)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", mergeOption, idVueloParameter);
+        }
 
         #endregion
     }

@@ -17,7 +17,9 @@ namespace DataLayer
          */
         static public bool Create(Asiento unAsiento)
         {
-            return false;
+            try { Provider.GetProvider().spNewAsiento(unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
+            catch { return false; }
+            return true;
         }
         #endregion
 
@@ -31,8 +33,9 @@ namespace DataLayer
          */
         static public bool CreateTipoClase(TipoClase unaClase)
         {
-       
-            return false;
+            try { Provider.GetProvider().spNewTipoClase(unaClase.NombreClase); }
+            catch { return false; }
+            return true;
         }
         #endregion
 
@@ -46,7 +49,9 @@ namespace DataLayer
          */
         static public bool UpdateAsiento(Asiento unAsiento)
         {
-            return false;
+            try { Provider.GetProvider().spUpdateAsiento(unAsiento.idAsiento,unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
+            catch { return false; }
+            return true;
         }
         #endregion
 
@@ -60,7 +65,9 @@ namespace DataLayer
          */
         static public bool UpdateTipoClase(TipoClase unaClase)
         {
-            return false;
+            try { Provider.GetProvider().spUpdateTipoClase(unaClase.idTipoClase, unaClase.NombreClase); }
+            catch { return false; }
+            return true;
         }
         #endregion
 
@@ -74,21 +81,21 @@ namespace DataLayer
          */
         static public Asiento GetAsientoFromID(int idAsiento)
         {
-            return null;
+            try { return Provider.GetProvider().spGetAsientoFromID(idAsiento).FirstOrDefault(); }
+            catch { return null; }
         }
         #endregion
 
-        #region Obtener TipoClase dado un ID.
+        #region Obtener todos los tipos de clases.
         /**
-         * @brief Obtiene un TipoClase dado su ID
+         * @brief Obtiene todos los tipos de clases existentes.
          * 
-         * @param idClase         ID del asiento que se desea buscar.
-         * 
-         * @return Un TipoClase si se pudo encontrar, null caso contrário.
+         * @return Un lista TipoClase si todo salió bien, null caso contrário.
          */
-        static public TipoClase GetTipoClaseFromID(int idClase)
+        static public List<TipoClase> GetAllTipoClases()
         {
-            return null;
+            try { return Provider.GetProvider().spGetAllTipoClases().ToList(); }
+            catch { return null; }
         }
         #endregion
 
@@ -103,7 +110,8 @@ namespace DataLayer
          */
         static public List<Asiento> GetAsientoFromPisoAvion(int idAvion, int Piso)
         {
-            return null;
+            try { return Provider.GetProvider().spGetAsientosFromAvion(idAvion, Piso).ToList(); }
+            catch { return null; }
         }
         #endregion
 
@@ -117,7 +125,8 @@ namespace DataLayer
          */
         static public List<Asiento> GetAsientosNoOcupados(int idVuelo)
         {
-            return null;
+            try { return Provider.GetProvider().spGetAsientosNoOcupados(idVuelo).ToList(); }
+            catch { return null; }
         }
         #endregion
     }
