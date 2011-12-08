@@ -2241,6 +2241,444 @@ namespace DataLayer
     
             return base.ExecuteFunction<Reservacion>("spGetReservaFromID", mergeOption, idReservaParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="fecha_salida1">No Metadata Documentation available.</param>
+        /// <param name="fecha_salida2">No Metadata Documentation available.</param>
+        /// <param name="origen">No Metadata Documentation available.</param>
+        /// <param name="destino">No Metadata Documentation available.</param>
+        public ObjectResult<Vuelo> spGetVueloFromFechaAndPuerto(Nullable<global::System.DateTime> fecha_salida1, Nullable<global::System.DateTime> fecha_salida2, Nullable<global::System.Int32> origen, Nullable<global::System.Int32> destino)
+        {
+            ObjectParameter fecha_salida1Parameter;
+            if (fecha_salida1.HasValue)
+            {
+                fecha_salida1Parameter = new ObjectParameter("fecha_salida1", fecha_salida1);
+            }
+            else
+            {
+                fecha_salida1Parameter = new ObjectParameter("fecha_salida1", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter fecha_salida2Parameter;
+            if (fecha_salida2.HasValue)
+            {
+                fecha_salida2Parameter = new ObjectParameter("fecha_salida2", fecha_salida2);
+            }
+            else
+            {
+                fecha_salida2Parameter = new ObjectParameter("fecha_salida2", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter origenParameter;
+            if (origen.HasValue)
+            {
+                origenParameter = new ObjectParameter("Origen", origen);
+            }
+            else
+            {
+                origenParameter = new ObjectParameter("Origen", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter destinoParameter;
+            if (destino.HasValue)
+            {
+                destinoParameter = new ObjectParameter("Destino", destino);
+            }
+            else
+            {
+                destinoParameter = new ObjectParameter("Destino", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Vuelo>("spGetVueloFromFechaAndPuerto", fecha_salida1Parameter, fecha_salida2Parameter, origenParameter, destinoParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="fecha_salida1">No Metadata Documentation available.</param>
+        /// <param name="fecha_salida2">No Metadata Documentation available.</param>
+        /// <param name="origen">No Metadata Documentation available.</param>
+        /// <param name="destino">No Metadata Documentation available.</param>
+        public ObjectResult<Vuelo> spGetVueloFromFechaAndPuerto(Nullable<global::System.DateTime> fecha_salida1, Nullable<global::System.DateTime> fecha_salida2, Nullable<global::System.Int32> origen, Nullable<global::System.Int32> destino, MergeOption mergeOption)
+        {
+            ObjectParameter fecha_salida1Parameter;
+            if (fecha_salida1.HasValue)
+            {
+                fecha_salida1Parameter = new ObjectParameter("fecha_salida1", fecha_salida1);
+            }
+            else
+            {
+                fecha_salida1Parameter = new ObjectParameter("fecha_salida1", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter fecha_salida2Parameter;
+            if (fecha_salida2.HasValue)
+            {
+                fecha_salida2Parameter = new ObjectParameter("fecha_salida2", fecha_salida2);
+            }
+            else
+            {
+                fecha_salida2Parameter = new ObjectParameter("fecha_salida2", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter origenParameter;
+            if (origen.HasValue)
+            {
+                origenParameter = new ObjectParameter("Origen", origen);
+            }
+            else
+            {
+                origenParameter = new ObjectParameter("Origen", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter destinoParameter;
+            if (destino.HasValue)
+            {
+                destinoParameter = new ObjectParameter("Destino", destino);
+            }
+            else
+            {
+                destinoParameter = new ObjectParameter("Destino", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Vuelo>("spGetVueloFromFechaAndPuerto", mergeOption, fecha_salida1Parameter, fecha_salida2Parameter, origenParameter, destinoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idTipoClase">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="precio">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewPrecio(Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
+        {
+            ObjectParameter idTipoClaseParameter;
+            if (idTipoClase.HasValue)
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", idTipoClase);
+            }
+            else
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter precioParameter;
+            if (precio.HasValue)
+            {
+                precioParameter = new ObjectParameter("Precio", precio);
+            }
+            else
+            {
+                precioParameter = new ObjectParameter("Precio", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPrecio", idTipoClaseParameter, idVueloParameter, precioParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="idAeropuerto">No Metadata Documentation available.</param>
+        /// <param name="fechaSalida">No Metadata Documentation available.</param>
+        /// <param name="horaSalida">No Metadata Documentation available.</param>
+        /// <param name="fechaLlegada">No Metadata Documentation available.</param>
+        /// <param name="horaLlegada">No Metadata Documentation available.</param>
+        /// <param name="comentario">No Metadata Documentation available.</param>
+        /// <param name="idDestinoAero">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewVuelo(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAeropuertoParameter;
+            if (idAeropuerto.HasValue)
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", idAeropuerto);
+            }
+            else
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter fechaSalidaParameter;
+            if (fechaSalida.HasValue)
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", fechaSalida);
+            }
+            else
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaSalidaParameter;
+            if (horaSalida.HasValue)
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", horaSalida);
+            }
+            else
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter fechaLlegadaParameter;
+            if (fechaLlegada.HasValue)
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", fechaLlegada);
+            }
+            else
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaLlegadaParameter;
+            if (horaLlegada.HasValue)
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", horaLlegada);
+            }
+            else
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter comentarioParameter;
+            if (comentario != null)
+            {
+                comentarioParameter = new ObjectParameter("Comentario", comentario);
+            }
+            else
+            {
+                comentarioParameter = new ObjectParameter("Comentario", typeof(global::System.String));
+            }
+    
+            ObjectParameter idDestinoAeroParameter;
+            if (idDestinoAero.HasValue)
+            {
+                idDestinoAeroParameter = new ObjectParameter("idDestinoAero", idDestinoAero);
+            }
+            else
+            {
+                idDestinoAeroParameter = new ObjectParameter("idDestinoAero", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewVuelo", idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="idAeropuerto">No Metadata Documentation available.</param>
+        /// <param name="fechaSalida">No Metadata Documentation available.</param>
+        /// <param name="horaSalida">No Metadata Documentation available.</param>
+        /// <param name="fechaLlegada">No Metadata Documentation available.</param>
+        /// <param name="horaLlegada">No Metadata Documentation available.</param>
+        /// <param name="comentario">No Metadata Documentation available.</param>
+        /// <param name="idDestinoAero">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateVuelo(Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAeropuertoParameter;
+            if (idAeropuerto.HasValue)
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", idAeropuerto);
+            }
+            else
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter fechaSalidaParameter;
+            if (fechaSalida.HasValue)
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", fechaSalida);
+            }
+            else
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaSalidaParameter;
+            if (horaSalida.HasValue)
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", horaSalida);
+            }
+            else
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter fechaLlegadaParameter;
+            if (fechaLlegada.HasValue)
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", fechaLlegada);
+            }
+            else
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaLlegadaParameter;
+            if (horaLlegada.HasValue)
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", horaLlegada);
+            }
+            else
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter comentarioParameter;
+            if (comentario != null)
+            {
+                comentarioParameter = new ObjectParameter("Comentario", comentario);
+            }
+            else
+            {
+                comentarioParameter = new ObjectParameter("Comentario", typeof(global::System.String));
+            }
+    
+            ObjectParameter idDestinoAeroParameter;
+            if (idDestinoAero.HasValue)
+            {
+                idDestinoAeroParameter = new ObjectParameter("idDestinoAero", idDestinoAero);
+            }
+            else
+            {
+                idDestinoAeroParameter = new ObjectParameter("idDestinoAero", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateVuelo", idVueloParameter, idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPrecio">No Metadata Documentation available.</param>
+        /// <param name="idTipoClase">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="precio">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePrecio(Nullable<global::System.Int32> idPrecio, Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
+        {
+            ObjectParameter idPrecioParameter;
+            if (idPrecio.HasValue)
+            {
+                idPrecioParameter = new ObjectParameter("idPrecio", idPrecio);
+            }
+            else
+            {
+                idPrecioParameter = new ObjectParameter("idPrecio", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idTipoClaseParameter;
+            if (idTipoClase.HasValue)
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", idTipoClase);
+            }
+            else
+            {
+                idTipoClaseParameter = new ObjectParameter("idTipoClase", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter precioParameter;
+            if (precio.HasValue)
+            {
+                precioParameter = new ObjectParameter("Precio", precio);
+            }
+            else
+            {
+                precioParameter = new ObjectParameter("Precio", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePrecio", idPrecioParameter, idTipoClaseParameter, idVueloParameter, precioParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Vuelo> spGetVueloFromID(Nullable<global::System.Int32> idVuelo)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Vuelo>("spGetVueloFromID", idVueloParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Vuelo> spGetVueloFromID(Nullable<global::System.Int32> idVuelo, MergeOption mergeOption)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Vuelo>("spGetVueloFromID", mergeOption, idVueloParameter);
+        }
 
         #endregion
     }

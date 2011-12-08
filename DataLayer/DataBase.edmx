@@ -536,6 +536,9 @@
           <Parameter Name="Origen" Type="int" Mode="In" />
           <Parameter Name="Destino" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetVueloFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idVuelo" Type="int" Mode="In" />
+        </Function>
         <Function Name="spNewAeropuerto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="idCiudad" Type="int" Mode="In" />
@@ -967,10 +970,51 @@
             <Parameter Name="Apellidos" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetPersonaFromPasaporte" EntitySet="Personas" ReturnType="Collection(ReservaVuelosModel.Persona)">
-            <Parameter Name="pasaporte" Mode="In" Type="String" />
+          <Parameter Name="pasaporte" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetReservaFromID" EntitySet="Reservacions" ReturnType="Collection(ReservaVuelosModel.Reservacion)">
-            <Parameter Name="idReserva" Mode="In" Type="Int32" />
+          <Parameter Name="idReserva" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetVueloFromFechaAndPuerto" EntitySet="Vueloes" ReturnType="Collection(ReservaVuelosModel.Vuelo)">
+            <Parameter Name="fecha_salida1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_salida2" Mode="In" Type="DateTime" />
+            <Parameter Name="Origen" Mode="In" Type="Int32" />
+            <Parameter Name="Destino" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewPrecio" ReturnType="Collection(Boolean)">
+            <Parameter Name="idTipoClase" Mode="In" Type="Int32" />
+            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+            <Parameter Name="Precio" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spNewVuelo" ReturnType="Collection(Boolean)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+            <Parameter Name="idAeropuerto" Mode="In" Type="Int32" />
+            <Parameter Name="FechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraSalida" Mode="In" Type="Time" />
+            <Parameter Name="FechaLlegada" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraLlegada" Mode="In" Type="Time" />
+            <Parameter Name="Comentario" Mode="In" Type="String" />
+            <Parameter Name="idDestinoAero" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateVuelo" ReturnType="Collection(Boolean)">
+            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+            <Parameter Name="idAeropuerto" Mode="In" Type="Int32" />
+            <Parameter Name="FechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraSalida" Mode="In" Type="Time" />
+            <Parameter Name="FechaLlegada" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraLlegada" Mode="In" Type="Time" />
+            <Parameter Name="Comentario" Mode="In" Type="String" />
+            <Parameter Name="idDestinoAero" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdatePrecio" ReturnType="Collection(Boolean)">
+            <Parameter Name="idPrecio" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoClase" Mode="In" Type="Int32" />
+            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+            <Parameter Name="Precio" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spGetVueloFromID" EntitySet="Vueloes" ReturnType="Collection(ReservaVuelosModel.Vuelo)">
+            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1535,6 +1579,12 @@
           <FunctionImportMapping FunctionImportName="spGetPersonaLikeApellido" FunctionName="ReservaVuelosModel.Store.spGetPersonaLikeName" />
           <FunctionImportMapping FunctionImportName="spGetPersonaFromPasaporte" FunctionName="ReservaVuelosModel.Store.spGetPersonaFromPasaporte" />
           <FunctionImportMapping FunctionImportName="spGetReservaFromID" FunctionName="ReservaVuelosModel.Store.spGetReservaFromID" />
+          <FunctionImportMapping FunctionImportName="spGetVueloFromFechaAndPuerto" FunctionName="ReservaVuelosModel.Store.spGetVueloFromFechaAndPuerto" />
+          <FunctionImportMapping FunctionImportName="spNewPrecio" FunctionName="ReservaVuelosModel.Store.spNewPrecio" />
+          <FunctionImportMapping FunctionImportName="spNewVuelo" FunctionName="ReservaVuelosModel.Store.spNewVuelo" />
+          <FunctionImportMapping FunctionImportName="spUpdateVuelo" FunctionName="ReservaVuelosModel.Store.spUpdateVuelo" />
+          <FunctionImportMapping FunctionImportName="spUpdatePrecio" FunctionName="ReservaVuelosModel.Store.spUpdatePrecio" />
+          <FunctionImportMapping FunctionImportName="spGetVueloFromID" FunctionName="ReservaVuelosModel.Store.spGetVueloFromID" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
