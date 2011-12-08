@@ -17,7 +17,9 @@ namespace DataLayer
          */
         static public bool Create(Reservacion unaReserva)
         {
-            return false;
+            try { Provider.GetProvider().spNewReservacion(unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
+            catch {return false; }
+            return true;
         }
         #endregion
 
@@ -31,7 +33,9 @@ namespace DataLayer
          */
         static public bool CreatePersona(Persona unaPersona)
         {
-            return false;
+            try { Provider.GetProvider().spNewPersona(unaPersona.NombrePersona, unaPersona.ApellidosPersona, unaPersona.Pasaporte); }
+            catch { return false; }
+            return true;
         }
         #endregion
         
@@ -45,7 +49,9 @@ namespace DataLayer
          */
         static public bool UpdateReserva(Reservacion unaReserva)
         {
-            return false;
+            try { Provider.GetProvider().spUpdateReservacion(unaReserva.idReservacion, unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
+            catch { return false; }
+            return true;
         }
         #endregion
         
@@ -59,28 +65,57 @@ namespace DataLayer
          */
         static public bool UpdatePersona(Persona unaPersona)
         {
-            return false;
+            try { Provider.GetProvider().spUpdatePersona(unaPersona.idPersona, unaPersona.NombrePersona, unaPersona.ApellidosPersona, unaPersona.Pasaporte); }
+            catch { return false; }
+            return true;
         }
         #endregion
 
         #region Obtener reservación dado un ID
+        /**
+         * @brief Obtiene una reservación dado un ID
+         * 
+         * @param ID        El ID de la reservación que se desea buscar.
+         * 
+         * @return  La reservación si se encontró, null caso contrário.
+         */
         static Reservacion GetReservacionFromID(int ID)
         {
-            return null;
+            try { return Provider.GetProvider().spGetReservaFromID(ID).FirstOrDefault(); }
+            catch { return null; }
         }
         #endregion
 
         #region Obtener persona dado un pasaporte
+        /**
+         * @brief Obtiene una persona dado su pasaporte
+         * 
+         * @param pasaporte         El pasaporte de la persona que se desea encontrar.
+         * 
+         * @return La persona si se pudo encontrar, null caso contrário.
+         */
         static Persona GetPersonaFromPasaporte(string pasaporte)
         {
-            return null;
+            try { return Provider.GetProvider().spGetPersonaFromPasaporte(pasaporte).FirstOrDefault(); }
+            catch { return null; }
         }
         #endregion
 
         #region Obtener persona dado un Apellido y un nombre
+        /**
+         * @brief Obtiene una persona dado su apellido y opcionalmente el nombre.
+         * 
+         * @param nombre            El nombre de la persona.
+         * @param apellido          El apellido de la persona.
+         * 
+         * @warning El apellido SIEMPRE debe estar presente, el nombre es opcional.
+         * 
+         * @return Una lista de persona si se pudo encontrar, null caso contrário.
+         */
         static List<Persona> GetPersonasFromApellidoAndNombre(string nombre, string apellido)
         {
-            return null;
+            try { return Provider.GetProvider().spGetPersonaLikeApellido(nombre, apellido).ToList(); }
+            catch { return null; }
         }
         #endregion
     }

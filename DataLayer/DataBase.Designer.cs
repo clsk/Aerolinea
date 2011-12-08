@@ -1897,6 +1897,350 @@ namespace DataLayer
     
             return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", mergeOption, idAvionParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        /// <param name="idUsuario">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idUsuarioParameter;
+            if (idUsuario.HasValue)
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", idUsuario);
+            }
+            else
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewReservacion", idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="apellidos">No Metadata Documentation available.</param>
+        /// <param name="pasaporte">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spNewPersona(global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter apellidosParameter;
+            if (apellidos != null)
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", apellidos);
+            }
+            else
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", typeof(global::System.String));
+            }
+    
+            ObjectParameter pasaporteParameter;
+            if (pasaporte != null)
+            {
+                pasaporteParameter = new ObjectParameter("Pasaporte", pasaporte);
+            }
+            else
+            {
+                pasaporteParameter = new ObjectParameter("Pasaporte", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPersona", nombreParameter, apellidosParameter, pasaporteParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="apellidos">No Metadata Documentation available.</param>
+        /// <param name="pasaporte">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePersona(Nullable<global::System.Int32> idPersona, global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter apellidosParameter;
+            if (apellidos != null)
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", apellidos);
+            }
+            else
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", typeof(global::System.String));
+            }
+    
+            ObjectParameter pasaporteParameter;
+            if (pasaporte != null)
+            {
+                pasaporteParameter = new ObjectParameter("Pasaporte", pasaporte);
+            }
+            else
+            {
+                pasaporteParameter = new ObjectParameter("Pasaporte", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePersona", idPersonaParameter, nombreParameter, apellidosParameter, pasaporteParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idReservacion">No Metadata Documentation available.</param>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        /// <param name="idUsuario">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateReservacion(Nullable<global::System.Int32> idReservacion, Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
+        {
+            ObjectParameter idReservacionParameter;
+            if (idReservacion.HasValue)
+            {
+                idReservacionParameter = new ObjectParameter("idReservacion", idReservacion);
+            }
+            else
+            {
+                idReservacionParameter = new ObjectParameter("idReservacion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idUsuarioParameter;
+            if (idUsuario.HasValue)
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", idUsuario);
+            }
+            else
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateReservacion", idReservacionParameter, idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="apellidos">No Metadata Documentation available.</param>
+        public ObjectResult<Persona> spGetPersonaLikeApellido(global::System.String nombre, global::System.String apellidos)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter apellidosParameter;
+            if (apellidos != null)
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", apellidos);
+            }
+            else
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Persona>("spGetPersonaLikeApellido", nombreParameter, apellidosParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="apellidos">No Metadata Documentation available.</param>
+        public ObjectResult<Persona> spGetPersonaLikeApellido(global::System.String nombre, global::System.String apellidos, MergeOption mergeOption)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter apellidosParameter;
+            if (apellidos != null)
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", apellidos);
+            }
+            else
+            {
+                apellidosParameter = new ObjectParameter("Apellidos", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Persona>("spGetPersonaLikeApellido", mergeOption, nombreParameter, apellidosParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="pasaporte">No Metadata Documentation available.</param>
+        public ObjectResult<Persona> spGetPersonaFromPasaporte(global::System.String pasaporte)
+        {
+            ObjectParameter pasaporteParameter;
+            if (pasaporte != null)
+            {
+                pasaporteParameter = new ObjectParameter("pasaporte", pasaporte);
+            }
+            else
+            {
+                pasaporteParameter = new ObjectParameter("pasaporte", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Persona>("spGetPersonaFromPasaporte", pasaporteParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="pasaporte">No Metadata Documentation available.</param>
+        public ObjectResult<Persona> spGetPersonaFromPasaporte(global::System.String pasaporte, MergeOption mergeOption)
+        {
+            ObjectParameter pasaporteParameter;
+            if (pasaporte != null)
+            {
+                pasaporteParameter = new ObjectParameter("pasaporte", pasaporte);
+            }
+            else
+            {
+                pasaporteParameter = new ObjectParameter("pasaporte", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Persona>("spGetPersonaFromPasaporte", mergeOption, pasaporteParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idReserva">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spGetReservaFromID(Nullable<global::System.Int32> idReserva)
+        {
+            ObjectParameter idReservaParameter;
+            if (idReserva.HasValue)
+            {
+                idReservaParameter = new ObjectParameter("idReserva", idReserva);
+            }
+            else
+            {
+                idReservaParameter = new ObjectParameter("idReserva", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spGetReservaFromID", idReservaParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idReserva">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spGetReservaFromID(Nullable<global::System.Int32> idReserva, MergeOption mergeOption)
+        {
+            ObjectParameter idReservaParameter;
+            if (idReserva.HasValue)
+            {
+                idReservaParameter = new ObjectParameter("idReserva", idReserva);
+            }
+            else
+            {
+                idReservaParameter = new ObjectParameter("idReserva", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spGetReservaFromID", mergeOption, idReservaParameter);
+        }
 
         #endregion
     }
