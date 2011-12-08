@@ -21,7 +21,7 @@ namespace DataLayer
         static public bool CreatePais(Pais unPais)
         {
             try { Provider.GetProvider().spNewPais(unPais.NombrePais); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -39,7 +39,7 @@ namespace DataLayer
         static public bool CreateCiudad(Ciudad UnaCiudad)
         {
             try { Provider.GetProvider().spNewCiudad(UnaCiudad.NombreCiudad, UnaCiudad.idPais); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -57,7 +57,7 @@ namespace DataLayer
         static public bool Create(Aeropuerto UnAeropuerto)
         {
             try { Provider.GetProvider().spNewAeropuerto(UnAeropuerto.NombreAeropuerto, UnAeropuerto.idCiudad, UnAeropuerto.Siglas); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -75,7 +75,7 @@ namespace DataLayer
         static public bool UpdatePais(Pais unPais)
         {
             try { Provider.GetProvider().spUpdatePais(unPais.idPais, unPais.NombrePais); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -93,7 +93,7 @@ namespace DataLayer
         static public bool UpdateCiudad(Ciudad unaCiudad)
         {
             try { Provider.GetProvider().spUpdateCiudad(unaCiudad.idCiudad, unaCiudad.NombreCiudad, unaCiudad.idPais); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -111,7 +111,7 @@ namespace DataLayer
         static public bool UpdatePais(Aeropuerto unAeropuerto)
         {
             try { Provider.GetProvider().spUdateAeropuerto(unAeropuerto.idAeropuerto, unAeropuerto.NombreAeropuerto, unAeropuerto.idCiudad, unAeropuerto.Siglas); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -125,7 +125,7 @@ namespace DataLayer
         static public List<Pais> GetAllPaises()
         {
             try { return Provider.GetProvider().spGetAllPaises().ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -140,7 +140,7 @@ namespace DataLayer
         static public List<Ciudad> GetCiudadesFromPais(int idPais)
         {
             try { return Provider.GetProvider().spGetCiudadesFromPais(idPais).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -155,7 +155,7 @@ namespace DataLayer
         static public List<Aeropuerto> GetAeropuertosFromCiudad(int idCiudad)
         {
             try { return Provider.GetProvider().spGetAeropuertoFromCiudad(idCiudad).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -170,7 +170,7 @@ namespace DataLayer
         static public Aeropuerto GetAeropuertoFromID(int idAeropuerto)
         {
             try { return Provider.GetProvider().spGetAeropuertoFromID(idAeropuerto).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }

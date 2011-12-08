@@ -25,10 +25,7 @@ namespace DataLayer
             {
                 Provider.GetProvider().spNewUsuario(user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
-            catch
-            {
-                return false;
-            }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -49,10 +46,7 @@ namespace DataLayer
             {
                 Provider.GetProvider().spUpdateUsuario(user.idUsuario, user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
-            catch
-            {
-                return false;
-            }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -71,10 +65,7 @@ namespace DataLayer
             {
                 return Provider.GetProvider().spGetUsuarioFromID(idUsuario).FirstOrDefault();
             }
-            catch
-            {
-                return null;
-            }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -86,20 +77,10 @@ namespace DataLayer
          * 
          * @return Un usuario si se encontró y NULL si no se encontró
          */
-
         static public Usuario GetUsuarioFromLogin(string login)
         {
-            return Provider.GetProvider().spGetUsuarioFromLogin(login).FirstOrDefault();
-            /*
-            try
-            {
-                return Provider.GetProvider().spGetUsuarioFromLogin(login).FirstOrDefault();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-             */
+            try { return Provider.GetProvider().spGetUsuarioFromLogin(login).FirstOrDefault(); }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -111,14 +92,8 @@ namespace DataLayer
         */
        static  public List<NivelUsuario> GetAllNivelUsuario()
         {
-            try
-            {
-                return Provider.GetProvider().spGetAllNivelUsuario().ToList();
-            }
-            catch
-            {
-                return null;
-            }
+            try { return Provider.GetProvider().spGetAllNivelUsuario().ToList(); }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -132,14 +107,8 @@ namespace DataLayer
          */
         static NivelUsuario GetNivelUsuarioFromID(int idNivel)
         {
-            try
-            {
-                return Provider.GetProvider().spGetNivelUsuarioFromID(idNivel).FirstOrDefault();
-            }
-            catch
-            {
-                return null;
-            }
+            try { return Provider.GetProvider().spGetNivelUsuarioFromID(idNivel).FirstOrDefault(); }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }

@@ -18,7 +18,7 @@ namespace DataLayer
         static public bool Create(Asiento unAsiento)
         {
             try { Provider.GetProvider().spNewAsiento(unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -34,7 +34,7 @@ namespace DataLayer
         static public bool CreateTipoClase(TipoClase unaClase)
         {
             try { Provider.GetProvider().spNewTipoClase(unaClase.NombreClase); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -50,7 +50,7 @@ namespace DataLayer
         static public bool UpdateAsiento(Asiento unAsiento)
         {
             try { Provider.GetProvider().spUpdateAsiento(unAsiento.idAsiento,unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -66,7 +66,7 @@ namespace DataLayer
         static public bool UpdateTipoClase(TipoClase unaClase)
         {
             try { Provider.GetProvider().spUpdateTipoClase(unaClase.idTipoClase, unaClase.NombreClase); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -82,7 +82,7 @@ namespace DataLayer
         static public Asiento GetAsientoFromID(int idAsiento)
         {
             try { return Provider.GetProvider().spGetAsientoFromID(idAsiento).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -95,7 +95,7 @@ namespace DataLayer
         static public List<TipoClase> GetAllTipoClases()
         {
             try { return Provider.GetProvider().spGetAllTipoClases().ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -111,7 +111,7 @@ namespace DataLayer
         static public List<Asiento> GetAsientoFromPisoAvion(int idAvion, int Piso)
         {
             try { return Provider.GetProvider().spGetAsientosFromAvion(idAvion, Piso).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -126,7 +126,7 @@ namespace DataLayer
         static public List<Asiento> GetAsientosNoOcupados(int idVuelo)
         {
             try { return Provider.GetProvider().spGetAsientosNoOcupados(idVuelo).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }

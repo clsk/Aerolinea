@@ -18,7 +18,7 @@ namespace DataLayer
         static public bool Create(Reservacion unaReserva)
         {
             try { Provider.GetProvider().spNewReservacion(unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -34,7 +34,7 @@ namespace DataLayer
         static public bool CreatePersona(Persona unaPersona)
         {
             try { Provider.GetProvider().spNewPersona(unaPersona.NombrePersona, unaPersona.ApellidosPersona, unaPersona.Pasaporte); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -50,7 +50,7 @@ namespace DataLayer
         static public bool UpdateReserva(Reservacion unaReserva)
         {
             try { Provider.GetProvider().spUpdateReservacion(unaReserva.idReservacion, unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -66,7 +66,7 @@ namespace DataLayer
         static public bool UpdatePersona(Persona unaPersona)
         {
             try { Provider.GetProvider().spUpdatePersona(unaPersona.idPersona, unaPersona.NombrePersona, unaPersona.ApellidosPersona, unaPersona.Pasaporte); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -82,7 +82,7 @@ namespace DataLayer
         static Reservacion GetReservacionFromID(int ID)
         {
             try { return Provider.GetProvider().spGetReservaFromID(ID).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -97,7 +97,7 @@ namespace DataLayer
         static Persona GetPersonaFromPasaporte(string pasaporte)
         {
             try { return Provider.GetProvider().spGetPersonaFromPasaporte(pasaporte).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -115,7 +115,7 @@ namespace DataLayer
         static List<Persona> GetPersonasFromApellidoAndNombre(string nombre, string apellido)
         {
             try { return Provider.GetProvider().spGetPersonaLikeApellido(nombre, apellido).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }

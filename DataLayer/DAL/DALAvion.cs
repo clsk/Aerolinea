@@ -21,7 +21,7 @@ namespace DataLayer
         static public bool CreateMarcaAvion(MarcaAvion unaMarca)
         {
             try { Provider.GetProvider().spNewMarcaAvion(unaMarca.NombreMarca); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -39,7 +39,7 @@ namespace DataLayer
         static public bool CreateSerieAvion(SerieAvion unaSerie)
         {
             try { Provider.GetProvider().spNewSerieAvion(unaSerie.NombreSerie, unaSerie.idMarca); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -57,7 +57,7 @@ namespace DataLayer
         static public bool Create(Avion unAvion)
         {
             try { Provider.GetProvider().spNewAvion(unAvion.idSerie); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -75,7 +75,7 @@ namespace DataLayer
         static public bool CreatePlantaAvion(PlantaAvion unaPlanta)
         {
             try { Provider.GetProvider().spNewPlanta(unaPlanta.idAvion, unaPlanta.ImagenPlanta, unaPlanta.Piso); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -93,7 +93,7 @@ namespace DataLayer
         static public bool UpdateMarcaAvion(MarcaAvion unaMarca)
         {
             try { Provider.GetProvider().spUpdateMarcaAvion(unaMarca.idMarca, unaMarca.NombreMarca); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -111,7 +111,7 @@ namespace DataLayer
         static public bool UpdateSerieAvion(SerieAvion unaSerie)
         {
             try { Provider.GetProvider().spUpdateSerieAvion(unaSerie.idMarca, unaSerie.NombreSerie, unaSerie.idMarca); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -129,7 +129,7 @@ namespace DataLayer
         static public bool UpdateAvion(Avion unAvion)
         {
             try { Provider.GetProvider().spUpdateAvion(unAvion.idAvion, unAvion.idSerie); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -147,7 +147,7 @@ namespace DataLayer
         static public bool UpdatePlantaAvion(PlantaAvion unaPlanta)
         {
             try { Provider.GetProvider().spUpdatePlanta(unaPlanta.idPlanta, unaPlanta.idAvion, unaPlanta.ImagenPlanta, unaPlanta.Piso); }
-            catch {return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -161,7 +161,7 @@ namespace DataLayer
         static public List<MarcaAvion> GetAllMarcaAvion()
         {
             try { return Provider.GetProvider().spGetAllMarcaAvion().ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -176,7 +176,7 @@ namespace DataLayer
         static public List<SerieAvion> GetSerieAvionFromMarcaAvion(int idMarca)
         {
             try { return Provider.GetProvider().spGetSerieAvionFromMarca(idMarca).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -191,7 +191,7 @@ namespace DataLayer
         static public List<Avion> GetAvionFromSerieAvion(int idSerie)
         {
             try { return Provider.GetProvider().spGetAvionesFromSerie(idSerie).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -206,7 +206,7 @@ namespace DataLayer
         static public Avion GetAvionFromID(int idAvion)
         {
             try { return Provider.GetProvider().spGetAvionFromID(idAvion).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -221,7 +221,7 @@ namespace DataLayer
         static public List<PlantaAvion> GetPlantaAvionFromAvion(int idAvion)
         {
             try { return Provider.GetProvider().spGetPlantasFromAvion(idAvion).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }

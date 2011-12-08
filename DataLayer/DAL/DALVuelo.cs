@@ -22,7 +22,7 @@ namespace DataLayer
                 Provider.GetProvider().spNewVuelo(unVuelo.idAvion, unVuelo.idPuertoSalida, unVuelo.FechaSalida, unVuelo.HoraSalida,
                                                   unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoSalida);
             }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -38,7 +38,7 @@ namespace DataLayer
         bool CreatePrecio(Precio unPrecio)
         {
             try { Provider.GetProvider().spNewPrecio(unPrecio.idTipoClase, unPrecio.idVuelo, unPrecio.Precio1); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -58,7 +58,7 @@ namespace DataLayer
                 Provider.GetProvider().spUpdateVuelo(unVuelo.idVuelo, unVuelo.idAvion, unVuelo.idPuertoSalida, unVuelo.FechaSalida, unVuelo.HoraSalida,
                                                   unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoSalida);
             }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -74,7 +74,7 @@ namespace DataLayer
         bool ActualizarPrecio(Precio unPrecio)
         {
             try { Provider.GetProvider().spUpdatePrecio(unPrecio.idPrecio, unPrecio.idTipoClase, unPrecio.idVuelo, unPrecio.Precio1); }
-            catch { return false; }
+            catch (Exception e) { throw e; }
             return true;
         }
         #endregion
@@ -90,7 +90,7 @@ namespace DataLayer
         public static Vuelo GetVueloFromID(int ID)
         {
             try { return Provider.GetProvider().spGetVueloFromID(ID).FirstOrDefault(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
 
@@ -108,7 +108,7 @@ namespace DataLayer
         List<Vuelo> GetVueloFromFechaAndPuerto(DateTime Fecha1, DateTime Fecha2, Aeropuerto Origen, Aeropuerto Destino)
         {
             try { return Provider.GetProvider().spGetVueloFromFechaAndPuerto(Fecha1, Fecha2, Origen.idAeropuerto, Destino.idAeropuerto).ToList(); }
-            catch { return null; }
+            catch (Exception e) { throw e; }
         }
         #endregion
     }
