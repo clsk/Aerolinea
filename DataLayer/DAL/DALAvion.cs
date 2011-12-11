@@ -223,5 +223,22 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Obetener los aviones disponibles para volar en una fecha en especifico.
+        /**
+         * @brief Obtiene los aviones disponibles para vuelos en una fecha dada.
+         * 
+         * @param FechaSalida               fecha salida del avión.
+         * @param FechaLlegada              fecha llegada del avión.
+         * @param HoraSalida                hora salida del avión.
+         * @param HoraLlegada               hora llegada del avión.
+         * @idSerie                         serie de avión.
+         */
+        static public List<Avion> GetAvionesDisponibles(DateTime FechaSalida, DateTime FechaLlegada, TimeSpan HoraSalida, TimeSpan HoraLlegada, int idSerie)
+        {
+            try { return Provider.GetProvider().spGetAvionesDisponibles(FechaSalida, FechaLlegada, HoraSalida, HoraLlegada, idSerie).ToList(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
     }
 }

@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="VueloAdmin.xaml.cs">
+    <Compile Include="Administrativo\VueloAdmin.xaml.cs">
       <DependentUpon>VueloAdmin.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -70,7 +70,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="VueloAdmin.xaml">
+    <Page Include="Administrativo\VueloAdmin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -105,45 +105,29 @@
       <Project>{E534CA4D-FAD0-4664-AD0B-11011D142BC6}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greyable\GreyableImage.csproj">
+      <Project>{4CA5D447-9840-4A9A-A8BA-85B1B79A85E3}</Project>
+      <Name>GreyableImage</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AddDestination.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\AddDestino.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Airplane-edit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Airplane-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Airplane-new.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\AirPort.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Browser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\EditDestination.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\EditDestino.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\EditVuelo.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Images\Edit_User.png" />
     <Resource Include="Images\Globe1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\left_32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\NewVuelo.png" />
+    <Resource Include="Images\New_User.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

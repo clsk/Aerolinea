@@ -18,7 +18,6 @@
           <EntitySet Name="Precio" EntityType="ReservaVuelosModel.Store.Precio" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Reservacion" EntityType="ReservaVuelosModel.Store.Reservacion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SerieAvion" EntityType="ReservaVuelosModel.Store.SerieAvion" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="ReservaVuelosModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TipoClase" EntityType="ReservaVuelosModel.Store.TipoClase" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuario" EntityType="ReservaVuelosModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Vuelo" EntityType="ReservaVuelosModel.Store.Vuelo" store:Type="Tables" Schema="dbo" />
@@ -194,16 +193,6 @@
           <Property Name="idSerie" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idMarca" Type="int" Nullable="false" />
           <Property Name="NombreSerie" Type="varchar" Nullable="false" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TipoClase">
           <Key>
@@ -491,6 +480,13 @@
         </Function>
         <Function Name="spGetAsientosNoOcupados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idVuelo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetAvionesDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaSalida" Type="date" Mode="In" />
+          <Parameter Name="FechaLlegada" Type="date" Mode="In" />
+          <Parameter Name="HoraSalida" Type="time" Mode="In" />
+          <Parameter Name="HoraLlegada" Type="time" Mode="In" />
+          <Parameter Name="idSerie" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetAvionesFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAvion" Type="int" Mode="In" />
@@ -830,7 +826,6 @@
           <FunctionImport Name="spGetAeropuertoFromID" EntitySet="Aeropuertoes" ReturnType="Collection(ReservaVuelosModel.Aeropuerto)">
           <Parameter Name="idAeropuerto" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="sysdiagrams" EntityType="ReservaVuelosModel.sysdiagram" />
           <EntitySet Name="Precios" EntityType="ReservaVuelosModel.Precio" />
           <AssociationSet Name="FK_Precio_TipoClase" Association="ReservaVuelosModel.FK_Precio_TipoClase">
             <End Role="TipoClase" EntitySet="TipoClases" />
@@ -1014,7 +1009,14 @@
             <Parameter Name="Precio" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="spGetVueloFromID" EntitySet="Vueloes" ReturnType="Collection(ReservaVuelosModel.Vuelo)">
-            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAvionesDisponibles" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
+            <Parameter Name="FechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaLlegada" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraSalida" Mode="In" Type="Time" />
+            <Parameter Name="HoraLlegada" Mode="In" Type="Time" />
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1289,16 +1291,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Precio">
           <Key>
             <PropertyRef Name="idPrecio" />
@@ -1515,17 +1507,6 @@
           <FunctionImportMapping FunctionImportName="spUpdatePais" FunctionName="ReservaVuelosModel.Store.spUpdatePais" />
           <FunctionImportMapping FunctionImportName="spGetAllPaises" FunctionName="ReservaVuelosModel.Store.spGetAllPaises" />
           <FunctionImportMapping FunctionImportName="spGetAeropuertoFromID" FunctionName="ReservaVuelosModel.Store.spGetAeropuertoFromID" />
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ReservaVuelosModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Precios">
             <EntityTypeMapping TypeName="ReservaVuelosModel.Precio">
               <MappingFragment StoreEntitySet="Precio">
@@ -1585,6 +1566,7 @@
           <FunctionImportMapping FunctionImportName="spUpdateVuelo" FunctionName="ReservaVuelosModel.Store.spUpdateVuelo" />
           <FunctionImportMapping FunctionImportName="spUpdatePrecio" FunctionName="ReservaVuelosModel.Store.spUpdatePrecio" />
           <FunctionImportMapping FunctionImportName="spGetVueloFromID" FunctionName="ReservaVuelosModel.Store.spGetVueloFromID" />
+          <FunctionImportMapping FunctionImportName="spGetAvionesDisponibles" FunctionName="ReservaVuelosModel.Store.spGetAvionesDisponibles" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1671,7 +1653,6 @@
           <ConnectorPoint PointX="10.91699484375" PointY="16.528595377604169" />
           <ConnectorPoint PointX="10.91699484375" PointY="4.1244921875" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="ReservaVuelosModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="ReservaVuelosModel.Precio" Width="1.5" PointX="11.625" PointY="4.875" Height="2.172587890624996" />
         <AssociationConnector Association="ReservaVuelosModel.FK_Precio_TipoClase" >
           <ConnectorPoint PointX="6" PointY="9.375" />

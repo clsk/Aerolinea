@@ -13,7 +13,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Height="95" HorizontalAlignment="Center" Name="button1" VerticalAlignment="Center" Width="95" Margin="49,9,49,55" Grid.Row="1">
+        <Button Height="95" HorizontalAlignment="Center" Name="button1" VerticalAlignment="Center" Width="95" Margin="49,9,49,55" Grid.Row="1" Click="button1_Click">
             <Image Source="/UI;component/Images/AddDestination.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
         <Button Height="95" HorizontalAlignment="Center" Name="button2" VerticalAlignment="Center" Width="95" Grid.Column="1" Margin="49,9,49,55" Grid.Row="1">

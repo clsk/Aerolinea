@@ -9,6 +9,7 @@ namespace DataLayer
     {
         internal TransAsiento(Asiento persistent_object)
             : base(persistent_object)
+
         {
         }
 

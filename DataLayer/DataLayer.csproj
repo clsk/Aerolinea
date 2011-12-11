@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="AbstractFactory.cs" />
     <Compile Include="AbstractTrans.cs" />
+    <Compile Include="Aeropuerto\IAeropuerto.cs" />
+    <Compile Include="Aeropuerto\TransAeropuerto.cs" />
     <Compile Include="Asiento\AsientoFactory.cs" />
     <Compile Include="Asiento\IAsiento.cs" />
     <Compile Include="Asiento\TransAsiento.cs" />
@@ -83,13 +85,9 @@
       <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Destino\" />
+    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
