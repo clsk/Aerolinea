@@ -8,7 +8,7 @@ namespace DataLayer
     public class ReservacionFactory : AbstractFactory<IReservacion, TransReservacion, Reservacion>
     {
         ReservacionFactory()
-            : base(DALReservacion.GetReservacionByID)
+            : base(DALCliente.GetReservacionFromID)
         { }
     }
 }
