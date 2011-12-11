@@ -7,12 +7,12 @@ namespace DataLayer
 {
     public class TransAsiento : IAsiento
     {
+        private Asiento persAsiento;
+
         public TransAsiento(Asiento persistent)
         {
             persAsiento = persistent;
         }
-
-        private Asiento persAsiento;
 
         public TipoClase Clase
         {

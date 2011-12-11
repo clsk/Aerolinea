@@ -45,6 +45,7 @@ namespace DataLayer
 
         public void Flush()
         {
+
         }
 
         public bool IsValid() { return persUser != null; }
