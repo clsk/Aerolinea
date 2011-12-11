@@ -105,6 +105,10 @@
       <Project>{E534CA4D-FAD0-4664-AD0B-11011D142BC6}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greyable\GreyableImage.csproj">
+      <Project>{4CA5D447-9840-4A9A-A8BA-85B1B79A85E3}</Project>
+      <Name>GreyableImage</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AddDestination.png" />
