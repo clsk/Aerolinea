@@ -19,12 +19,16 @@ namespace DataLayer
             get { return persistent; }
         }
 
-
-        public void Flush()
+        public void Flush(Action<PersistentType> update_delegate)
         {
-            // TODO:
-            // receive Func<void, PersistentType> as parameter, then func(persistent_object)
-            throw new NotImplementedException();
+            try
+            {
+                update_delegate(persistent);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -5,43 +5,45 @@ using System.Text;
 
 namespace DataLayer
 {
-    public class TransVuelo : IVuelo
+    public class TransVuelo : AbstractTrans<Vuelo>, IVuelo
     {
-        private Vuelo persVuelo;
-
-        internal TransVuelo(Vuelo persistent)
+        internal TransVuelo(Vuelo persistent_object) : base(persistent_object)
         {
-            persVuelo = persistent;
         }
 
         public DateTime FechaLlegada
         {
-            get { return persVuelo.FechaLlegada; }
-            set { persVuelo.FechaLlegada = value; }
+            get { return persistent.FechaLlegada; }
+            set { persistent.FechaLlegada = value; }
         }
 
         public DateTime FechaSalida
         {
-            get { return persVuelo.FechaSalida; }
-            set { persVuelo.FechaSalida = value; }
+            get { return persistent.FechaSalida; }
+            set { persistent.FechaSalida = value; }
         }
 
         public TimeSpan HoraLlegada
         {
-            get { return persVuelo.HoraLlegada; }
-            set { persVuelo.HoraLlegada = value; }
+            get { return persistent.HoraLlegada; }
+            set { persistent.HoraLlegada = value; }
         }
 
         public TimeSpan HoraSalida
         {
-            get { return persVuelo.HoraSalida; }
-            set { persVuelo.HoraSalida = value; }
+            get { return persistent.HoraSalida; }
+            set { persistent.HoraSalida = value; }
         }
 
         public string Comentario
         {
-            get { return persVuelo.Comentario; }
-            set { persVuelo.Comentario = value; }
+            get { return persistent.Comentario; }
+            set { persistent.Comentario = value; }
+        }
+
+        public void Flush()
+        {
+            base.Flush(DALVuelo.UpdateVuelo);
         }
     }
 }

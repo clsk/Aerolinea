@@ -5,48 +5,47 @@ using System.Text;
 
 namespace DataLayer
 {
-    public class TransUsuario : IUsuario
+    public class TransUsuario : AbstractTrans<Usuario>, IUsuario
     {
-        Usuario persUser;
-
-        public TransUsuario(Usuario persistent)
+        internal TransUsuario(Usuario persistent_object)
+            : base(persistent_object)
         {
-            persUser = persistent;
         }
 
         public int ID
         {
-            get { return persUser.idUsuario;}
-            set { persUser.idUsuario = value; }
+            get { return persistent.idUsuario;}
+            set { persistent.idUsuario = value; }
         }
 
         public string Nombre
         {
-            get { return persUser.Nombre; }
-            set { persUser.Nombre = value; }
+            get { return persistent.Nombre; }
+            set { persistent.Nombre = value; }
         }
 
         public string Login
         {
-            get { return persUser.Login; }
-            set { persUser.Login = value; }
+            get { return persistent.Login; }
+            set { persistent.Login = value; }
         }
         public string Password
         {
-            get { return persUser.Password; }
-            set { persUser.Password = value; }
+            get { return persistent.Password; }
+            set { persistent.Password = value; }
         }
 
         public NivelUsuario Nivel
         {
-            get { return persUser.NivelUsuario; }
-            set { persUser.NivelUsuario = value; }
+            get { return persistent.NivelUsuario; }
+            set { persistent.NivelUsuario = value; }
         }
+
+        public bool IsValid() { return persistent != null; }
 
         public void Flush()
         {
+            base.Flush(DALUsuario.UpdateUsuario);
         }
-
-        public bool IsValid() { return persUser != null; }
     }
 }

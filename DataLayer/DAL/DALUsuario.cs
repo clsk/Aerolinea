@@ -40,14 +40,13 @@ namespace DataLayer
          * 
          * @warning El idUsuario DEBE estar incializado
          */
-        static public bool UpdateUsuario(Usuario user)
+        static public void UpdateUsuario(Usuario user)
         {  
             try
             {
                 Provider.GetProvider().spUpdateUsuario(user.idUsuario, user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

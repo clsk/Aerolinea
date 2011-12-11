@@ -7,10 +7,14 @@ namespace DataLayer
 {
     public interface IAvion
     {
+        int ID
+        {
+            get;
+        }
+
         SerieAvion Serie
         {
             get;
-            set;
         }
     }
 }

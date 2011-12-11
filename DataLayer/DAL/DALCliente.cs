@@ -47,11 +47,10 @@ namespace DataLayer
          * 
          * @return true si se pudo actualizar la nueva reserva, false caso contrário.
          */
-        static public bool UpdateReserva(Reservacion unaReserva)
+        static public void UpdateReserva(Reservacion unaReserva)
         {
             try { Provider.GetProvider().spUpdateReservacion(unaReserva.idReservacion, unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
         

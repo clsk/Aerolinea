@@ -5,29 +5,32 @@ using System.Text;
 
 namespace DataLayer
 {
-    public class TransAsiento : IAsiento
+    public class TransAsiento : AbstractTrans<Asiento>, IAsiento
     {
-        public TransAsiento(Asiento persistent)
+        internal TransAsiento(Asiento persistent_object)
+            : base(persistent_object)
         {
-            persAsiento = persistent;
         }
-
-        private Asiento persAsiento;
 
         public TipoClase Clase
         {
-            get { return persAsiento.TipoClase; }
-            set { persAsiento.TipoClase = value; }
+            get { return persistent.TipoClase; }
+            set { persistent.TipoClase = value; }
         }
 
-        public int PosX { get { return persAsiento.CordX; } set { persAsiento.CordX = value; } }
+        public int PosX { get { return persistent.CordX; } set { persistent.CordX = value; } }
 
-        public int PosY { get { return persAsiento.CordY; } set { persAsiento.CordY = value; } }
+        public int PosY { get { return persistent.CordY; } set { persistent.CordY = value; } }
 
-        public string Numero { get { return persAsiento.Numero; } set { persAsiento.Numero = value; } }
+        public string Numero { get { return persistent.Numero; } set { persistent.Numero = value; } }
 
-        public int Fila { get { return persAsiento.Fila; } set { persAsiento.Fila = value; } }
+        public int Fila { get { return persistent.Fila; } set { persistent.Fila = value; } }
 
-        public int IdAsiento { get { return persAsiento.idAsiento; } set { persAsiento.idAsiento = value; } }
+        public int IdAsiento { get { return persistent.idAsiento; } set { persistent.idAsiento = value; } }
+
+        public void Flush()
+        {
+            base.Flush(DALAsiento.UpdateAsiento);
+        }
     }
 }

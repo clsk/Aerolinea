@@ -5,7 +5,13 @@ using System.Text;
 
 namespace DataLayer
 {
-    interface ITrans
+    public interface ITrans<PersistentType>
     {
+        PersistentType PersistentObject
+        {
+            get;
+        }
+
+        void Flush();
     }
 }

@@ -47,11 +47,10 @@ namespace DataLayer
          * 
          * @return true si fue posible actualizar el asiento, false caso contrário.
          */
-        static public bool UpdateAsiento(Asiento unAsiento)
+        static public void UpdateAsiento(Asiento unAsiento)
         {
             try { Provider.GetProvider().spUpdateAsiento(unAsiento.idAsiento,unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

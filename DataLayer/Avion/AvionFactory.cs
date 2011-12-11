@@ -9,6 +9,7 @@ namespace DataLayer
     {
         AvionFactory()
             : base(DALAvion.GetAvionFromID)
-        { }
+        {
+        }
     }
 }

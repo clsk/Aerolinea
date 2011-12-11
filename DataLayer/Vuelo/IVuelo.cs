@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    public interface IVuelo
+    public interface IVuelo : ITrans<Vuelo>
     {
         DateTime FechaLlegada
         {

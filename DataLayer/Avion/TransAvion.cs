@@ -5,20 +5,36 @@ using System.Text;
 
 namespace DataLayer
 {
-    public class TransAvion: IAvion
+    public class TransAvion: AbstractTrans<Avion>, IAvion
     {
-        Avion persAvion;
-        public TransAvion(Avion persistent)
+        internal TransAvion(Avion persistent_object)
+            : base(persistent_object)
         {
-            persAvion = persistent;
+            List<PlantaAvion> _plantas = DALAvion.GetPlantaAvionFromAvion(this.ID);
+            plantas = new TransPlantaAvion[_plantas.Count];
+
+            foreach (PlantaAvion planta in _plantas)
+            {
+                plantas[planta.Piso] = new TransPlantaAvion(planta);
+            }
         }
 
         public SerieAvion Serie
         {
-            get { return persAvion.SerieAvion; }
-            set { persAvion.SerieAvion = value; }
+            get { return persistent.SerieAvion; }
+            set { persistent.SerieAvion = value; }
         }
 
+        public int ID
+        {
+            get { return persistent.idAvion; }
+        }
 
+        private TransPlantaAvion[] plantas;
+
+        public void Flush()
+        {
+            base.Flush(DALAvion.UpdateAvion);
+        }
     }
 }

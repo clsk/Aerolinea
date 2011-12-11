@@ -126,11 +126,10 @@ namespace DataLayer
          * 
          * @warning el idMarcaAvion DEBE estár inicializado.
          */
-        static public bool UpdateAvion(Avion unAvion)
+        static public void UpdateAvion(Avion unAvion)
         {
             try { Provider.GetProvider().spUpdateAvion(unAvion.idAvion, unAvion.idSerie); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 
@@ -210,7 +209,7 @@ namespace DataLayer
         }
         #endregion
 
-        #region Obtener las plantas de avión, dado un avión.
+         #region Obtener las plantas de avión, dado un avión.
         /**
          * @brief Obtiene todas las plantas de un avión, dado un avión.
          * 

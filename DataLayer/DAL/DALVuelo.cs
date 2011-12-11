@@ -51,7 +51,7 @@ namespace DataLayer
          * 
          * @return true si se pudo actualizar, false caso contrário
          */
-        bool UpdateVuelo(Vuelo unVuelo)
+        public static void UpdateVuelo(Vuelo unVuelo)
         {
             try
             {
@@ -59,7 +59,6 @@ namespace DataLayer
                                                   unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoSalida);
             }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 
