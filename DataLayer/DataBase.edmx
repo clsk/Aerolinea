@@ -481,6 +481,13 @@
         <Function Name="spGetAsientosNoOcupados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idVuelo" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetAvionesDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaSalida" Type="date" Mode="In" />
+          <Parameter Name="FechaLlegada" Type="date" Mode="In" />
+          <Parameter Name="HoraSalida" Type="time" Mode="In" />
+          <Parameter Name="HoraLlegada" Type="time" Mode="In" />
+          <Parameter Name="idSerie" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetAvionesFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAvion" Type="int" Mode="In" />
         </Function>
@@ -1003,6 +1010,13 @@
           </FunctionImport>
           <FunctionImport Name="spGetVueloFromID" EntitySet="Vueloes" ReturnType="Collection(ReservaVuelosModel.Vuelo)">
           <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAvionesDisponibles" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
+            <Parameter Name="FechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaLlegada" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraSalida" Mode="In" Type="Time" />
+            <Parameter Name="HoraLlegada" Mode="In" Type="Time" />
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1552,6 +1566,7 @@
           <FunctionImportMapping FunctionImportName="spUpdateVuelo" FunctionName="ReservaVuelosModel.Store.spUpdateVuelo" />
           <FunctionImportMapping FunctionImportName="spUpdatePrecio" FunctionName="ReservaVuelosModel.Store.spUpdatePrecio" />
           <FunctionImportMapping FunctionImportName="spGetVueloFromID" FunctionName="ReservaVuelosModel.Store.spGetVueloFromID" />
+          <FunctionImportMapping FunctionImportName="spGetAvionesDisponibles" FunctionName="ReservaVuelosModel.Store.spGetAvionesDisponibles" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

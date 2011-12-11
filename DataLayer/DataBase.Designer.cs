@@ -2655,6 +2655,132 @@ namespace DataLayer
     
             return base.ExecuteFunction<Vuelo>("spGetVueloFromID", mergeOption, idVueloParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="fechaSalida">No Metadata Documentation available.</param>
+        /// <param name="fechaLlegada">No Metadata Documentation available.</param>
+        /// <param name="horaSalida">No Metadata Documentation available.</param>
+        /// <param name="horaLlegada">No Metadata Documentation available.</param>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionesDisponibles(Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.TimeSpan> horaLlegada, Nullable<global::System.Int32> idSerie)
+        {
+            ObjectParameter fechaSalidaParameter;
+            if (fechaSalida.HasValue)
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", fechaSalida);
+            }
+            else
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter fechaLlegadaParameter;
+            if (fechaLlegada.HasValue)
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", fechaLlegada);
+            }
+            else
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaSalidaParameter;
+            if (horaSalida.HasValue)
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", horaSalida);
+            }
+            else
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter horaLlegadaParameter;
+            if (horaLlegada.HasValue)
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", horaLlegada);
+            }
+            else
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionesDisponibles", fechaSalidaParameter, fechaLlegadaParameter, horaSalidaParameter, horaLlegadaParameter, idSerieParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="fechaSalida">No Metadata Documentation available.</param>
+        /// <param name="fechaLlegada">No Metadata Documentation available.</param>
+        /// <param name="horaSalida">No Metadata Documentation available.</param>
+        /// <param name="horaLlegada">No Metadata Documentation available.</param>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spGetAvionesDisponibles(Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.TimeSpan> horaLlegada, Nullable<global::System.Int32> idSerie, MergeOption mergeOption)
+        {
+            ObjectParameter fechaSalidaParameter;
+            if (fechaSalida.HasValue)
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", fechaSalida);
+            }
+            else
+            {
+                fechaSalidaParameter = new ObjectParameter("FechaSalida", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter fechaLlegadaParameter;
+            if (fechaLlegada.HasValue)
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", fechaLlegada);
+            }
+            else
+            {
+                fechaLlegadaParameter = new ObjectParameter("FechaLlegada", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter horaSalidaParameter;
+            if (horaSalida.HasValue)
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", horaSalida);
+            }
+            else
+            {
+                horaSalidaParameter = new ObjectParameter("HoraSalida", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter horaLlegadaParameter;
+            if (horaLlegada.HasValue)
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", horaLlegada);
+            }
+            else
+            {
+                horaLlegadaParameter = new ObjectParameter("HoraLlegada", typeof(global::System.TimeSpan));
+            }
+    
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spGetAvionesDisponibles", mergeOption, fechaSalidaParameter, fechaLlegadaParameter, horaSalidaParameter, horaLlegadaParameter, idSerieParameter);
+        }
 
         #endregion
     }
