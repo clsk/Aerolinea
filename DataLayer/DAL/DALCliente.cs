@@ -79,7 +79,7 @@ namespace DataLayer
          * 
          * @return  La reservación si se encontró, null caso contrário.
          */
-        static Reservacion GetReservacionFromID(int ID)
+        static public Reservacion GetReservacionFromID(int ID)
         {
             try { return Provider.GetProvider().spGetReservaFromID(ID).FirstOrDefault(); }
             catch (Exception e) { throw e; }
