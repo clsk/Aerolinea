@@ -71,7 +71,6 @@
     <Compile Include="Reservacion\ReservacionFactory.cs" />
     <Compile Include="Reservacion\IReservacion.cs" />
     <Compile Include="Reservacion\TransReservacion.cs" />
-    <Compile Include="TransAeropuerto.cs" />
     <Compile Include="Usuario\IUsuario.cs" />
     <Compile Include="Usuario\TransUsuario.cs" />
     <Compile Include="Usuario\UsuarioFactory.cs" />
