@@ -1002,7 +1002,7 @@
             <Parameter Name="Precio" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="spGetVueloFromID" EntitySet="Vueloes" ReturnType="Collection(ReservaVuelosModel.Vuelo)">
-            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          <Parameter Name="idVuelo" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
