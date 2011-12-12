@@ -1,0 +1,45 @@
+﻿<Window x:Class="UI.Administrativo.AdmVuelo.AdmVuelo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+Title="AdmVuelo" Height="450" Width="600" MinHeight="450" MinWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="46" Height="39" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnAddDestino" VerticalAlignment="Center" Width="95" Margin="49,9,49,55" Grid.Row="1">
+            <Image Source="/UI;component/Images/AddDestination.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnAddVuelo" VerticalAlignment="Center" Width="95" Grid.Column="1" Margin="49,9,49,55" Grid.Row="1">
+            <Image Source="/UI;component/Images/NewVuelo.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnAddAvion" VerticalAlignment="Center" Width="95" Grid.Column="2" Margin="49,9,49,55" Grid.Row="1">
+            <Image Source="/UI;component/Images/Airplane-new.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnEditDestino" VerticalAlignment="Center" Width="95" Grid.Row="2" Margin="0">
+            <Image
+                Source="/UI;component/Images/EditDestination.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnEditVuelo" VerticalAlignment="Center" Width="95" Grid.Column="1" Grid.Row="2">
+            <Image Source="/UI;component/Images/EditVuelo.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Button Height="95" HorizontalAlignment="Center" Name="btnEditAvion" VerticalAlignment="Center" Width="95" Grid.Column="2" Grid.Row="2">
+            <Image Source="/UI;component/Images/Airplane-edit.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        </Button>
+        <Label Content="Agregar destino" Height="28" HorizontalAlignment="Center" Margin="0,110,0,21" Name="label1" VerticalAlignment="Center" Grid.Row="1" />
+        <Label Content="Agregar vuelo" Height="28" HorizontalAlignment="Center" Margin="0,110,0,21" Name="label2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+        <Label Content="Agregar avión" Height="28" HorizontalAlignment="Center" Margin="0,110,0,21" Name="label3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+        <Label Content="Modificar destino" Height="28" HorizontalAlignment="Center" Margin="0,156,0,21" Name="label4" VerticalAlignment="Center" Grid.Row="2" />
+        <Label Content="Modificar vuelo" Height="28" HorizontalAlignment="Center" Margin="0,156,0,21" Name="label5" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" />
+        <Label Content="Modificar avión" Height="28" HorizontalAlignment="Center" Margin="0,156,0,21" Name="label6" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+        <Button Height="27" Name="btmAtras" VerticalAlignment="Top" Margin="9,9,0,0" HorizontalAlignment="Left" Width="49" Click="btmAtras_Click">
+            <Image Source="/UI;component/Images/left_32.png" Stretch="Fill"/>
+        </Button>
+    </Grid>
+</Window>
