@@ -16,22 +16,26 @@ using BusinessLogic;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for VueloAdmin.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            this.Title += " " + LUser.GetInstance().Nombre + " (" + LUser.GetInstance().NombreNivel + ")";
+
+            // Restrict View based on level;
+            if (Permission.CheckSupervisor() == false)
+                btAdministracion.IsEnabled = false;
         }
 
-        private void btLogin_Click(object sender, RoutedEventArgs e)
+        private void btReservaciones_Click(object sender, RoutedEventArgs e)
         {
-            if (LUser.GetInstance().Login(tbUsername.Text, tbPassword.Password))
-                MessageBox.Show("Login Successful with nivel " + LUser.GetInstance().nivel.ToString());
-            else
-                MessageBox.Show("Login Failed");
-
+            ReservacionMain reservacion_main = new ReservacionMain();
+            reservacion_main.Show();
+            this.Close();
         }
     }
 }

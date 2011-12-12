@@ -7,9 +7,9 @@ namespace DataLayer
 {
     public interface IAeropuerto
     {
-        string NombreAero { get; set; }
+        int ID { get; }
+        string Nombre { get; set; }
         string Siglas { get; set; }
         Ciudad ciudad { get; set; }
-        void flush();
     }
 }

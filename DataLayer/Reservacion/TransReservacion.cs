@@ -7,7 +7,7 @@ namespace DataLayer
 {
     public class TransReservacion : AbstractTrans<Reservacion>, IReservacion
     {
-        internal TransReservacion(Reservacion persistent_object) : base(persistent_object)
+        public TransReservacion(Reservacion persistent_object) : base(persistent_object)
         {
         }
 

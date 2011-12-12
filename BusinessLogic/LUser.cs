@@ -41,11 +41,19 @@ namespace BusinessLogic
             }
         }
 
-        public int nivel
+        public int Nivel
         {
             get
             {
                 return d_usuario.Nivel.PesoNivel;
+            }
+        }
+
+        public string NombreNivel
+        {
+            get
+            {
+                return d_usuario.Nivel.NombreNivel;
             }
         }
 

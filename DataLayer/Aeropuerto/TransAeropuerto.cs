@@ -5,26 +5,29 @@ using System.Text;
 
 namespace DataLayer
 {
-    class TransAeropuerto : IAeropuerto
+    public class TransAeropuerto : AbstractTrans<Aeropuerto>, IAeropuerto
     {
-        private Aeropuerto persAeropuerto;
-        public TransAeropuerto(Aeropuerto aeropuerto)
+        public TransAeropuerto(Aeropuerto persistent_object) : base(persistent_object)
         {
-            persAeropuerto = aeropuerto;
+        }
+
+        public int ID
+        {
+            get { return persistent.idAeropuerto; }
         }
 
 
         #region IAeropuerto Members
 
-        public string NombreAero
+        public string Nombre
         {
             get
             {
-                return persAeropuerto.NombreAeropuerto;
+                return persistent.NombreAeropuerto;
             }
             set
             {
-                persAeropuerto.NombreAeropuerto = value;
+                persistent.NombreAeropuerto = value;
             }
         }
 
@@ -32,11 +35,11 @@ namespace DataLayer
         {
             get
             {
-                return persAeropuerto.Siglas;
+                return persistent.Siglas;
             }
             set
             {
-                persAeropuerto.Siglas = value;
+                persistent.Siglas = value;
             }
         }
 
@@ -44,17 +47,17 @@ namespace DataLayer
         {
             get
             {
-                return persAeropuerto.Ciudad;
+                return persistent.Ciudad;
             }
             set
             {
-                persAeropuerto.Ciudad = value;
+                persistent.Ciudad = value;
             }
         }
 
-        public void flush()
+        public void Flush()
         {
-            throw new NotImplementedException();
+            base.Flush(DALDestino.UpdateAeropuerto);
         }
 
         #endregion
