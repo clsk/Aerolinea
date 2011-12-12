@@ -173,5 +173,18 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Obtener todos los aeropuertos
+        /**
+        * @brief Obtiene todos los aeropuertos
+        * 
+        * @return Las lista de aeropuerto si todo salió bien, NULL caso contrário
+        */
+        static public List<Aeropuerto> GetAllAeropuerto()
+        {
+            try { return Provider.GetProvider().spGetAllAeropuertos().ToList(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
     }
 }

@@ -467,6 +467,7 @@
         <Function Name="spGetAeropuertosFromCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCiudad" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetAllAeropuertos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllMarcaAvion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllNivelUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllPaises" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1018,6 +1019,7 @@
             <Parameter Name="HoraLlegada" Mode="In" Type="Time" />
             <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="spGetAllAeropuertos" EntitySet="Aeropuertoes" ReturnType="Collection(ReservaVuelosModel.Aeropuerto)" />
         </EntityContainer>
         <EntityType Name="Aeropuerto">
           <Key>
@@ -1567,6 +1569,7 @@
           <FunctionImportMapping FunctionImportName="spUpdatePrecio" FunctionName="ReservaVuelosModel.Store.spUpdatePrecio" />
           <FunctionImportMapping FunctionImportName="spGetVueloFromID" FunctionName="ReservaVuelosModel.Store.spGetVueloFromID" />
           <FunctionImportMapping FunctionImportName="spGetAvionesDisponibles" FunctionName="ReservaVuelosModel.Store.spGetAvionesDisponibles" />
+          <FunctionImportMapping FunctionImportName="spGetAllAeropuertos" FunctionName="ReservaVuelosModel.Store.spGetAllAeropuertos" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

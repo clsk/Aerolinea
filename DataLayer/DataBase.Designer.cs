@@ -2781,6 +2781,22 @@ namespace DataLayer
     
             return base.ExecuteFunction<Avion>("spGetAvionesDisponibles", mergeOption, fechaSalidaParameter, fechaLlegadaParameter, horaSalidaParameter, horaLlegadaParameter, idSerieParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<Aeropuerto> spGetAllAeropuertos()
+        {
+            return base.ExecuteFunction<Aeropuerto>("spGetAllAeropuertos");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<Aeropuerto> spGetAllAeropuertos(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<Aeropuerto>("spGetAllAeropuertos", mergeOption);
+        }
 
         #endregion
     }
