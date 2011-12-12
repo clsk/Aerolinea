@@ -888,58 +888,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="idAeropuerto">No Metadata Documentation available.</param>
-        /// <param name="nombre">No Metadata Documentation available.</param>
-        /// <param name="idCiudad">No Metadata Documentation available.</param>
-        /// <param name="siglas">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUdateAeropuerto(Nullable<global::System.Int32> idAeropuerto, global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
-        {
-            ObjectParameter idAeropuertoParameter;
-            if (idAeropuerto.HasValue)
-            {
-                idAeropuertoParameter = new ObjectParameter("idAeropuerto", idAeropuerto);
-            }
-            else
-            {
-                idAeropuertoParameter = new ObjectParameter("idAeropuerto", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter nombreParameter;
-            if (nombre != null)
-            {
-                nombreParameter = new ObjectParameter("Nombre", nombre);
-            }
-            else
-            {
-                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
-            }
-    
-            ObjectParameter idCiudadParameter;
-            if (idCiudad.HasValue)
-            {
-                idCiudadParameter = new ObjectParameter("idCiudad", idCiudad);
-            }
-            else
-            {
-                idCiudadParameter = new ObjectParameter("idCiudad", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter siglasParameter;
-            if (siglas != null)
-            {
-                siglasParameter = new ObjectParameter("Siglas", siglas);
-            }
-            else
-            {
-                siglasParameter = new ObjectParameter("Siglas", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUdateAeropuerto", idAeropuertoParameter, nombreParameter, idCiudadParameter, siglasParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         /// <param name="idCiudad">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idpais">No Metadata Documentation available.</param>
@@ -2796,6 +2744,58 @@ namespace DataLayer
         public ObjectResult<Aeropuerto> spGetAllAeropuertos(MergeOption mergeOption)
         {
             return base.ExecuteFunction<Aeropuerto>("spGetAllAeropuertos", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAeropuerto">No Metadata Documentation available.</param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        /// <param name="idCiudad">No Metadata Documentation available.</param>
+        /// <param name="siglas">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAeropuerto(Nullable<global::System.Int32> idAeropuerto, global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
+        {
+            ObjectParameter idAeropuertoParameter;
+            if (idAeropuerto.HasValue)
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", idAeropuerto);
+            }
+            else
+            {
+                idAeropuertoParameter = new ObjectParameter("idAeropuerto", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter idCiudadParameter;
+            if (idCiudad.HasValue)
+            {
+                idCiudadParameter = new ObjectParameter("idCiudad", idCiudad);
+            }
+            else
+            {
+                idCiudadParameter = new ObjectParameter("idCiudad", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter siglasParameter;
+            if (siglas != null)
+            {
+                siglasParameter = new ObjectParameter("Siglas", siglas);
+            }
+            else
+            {
+                siglasParameter = new ObjectParameter("Siglas", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAeropuerto", idAeropuertoParameter, nombreParameter, idCiudadParameter, siglasParameter);
         }
 
         #endregion

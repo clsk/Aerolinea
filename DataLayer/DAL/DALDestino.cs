@@ -108,11 +108,10 @@ namespace DataLayer
         *
         * @warning el idAeropuerto DEBE estar inicializado.
         */
-        static public bool UpdatePais(Aeropuerto unAeropuerto)
+        static public void UpdateAeropuerto(Aeropuerto unAeropuerto)
         {
-            try { Provider.GetProvider().spUdateAeropuerto(unAeropuerto.idAeropuerto, unAeropuerto.NombreAeropuerto, unAeropuerto.idCiudad, unAeropuerto.Siglas); }
+            try { Provider.GetProvider().spUpdateAeropuerto(unAeropuerto.idAeropuerto, unAeropuerto.NombreAeropuerto, unAeropuerto.idCiudad, unAeropuerto.Siglas); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 
@@ -182,6 +181,7 @@ namespace DataLayer
         */
         static public List<Aeropuerto> GetAllAeropuerto()
         {
+
             try { return Provider.GetProvider().spGetAllAeropuertos().ToList(); }
             catch (Exception e) { throw e; }
         }
