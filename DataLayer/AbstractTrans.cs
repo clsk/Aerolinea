@@ -8,7 +8,7 @@ namespace DataLayer
 
     public class AbstractTrans<PersistentType>
     {
-        internal AbstractTrans(PersistentType persistent_object)
+        public AbstractTrans(PersistentType persistent_object)
         {
             persistent = persistent_object;
         }

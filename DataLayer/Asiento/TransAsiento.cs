@@ -7,7 +7,7 @@ namespace DataLayer
 {
     public class TransAsiento : AbstractTrans<Asiento>, IAsiento
     {
-        internal TransAsiento(Asiento persistent_object)
+        public TransAsiento(Asiento persistent_object)
             : base(persistent_object)
 
         {
@@ -27,7 +27,7 @@ namespace DataLayer
 
         public int Fila { get { return persistent.Fila; } set { persistent.Fila = value; } }
 
-        public int IdAsiento { get { return persistent.idAsiento; } set { persistent.idAsiento = value; } }
+        public int ID { get { return persistent.idAsiento; } set { persistent.idAsiento = value; } }
 
         public void Flush()
         {

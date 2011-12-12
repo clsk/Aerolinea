@@ -17,6 +17,6 @@ namespace DataLayer
 
         int Fila { get; set; }
 
-        int IdAsiento { get; set; }
+        int ID { get; set; }
     }
 }

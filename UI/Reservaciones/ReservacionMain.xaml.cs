@@ -17,15 +17,30 @@ namespace UI
     /// <summary>
     /// Interaction logic for VueloAdmin.xaml
     /// </summary>
-    public partial class VueloAdmin : Window
+    public partial class ReservacionMain : Window
     {
-        public VueloAdmin()
+        public ReservacionMain()
         {
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main_window = new MainWindow();
+            this.Close();
+            main_window.Show();
+        }
+
+        private void btBuscarVuelo_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarVuelo buscar_vuelo = new BuscarVuelo();
+            this.Close();
+            buscar_vuelo.Show();
         }
     }
 }

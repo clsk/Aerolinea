@@ -1,0 +1,40 @@
+﻿<Window x:Class="UI.BuscarVuelo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BuscarVuelo" Height="450" Width="600">
+    <StackPanel Name="stackPanel1">
+        <Button Height="27" Name="btBack" VerticalAlignment="Top" Margin="9,9,0,0" HorizontalAlignment="Left" Width="49" Click="btBack_Click">
+            <Image Source="/UI;component/Images/left_32.png" Stretch="Fill"/>
+        </Button>
+        <Grid Name="gControles" Height="155" Width="580">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="41*" />
+                <RowDefinition Height="43*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <RadioButton Content="Ida y Vuelta" Height="16" HorizontalAlignment="Center" Margin="11" Name="rbIdaVuelta" VerticalAlignment="Center" />
+            <RadioButton Content="Solo Ida" Grid.Column="1" Height="16" Margin="11" Name="rbIda" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <ComboBox Grid.Row="1" Height="23" HorizontalAlignment="Right" Margin="0,12,64,22" Name="cbDesde" VerticalAlignment="Center" Width="120" DataContext="{Binding}" DisplayMemberPath="Nombre" />
+            <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,12,54,22" Name="cbHacia" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="1" />
+            <DatePicker Grid.Row="2" Height="25" HorizontalAlignment="Left" Margin="106,13,0,0" Name="dpSalida" VerticalAlignment="Top" Width="115" />
+            <DatePicker Height="25" HorizontalAlignment="Left" Margin="116,12,0,0" Name="dpRegreso" VerticalAlignment="Top" Width="115" Grid.Column="1" Grid.Row="2" />
+            <Label Content="Desde" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblDesde" VerticalAlignment="Top" />
+            <Label Content="Hacia" Grid.Column="1" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="71,12,0,0" Name="lblHacia" VerticalAlignment="Top" />
+            <Label Content="Salida" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblSalida" VerticalAlignment="Top" />
+            <Label Content="Regreso" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblRegreso" VerticalAlignment="Top" Grid.Column="1" />
+        </Grid>
+        <Button Content="Buscar" Height="23" Name="btBuscar" Width="75" Click="btBuscar_Click" />
+        <Grid Name="gBottom" Height="196">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ListBox Name="lbVuelosIda" ItemsSource="{Binding}" />
+            <ListBox Name="lbVuelosVuelta" Grid.Column="1" />
+        </Grid>
+    </StackPanel>
+</Window>

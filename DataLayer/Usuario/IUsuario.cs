@@ -36,8 +36,6 @@ namespace DataLayer
             set;
         }
 
-        void Flush();
-
         bool IsValid();
 
     }

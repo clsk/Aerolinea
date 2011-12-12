@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    class DALDestino
+    public class DALDestino
     {
 
         #region Crear pais

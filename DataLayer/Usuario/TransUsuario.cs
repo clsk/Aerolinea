@@ -7,9 +7,10 @@ namespace DataLayer
 {
     public class TransUsuario : AbstractTrans<Usuario>, IUsuario
     {
-        internal TransUsuario(Usuario persistent_object)
+        public TransUsuario(Usuario persistent_object)
             : base(persistent_object)
         {
+            persistent = persistent_object;
         }
 
         public int ID

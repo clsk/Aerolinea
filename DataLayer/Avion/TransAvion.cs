@@ -7,7 +7,7 @@ namespace DataLayer
 {
     public class TransAvion: AbstractTrans<Avion>, IAvion
     {
-        internal TransAvion(Avion persistent_object)
+        public TransAvion(Avion persistent_object)
             : base(persistent_object)
         {
             List<PlantaAvion> _plantas = DALAvion.GetPlantaAvionFromAvion(this.ID);

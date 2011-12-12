@@ -62,13 +62,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Administrativo\VueloAdmin.xaml.cs">
-      <DependentUpon>VueloAdmin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Reservaciones\ReservacionMain.xaml.cs">
       <DependentUpon>ReservacionMain.xaml</DependentUpon>
     </Compile>
-    <Page Include="Reservaciones\BuscarVuelo.xaml">
     <Compile Include="Administrativo\AdmAvion\CrearAsientos.xaml.cs">
       <DependentUpon>CrearAsientos.xaml</DependentUpon>
     </Compile>
@@ -76,6 +72,10 @@
     <Compile Include="Administrativo\VueloAdmin.xaml.cs">
       <DependentUpon>VueloAdmin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Reservaciones\BuscarVuelo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Administrativo\AdmAvion\CrearAsientos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
