@@ -55,9 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrativo\AdmAvion\CrearAsientos.xaml.cs">
+      <DependentUpon>CrearAsientos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmAvion\UIAsiento.cs" />
     <Compile Include="Administrativo\VueloAdmin.xaml.cs">
       <DependentUpon>VueloAdmin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Administrativo\AdmAvion\CrearAsientos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +112,10 @@
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{E534CA4D-FAD0-4664-AD0B-11011D142BC6}</Project>
       <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{3CD858B9-DDE9-44CB-B8B1-4FE32AE6518F}</Project>
+      <Name>DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Greyable\GreyableImage.csproj">
       <Project>{4CA5D447-9840-4A9A-A8BA-85B1B79A85E3}</Project>
