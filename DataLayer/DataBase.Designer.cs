@@ -524,7 +524,7 @@ namespace DataLayer
         /// <param name="login">No Metadata Documentation available.</param>
         /// <param name="password">No Metadata Documentation available.</param>
         /// <param name="isActive">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateUsuario(Nullable<global::System.Int32> idUsuario, Nullable<global::System.Int32> idNivel, global::System.String nombre, global::System.String login, global::System.String password, Nullable<global::System.Boolean> isActive)
+        public int spUpdateUsuario(Nullable<global::System.Int32> idUsuario, Nullable<global::System.Int32> idNivel, global::System.String nombre, global::System.String login, global::System.String password, Nullable<global::System.Boolean> isActive)
         {
             ObjectParameter idUsuarioParameter;
             if (idUsuario.HasValue)
@@ -586,7 +586,7 @@ namespace DataLayer
                 isActiveParameter = new ObjectParameter("isActive", typeof(global::System.Boolean));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateUsuario", idUsuarioParameter, idNivelParameter, nombreParameter, loginParameter, passwordParameter, isActiveParameter);
+            return base.ExecuteFunction("spUpdateUsuario", idUsuarioParameter, idNivelParameter, nombreParameter, loginParameter, passwordParameter, isActiveParameter);
         }
     
         /// <summary>
@@ -799,7 +799,7 @@ namespace DataLayer
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewPais(global::System.String nombre)
+        public int spNewPais(global::System.String nombre)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -811,7 +811,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPais", nombreParameter);
+            return base.ExecuteFunction("spNewPais", nombreParameter);
         }
     
         /// <summary>
@@ -819,7 +819,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idpais">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewCiudad(global::System.String nombre, Nullable<global::System.Int32> idpais)
+        public int spNewCiudad(global::System.String nombre, Nullable<global::System.Int32> idpais)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -841,7 +841,7 @@ namespace DataLayer
                 idpaisParameter = new ObjectParameter("idpais", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewCiudad", nombreParameter, idpaisParameter);
+            return base.ExecuteFunction("spNewCiudad", nombreParameter, idpaisParameter);
         }
     
         /// <summary>
@@ -850,7 +850,7 @@ namespace DataLayer
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idCiudad">No Metadata Documentation available.</param>
         /// <param name="siglas">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewAeropuerto(global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
+        public int spNewAeropuerto(global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -882,7 +882,7 @@ namespace DataLayer
                 siglasParameter = new ObjectParameter("Siglas", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewAeropuerto", nombreParameter, idCiudadParameter, siglasParameter);
+            return base.ExecuteFunction("spNewAeropuerto", nombreParameter, idCiudadParameter, siglasParameter);
         }
     
         /// <summary>
@@ -891,7 +891,7 @@ namespace DataLayer
         /// <param name="idCiudad">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idpais">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateCiudad(Nullable<global::System.Int32> idCiudad, global::System.String nombre, Nullable<global::System.Int32> idpais)
+        public int spUpdateCiudad(Nullable<global::System.Int32> idCiudad, global::System.String nombre, Nullable<global::System.Int32> idpais)
         {
             ObjectParameter idCiudadParameter;
             if (idCiudad.HasValue)
@@ -923,7 +923,7 @@ namespace DataLayer
                 idpaisParameter = new ObjectParameter("idpais", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateCiudad", idCiudadParameter, nombreParameter, idpaisParameter);
+            return base.ExecuteFunction("spUpdateCiudad", idCiudadParameter, nombreParameter, idpaisParameter);
         }
     
         /// <summary>
@@ -931,7 +931,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="idPais">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePais(Nullable<global::System.Int32> idPais, global::System.String nombre)
+        public int spUpdatePais(Nullable<global::System.Int32> idPais, global::System.String nombre)
         {
             ObjectParameter idPaisParameter;
             if (idPais.HasValue)
@@ -953,7 +953,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePais", idPaisParameter, nombreParameter);
+            return base.ExecuteFunction("spUpdatePais", idPaisParameter, nombreParameter);
         }
     
         /// <summary>
@@ -1036,7 +1036,7 @@ namespace DataLayer
         /// <param name="cordX">No Metadata Documentation available.</param>
         /// <param name="cordY">No Metadata Documentation available.</param>
         /// <param name="piso">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewAsiento(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
+        public int spNewAsiento(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
         {
             ObjectParameter idAvionParameter;
             if (idAvion.HasValue)
@@ -1108,14 +1108,14 @@ namespace DataLayer
                 pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewAsiento", idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
+            return base.ExecuteFunction("spNewAsiento", idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
         }
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewTipoClase(global::System.String nombre)
+        public int spNewTipoClase(global::System.String nombre)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -1127,7 +1127,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewTipoClase", nombreParameter);
+            return base.ExecuteFunction("spNewTipoClase", nombreParameter);
         }
     
         /// <summary>
@@ -1141,7 +1141,7 @@ namespace DataLayer
         /// <param name="cordX">No Metadata Documentation available.</param>
         /// <param name="cordY">No Metadata Documentation available.</param>
         /// <param name="piso">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAsiento(Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
+        public int spUpdateAsiento(Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idTipoClase, global::System.String numero, Nullable<global::System.Int32> fila, Nullable<global::System.Int32> cordX, Nullable<global::System.Int32> cordY, Nullable<global::System.Int32> piso)
         {
             ObjectParameter idAsientoParameter;
             if (idAsiento.HasValue)
@@ -1223,7 +1223,7 @@ namespace DataLayer
                 pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAsiento", idAsientoParameter, idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
+            return base.ExecuteFunction("spUpdateAsiento", idAsientoParameter, idAvionParameter, idTipoClaseParameter, numeroParameter, filaParameter, cordXParameter, cordYParameter, pisoParameter);
         }
     
         /// <summary>
@@ -1231,7 +1231,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="idTipo">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateTipoClase(Nullable<global::System.Int32> idTipo, global::System.String nombre)
+        public int spUpdateTipoClase(Nullable<global::System.Int32> idTipo, global::System.String nombre)
         {
             ObjectParameter idTipoParameter;
             if (idTipo.HasValue)
@@ -1253,7 +1253,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateTipoClase", idTipoParameter, nombreParameter);
+            return base.ExecuteFunction("spUpdateTipoClase", idTipoParameter, nombreParameter);
         }
     
         /// <summary>
@@ -1396,7 +1396,7 @@ namespace DataLayer
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="idSerie">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewAvion(Nullable<global::System.Int32> idSerie)
+        public int spNewAvion(Nullable<global::System.Int32> idSerie)
         {
             ObjectParameter idSerieParameter;
             if (idSerie.HasValue)
@@ -1408,14 +1408,14 @@ namespace DataLayer
                 idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewAvion", idSerieParameter);
+            return base.ExecuteFunction("spNewAvion", idSerieParameter);
         }
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewMarcaAvion(global::System.String nombre)
+        public int spNewMarcaAvion(global::System.String nombre)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -1427,7 +1427,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewMarcaAvion", nombreParameter);
+            return base.ExecuteFunction("spNewMarcaAvion", nombreParameter);
         }
     
         /// <summary>
@@ -1435,7 +1435,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idMarca">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewSerieAvion(global::System.String nombre, Nullable<global::System.Int32> idMarca)
+        public int spNewSerieAvion(global::System.String nombre, Nullable<global::System.Int32> idMarca)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -1457,7 +1457,7 @@ namespace DataLayer
                 idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewSerieAvion", nombreParameter, idMarcaParameter);
+            return base.ExecuteFunction("spNewSerieAvion", nombreParameter, idMarcaParameter);
         }
     
         /// <summary>
@@ -1465,7 +1465,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="idAvion">No Metadata Documentation available.</param>
         /// <param name="idSerie">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAvion(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idSerie)
+        public int spUpdateAvion(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idSerie)
         {
             ObjectParameter idAvionParameter;
             if (idAvion.HasValue)
@@ -1487,7 +1487,7 @@ namespace DataLayer
                 idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAvion", idAvionParameter, idSerieParameter);
+            return base.ExecuteFunction("spUpdateAvion", idAvionParameter, idSerieParameter);
         }
     
         /// <summary>
@@ -1495,7 +1495,7 @@ namespace DataLayer
         /// </summary>
         /// <param name="idMarca">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateMarcaAvion(Nullable<global::System.Int32> idMarca, global::System.String nombre)
+        public int spUpdateMarcaAvion(Nullable<global::System.Int32> idMarca, global::System.String nombre)
         {
             ObjectParameter idMarcaParameter;
             if (idMarca.HasValue)
@@ -1517,7 +1517,7 @@ namespace DataLayer
                 nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateMarcaAvion", idMarcaParameter, nombreParameter);
+            return base.ExecuteFunction("spUpdateMarcaAvion", idMarcaParameter, nombreParameter);
         }
     
         /// <summary>
@@ -1526,7 +1526,7 @@ namespace DataLayer
         /// <param name="idSerie">No Metadata Documentation available.</param>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idMarca">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateSerieAvion(Nullable<global::System.Int32> idSerie, global::System.String nombre, Nullable<global::System.Int32> idMarca)
+        public int spUpdateSerieAvion(Nullable<global::System.Int32> idSerie, global::System.String nombre, Nullable<global::System.Int32> idMarca)
         {
             ObjectParameter idSerieParameter;
             if (idSerie.HasValue)
@@ -1558,7 +1558,7 @@ namespace DataLayer
                 idMarcaParameter = new ObjectParameter("idMarca", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateSerieAvion", idSerieParameter, nombreParameter, idMarcaParameter);
+            return base.ExecuteFunction("spUpdateSerieAvion", idSerieParameter, nombreParameter, idMarcaParameter);
         }
     
         /// <summary>
@@ -1567,7 +1567,7 @@ namespace DataLayer
         /// <param name="idAvion">No Metadata Documentation available.</param>
         /// <param name="imagen">No Metadata Documentation available.</param>
         /// <param name="piso">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewPlanta(Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
+        public int spNewPlanta(Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
         {
             ObjectParameter idAvionParameter;
             if (idAvion.HasValue)
@@ -1599,7 +1599,7 @@ namespace DataLayer
                 pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPlanta", idAvionParameter, imagenParameter, pisoParameter);
+            return base.ExecuteFunction("spNewPlanta", idAvionParameter, imagenParameter, pisoParameter);
         }
     
         /// <summary>
@@ -1609,7 +1609,7 @@ namespace DataLayer
         /// <param name="idAvion">No Metadata Documentation available.</param>
         /// <param name="imagen">No Metadata Documentation available.</param>
         /// <param name="piso">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePlanta(Nullable<global::System.Int32> idPlanta, Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
+        public int spUpdatePlanta(Nullable<global::System.Int32> idPlanta, Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
         {
             ObjectParameter idPlantaParameter;
             if (idPlanta.HasValue)
@@ -1651,7 +1651,7 @@ namespace DataLayer
                 pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePlanta", idPlantaParameter, idAvionParameter, imagenParameter, pisoParameter);
+            return base.ExecuteFunction("spUpdatePlanta", idPlantaParameter, idAvionParameter, imagenParameter, pisoParameter);
         }
     
         /// <summary>
@@ -1829,7 +1829,7 @@ namespace DataLayer
         /// <param name="idVuelo">No Metadata Documentation available.</param>
         /// <param name="idAsiento">No Metadata Documentation available.</param>
         /// <param name="idUsuario">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
+        public int spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
         {
             ObjectParameter idPersonaParameter;
             if (idPersona.HasValue)
@@ -1871,7 +1871,7 @@ namespace DataLayer
                 idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewReservacion", idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+            return base.ExecuteFunction("spNewReservacion", idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
         }
     
         /// <summary>
@@ -1880,7 +1880,7 @@ namespace DataLayer
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="apellidos">No Metadata Documentation available.</param>
         /// <param name="pasaporte">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewPersona(global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
+        public int spNewPersona(global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
         {
             ObjectParameter nombreParameter;
             if (nombre != null)
@@ -1912,7 +1912,7 @@ namespace DataLayer
                 pasaporteParameter = new ObjectParameter("Pasaporte", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPersona", nombreParameter, apellidosParameter, pasaporteParameter);
+            return base.ExecuteFunction("spNewPersona", nombreParameter, apellidosParameter, pasaporteParameter);
         }
     
         /// <summary>
@@ -1922,7 +1922,7 @@ namespace DataLayer
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="apellidos">No Metadata Documentation available.</param>
         /// <param name="pasaporte">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePersona(Nullable<global::System.Int32> idPersona, global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
+        public int spUpdatePersona(Nullable<global::System.Int32> idPersona, global::System.String nombre, global::System.String apellidos, global::System.String pasaporte)
         {
             ObjectParameter idPersonaParameter;
             if (idPersona.HasValue)
@@ -1964,7 +1964,7 @@ namespace DataLayer
                 pasaporteParameter = new ObjectParameter("Pasaporte", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePersona", idPersonaParameter, nombreParameter, apellidosParameter, pasaporteParameter);
+            return base.ExecuteFunction("spUpdatePersona", idPersonaParameter, nombreParameter, apellidosParameter, pasaporteParameter);
         }
     
         /// <summary>
@@ -1975,7 +1975,7 @@ namespace DataLayer
         /// <param name="idVuelo">No Metadata Documentation available.</param>
         /// <param name="idAsiento">No Metadata Documentation available.</param>
         /// <param name="idUsuario">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateReservacion(Nullable<global::System.Int32> idReservacion, Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
+        public int spUpdateReservacion(Nullable<global::System.Int32> idReservacion, Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
         {
             ObjectParameter idReservacionParameter;
             if (idReservacion.HasValue)
@@ -2027,7 +2027,7 @@ namespace DataLayer
                 idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateReservacion", idReservacionParameter, idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+            return base.ExecuteFunction("spUpdateReservacion", idReservacionParameter, idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
         }
     
         /// <summary>
@@ -2276,7 +2276,7 @@ namespace DataLayer
         /// <param name="idTipoClase">No Metadata Documentation available.</param>
         /// <param name="idVuelo">No Metadata Documentation available.</param>
         /// <param name="precio">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewPrecio(Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
+        public int spNewPrecio(Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
         {
             ObjectParameter idTipoClaseParameter;
             if (idTipoClase.HasValue)
@@ -2308,7 +2308,7 @@ namespace DataLayer
                 precioParameter = new ObjectParameter("Precio", typeof(global::System.Decimal));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewPrecio", idTipoClaseParameter, idVueloParameter, precioParameter);
+            return base.ExecuteFunction("spNewPrecio", idTipoClaseParameter, idVueloParameter, precioParameter);
         }
     
         /// <summary>
@@ -2322,7 +2322,7 @@ namespace DataLayer
         /// <param name="horaLlegada">No Metadata Documentation available.</param>
         /// <param name="comentario">No Metadata Documentation available.</param>
         /// <param name="idDestinoAero">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spNewVuelo(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
+        public int spNewVuelo(Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
         {
             ObjectParameter idAvionParameter;
             if (idAvion.HasValue)
@@ -2404,7 +2404,7 @@ namespace DataLayer
                 idDestinoAeroParameter = new ObjectParameter("idDestinoAero", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spNewVuelo", idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
+            return base.ExecuteFunction("spNewVuelo", idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
         }
     
         /// <summary>
@@ -2419,7 +2419,7 @@ namespace DataLayer
         /// <param name="horaLlegada">No Metadata Documentation available.</param>
         /// <param name="comentario">No Metadata Documentation available.</param>
         /// <param name="idDestinoAero">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateVuelo(Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
+        public int spUpdateVuelo(Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAvion, Nullable<global::System.Int32> idAeropuerto, Nullable<global::System.DateTime> fechaSalida, Nullable<global::System.TimeSpan> horaSalida, Nullable<global::System.DateTime> fechaLlegada, Nullable<global::System.TimeSpan> horaLlegada, global::System.String comentario, Nullable<global::System.Int32> idDestinoAero)
         {
             ObjectParameter idVueloParameter;
             if (idVuelo.HasValue)
@@ -2511,7 +2511,7 @@ namespace DataLayer
                 idDestinoAeroParameter = new ObjectParameter("idDestinoAero", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateVuelo", idVueloParameter, idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
+            return base.ExecuteFunction("spUpdateVuelo", idVueloParameter, idAvionParameter, idAeropuertoParameter, fechaSalidaParameter, horaSalidaParameter, fechaLlegadaParameter, horaLlegadaParameter, comentarioParameter, idDestinoAeroParameter);
         }
     
         /// <summary>
@@ -2521,7 +2521,7 @@ namespace DataLayer
         /// <param name="idTipoClase">No Metadata Documentation available.</param>
         /// <param name="idVuelo">No Metadata Documentation available.</param>
         /// <param name="precio">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdatePrecio(Nullable<global::System.Int32> idPrecio, Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
+        public int spUpdatePrecio(Nullable<global::System.Int32> idPrecio, Nullable<global::System.Int32> idTipoClase, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Decimal> precio)
         {
             ObjectParameter idPrecioParameter;
             if (idPrecio.HasValue)
@@ -2563,7 +2563,7 @@ namespace DataLayer
                 precioParameter = new ObjectParameter("Precio", typeof(global::System.Decimal));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdatePrecio", idPrecioParameter, idTipoClaseParameter, idVueloParameter, precioParameter);
+            return base.ExecuteFunction("spUpdatePrecio", idPrecioParameter, idTipoClaseParameter, idVueloParameter, precioParameter);
         }
     
         /// <summary>
@@ -2753,7 +2753,7 @@ namespace DataLayer
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="idCiudad">No Metadata Documentation available.</param>
         /// <param name="siglas">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Boolean>> spUpdateAeropuerto(Nullable<global::System.Int32> idAeropuerto, global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
+        public int spUpdateAeropuerto(Nullable<global::System.Int32> idAeropuerto, global::System.String nombre, Nullable<global::System.Int32> idCiudad, global::System.String siglas)
         {
             ObjectParameter idAeropuertoParameter;
             if (idAeropuerto.HasValue)
@@ -2795,7 +2795,7 @@ namespace DataLayer
                 siglasParameter = new ObjectParameter("Siglas", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Boolean>>("spUpdateAeropuerto", idAeropuertoParameter, nombreParameter, idCiudadParameter, siglasParameter);
+            return base.ExecuteFunction("spUpdateAeropuerto", idAeropuertoParameter, nombreParameter, idCiudadParameter, siglasParameter);
         }
 
         #endregion

@@ -84,7 +84,6 @@
       <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
