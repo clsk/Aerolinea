@@ -20,14 +20,14 @@ namespace UI.Administrativo.AdmUser
     /// </summary>
     public partial class BuscarUser : Window
     {
-        ObservableCollection<Usuario> usuarios;
+        ObservableCollection<TransUsuario> usuarios;
         public BuscarUser()
         {
             InitializeComponent();
 
             try
             {
-                usuarios = new ObservableCollection<Usuario>();
+                usuarios = new ObservableCollection<TransUsuario>();
                 Binding binding = new Binding();
                 binding.Source = usuarios;
                 lbUsuarios.SetBinding(ListBox.ItemsSourceProperty, binding);
@@ -58,13 +58,13 @@ namespace UI.Administrativo.AdmUser
             usuarios.Clear();
             if (cbxBusqueda.SelectedIndex != 0)
             {
-                Usuario user = DALUsuario.GetUsuarioFromLogin(tbxBusqueda.Text);
+                TransUsuario user = TransUsuario.FromLogin(tbxBusqueda.Text);
                 usuarios.Add(user);
             }
             else
             {
-                List<Usuario> users = DALUsuario.GetUsuarioFromNombre(tbxBusqueda.Text);
-                foreach (Usuario user in users)
+                List<TransUsuario> users = TransUsuario.FromNombre(tbxBusqueda.Text);
+                foreach (TransUsuario user in users)
                 {
                     usuarios.Add(user);
                 }
@@ -73,10 +73,10 @@ namespace UI.Administrativo.AdmUser
 
         private void lbUsuarios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Usuario unUsuario = (Usuario)lbUsuarios.SelectedItem;
+            TransUsuario unUsuario = (TransUsuario)lbUsuarios.SelectedItem;
             if (unUsuario != null)
             {
-                EditUser nextWin = new EditUser(unUsuario.Nombre, unUsuario.Login, unUsuario.Password, unUsuario.NivelUsuario, unUsuario.isActive);
+                EditUser nextWin = new EditUser(unUsuario);
                 nextWin.Top = this.Top;
                 nextWin.Left = this.Left;
                 nextWin.Show();

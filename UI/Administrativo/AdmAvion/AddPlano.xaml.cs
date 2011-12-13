@@ -24,9 +24,9 @@ namespace UI.Administrativo.AdmAvion
         int idAvion;
         int idSerie;
         BitmapImage bitmap;
-        public AddPlano(int Piso, int CantPiso, int idserie)
+        public AddPlano(int Piso, int CantPiso, int idserie, int idavion)
         {
-            idAvion = -1;
+            idAvion = idavion;
             InitializeComponent();
             elPiso = Piso;
             laCant = CantPiso;
@@ -35,16 +35,6 @@ namespace UI.Administrativo.AdmAvion
             tbContar.Text = "Piso " + Piso + "/" + CantPiso;
         }
 
-        public AddPlano(int idavion, int Piso, int CantPiso, bool used)
-        {
-            used = true;
-            idAvion = idavion;
-            InitializeComponent();
-            elPiso = Piso;
-            laCant = CantPiso;
-            bitmap = new BitmapImage();
-            tbContar.Text = "Piso " + Piso + "/" + CantPiso;
-        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -81,22 +71,11 @@ namespace UI.Administrativo.AdmAvion
 
         private void btnNewPlano_Click(object sender, RoutedEventArgs e)
         {
-            if (idAvion == -1)
-            {
-                CrearAsientos nextWin = new CrearAsientos(idSerie, bitmap, elPiso, laCant);
+                CrearAsientos nextWin = new CrearAsientos(idSerie, bitmap, elPiso, laCant, idAvion);
                 nextWin.Top = this.Top;
                 nextWin.Left = this.Left;
                 nextWin.Show();
                 this.Close();
-            }
-            else
-            {
-                CrearAsientos nextWin = new CrearAsientos(bitmap, elPiso, laCant, idAvion);
-                nextWin.Top = this.Top;
-                nextWin.Left = this.Left;
-                nextWin.Show();
-                this.Close();
-            }
         }
     }
 }

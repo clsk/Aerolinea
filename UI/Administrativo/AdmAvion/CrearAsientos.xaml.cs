@@ -26,9 +26,9 @@ namespace UI.Administrativo.AdmAvion
         Point TempPoint;
         List<TipoClase> lasClases;
         List<UIAsiento> Asientos;
-        public CrearAsientos(int idserie, BitmapImage bitimage, int piso, int cantpiso)
+        public CrearAsientos(int idserie, BitmapImage bitimage, int piso, int cantpiso, int idavion)
         {
-            idAvion = -1;
+            idAvion = idavion;
             idSerie = idserie;
             Piso = piso;
             cantPiso = cantpiso;
@@ -42,21 +42,7 @@ namespace UI.Administrativo.AdmAvion
             cbClase.SetBinding(ComboBox.ItemsSourceProperty, binding);
             imgPlanta.Source = bitimage;
         }
-        public CrearAsientos(BitmapImage bitimage, int piso, int cantpiso, int idavion)
-        {
-            idAvion = idavion;
-            Piso = piso;
-            cantPiso = cantpiso;
-            InitializeComponent();
-            Asientos = new List<UIAsiento>();
-            FilaIsOk = false;
-            rbtnInsertar.IsChecked = true;
-            lasClases = DALAsiento.GetAllTipoClases();
-            Binding binding = new Binding();
-            binding.Source = lasClases;
-            cbClase.SetBinding(ComboBox.ItemsSourceProperty, binding);
-            imgPlanta.Source = bitimage;
-        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Asigna el tamaño del canvas para el tamaño de la imagen cargada.
@@ -97,28 +83,30 @@ namespace UI.Administrativo.AdmAvion
         {
             //Informaciones del asiento
             int Fila = Int32.Parse(tbFila.Text);
-            int posx = Convert.ToInt32(TempPoint.X);
-            int posy = Convert.ToInt32(TempPoint.Y);
+            double posx = (TempPoint.X);
+            double posy = (TempPoint.Y);
 
             //Creando el boton que será agregado al canvas
             Button btNew = new Button();
-            btNew.Width = 20;
-            btNew.Height = 20;
+            btNew.Width = 15;
+            btNew.Height = 15;
             btNew.Click += new RoutedEventHandler(AsientoClick);
 
+            posx = posx-7.5;
+            posy = posy-7.5;
             //Obtener ID del TipoAsiento
             TipoClase unTipoAsiento = (TipoClase)cbClase.SelectedItem;
 
             //Agregando asiento a la lista
-            UIAsiento asiento = new UIAsiento(posx, posy, Fila, tbNumero.Text, unTipoAsiento.idTipoClase, btNew);
+            UIAsiento asiento = new UIAsiento(Convert.ToInt32(posx), Convert.ToInt32(posy), Fila, tbNumero.Text, unTipoAsiento.idTipoClase, btNew);
             Asientos.Add(asiento);
             
             //Agregar boton al canvas
             cvsImage.Children.Add(btNew);
 
             //Setiar posición del boton en el canvas
-            Canvas.SetTop(btNew, TempPoint.Y);
-            Canvas.SetLeft(btNew, TempPoint.X);
+            Canvas.SetTop(btNew, posy);
+            Canvas.SetLeft(btNew, posx);
 
             //Luego de agregar un boton ya se puede salvar
             btnSave.IsEnabled = true;
@@ -251,7 +239,7 @@ namespace UI.Administrativo.AdmAvion
 
         private void OpenAddPlano()
         {
-            AddPlano prevWin = new AddPlano(idAvion, Piso++, cantPiso, false);
+            AddPlano prevWin = new AddPlano(idAvion, Piso++, cantPiso, idAvion);
             prevWin.Top = this.Top;
             prevWin.Left = this.Left;
             prevWin.Show();

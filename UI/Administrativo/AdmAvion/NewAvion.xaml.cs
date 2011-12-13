@@ -118,7 +118,7 @@ namespace UI.Administrativo.AdmAvion
             {
                 int pisos = Int32.Parse(tbCantidad.Text);
                 SerieAvion unaSerie = (SerieAvion)cbSerieAvion.SelectedItem;
-                AddPlano nextWin = new AddPlano(1, pisos, unaSerie.idSerie);
+                AddPlano nextWin = new AddPlano(1, pisos, unaSerie.idSerie, -1);
                 nextWin.Top = this.Top;
                 nextWin.Left = this.Left;
                 nextWin.Show();

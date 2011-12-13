@@ -1,10 +1,8 @@
 ﻿<Window x:Class="UI.Administrativo.AdmUser.EditUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-Title="Modificar usuario" Height="450" Width="600" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" MinWidth="600" MinHeight="450" Loaded="Window_Loaded">
-    <Window.Resources>
-    </Window.Resources>
+        xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
+        Title="EditUser" Height="450" Width="600" Loaded="Window_Loaded_1">
     <StackPanel>
         <Grid Height="238" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -48,13 +46,12 @@ Title="Modificar usuario" Height="450" Width="600" mc:Ignorable="d" xmlns:d="htt
             <TextBox Grid.Column="1" Grid.Row="8" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbLogin" VerticalAlignment="Top" Width="200" TextChanged="tbLogin_TextChanged" IsEnabled="False" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbNombre" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="7" TextChanged="tbNombre_TextChanged" IsEnabled="False" />
             <PasswordBox PasswordChar="*" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbPass" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="9" PasswordChanged="tbPass_PasswordChanged" IsEnabled="False" />
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxEstado" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="10" SelectedIndex="0" IsEnabled="False">
-                <ComboBoxItem Content="Activo" />
-                <ComboBoxItem Content="Inactivo" />
-            </ComboBox>
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxNivel" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="11" DisplayMemberPath="NombreNivel" SelectedValuePath="idNivel" IsEnabled="False" />
-            <Grid Grid.Column="1" Grid.Row="12" Height="100" HorizontalAlignment="Left" Margin="44,54,0,0" Name="grid1" VerticalAlignment="Top" Width="200" />
             <Grid Grid.Row="12" Height="100" HorizontalAlignment="Left" Name="grid2" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Margin="0,13,0,0" />
+            <ComboBox Grid.Column="1" Grid.Row="10" Height="23" HorizontalAlignment="Left" Name="cbEstado" VerticalAlignment="Top" Width="200" Margin="11,5" IsEnabled="False" SelectionChanged="cbEstado_SelectionChanged">
+                <ComboBoxItem Content="Inactivo" />
+                <ComboBoxItem Content="Activo" />
+            </ComboBox>
+            <ComboBox DataContext="{Binding}" DisplayMemberPath="NombreNivel" Grid.Column="1" Grid.Row="11" Height="23" HorizontalAlignment="Left" Name="cbNivel" VerticalAlignment="Top" Width="200" Margin="11,5" IsEnabled="False" SelectionChanged="cbNivel_SelectionChanged" />
         </Grid>
         <Grid Name="grid3" VerticalAlignment="Stretch" Height="174">
             <Grid.ColumnDefinitions>
@@ -62,7 +59,7 @@ Title="Modificar usuario" Height="450" Width="600" mc:Ignorable="d" xmlns:d="htt
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Height="95" IsEnabled="False" Name="btmSave" VerticalAlignment="Center" Width="95" HorizontalAlignment="Center" Grid.Column="1">
+            <Button Height="95" IsEnabled="False" Name="btmSave" VerticalAlignment="Center" Width="95" HorizontalAlignment="Center" Grid.Column="1" Click="btmSave_Click_1">
                 <gi:GreyableImage Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" Source="/UI;component/Images/Save.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" />
             </Button>
             <Label Content="Guardar alteraciones" Height="28" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label7" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1" Margin="0,140,0,0" />

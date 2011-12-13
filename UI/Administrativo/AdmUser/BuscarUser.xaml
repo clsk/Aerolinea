@@ -33,7 +33,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Path=Login}"  Height="23" HorizontalAlignment="Left" Margin="5" Name="textBlock1" VerticalAlignment="Top" />
                         <TextBlock Text="{Binding Path=Nombre}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="5" Name="textBlock2" VerticalAlignment="Top" />
-                        <TextBlock Text="{Binding Path=NivelUsuario.NombreNivel}" Grid.Column="2" Height="23" HorizontalAlignment="Left" Name="textBlock3" VerticalAlignment="Top" Margin="5" />
+                        <TextBlock Text="{Binding Path=Nivel.NombreNivel}" Grid.Column="2" Height="23" HorizontalAlignment="Left" Name="textBlock3" VerticalAlignment="Top" Margin="5" />
                         <Border BorderBrush="Silver" BorderThickness="1" HorizontalAlignment="Stretch" Name="border1" VerticalAlignment="Stretch" />
                         <Border BorderBrush="Silver" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="border2" />
                         <Border BorderBrush="Silver" BorderThickness="1" Grid.Column="2" Name="border3" />
