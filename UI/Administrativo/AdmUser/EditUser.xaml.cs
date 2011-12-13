@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataLayer;
 
 namespace UI.Administrativo.AdmUser
 {
@@ -18,8 +19,11 @@ namespace UI.Administrativo.AdmUser
     /// </summary>
     public partial class EditUser : Window
     {
-        public EditUser()
+        TransUsuario unUsuario;
+        public EditUser(string Nombre, string Login, string password, NivelUsuario Nivel, bool Activo)
         {
+            unUsuario = new TransUsuario(Nombre,Login, password, ,Activo);
+
             InitializeComponent();
         }
 
@@ -64,6 +68,11 @@ namespace UI.Administrativo.AdmUser
             prevWin.Left = this.Left;
             prevWin.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
