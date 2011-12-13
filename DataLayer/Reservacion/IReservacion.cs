@@ -7,27 +7,28 @@ namespace DataLayer
 {
     public interface IReservacion
     {
-        string NombrePersona
+        Persona Persona
         {
             get;
             set;
         }
 
-        string ApellidosPersona
+        TransVuelo Vuelo
         {
             get;
             set;
         }
 
-        string PasaportePersona
+        TransAsiento Asiento
         {
             get;
             set;
         }
 
-        IVuelo Vuelo
+        TransUsuario Usuario
         {
             get;
+            set;
         }
     }
 }

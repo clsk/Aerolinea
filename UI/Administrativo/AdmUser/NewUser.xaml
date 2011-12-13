@@ -43,14 +43,14 @@ xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
             <Label Content="Contraseña" Height="28" HorizontalAlignment="Right" Margin="11,5" Name="label4" VerticalAlignment="Top" Grid.Row="9" />
             <Label Content="Estado" Height="28" HorizontalAlignment="Right" Margin="11,5" Name="label5" VerticalAlignment="Top" Grid.Row="10" />
             <Label Content="Nivel" Height="28" HorizontalAlignment="Right" Margin="11,5" Name="label6" VerticalAlignment="Top" Grid.Row="11" />
-            <TextBox Grid.Column="1" Grid.Row="8" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbLogin" VerticalAlignment="Top" Width="200" TextChanged="tbLogin_TextChanged" DataContext="{Binding}" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbNombre" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="7" TextChanged="tbNombre_TextChanged" />
-            <PasswordBox PasswordChar="*" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbPass" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="9" PasswordChanged="tbPass_PasswordChanged" />
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxEstado" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="10" SelectedIndex="0">
-                <ComboBoxItem Content="Activo" />
+            <TextBox Grid.Column="1" Grid.Row="8" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbLogin" VerticalAlignment="Top" Width="200" TextChanged="tbLogin_TextChanged" DataContext="{Binding}" TabIndex="1" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbNombre" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="7" TextChanged="tbNombre_TextChanged" TabIndex="0" />
+            <PasswordBox PasswordChar="*" Height="23" HorizontalAlignment="Left" Margin="11,5" Name="tbPass" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="9" PasswordChanged="tbPass_PasswordChanged" TabIndex="2" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxEstado" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="10" SelectedIndex="0" TabIndex="3">
+                <ComboBoxItem Content="Activo" x:Name="activo"/>
                 <ComboBoxItem Content="Inactivo" />
             </ComboBox>
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxNivel" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="11" DisplayMemberPath="NombreNivel" SelectedValuePath="idNivel" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="11,5" Name="cbxNivel" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="11" DisplayMemberPath="NombreNivel" SelectionChanged="cbxNivel_SelectionChanged" TabIndex="4" />
             <Grid Grid.Column="1" Grid.Row="12" Height="100" HorizontalAlignment="Left" Margin="44,54,0,0" Name="grid1" VerticalAlignment="Top" Width="200" />
             <Grid Grid.Row="12" Height="100" HorizontalAlignment="Left" Name="grid2" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Margin="0,13,0,0" />
         </Grid>
@@ -58,7 +58,7 @@ xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="478*" />
             </Grid.ColumnDefinitions>
-            <Button Height="95" IsEnabled="False" Name="btmNewUser" VerticalAlignment="Center" Width="95" HorizontalAlignment="Center" Click="btmNewUser_Click">
+            <Button Height="95" IsEnabled="False" Name="btmNewUser" VerticalAlignment="Center" Width="95" HorizontalAlignment="Center" Click="btmNewUser_Click" TabIndex="5">
                 <gi:GreyableImage Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" Source="/UI;component/Images/Save.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" IsHitTestVisible="True" Style="{Binding ElementName=btmNewUser}" Focusable="False"/>
             </Button>
             <Label Content="Crear usuario" Height="28" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label7" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,140,0,0" />

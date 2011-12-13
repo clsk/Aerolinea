@@ -35,6 +35,12 @@ namespace DataLayer
             set;
         }
 
+        bool IsActive
+        {
+            get;
+            set;
+        }
+
         bool IsValid();
 
     }

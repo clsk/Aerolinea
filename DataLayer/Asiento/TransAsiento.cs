@@ -9,13 +9,35 @@ namespace DataLayer
     {
         public TransAsiento(Asiento persistent_object)
             : base(persistent_object)
-
         {
+        }
+
+        public TransAsiento(TransAvion avion, TipoClase clase, string numero, int fila, int posX, int posY, int piso) : base(null)
+        {
+            Avion = avion;
+            Clase = clase;
+            Numero = numero;
+            Fila  = fila;
+            PosX = posX;
+            PosX = posX;
+            Piso = piso;
+        }
+
+        public TransAvion Avion
+        {
+            get { return new TransAvion(persistent.Avion); }
+            set { persistent.Avion = value.PersistentObject; }
+        }
+
+        public int Piso
+        {
+            get { return persistent.Piso; }
+            set { persistent.Piso = value; }
         }
 
         public TipoClase Clase
         {
-            get { return persistent.TipoClase; }
+            get { return persistent.TipoClase;  }
             set { persistent.TipoClase = value; }
         }
 
@@ -27,11 +49,16 @@ namespace DataLayer
 
         public int Fila { get { return persistent.Fila; } set { persistent.Fila = value; } }
 
-        public int ID { get { return persistent.idAsiento; } set { persistent.idAsiento = value; } }
+        public int ID { get { return persistent.idAsiento; } }
 
         public void Flush()
         {
             base.Flush(DALAsiento.UpdateAsiento);
+        }
+
+        public void Create()
+        {
+            base.Flush(DALAsiento.Create);
         }
     }
 }

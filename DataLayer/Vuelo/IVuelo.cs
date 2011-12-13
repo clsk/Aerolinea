@@ -42,5 +42,11 @@ namespace DataLayer
             get;
             set;
         }
+
+        TransAeropuerto PuertoSalida
+        {
+            get;
+            set;
+        }
     }
 }

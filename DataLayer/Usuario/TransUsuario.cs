@@ -15,6 +15,8 @@ namespace DataLayer
 
         public TransUsuario(string nombre, string login, string password, NivelUsuario nivel, bool is_active) : base(null)
         {
+            persistent = new Usuario();
+            persistent.idUsuario = -1;
             Nombre = nombre;
             Login = login;
             Password = password;
@@ -61,6 +63,11 @@ namespace DataLayer
         public void Flush()
         {
             base.Flush(DALUsuario.UpdateUsuario);
+        }
+
+        public void Create()
+        {
+            base.Flush(DALUsuario.Create);
         }
     }
 }

@@ -15,11 +15,10 @@ namespace DataLayer
          * 
          * @return true si se pudo crear la nueva reserva, false caso contrário.
          */
-        static public bool Create(Reservacion unaReserva)
+        static public void Create(Reservacion unaReserva)
         {
             try { Provider.GetProvider().spNewReservacion(unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

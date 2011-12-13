@@ -17,6 +17,14 @@ namespace DataLayer
 
         int Fila { get; set; }
 
-        int ID { get; set; }
+        int ID { get; }
+
+        int Piso { get; set; }
+
+        TransAvion Avion
+        {
+            get;
+            set;
+        }
     }
 }

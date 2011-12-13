@@ -15,15 +15,14 @@ namespace DataLayer
          * 
          * @return true si se pudo crear, false caso contrário
          */
-        bool Create(Vuelo unVuelo)
+       static public void Create(Vuelo unVuelo)
         {
             try
             {
                 Provider.GetProvider().spNewVuelo(unVuelo.idAvion, unVuelo.idPuertoSalida, unVuelo.FechaSalida, unVuelo.HoraSalida,
-                                                  unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoSalida);
+                                                  unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoLlegada);
             }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 
@@ -56,7 +55,7 @@ namespace DataLayer
             try
             {
                 Provider.GetProvider().spUpdateVuelo(unVuelo.idVuelo, unVuelo.idAvion, unVuelo.idPuertoSalida, unVuelo.FechaSalida, unVuelo.HoraSalida,
-                                                  unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoSalida);
+                                                  unVuelo.FechaLlegada, unVuelo.HoraLlegada, unVuelo.Comentario, unVuelo.idPuertoLlegada);
             }
             catch (Exception e) { throw e; }
         }
