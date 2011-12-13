@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataLayer;
 
 namespace UI.Administrativo.AdmUser
 {
@@ -18,10 +19,15 @@ namespace UI.Administrativo.AdmUser
     /// </summary>
     public partial class BuscarUser : Window
     {
+        List<Usuario> usuarios;
         public BuscarUser()
         {
             InitializeComponent();
-        }
+            usuarios = new List<Usuario>();
+            Binding binding = new Binding("");
+            binding.Source = usuarios;
+            dgvBusqueda.SetBinding(dgvBusqueda.Columns, binding);
+        } 
 
         private void tbxBusqueda_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -36,6 +42,13 @@ namespace UI.Administrativo.AdmUser
             prevWin.Left = this.Left;
             prevWin.Show();
             this.Close();
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario unUsuario;
+            unUsuario = DataLayer.DALUsuario.GetUsuarioFromLogin(tbxBusqueda.Text);
+            usuarios.Add(unUsuario);
         }
     }
 }

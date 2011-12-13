@@ -22,5 +22,70 @@ namespace UI.Administrativo.AdmVuelo
         {
             InitializeComponent();
         }
+        public bool VerifInfosPais()
+        {
+            if (tbNombrePais.Text != "")
+                return true;
+            return false;
+        }
+
+        public bool VerifInfosCiudad()
+        {
+            if (tbNombreCiudad.Text != "")
+                return true;
+            return false;
+        }
+
+        public bool VerifInfosAeropuerto()
+        {
+            if (tbNombreAero.Text != "")
+                if (tbSiglas.Text.Length == 3)
+                    return true;
+            return false;
+        }
+        private void tabPais_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnNewDestino.IsEnabled = VerifInfosAeropuerto();
+        }
+
+        private void tbcDestino_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tabAeropuerto.IsSelected)
+            {
+                btnNewDestino.IsEnabled = VerifInfosAeropuerto();
+            }
+
+            if (tabCiudad.IsSelected)
+            {
+                btnNewDestino.IsEnabled = VerifInfosCiudad();
+            }
+
+            if (tabPais.IsSelected)
+            {
+                btnNewDestino.IsEnabled = VerifInfosPais();
+            }
+
+        }
+
+        private void tbNombrePais_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnNewDestino.IsEnabled = VerifInfosPais();
+        }
+
+        private void tbNombreCiudad_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnNewDestino.IsEnabled = VerifInfosCiudad();
+        }
+
+        private void tbNombreAero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnNewDestino.IsEnabled = VerifInfosAeropuerto();
+        }
+
+        private void tbSiglas_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnNewDestino.IsEnabled = VerifInfosAeropuerto();
+        }
+
     }
 }

@@ -34,6 +34,8 @@ namespace UI
         private void btReservaciones_Click(object sender, RoutedEventArgs e)
         {
             ReservacionMain reservacion_main = new ReservacionMain();
+            reservacion_main.Top = this.Top;
+            reservacion_main.Left = this.Left;
             reservacion_main.Show();
             this.Close();
         }

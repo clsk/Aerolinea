@@ -28,6 +28,13 @@ namespace UI.Administrativo.Adm_Avion
             FilaIsOk = false;
             rbtnInsertar.IsChecked = true;
         }
+        public CrearAsientos(int idAvion)
+        {
+            InitializeComponent();
+            Asientos = new List<UIAsiento>();
+            FilaIsOk = false;
+            rbtnInsertar.IsChecked = true;
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cvsImage.Height = imgPlanta.ActualHeight;
