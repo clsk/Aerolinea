@@ -67,10 +67,11 @@ namespace UI.Administrativo.AdmUser
         private bool VerifDatos()
         {
             if (tbNombre.Text != "")
-                if (cbxNivel.SelectedValue != null)
+                if (cbxNivel.SelectedIndex == 0 || cbxNivel.SelectedIndex == 1)
                     if (tbLogin.Text != "")
                         if (tbPass.Password.ToString().Length >= 6)
-                            return true;
+                            if(cbxEstado.SelectedItem != null)
+                                return true;
 
             return false;
         }

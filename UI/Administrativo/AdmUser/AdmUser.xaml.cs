@@ -27,17 +27,26 @@ namespace UI.Administrativo.AdmUser
         {
             MainAdm prevWin = new MainAdm();
             prevWin.Top = this.Top;
-            prevWin.Left = this.Top;
+            prevWin.Left = this.Left;
             prevWin.Show();
             this.Close();
         }
 
         private void btmNewUser_Click(object sender, RoutedEventArgs e)
         {
-            NewUser prevWin = new NewUser();
-            prevWin.Top = this.Top;
-            prevWin.Left = this.Left;
-            prevWin.Show();
+            NewUser nextWin = new NewUser();
+            nextWin.Top = this.Top;
+            nextWin.Left = this.Left;
+            nextWin.Show();
+            this.Close();
+        }
+
+        private void btmEditUser_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarUser nextWin = new BuscarUser();
+            nextWin.Top = this.Top;
+            nextWin.Left = this.Left;
+            nextWin.Show();
             this.Close();
         }
     }

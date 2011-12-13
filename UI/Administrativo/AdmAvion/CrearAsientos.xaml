@@ -39,7 +39,7 @@
         </StackPanel>
         <ScrollViewer Background="#FFDFDFDF" BorderBrush="Black" BorderThickness="5" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" IsEnabled="True" Name="svImagen" Opacity="1" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="169,3,4,4">
             <Canvas MouseDown="cvsImage_MouseDown" Name="cvsImage">
-                <Image Source="/UI;component/Images/Save.png" Stretch="None" Name="imgPlanta" />
+                <Image Source="/UI;component/Images/Save.png" Stretch="None" Name="imgPlanta"/>
             </Canvas>
         </ScrollViewer>
         <Grid Height="461" HorizontalAlignment="Left" Name="grid2" VerticalAlignment="Top" Width="165">

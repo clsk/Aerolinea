@@ -31,5 +31,14 @@ namespace UI.Administrativo.AdmVuelo
             prevWin.Show();
             this.Close();
         }
+
+        private void btnAddAvion_Click(object sender, RoutedEventArgs e)
+        {
+            AdmAvion.NewAvion nextWin = new AdmAvion.NewAvion();
+            nextWin.Top = this.Top;
+            nextWin.Left = this.Left;
+            nextWin.Show();
+            this.Close();
+        }
     }
 }

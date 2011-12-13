@@ -15,7 +15,7 @@
             <Image
                 Source="/UI;component/Images/New_User.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
-        <Button Height="95" HorizontalAlignment="Center" Name="btmEditUser" VerticalAlignment="Center" Width="95" Grid.Column="2" Grid.Row="2">
+        <Button Height="95" HorizontalAlignment="Center" Name="btmEditUser" VerticalAlignment="Center" Width="95" Grid.Column="2" Grid.Row="2" Click="btmEditUser_Click">
             <Image Source="/UI;component/Images/Edit_User.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
         <Label Content="Nuevo usuario" Height="28" HorizontalAlignment="Center" Margin="0,156,0,21" Name="label4" VerticalAlignment="Center" Grid.Row="2" />
