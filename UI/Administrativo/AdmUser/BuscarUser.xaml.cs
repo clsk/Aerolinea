@@ -24,9 +24,6 @@ namespace UI.Administrativo.AdmUser
         {
             InitializeComponent();
             usuarios = new List<Usuario>();
-            Binding binding = new Binding("");
-            binding.Source = usuarios;
-            dgvBusqueda.SetBinding(dgvBusqueda.Columns, binding);
         } 
 
         private void tbxBusqueda_TextChanged(object sender, TextChangedEventArgs e)
@@ -46,9 +43,6 @@ namespace UI.Administrativo.AdmUser
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            Usuario unUsuario;
-            unUsuario = DataLayer.DALUsuario.GetUsuarioFromLogin(tbxBusqueda.Text);
-            usuarios.Add(unUsuario);
         }
     }
 }
