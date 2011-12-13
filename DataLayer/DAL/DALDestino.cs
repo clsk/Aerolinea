@@ -54,11 +54,10 @@ namespace DataLayer
         *
         * @remark el idAeropuerto NO necesita ser inicializado.
         */
-        static public bool Create(Aeropuerto UnAeropuerto)
+        static public void Create(Aeropuerto UnAeropuerto)
         {
             try { Provider.GetProvider().spNewAeropuerto(UnAeropuerto.NombreAeropuerto, UnAeropuerto.idCiudad, UnAeropuerto.Siglas); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

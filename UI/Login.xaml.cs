@@ -28,8 +28,16 @@ namespace UI
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             if (LUser.GetInstance().Login(tbUsername.Text, tbPassword.Password) == false)
-                MessageBox.Show("Login Failed");
+            {
+                MessageBox.Show("Error: El usuario/clave no son correcto");
+                return;
+            }
 
+            if (LUser.GetInstance().IsActive == false)
+            {
+                MessageBox.Show("Su usuario ha sido deshabilitado.\nPara mas informacion contacte su administrador");
+                return;
+            }
 
             MainWindow main_window = new MainWindow();
             main_window.Top = this.Top;

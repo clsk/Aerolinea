@@ -57,6 +57,14 @@ namespace BusinessLogic
             }
         }
 
+        public bool IsActive
+        {
+            get
+            {
+                return d_usuario.IsActive;
+            }
+        }
+
         private static LUser instance;
 
         public static LUser GetInstance()

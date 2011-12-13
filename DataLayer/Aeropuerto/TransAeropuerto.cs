@@ -11,6 +11,13 @@ namespace DataLayer
         {
         }
 
+        public TransAeropuerto(string nombre, Ciudad ciudad, string siglas)
+            : base(null)
+        {
+            Nombre = nombre;
+            Ciudad = ciudad;
+            Siglas = siglas;
+        }
         public int ID
         {
             get { return persistent.idAeropuerto; }
@@ -58,6 +65,11 @@ namespace DataLayer
         public void Flush()
         {
             base.Flush(DALDestino.UpdateAeropuerto);
+        }
+
+        public void Create()
+        {
+            base.Flush(DALDestino.Create);
         }
 
         #endregion

@@ -11,39 +11,47 @@ namespace DataLayer
         {
         }
 
-        public string NombrePersona
+        public TransReservacion(Persona persona, TransVuelo vuelo, TransAsiento asiento, TransUsuario usuario) : base(null)
         {
-            get { return persistent.Persona.NombrePersona; }
-            set { persistent.Persona.NombrePersona = value; }
+            persistent = new Reservacion();
+            Persona = persona;
+            Vuelo = vuelo;
+            Asiento = asiento;
+            Usuario = usuario;
         }
 
-        public string ApellidosPersona
+        public TransAsiento Asiento
         {
-            get { return persistent.Persona.ApellidosPersona; }
-            set { persistent.Persona.ApellidosPersona = value; }
+            get { return new TransAsiento(persistent.Asiento); }
+            set { persistent.Asiento = value.PersistentObject; }
         }
 
-        public string PasaportePersona
+        public TransUsuario Usuario
         {
-            get { return persistent.Persona.Pasaporte; }
-            set { persistent.Persona.Pasaporte = value; } 
+            get { return new TransUsuario(persistent.Usuario); }
+            set { persistent.Usuario = value.PersistentObject; }
         }
 
-        public IVuelo Vuelo
+        public Persona Persona
         {
-            get { return (IVuelo)new TransVuelo(persistent.Vuelo); }
-            set { persistent.Vuelo = (Vuelo)value; }
+            get { return persistent.Persona; }
+            set { persistent.Persona = value; }
         }
 
-        public IUsuario Usuario
+        public TransVuelo Vuelo
         {
-            get { return (IUsuario)new TransUsuario(persistent.Usuario); }
-            set { persistent.Usuario = (Usuario)value; }
+            get { return new TransVuelo(persistent.Vuelo); }
+            set { persistent.Vuelo = value.PersistentObject; }
         }
 
         public void Flush()
         {
             base.Flush(DALCliente.UpdateReserva);
+        }
+
+        public void Create()
+        {
+            base.Flush(DALCliente.Create);
         }
     }
 }

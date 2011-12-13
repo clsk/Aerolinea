@@ -9,14 +9,34 @@ namespace DataLayer
     {
         public TransVuelo(Vuelo persistent_object) : base(persistent_object)
         {
+            puerto_salida = null;
+            puerto_llegada = null;
+        }
+
+        public TransVuelo(TransAvion avion, DateTime fecha_salida, DateTime fecha_llegada, 
+            TimeSpan hora_salida, TimeSpan hora_llegada, TransAeropuerto puerto_salida, TransAeropuerto puerto_llegada, string comentario) : base(null)
+        {
+            persistent = new Vuelo();
+            persistent.idVuelo = -1;
+            Avion = avion;
+            FechaLlegada = fecha_llegada;
+            FechaSalida = fecha_salida;
+            HoraLlegada = hora_llegada;
+            HoraSalida = hora_salida;
+            Comentario = comentario;
+            PuertoLlegada = puerto_llegada;
+            PuertoSalida = puerto_salida;
         }
 
         public int ID
         {
-            get
-            {
-                return persistent.idVuelo;
-            }
+            get { return persistent.idVuelo; }
+        }
+
+        public TransAvion Avion
+        {
+            get { return new TransAvion(persistent.Avion); }
+            set { persistent.Avion = value.PersistentObject; }
         }
 
         public DateTime FechaLlegada
@@ -94,6 +114,11 @@ namespace DataLayer
         public void Flush()
         {
             base.Flush(DALVuelo.UpdateVuelo);
+        }
+
+        public void Create()
+        {
+            base.Flush(DALVuelo.Create);
         }
 
         private TransAeropuerto puerto_llegada;

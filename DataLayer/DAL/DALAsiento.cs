@@ -15,11 +15,10 @@ namespace DataLayer
          * 
          * @return true si fue posible crear el asiento, false caso contrário.
          */
-        static public bool Create(Asiento unAsiento)
+        static public void Create(Asiento unAsiento)
         {
             try { Provider.GetProvider().spNewAsiento(unAsiento.idAvion, unAsiento.idTipoClase, unAsiento.Numero, unAsiento.Fila, unAsiento.CordX, unAsiento.CordY, unAsiento.Piso); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 
