@@ -72,6 +72,11 @@ namespace DataLayer
             base.Flush(DALDestino.Create);
         }
 
+        public static List<TransAeropuerto> GetAll()
+        {
+            return DataLayer.DALDestino.GetAllAeropuerto().ConvertAll<TransAeropuerto>(pers => new TransAeropuerto(pers));
+        }
+
         #endregion
     }
 }
