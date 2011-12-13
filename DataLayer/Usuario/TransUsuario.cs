@@ -13,10 +13,18 @@ namespace DataLayer
             persistent = persistent_object;
         }
 
+        public TransUsuario(string nombre, string login, string password, NivelUsuario nivel, bool is_active) : base(null)
+        {
+            Nombre = nombre;
+            Login = login;
+            Password = password;
+            Nivel = nivel;
+            IsActive = is_active;
+        }
+
         public int ID
         {
             get { return persistent.idUsuario;}
-            set { persistent.idUsuario = value; }
         }
 
         public string Nombre
@@ -40,6 +48,12 @@ namespace DataLayer
         {
             get { return persistent.NivelUsuario; }
             set { persistent.NivelUsuario = value; }
+        }
+
+        public bool IsActive
+        {
+            get { return persistent.isActive; }
+            set { persistent.isActive = value; }
         }
 
         public bool IsValid() { return persistent != null; }
