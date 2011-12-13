@@ -9,23 +9,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Administrativo.AdmVuelo
 {
     /// <summary>
-    /// Interaction logic for VueloAdmin.xaml
+    /// Interaction logic for NewDestino.xaml
     /// </summary>
-    public partial class VueloAdmin : Window
+    public partial class NewDestino : Window
     {
-        public VueloAdmin()
+        public NewDestino()
         {
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }

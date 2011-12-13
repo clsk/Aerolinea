@@ -56,6 +56,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrativo\AdmUser\AdmUser.xaml.cs">
+      <DependentUpon>AdmUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmUser\BuscarUser.xaml.cs">
+      <DependentUpon>BuscarUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmUser\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmUser\NewUser.xaml.cs">
+      <DependentUpon>NewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmVuelo\AdmVuelo.xaml.cs">
+      <DependentUpon>AdmVuelo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmVuelo\NewDestino.xaml.cs">
+      <DependentUpon>NewDestino.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\MainAdm.xaml.cs">
+      <DependentUpon>MainAdm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reservaciones\BuscarVuelo.xaml.cs">
       <DependentUpon>BuscarVuelo.xaml</DependentUpon>
     </Compile>
@@ -69,9 +90,34 @@
       <DependentUpon>CrearAsientos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\AdmAvion\UIAsiento.cs" />
-    <Compile Include="Administrativo\VueloAdmin.xaml.cs">
-      <DependentUpon>VueloAdmin.xaml</DependentUpon>
-    </Compile>
+    <Page Include="Administrativo\AdmUser\AdmUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmUser\BuscarUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmUser\EditUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmUser\NewUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmVuelo\AdmVuelo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmVuelo\NewDestino.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\MainAdm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reservaciones\BuscarVuelo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,10 +142,6 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Administrativo\VueloAdmin.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Reservaciones\ReservacionMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,7 +205,6 @@
     <Resource Include="Images\Save.png" />
     <Resource Include="Images\User.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Aerolinea.jpg" />
   </ItemGroup>
@@ -185,6 +226,13 @@
   <ItemGroup>
     <Resource Include="Images\Edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Delete.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
