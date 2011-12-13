@@ -31,7 +31,7 @@ namespace UI
 
             try
             {
-                aeropuertos = DataLayer.DALDestino.GetAllAeropuerto().ConvertAll<AeropuertoView>(pers => new AeropuertoView(pers));
+                aeropuertos = TransAeropuerto.GetAll().ConvertAll<AeropuertoView>(trans => new AeropuertoView(trans.PersistentObject));
                 
                 // Bind ComboBoxes
                 Binding binding = new Binding();
@@ -79,8 +79,8 @@ namespace UI
                 return;
 
             // Vuelos De Ida
-            List<TransVuelo> _vuelos_lista = DALVuelo.GetVueloFromFechaAndPuerto(dpSalida.SelectedDate.Value, dpSalida.SelectedDate.Value, 
-                ((AeropuertoView)cbDesde.SelectedValue).PersistentObject, ((AeropuertoView)cbHacia.SelectedValue).PersistentObject).ConvertAll<TransVuelo>(pers => new TransVuelo(pers));
+            List<TransVuelo> _vuelos_lista = TransVuelo.FromFechaAndPuerto(dpSalida.SelectedDate.Value, dpSalida.SelectedDate.Value, (TransAeropuerto)cbDesde.SelectedValue, (TransAeropuerto)cbHacia.SelectedValue);
+
             // Move objects to ObservableList
             vuelos_ida.Clear();
             foreach (TransVuelo vuelo in _vuelos_lista)
@@ -93,8 +93,8 @@ namespace UI
                 return;
 
             // Vuelos de Regreso
-            _vuelos_lista = DALVuelo.GetVueloFromFechaAndPuerto(dpRegreso.SelectedDate.Value, dpRegreso.SelectedDate.Value,
-                ((AeropuertoView)cbHacia.SelectedValue).PersistentObject, ((AeropuertoView)cbDesde.SelectedValue).PersistentObject).ConvertAll<TransVuelo>(pers => new TransVuelo(pers));
+            _vuelos_lista = TransVuelo.FromFechaAndPuerto(dpRegreso.SelectedDate.Value, dpRegreso.SelectedDate.Value, (TransAeropuerto)cbHacia.SelectedValue, (TransAeropuerto)cbDesde.SelectedValue);
+
             // Move objects to ObservableList
             vuelos_vuelta.Clear();
             foreach (TransVuelo vuelo in _vuelos_lista)
@@ -116,7 +116,6 @@ namespace UI
                 dpRegreso.IsEnabled = true;
                 lbVuelosVuelta.IsEnabled = true;
             }
-
         }
     }
 }

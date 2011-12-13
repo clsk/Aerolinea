@@ -69,5 +69,15 @@ namespace DataLayer
         {
             base.Flush(DALUsuario.Create);
         }
+
+        public static List<TransUsuario> FromNombre(string nombre)
+        {
+            return DALUsuario.GetUsuarioFromNombre(nombre).ConvertAll<TransUsuario>(pers => new TransUsuario(pers));
+        }
+        public static TransUsuario FromLogin(string login)
+        {
+            return new TransUsuario(DALUsuario.GetUsuarioFromLogin(login));
+        }
+
     }
 }

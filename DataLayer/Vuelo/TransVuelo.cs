@@ -121,6 +121,11 @@ namespace DataLayer
             base.Flush(DALVuelo.Create);
         }
 
+        public static List<TransVuelo> FromFechaAndPuerto(DateTime desde_fecha, DateTime hasta_fecha, TransAeropuerto desde_aeropuerto, TransAeropuerto hacia_aeropuerto)
+        {
+            return DALVuelo.GetVueloFromFechaAndPuerto(desde_fecha, hasta_fecha, desde_aeropuerto.PersistentObject, hacia_aeropuerto.PersistentObject).ConvertAll<TransVuelo>(pers => new TransVuelo(pers));
+        }
+
         private TransAeropuerto puerto_llegada;
         private TransAeropuerto puerto_salida;
     }
