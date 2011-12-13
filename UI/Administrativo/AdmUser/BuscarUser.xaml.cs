@@ -70,5 +70,18 @@ namespace UI.Administrativo.AdmUser
                 }
             }
         }
+
+        private void lbUsuarios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Usuario unUsuario = (Usuario)lbUsuarios.SelectedItem;
+            if (unUsuario != null)
+            {
+                EditUser nextWin = new EditUser(unUsuario.Nombre, unUsuario.Login, unUsuario.Password, unUsuario.NivelUsuario, unUsuario.isActive);
+                nextWin.Top = this.Top;
+                nextWin.Left = this.Left;
+                nextWin.Show();
+                this.Close();
+            }
+        }
     }
 }

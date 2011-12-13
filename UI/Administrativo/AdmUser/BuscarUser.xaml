@@ -41,7 +41,7 @@
                 </DataTemplate>
                 </Grid.Resources>
             <Button Content="Buscar" Height="23" HorizontalAlignment="Center" Margin="11" Name="btnBuscar" VerticalAlignment="Center" Width="75" IsEnabled="False" Click="btnBuscar_Click" />
-            <ListBox ItemsSource="{Binding}" ItemTemplate="{DynamicResource UsuarioLayout}" Grid.Row="1" Height="260" HorizontalAlignment="Left" Margin="11,9,0,0" Name="lbUsuarios" VerticalAlignment="Top" Width="553"/>
+            <ListBox ItemsSource="{Binding}" ItemTemplate="{DynamicResource UsuarioLayout}" Grid.Row="1" Height="260" HorizontalAlignment="Left" Margin="11,9,0,0" Name="lbUsuarios" VerticalAlignment="Top" Width="553" MouseDoubleClick="lbUsuarios_MouseDoubleClick" />
         </Grid>
     </StackPanel>
 </Window>
