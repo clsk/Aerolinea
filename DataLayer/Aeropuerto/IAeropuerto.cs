@@ -10,6 +10,6 @@ namespace DataLayer
         int ID { get; }
         string Nombre { get; set; }
         string Siglas { get; set; }
-        Ciudad ciudad { get; set; }
+        Ciudad Ciudad { get; set; }
     }
 }

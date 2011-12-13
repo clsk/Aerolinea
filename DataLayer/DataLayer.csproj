@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AbstractFactory.cs" />
     <Compile Include="AbstractTrans.cs" />
+    <Compile Include="Aeropuerto\AeropuertoFactory.cs" />
     <Compile Include="Aeropuerto\IAeropuerto.cs" />
     <Compile Include="Aeropuerto\TransAeropuerto.cs" />
     <Compile Include="Asiento\AsientoFactory.cs" />

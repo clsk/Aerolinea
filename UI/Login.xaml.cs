@@ -32,6 +32,8 @@ namespace UI
 
 
             MainWindow main_window = new MainWindow();
+            main_window.Top = this.Top;
+            main_window.Left = this.Left;
             main_window.Show();
             this.Close();
         }
