@@ -27,11 +27,13 @@ namespace DataLayer
             get { return asientos.AsReadOnly(); }
         }
 
+        // Mandar asiento que no esta creado todavia
+        // No es necesario asignar piso
         public void AddAsiento(TransAsiento asiento)
         {
             asientos.Add(asiento);
             asiento.Piso = Piso;
-            asiento.Flush();
+            asiento.Create();
         }
 
         public byte[] Imagen

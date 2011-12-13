@@ -89,6 +89,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reservaciones\NewReservacion.xaml.cs">
+      <DependentUpon>NewReservacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reservaciones\ReservacionMain.xaml.cs">
       <DependentUpon>ReservacionMain.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Reservaciones\NewReservacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reservaciones\ReservacionMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
