@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    class DALVuelo
+    public class DALVuelo
     {
         #region Crear un vuelo
         /**
@@ -104,7 +104,7 @@ namespace DataLayer
          * 
          * @return la lista de vuelo si se pudo encontrar, NULL caso contrário.
          */
-        List<Vuelo> GetVueloFromFechaAndPuerto(DateTime Fecha1, DateTime Fecha2, Aeropuerto Origen, Aeropuerto Destino)
+        public static List<Vuelo> GetVueloFromFechaAndPuerto(DateTime Fecha1, DateTime Fecha2, Aeropuerto Origen, Aeropuerto Destino)
         {
             try { return Provider.GetProvider().spGetVueloFromFechaAndPuerto(Fecha1, Fecha2, Origen.idAeropuerto, Destino.idAeropuerto).ToList(); }
             catch (Exception e) { throw e; }

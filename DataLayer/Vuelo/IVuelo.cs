@@ -36,5 +36,11 @@ namespace DataLayer
             get;
             set;
         }
+
+        TransAeropuerto PuertoLlegada
+        {
+            get;
+            set;
+        }
     }
 }

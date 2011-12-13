@@ -32,6 +32,8 @@ namespace UI
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main_window = new MainWindow();
+            main_window.Top = this.Top;
+            main_window.Left = this.Left;
             this.Close();
             main_window.Show();
         }
@@ -39,6 +41,8 @@ namespace UI
         private void btBuscarVuelo_Click(object sender, RoutedEventArgs e)
         {
             BuscarVuelo buscar_vuelo = new BuscarVuelo();
+            buscar_vuelo.Top = this.Top;
+            buscar_vuelo.Left = this.Left;
             this.Close();
             buscar_vuelo.Show();
         }

@@ -7,7 +7,7 @@ namespace DataLayer
 {
     public class TransVuelo : AbstractTrans<Vuelo>, IVuelo
     {
-        internal TransVuelo(Vuelo persistent_object) : base(persistent_object)
+        public TransVuelo(Vuelo persistent_object) : base(persistent_object)
         {
         }
 
@@ -41,9 +41,54 @@ namespace DataLayer
             set { persistent.Comentario = value; }
         }
 
+        public TransAeropuerto PuertoLlegada
+        {
+            get 
+            {
+                if (puerto_llegada == null)
+                {
+                    AeropuertoFactory factory = new AeropuertoFactory();
+                    factory.BuildProduct(persistent.idPuertoLlegada);
+                    puerto_llegada = (TransAeropuerto)factory.GetProduct();
+                }
+
+                return puerto_llegada;
+            }
+
+            set
+            {
+                puerto_llegada = value;
+                persistent.idPuertoLlegada = value.ID;
+            }
+        }
+
+        public TransAeropuerto PuertoSalida
+        {
+            get
+            {
+                if (puerto_salida == null)
+                {
+                    AeropuertoFactory factory = new AeropuertoFactory();
+                    factory.BuildProduct(persistent.idPuertoSalida);
+                    puerto_salida = (TransAeropuerto)factory.GetProduct();
+                }
+
+                return puerto_salida;
+            }
+
+            set
+            {
+                puerto_salida = value;
+                persistent.idPuertoSalida = value.ID;
+            }
+        }
+
         public void Flush()
         {
             base.Flush(DALVuelo.UpdateVuelo);
         }
+
+        private TransAeropuerto puerto_llegada;
+        private TransAeropuerto puerto_salida;
     }
 }

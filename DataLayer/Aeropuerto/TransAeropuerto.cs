@@ -43,7 +43,7 @@ namespace DataLayer
             }
         }
 
-        public Ciudad ciudad
+        public Ciudad Ciudad
         {
             get
             {
