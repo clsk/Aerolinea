@@ -18,6 +18,6 @@ namespace DataLayer
         }
 
         void Flush();
-        // void Create();
+        void Create();
     }
 }

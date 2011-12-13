@@ -14,6 +14,7 @@ namespace DataLayer
         public TransAeropuerto(string nombre, Ciudad ciudad, string siglas)
             : base(null)
         {
+            persistent = new Aeropuerto();
             Nombre = nombre;
             Ciudad = ciudad;
             Siglas = siglas;

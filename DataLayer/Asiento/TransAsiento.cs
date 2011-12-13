@@ -14,6 +14,7 @@ namespace DataLayer
 
         public TransAsiento(TransAvion avion, TipoClase clase, string numero, int fila, int posX, int posY, int piso) : base(null)
         {
+            persistent = new Asiento();
             Avion = avion;
             Clase = clase;
             Numero = numero;
