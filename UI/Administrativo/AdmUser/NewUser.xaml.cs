@@ -20,17 +20,17 @@ namespace UI.Administrativo.AdmUser
     /// </summary>
     public partial class NewUser : Window
     {
-        ObservableCollection<NivelUsuario> niveles;
+        List<NivelUsuario> niveles;
         public NewUser()
         {
             InitializeComponent();
 
-            // niveles = DataLayer.DALDestino.GetAllAeropuerto().ConvertAll<AeropuertoView>(pers => new AeropuertoView(pers));
+            niveles = DataLayer.DALUsuario.GetAllNivelUsuario();
 
             // Bind ComboBoxes
-            // Binding binding = new Binding();
-            // binding.Source = aeropuertos;
-            // cbDesde.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            Binding binding = new Binding();
+            binding.Source = niveles;
+            cbxNivel.SetBinding(ComboBox.ItemsSourceProperty, binding);
         }
 
         private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)
@@ -50,15 +50,28 @@ namespace UI.Administrativo.AdmUser
 
         private void btmNewUser_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                NivelUsuario nivel = (NivelUsuario)cbxNivel.SelectedValue;
+                TransUsuario usuario = new TransUsuario(tbNombre.Text, tbLogin.Text, tbPass.Password, nivel, cbxEstado.SelectedItem == activo);
+                usuario.Create();
+                MessageBox.Show("El usuario " + usuario.Nombre + " (" + usuario.Login + ") fue creado exitosamente");
+                btmAtras_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Data);
+            }
         }
 
         private bool VerifDatos()
         {
             if (tbNombre.Text != "")
-                if (tbLogin.Text != "")
-                    if (tbPass.Password.ToString().Length >= 6)
-                        return true;
+                if (cbxNivel.SelectedValue != null)
+                    if (tbLogin.Text != "")
+                        if (tbPass.Password.ToString().Length >= 6)
+                            return true;
+
             return false;
         }
 
@@ -69,6 +82,11 @@ namespace UI.Administrativo.AdmUser
             prevWin.Left = this.Left;
             prevWin.Show();
             this.Close();
+        }
+
+        private void cbxNivel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btmNewUser.IsEnabled = VerifDatos();
         }
     }
 }
