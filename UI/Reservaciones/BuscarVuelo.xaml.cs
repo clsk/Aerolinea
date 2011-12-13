@@ -54,6 +54,8 @@ namespace UI
             {
                 MessageBox.Show(e.Message);
             }
+
+            rbIdaVuelta.IsChecked = true;
         }
 
         private void btBack_Click(object sender, RoutedEventArgs e)
@@ -68,6 +70,9 @@ namespace UI
         private void btBuscar_Click(object sender, RoutedEventArgs e)
         {
             if (dpSalida.SelectedDate == null)
+                return;
+
+            if (rbIdaVuelta.IsChecked.Value == true && dpRegreso.SelectedDate == null)
                 return;
 
             if (cbDesde.SelectedValue == null || cbHacia.SelectedValue == null)
