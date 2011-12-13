@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace DataLayer
 {
@@ -11,12 +12,23 @@ namespace DataLayer
             : base(persistent_object)
         {
             List<PlantaAvion> _plantas = DALAvion.GetPlantaAvionFromAvion(this.ID);
-            plantas = new TransPlantaAvion[_plantas.Count];
 
             foreach (PlantaAvion planta in _plantas)
             {
                 plantas[planta.Piso] = new TransPlantaAvion(planta);
             }
+        }
+
+        public TransAvion(SerieAvion serie)
+            : base(null)
+        {
+            persistent = new Avion();
+            Serie = serie;
+        }
+
+        public ReadOnlyCollection<TransPlantaAvion> Plantas
+        {
+            get { return new ReadOnlyCollection<TransPlantaAvion>(plantas); }
         }
 
         public SerieAvion Serie
@@ -37,15 +49,29 @@ namespace DataLayer
             base.Flush(DALAvion.UpdateAvion);
         }
 
-        public static List<TransAvion> AllMarcas()
+        public void Create()
         {
-            //esto usaria DALAvion.GetAllMarcaAvion();
-            return null;
+            persistent.idAvion = DALAvion.Create(persistent);
         }
-        public static List<TransAvion> SeriesFromMarca(int idMarca)
+
+        // @returns El numero de piso en que se agrego esta planta
+        public int AddPlanta(byte[] imagen)
         {
-            //esto usaria DALAvion.GetSerieAvionFromMarcaAvion();
-            return null;
+            // Create object in database
+            PlantaAvion planta = new PlantaAvion();
+            planta.idAvion = ID;
+            planta.ImagenPlanta = imagen;
+            planta.Piso = plantas.Length;
+            DALAvion.CreatePlantaAvion(planta);
+
+            // Create new array with +1 elements
+            TransPlantaAvion[] old_plantas = plantas;
+            plantas = new TransPlantaAvion[plantas.Length + 1];
+            Array.Copy(old_plantas, plantas, old_plantas.Length);
+
+            // Assign new planta to last index
+            plantas[old_plantas.Length] = new TransPlantaAvion(planta, false);
+            return old_plantas.Length; // return index of nivel de planta
         }
     }
 }
