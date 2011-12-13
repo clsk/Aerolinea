@@ -30,6 +30,8 @@ namespace DataLayer
         public void AddAsiento(TransAsiento asiento)
         {
             asientos.Add(asiento);
+            asiento.Piso = Piso;
+            asiento.Flush();
         }
 
         public byte[] Imagen
