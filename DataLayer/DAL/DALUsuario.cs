@@ -19,14 +19,13 @@ namespace DataLayer
          * 
          * @remark el idUsuario NO necesita estar inicializado, este se genera automáticamenta.
          */
-        static public bool Create(Usuario user)
+        static public void Create(Usuario user)
         {
             try
             {
                 Provider.GetProvider().spNewUsuario(user.idNivel, user.Nombre, user.Login, user.Password, user.isActive);
             }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

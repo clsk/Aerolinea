@@ -39,5 +39,14 @@ namespace UI
             reservacion_main.Show();
             this.Close();
         }
+
+        private void btAdministracion_Click(object sender, RoutedEventArgs e)
+        {
+            Administrativo.MainAdm admin_main = new Administrativo.MainAdm();
+            admin_main.Top = this.Top;
+            admin_main.Left = this.Left;
+            admin_main.Show();
+            this.Close();
+        }
     }
 }

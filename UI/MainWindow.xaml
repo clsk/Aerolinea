@@ -22,7 +22,7 @@
             <Image
                 Source="/UI;component/Images/Help.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
-        <Button Height="95" HorizontalAlignment="Center" Name="btAdministracion" VerticalAlignment="Center" Width="95" Grid.Column="1" Grid.Row="2">
+        <Button Height="95" HorizontalAlignment="Center" Name="btAdministracion" VerticalAlignment="Center" Width="95" Grid.Column="1" Grid.Row="2" Click="btAdministracion_Click">
             <Image Source="/UI;component/Images/Tools.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
         <Label Content="Reservaciones" Height="28" HorizontalAlignment="Center" Margin="0,110,0,21" Name="lblReservaciones" VerticalAlignment="Center" Grid.Row="1" />

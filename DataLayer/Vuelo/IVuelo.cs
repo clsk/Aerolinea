@@ -7,6 +7,11 @@ namespace DataLayer
 {
     public interface IVuelo : ITrans<Vuelo>
     {
+        int ID
+        {
+            get;
+        }
+
         DateTime FechaLlegada
         {
             get;
@@ -38,6 +43,12 @@ namespace DataLayer
         }
 
         TransAeropuerto PuertoLlegada
+        {
+            get;
+            set;
+        }
+
+        TransAeropuerto PuertoSalida
         {
             get;
             set;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataLayer;
 
 namespace UI.Administrativo.AdmUser
 {
@@ -18,9 +20,17 @@ namespace UI.Administrativo.AdmUser
     /// </summary>
     public partial class NewUser : Window
     {
+        ObservableCollection<NivelUsuario> niveles;
         public NewUser()
         {
             InitializeComponent();
+
+            // niveles = DataLayer.DALDestino.GetAllAeropuerto().ConvertAll<AeropuertoView>(pers => new AeropuertoView(pers));
+
+            // Bind ComboBoxes
+            // Binding binding = new Binding();
+            // binding.Source = aeropuertos;
+            // cbDesde.SetBinding(ComboBox.ItemsSourceProperty, binding);
         }
 
         private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)

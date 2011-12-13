@@ -27,7 +27,7 @@ namespace DataLayer
                     update_delegate(persistent);
                 else
                 {
-                    Exception ex = new Exception("Cannot update invalid object");
+                    Exception ex = new Exception("persistent object is null");
                     throw ex;
                 }
 

@@ -11,6 +11,14 @@ namespace DataLayer
         {
         }
 
+        public int ID
+        {
+            get
+            {
+                return persistent.idVuelo;
+            }
+        }
+
         public DateTime FechaLlegada
         {
             get { return persistent.FechaLlegada; }
