@@ -12,9 +12,9 @@ namespace BusinessLogic
         {
         }
 
-        public string DisplayPuertos
-        {
-            get { return  ; }
-        }
+        //public string DisplayPuertos
+        //{
+            //get { return  ; }
+        //}
     }
 }
