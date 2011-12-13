@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    class DALCliente
+    public class DALCliente
     {
         #region Agregar reserva.
         /**

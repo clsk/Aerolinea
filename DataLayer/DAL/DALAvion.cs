@@ -6,7 +6,7 @@ using System.Text;
 namespace DataLayer
 {
 
-    class DALAvion
+    public class DALAvion
     {
         #region Crear una marca de avión
         /**

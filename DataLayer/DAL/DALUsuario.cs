@@ -7,7 +7,7 @@ using System.Data.Objects;
 
 namespace DataLayer
 {
-    class DALUsuario
+    public class DALUsuario
     {
         #region Agregar Usuario
         /**
