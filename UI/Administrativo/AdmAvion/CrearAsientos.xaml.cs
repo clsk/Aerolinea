@@ -11,19 +11,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataLayer;
-namespace UI.Administrativo.Adm_Avion
+namespace UI.Administrativo.AdmAvion
 {
     /// <summary>
     /// Interaction logic for CrearAsientos.xaml
     /// </summary>
     public partial class CrearAsientos : Window
     {
+        int idSerie;
+        int idAvion;
+        int Piso;
+        int cantPiso;
         bool FilaIsOk;
         Point TempPoint;
         List<TipoClase> lasClases;
         List<UIAsiento> Asientos;
-        public CrearAsientos()
+        public CrearAsientos(int idserie, BitmapImage bitimage, int piso, int cantpiso)
         {
+            idAvion = -1;
+            idSerie = idserie;
+            Piso = piso;
+            cantPiso = cantpiso;
             InitializeComponent();
             Asientos = new List<UIAsiento>();
             FilaIsOk = false;
@@ -32,14 +40,22 @@ namespace UI.Administrativo.Adm_Avion
             Binding binding = new Binding();
             binding.Source = lasClases;
             cbClase.SetBinding(ComboBox.ItemsSourceProperty, binding);
-
+            imgPlanta.Source = bitimage;
         }
-        public CrearAsientos(int idAvion)
+        public CrearAsientos(BitmapImage bitimage, int piso, int cantpiso, int idavion)
         {
+            idAvion = idavion;
+            Piso = piso;
+            cantPiso = cantpiso;
             InitializeComponent();
             Asientos = new List<UIAsiento>();
             FilaIsOk = false;
             rbtnInsertar.IsChecked = true;
+            lasClases = DALAsiento.GetAllTipoClases();
+            Binding binding = new Binding();
+            binding.Source = lasClases;
+            cbClase.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            imgPlanta.Source = bitimage;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -206,9 +222,41 @@ namespace UI.Administrativo.Adm_Avion
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            //No se ha construido el avion
+            if (idAvion == -1)
+            {
+                //Si ya se construyeron todos los pisos, volver al meno.
+                if (Piso == cantPiso)
+                    OpenNewAvion();
+                else
+                    OpenAddPlano();
+            }
+            else
+            {
+                //Si ya se construyeron todos los pisos, volver al menu
+                if (Piso == cantPiso)
+                    OpenNewAvion();
+                else
+                    OpenAddPlano();
+            }
+        }
+        private void OpenNewAvion()
+        {
+            NewAvion prevWin = new NewAvion();
+            prevWin.Top = this.Top;
+            prevWin.Left = this.Left;
+            prevWin.Show();
+            this.Close();
         }
 
+        private void OpenAddPlano()
+        {
+            AddPlano prevWin = new AddPlano(idAvion, Piso++, cantPiso, false);
+            prevWin.Top = this.Top;
+            prevWin.Left = this.Left;
+            prevWin.Show();
+            this.Close();
+        }
         private void cbClase_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int result;

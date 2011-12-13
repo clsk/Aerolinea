@@ -1,0 +1,73 @@
+﻿<Window x:Class="UI.Administrativo.AdmAvion.NewAvion"
+       xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Nuevo Avion" Height="450" Width="600" MinHeight="450" MinWidth="600" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="269*" />
+            <RowDefinition Height="142" />
+        </Grid.RowDefinitions>
+        <TabControl Height="206" Name="tbcDestino" Width="544" HorizontalAlignment="Left" VerticalAlignment="Top" TabStripPlacement="Left" Margin="11,50,0,0" Grid.Row="2" SelectionChanged="tbcDestino_SelectionChanged">
+            <TabItem Header="Marca" Name="tabMarca">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="82" />
+                        <RowDefinition Height="64*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150*" />
+                        <ColumnDefinition Width="273*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbNombreMarca" VerticalAlignment="Top" Width="200" Margin="11,11,0,0" TextChanged="tbNombreMarca_TextChanged" />
+                    <Label Content="Nombre marca" Height="28" HorizontalAlignment="Right" Name="label1" VerticalAlignment="Top" Margin="11" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Serie" Name="tabSerie">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150*" />
+                        <ColumnDefinition Width="273*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="101" />
+                    </Grid.RowDefinitions>
+                    <ComboBox DataContext="{Binding}" DisplayMemberPath="NombreMarca" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbMarca_Serie" VerticalAlignment="Top" Width="200" SelectedIndex="0" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11,11,0,0" Name="tbNombreSerie" VerticalAlignment="Top" Width="200" TextChanged="tbNombreSerie_TextChanged" />
+                    <Label Content="Marca" Grid.RowSpan="2" Height="28" HorizontalAlignment="Right" Margin="11" Name="label2" VerticalAlignment="Top" />
+                    <Label Content="Nombre serie" Grid.Row="1" Height="28" HorizontalAlignment="Right" Margin="11" Name="label3" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Avion" Name="tabAvion">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="73" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150*" />
+                        <ColumnDefinition Width="250*" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox DataContext="{Binding}" DisplayMemberPath="NombreMarca" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbMarca_Avion" VerticalAlignment="Top" Width="200" SelectedIndex="0" SelectionChanged="cbMarca_Avion_SelectionChanged" />
+                    <ComboBox DataContext="{Binding}" DisplayMemberPath="NombreSerie" Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbSerieAvion" VerticalAlignment="Top" Width="200" SelectedIndex="0" />
+                    <Label Content="Marca" Height="28" Margin="0,11,11,0" Name="label4" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47" />
+                    <Label Content="Serie" Grid.Row="1" Height="28" Margin="0,11,11,0" Name="label5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47" />
+                    <Label Content="Cantidad pisos" Grid.Row="2" Height="28" HorizontalAlignment="Right" Margin="0,9,11,0" Name="label6" VerticalAlignment="Top" Width="97" />
+                    <TextBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="11,11,0,0" Name="tbCantidad" VerticalAlignment="Top" Width="200" DataContext="{Binding}" TextChanged="tbCantidad_TextChanged" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Grid.Row="2" Height="27" HorizontalAlignment="Left" Margin="10,10,0,0" Name="btmAtras" VerticalAlignment="Top" Width="49" Click="btmAtras_Click">
+            <Image Source="/UI;component/Images/left_32.png" Stretch="Fill" />
+        </Button>
+        <Button Grid.Row="3" Height="95" HorizontalAlignment="Center" IsEnabled="False" Margin="11" Name="btnNewAvion" VerticalAlignment="Center" Width="95" Click="btnNewAvion_Click">
+            <gi:GreyableImage Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" Source="/UI;component/Images/Save.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" />
+        </Button>
+        <Label Content="Guardar información" Grid.Row="3" Height="28" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="226,114,227,0" Name="label8" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="125" />
+    </Grid>
+</Window>

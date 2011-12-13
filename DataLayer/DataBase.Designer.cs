@@ -1395,25 +1395,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="idSerie">No Metadata Documentation available.</param>
-        public int spNewAvion(Nullable<global::System.Int32> idSerie)
-        {
-            ObjectParameter idSerieParameter;
-            if (idSerie.HasValue)
-            {
-                idSerieParameter = new ObjectParameter("idSerie", idSerie);
-            }
-            else
-            {
-                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("spNewAvion", idSerieParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
         public int spNewMarcaAvion(global::System.String nombre)
         {
@@ -2834,6 +2815,25 @@ namespace DataLayer
             }
     
             return base.ExecuteFunction<Usuario>("spGetUsuarioFromNombre", mergeOption, nombreParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> spNewAvion(Nullable<global::System.Int32> idSerie)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("spNewAvion", idSerieParameter);
         }
 
         #endregion

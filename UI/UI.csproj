@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrativo\AdmAvion\NewAvion.xaml.cs">
+      <DependentUpon>NewAvion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Administrativo\AdmUser\AdmUser.xaml.cs">
       <DependentUpon>AdmUser.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,9 @@
     </Compile>
     <Compile Include="Administrativo\AdmUser\NewUser.xaml.cs">
       <DependentUpon>NewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\AdmAvion\AddPlano.xaml.cs">
+      <DependentUpon>AddPlano.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\AdmVuelo\AdmVuelo.xaml.cs">
       <DependentUpon>AdmVuelo.xaml</DependentUpon>
@@ -90,6 +96,10 @@
       <DependentUpon>CrearAsientos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\AdmAvion\UIAsiento.cs" />
+    <Page Include="Administrativo\AdmAvion\NewAvion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Administrativo\AdmUser\AdmUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Administrativo\AdmUser\NewUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmAvion\AddPlano.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -887,9 +887,6 @@
           <FunctionImport Name="spGetAsientosNoOcupados" EntitySet="Asientoes" ReturnType="Collection(ReservaVuelosModel.Asiento)">
           <Parameter Name="idVuelo" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spNewAvion">
-          <Parameter Name="idSerie" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="spNewMarcaAvion">
           <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
@@ -1024,7 +1021,10 @@
             <Parameter Name="Siglas" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetUsuarioFromNombre" EntitySet="Usuarios" ReturnType="Collection(ReservaVuelosModel.Usuario)">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
+          <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spNewAvion" ReturnType="Collection(Int32)">
+            <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1548,7 +1548,6 @@
           <FunctionImportMapping FunctionImportName="spGetAsientoFromID" FunctionName="ReservaVuelosModel.Store.spGetAsientoFromID" />
           <FunctionImportMapping FunctionImportName="spGetAsientosFromAvion" FunctionName="ReservaVuelosModel.Store.spGetAsientosFromAvion" />
           <FunctionImportMapping FunctionImportName="spGetAsientosNoOcupados" FunctionName="ReservaVuelosModel.Store.spGetAsientosNoOcupados" />
-          <FunctionImportMapping FunctionImportName="spNewAvion" FunctionName="ReservaVuelosModel.Store.spNewAvion" />
           <FunctionImportMapping FunctionImportName="spNewMarcaAvion" FunctionName="ReservaVuelosModel.Store.spNewMarcaAvion" />
           <FunctionImportMapping FunctionImportName="spNewSerieAvion" FunctionName="ReservaVuelosModel.Store.spNewSerieAvion" />
           <FunctionImportMapping FunctionImportName="spUpdateAvion" FunctionName="ReservaVuelosModel.Store.spUpdateAvion" />
@@ -1578,6 +1577,7 @@
           <FunctionImportMapping FunctionImportName="spGetAllAeropuertos" FunctionName="ReservaVuelosModel.Store.spGetAllAeropuertos" />
           <FunctionImportMapping FunctionImportName="spUpdateAeropuerto" FunctionName="ReservaVuelosModel.Store.spUpdateAeropuerto" />
           <FunctionImportMapping FunctionImportName="spGetUsuarioFromNombre" FunctionName="ReservaVuelosModel.Store.spGetUsuarioFromNombre" />
+          <FunctionImportMapping FunctionImportName="spNewAvion" FunctionName="ReservaVuelosModel.Store.spNewAvion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

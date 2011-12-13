@@ -54,11 +54,10 @@ namespace DataLayer
          * 
          * @remarks el idAvion no tiene que estár inicializado.
          */
-        static public bool Create(Avion unAvion)
+        static public int Create(Avion unAvion)
         {
-            try { Provider.GetProvider().spNewAvion(unAvion.idSerie); }
+            try { return (int)Provider.GetProvider().spNewAvion(unAvion.idSerie).FirstOrDefault(); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
 

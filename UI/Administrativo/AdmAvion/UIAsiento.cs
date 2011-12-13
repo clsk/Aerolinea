@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Controls;
 
-namespace UI.Administrativo.Adm_Avion
+namespace UI.Administrativo.AdmAvion
 {
     class UIAsiento
     {

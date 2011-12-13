@@ -1,4 +1,4 @@
-﻿<Window x:Class="UI.Administrativo.Adm_Avion.CrearAsientos"
+﻿<Window x:Class="UI.Administrativo.AdmAvion.CrearAsientos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gi="clr-namespace:GreyableImage;assembly=GreyableImage"
