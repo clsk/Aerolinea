@@ -23,7 +23,14 @@ namespace DataLayer
         {
             try
             {
-                update_delegate(persistent);
+                if (persistent != null)
+                    update_delegate(persistent);
+                else
+                {
+                    Exception ex = new Exception("Cannot update invalid object");
+                    throw ex;
+                }
+
             }
             catch (Exception ex)
             {

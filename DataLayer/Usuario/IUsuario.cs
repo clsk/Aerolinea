@@ -10,7 +10,6 @@ namespace DataLayer
         int ID
         {
             get;
-            set;
         }
 
         string Nombre
