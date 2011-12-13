@@ -36,5 +36,16 @@ namespace DataLayer
         {
             base.Flush(DALAvion.UpdateAvion);
         }
+
+        public static List<TransAvion> AllMarcas()
+        {
+            //esto usaria DALAvion.GetAllMarcaAvion();
+            return null;
+        }
+        public static List<TransAvion> SeriesFromMarca(int idMarca)
+        {
+            //esto usaria DALAvion.GetSerieAvionFromMarcaAvion();
+            return null;
+        }
     }
 }
