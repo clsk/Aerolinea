@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    class DALAsiento
+    public class DALAsiento
     {
         #region Crear asiento.
         /**
