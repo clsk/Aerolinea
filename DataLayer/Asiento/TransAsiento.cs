@@ -60,5 +60,11 @@ namespace DataLayer
         {
             base.Flush(DALAsiento.Create);
         }
+
+        static public List<TransAsiento> AllClases()
+        {
+            //Debería usar DALAsiento.GetAllTipoClases();
+            return null;
+        }
     }
 }
