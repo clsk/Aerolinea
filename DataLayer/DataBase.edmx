@@ -527,6 +527,9 @@
         <Function Name="spGetUsuarioFromLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spGetUsuarioFromNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spGetVueloFromFechaAndPuerto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="fecha_salida1" Type="date" Mode="In" />
           <Parameter Name="fecha_salida2" Type="date" Mode="In" />
@@ -1019,6 +1022,9 @@
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="idCiudad" Mode="In" Type="Int32" />
             <Parameter Name="Siglas" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetUsuarioFromNombre" EntitySet="Usuarios" ReturnType="Collection(ReservaVuelosModel.Usuario)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1571,6 +1577,7 @@
           <FunctionImportMapping FunctionImportName="spGetAvionesDisponibles" FunctionName="ReservaVuelosModel.Store.spGetAvionesDisponibles" />
           <FunctionImportMapping FunctionImportName="spGetAllAeropuertos" FunctionName="ReservaVuelosModel.Store.spGetAllAeropuertos" />
           <FunctionImportMapping FunctionImportName="spUpdateAeropuerto" FunctionName="ReservaVuelosModel.Store.spUpdateAeropuerto" />
+          <FunctionImportMapping FunctionImportName="spGetUsuarioFromNombre" FunctionName="ReservaVuelosModel.Store.spGetUsuarioFromNombre" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

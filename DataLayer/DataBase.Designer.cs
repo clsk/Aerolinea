@@ -2797,6 +2797,44 @@ namespace DataLayer
     
             return base.ExecuteFunction("spUpdateAeropuerto", idAeropuertoParameter, nombreParameter, idCiudadParameter, siglasParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Usuario> spGetUsuarioFromNombre(global::System.String nombre)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Usuario>("spGetUsuarioFromNombre", nombreParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="nombre">No Metadata Documentation available.</param>
+        public ObjectResult<Usuario> spGetUsuarioFromNombre(global::System.String nombre, MergeOption mergeOption)
+        {
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("Nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("Nombre", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Usuario>("spGetUsuarioFromNombre", mergeOption, nombreParameter);
+        }
 
         #endregion
     }

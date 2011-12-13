@@ -110,5 +110,21 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Obtener una lista de usuario dado un nombre
+        /**
+         * @brief Obtiene una lista de usuarios dado un nombre
+         * 
+         * @param nombre            nombre del usuario
+         * 
+         * @return Una lista de usuario si fue posible encontrar, null caso contrário.
+         */
+        public static List<Usuario> GetUsuarioFromNombre(string nombre)
+        {
+            try { return Provider.GetProvider().spGetUsuarioFromNombre(nombre).ToList(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
+
     }
 }

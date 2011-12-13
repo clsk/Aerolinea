@@ -5,8 +5,8 @@
         Title="SelectAsiento" Height="500" Width="600" Loaded="Window_Loaded" Visibility="Visible" MinWidth="600" MinHeight="500">
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" Name="stackPanel1" VerticalAlignment="Stretch" Background="Black" Margin="164,0,0,0">
-            <Popup Name="pupInfos" Width="349" Height="300" IsOpen="False" PopupAnimation="Scroll" Placement="Center" AllowsTransparency="True" OpacityMask="White" Opacity="0" Opened="pupInfos_Opened">
-                <StackPanel Width="406">
+            <Popup Name="pupInfos" Width="349" Height="244" IsOpen="False" PopupAnimation="Scroll" Placement="Center" AllowsTransparency="True" OpacityMask="White" Opacity="0" Opened="pupInfos_Opened">
+                <StackPanel Width="406" Background="#CBFFFFFF">
                     <Grid Height="150" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="77*" />
@@ -24,11 +24,7 @@
                         <Label Content="Numero" Grid.Row="1" Height="28" HorizontalAlignment="Right" Margin="11" Name="label2" VerticalAlignment="Top" FlowDirection="RightToLeft" />
                         <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11,11,0,0" Name="tbNumero" VerticalAlignment="Top" Width="170" TextChanged="tbNumero_TextChanged" />
                         <Label Content="Clase" Height="28" HorizontalAlignment="Right" Margin="11" Name="label3" VerticalAlignment="Top" Grid.Row="3" FlowDirection="RightToLeft" />
-                        <ComboBox Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbClase" VerticalAlignment="Top" Width="170" SelectedIndex="0">
-                            <ComboBoxItem Content="Esto!" />
-                            <ComboBoxItem />
-                            <ComboBoxItem Content="Aquello" />
-                        </ComboBox>
+                        <ComboBox DataContext="{Binding}" DisplayMemberPath="NombreClase" Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbClase" VerticalAlignment="Top" Width="170" SelectedIndex="0" SelectionChanged="cbClase_SelectionChanged"></ComboBox>
                     </Grid>
                     <Grid Name="grid1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="38">
                         <Grid.ColumnDefinitions>

@@ -23,8 +23,25 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="237*" />
             </Grid.RowDefinitions>
+            <Grid.Resources>
+                    <DataTemplate x:Key="UsuarioLayout" DataType="Usuario">
+                    <Grid Height="26">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=Login}"  Height="23" HorizontalAlignment="Left" Margin="5" Name="textBlock1" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Path=Nombre}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="5" Name="textBlock2" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Path=NivelUsuario.NombreNivel}" Grid.Column="2" Height="23" HorizontalAlignment="Left" Name="textBlock3" VerticalAlignment="Top" Margin="5" />
+                        <Border BorderBrush="Silver" BorderThickness="1" HorizontalAlignment="Stretch" Name="border1" VerticalAlignment="Stretch" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="border2" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Grid.Column="2" Name="border3" />
+                    </Grid>
+                </DataTemplate>
+                </Grid.Resources>
             <Button Content="Buscar" Height="23" HorizontalAlignment="Center" Margin="11" Name="btnBuscar" VerticalAlignment="Center" Width="75" IsEnabled="False" Click="btnBuscar_Click" />
-            <ListBox Grid.Row="1" Height="260" HorizontalAlignment="Left" Margin="11,9,0,0" Name="listBox1" VerticalAlignment="Top" Width="553" />
+            <ListBox ItemsSource="{Binding}" ItemTemplate="{DynamicResource UsuarioLayout}" Grid.Row="1" Height="260" HorizontalAlignment="Left" Margin="11,9,0,0" Name="lbUsuarios" VerticalAlignment="Top" Width="553"/>
         </Grid>
     </StackPanel>
 </Window>
