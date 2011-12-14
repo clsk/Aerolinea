@@ -22,13 +22,13 @@ namespace UI
     public partial class BuscarVuelo : Window
     {
         List<AeropuertoView> aeropuertos;
-        ObservableCollection<TransVuelo> vuelos_ida;
-        ObservableCollection<TransVuelo> vuelos_vuelta;
+        ObservableCollection<TransVuelo> vuelos;
+        Action<TransVuelo> callback;
         
-        public BuscarVuelo()
+        public BuscarVuelo(Action<TransVuelo> vuelo_callback = null)
         {
             InitializeComponent();
-
+            callback = vuelo_callback;
             try
             {
                 aeropuertos = TransAeropuerto.GetAll().ConvertAll<AeropuertoView>(trans => new AeropuertoView(trans.PersistentObject));
@@ -40,26 +40,26 @@ namespace UI
                 cbHacia.SetBinding(ComboBox.ItemsSourceProperty, binding);
                 
                 // Bind ListBoxes
-                vuelos_ida = new ObservableCollection<TransVuelo>();
+                vuelos = new ObservableCollection<TransVuelo>();
                 binding = new Binding();
-                binding.Source = vuelos_ida;
-                lbVuelosIda.SetBinding(ListBox.ItemsSourceProperty, binding);
-
-                vuelos_vuelta = new ObservableCollection<TransVuelo>();
-                binding = new Binding();
-                binding.Source = vuelos_vuelta;
-                lbVuelosVuelta.SetBinding(ListBox.ItemsSourceProperty, binding);
+                binding.Source = vuelos;
+                lbVuelos.SetBinding(ListBox.ItemsSourceProperty, binding);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-
-            rbIdaVuelta.IsChecked = true;
         }
 
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
+            if (callback != null)
+            {
+                // This window should've been opened as a Dialog
+                this.Close();
+                return;
+            }
+
             ReservacionMain reservacion_main = new ReservacionMain();
             reservacion_main.Top = this.Top;
             reservacion_main.Left = this.Left;
@@ -72,8 +72,6 @@ namespace UI
             if (dpSalida.SelectedDate == null)
                 return;
 
-            if (rbIdaVuelta.IsChecked.Value == true && dpRegreso.SelectedDate == null)
-                return;
 
             if (cbDesde.SelectedValue == null || cbHacia.SelectedValue == null)
                 return;
@@ -82,39 +80,21 @@ namespace UI
             List<TransVuelo> _vuelos_lista = TransVuelo.FromFechaAndPuerto(dpSalida.SelectedDate.Value, dpSalida.SelectedDate.Value, (TransAeropuerto)cbDesde.SelectedValue, (TransAeropuerto)cbHacia.SelectedValue);
 
             // Move objects to ObservableList
-            vuelos_ida.Clear();
+            vuelos.Clear();
             foreach (TransVuelo vuelo in _vuelos_lista)
             {
-                vuelos_ida.Add(vuelo);
+                vuelos.Add(vuelo);
             }
 
-
-            if (rbIda.IsChecked.Value) // Do we need a return flight?
-                return;
-
-            // Vuelos de Regreso
-            _vuelos_lista = TransVuelo.FromFechaAndPuerto(dpRegreso.SelectedDate.Value, dpRegreso.SelectedDate.Value, (TransAeropuerto)cbHacia.SelectedValue, (TransAeropuerto)cbDesde.SelectedValue);
-
-            // Move objects to ObservableList
-            vuelos_vuelta.Clear();
-            foreach (TransVuelo vuelo in _vuelos_lista)
-            {
-                vuelos_vuelta.Add(vuelo);
-            }
         }
 
-        private void rbIda_Checked(object sender, RoutedEventArgs e)
+        private void lbVuelos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            dpRegreso.IsEnabled = false;
-            lbVuelosVuelta.IsEnabled = false;
-        }
-
-        private void rbIdaVuelta_Checked(object sender, RoutedEventArgs e)
-        {
-            if (cbHacia != null)
+            TransVuelo vuelo = (TransVuelo)lbVuelos.SelectedItem;
+            if (callback != null)
             {
-                dpRegreso.IsEnabled = true;
-                lbVuelosVuelta.IsEnabled = true;
+                callback(vuelo);
+                this.Close();
             }
         }
     }

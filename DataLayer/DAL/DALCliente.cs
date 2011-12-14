@@ -92,7 +92,7 @@ namespace DataLayer
          * 
          * @return La persona si se pudo encontrar, null caso contrário.
          */
-        static Persona GetPersonaFromPasaporte(string pasaporte)
+        public static Persona GetPersonaFromPasaporte(string pasaporte)
         {
             try { return Provider.GetProvider().spGetPersonaFromPasaporte(pasaporte).FirstOrDefault(); }
             catch (Exception e) { throw e; }
@@ -110,7 +110,7 @@ namespace DataLayer
          * 
          * @return Una lista de persona si se pudo encontrar, null caso contrário.
          */
-        static List<Persona> GetPersonasFromApellidoAndNombre(string nombre, string apellido)
+        public static List<Persona> GetPersonasFromApellidoAndNombre(string nombre, string apellido)
         {
             try { return Provider.GetProvider().spGetPersonaLikeApellido(nombre, apellido).ToList(); }
             catch (Exception e) { throw e; }

@@ -1,31 +1,104 @@
-﻿<Window x:Class="UI.Reservaciones.NewReservacion"
+﻿<Window x:Class="UI.NewReservacion"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Reservacion" Height="450" Width="600">
+        Title="Reservacion" Height="450" Width="600" xmlns:my="clr-namespace:GreyableImage;assembly=GreyableImage">
     <Grid>
-        <TabControl Height="376" HorizontalAlignment="Left" Margin="12,0,0,0" Name="tcTab" VerticalAlignment="Top" Width="554" TabStripPlacement="Left">
+        <TabControl Height="370" HorizontalAlignment="Left" Margin="12,0,0,0" Name="tcTab" VerticalAlignment="Top" Width="554" TabStripPlacement="Top">
             <TabItem Header="Datos Personales" Name="tiPersona">
                 <Grid>
-                    <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="45,40,0,0" Name="lblNombre" VerticalAlignment="Top" Width="58" />
-                    <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="45,87,0,0" Name="lblApellido" VerticalAlignment="Top" Width="58" />
-                    <Label Content="Pasaporte" Height="28" HorizontalAlignment="Left" Margin="45,135,0,0" Name="lblPasaporte" VerticalAlignment="Top" Width="58" />
-                    <Label Content="Direccion" Height="28" HorizontalAlignment="Left" Margin="45,231,0,0" Name="lblDireccion" VerticalAlignment="Top" Width="58" />
-                    <Label Content="E-Mail" Height="28" HorizontalAlignment="Left" Margin="45,183,0,0" Name="lblEmail" VerticalAlignment="Top" Width="58" />
-                    <Label Content="Telefono" Height="28" HorizontalAlignment="Left" Margin="45,279,0,0" Name="lblTelefono" VerticalAlignment="Top" Width="58" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,42,0,0" Name="tbNombre" VerticalAlignment="Top" Width="216" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,87,0,0" Name="tbApellido" VerticalAlignment="Top" Width="216" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,135,0,0" Name="tbPasaporte" VerticalAlignment="Top" Width="216" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,185,0,0" Name="tbEmail" VerticalAlignment="Top" Width="216" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,231,0,0" Name="tbDireccion" VerticalAlignment="Top" Width="216" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="130,281,0,0" Name="tbTelefono" VerticalAlignment="Top" Width="216" />
+                    <Grid.Resources>
+                        <DataTemplate x:Key="personaLayout" DataType="Persona">
+                            <Border  BorderBrush="Blue" Background="LightGray" BorderThickness="2">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=Pasaporte}" FontWeight="Bold" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                                        <TextBlock Text="{Binding Path=NombrePersona}" />
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Path=ApellidosPersona}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="18,64,0,0" Name="lblNombre" VerticalAlignment="Top" Width="58" />
+                    <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="275,62,0,0" Name="lblApellido" VerticalAlignment="Top" Width="58" />
+                    <Label Content="Pasaporte" Height="28" HorizontalAlignment="Left" Margin="8,113,0,0" Name="lblPasaporte" VerticalAlignment="Top" Width="68" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="72,64,0,0" Name="tbNombre" VerticalAlignment="Top" Width="182" TextChanged="tbNombre_TextChanged" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="0,62,4,0" Name="tbApellido" VerticalAlignment="Top" Width="201" TextChanged="tbApellido_TextChanged" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="72,113,0,0" Name="tbPasaporte" VerticalAlignment="Top" Width="182" TextChanged="tbPasaporte_TextChanged" />
+                    <Button Height="95" HorizontalAlignment="Center" IsEnabled="False" Margin="435,0,14,45" Name="btmSave" VerticalAlignment="Bottom" Width="95">
+                        <my:GreyableImage Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" Source="/UI;component/Images/Save.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" />
+                    </Button>
+                    <Label Content="Guardar Usuario" Height="28" HorizontalAlignment="Left" Margin="434,289,0,0" Name="lblGuardarUsuario" VerticalAlignment="Top" />
+                    <Button Content="Buscar Usuario" Height="23" HorizontalAlignment="Left" Margin="339,114,0,0" Name="btBuscarUsuario" VerticalAlignment="Top" Width="98" Click="btBuscarUsuario_Click" />
+                    <ListBox Height="113" HorizontalAlignment="Left" Margin="7,198,0,0" Name="lbPersonas" VerticalAlignment="Top" Width="421"  ItemTemplate="{DynamicResource personaLayout}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Vuelo Ida" Name="tiVueloIda">
                 <Grid>
-                    
+                    <Button Content="Buscar Vuelo" Height="23" HorizontalAlignment="Left" Margin="463,7,0,0" Name="btBuscarVueloIda" VerticalAlignment="Top" Width="75" Click="btBuscarVuelo_Click" />
+                    <GroupBox Header="Origen" Margin="15,32,-1,201" Name="gbOrigenIda">
+                        <Grid>
+                            <Label Content="Hora" Height="28" HorizontalAlignment="Left" Margin="6,1,0,0" Name="lblHoraIda" VerticalAlignment="Top" />
+                            <Label Content="Dia" Height="28" HorizontalAlignment="Left" Margin="8,49,0,0" Name="lblDiaIda" VerticalAlignment="Top" />
+                            <Label Content="Puerto" Height="28" HorizontalAlignment="Left" Margin="7,25,0,0" Name="lblPuertoIda" VerticalAlignment="Top" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,6,0,0" Name="tbHoraSalidaIda" Text="" VerticalAlignment="Top" Width="452" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,30,0,0" Name="tbPuertoSalidaIda" Text="" VerticalAlignment="Top" Width="452" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,54,0,0" Name="tbDiaSalidaIda" Text="" VerticalAlignment="Top" Width="452" />
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="15,5,0,0" Name="lblAsientIdao" VerticalAlignment="Top" />
+                    <GroupBox Header="Destino" Margin="11,0,0,87" Name="gbDestinoIda" Height="114" VerticalAlignment="Bottom"></GroupBox>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="71,7,0,0" Name="tbAsientoIda" VerticalAlignment="Top" Width="120" IsReadOnly="True" Text="N/A" />
+                    <Label Content="Comentarios:" Height="28" Margin="15,257,331,0" Name="lblComentariosIda" VerticalAlignment="Top" />
+                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="13,291,0,0" Name="tbComentariosIda" Text="" VerticalAlignment="Top" Width="516" />
+                    <Label Content="Avion" Height="28" HorizontalAlignment="Left" Margin="372,257,0,0" Name="lblAvionIda" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="418,262,0,0" Name="tbAvionIda" Text="" VerticalAlignment="Top" Width="111" />
+                    <Grid Margin="19,154,4,87">
+                        <Label Content="Hora" Height="28" HorizontalAlignment="Left" Margin="9,10,0,0" VerticalAlignment="Top" />
+                        <Label Content="Dia" Height="28" HorizontalAlignment="Left" Margin="11,0,0,10" Name="label2Ida" VerticalAlignment="Bottom" />
+                        <Label Content="Puerto" Height="28" HorizontalAlignment="Left" Margin="8,34,0,0" Name="label3Ida" VerticalAlignment="Top" />
+                        <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,15,0,0" Name="tbHoraLlegadaIda" Text="" VerticalAlignment="Top" Width="452" />
+                        <TextBlock Height="23" Margin="56,39,11,0" Name="tbPuertoLlegadaIda" Text="" VerticalAlignment="Top" Width="452"/>
+                        <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaIda" Text="" VerticalAlignment="Top" Width="452" />
+                    </Grid>
+                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIda" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIda_Click" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso" />
+            <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso">
+                <Grid>
+                    <Button Content="Buscar Vuelo" Height="23" HorizontalAlignment="Left" Margin="463,7,0,0" Name="btBuscarVueloVuelta" VerticalAlignment="Top" Width="75" Click="btBuscarVueloVuelta_Click" />
+                    <GroupBox Header="Origen" Margin="15,32,-1,201" Name="gbOrigenVuelta">
+                        <Grid>
+                            <Label Content="Hora" Height="28" HorizontalAlignment="Left" Margin="6,1,0,0" Name="lblHoraVuelta" VerticalAlignment="Top" />
+                            <Label Content="Dia" Height="28" HorizontalAlignment="Left" Margin="8,49,0,0" Name="lblDiaVuelta" VerticalAlignment="Top" />
+                            <Label Content="Puerto" Height="28" HorizontalAlignment="Left" Margin="7,25,0,0" Name="lblPuertoVuelta" VerticalAlignment="Top" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,6,0,0" Name="tbHoraSalidaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,30,0,0" Name="tbPuertoSalidaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,54,0,0" Name="tbDiaSalidaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="15,5,0,0" Name="lblAsientoVuelta" VerticalAlignment="Top" />
+                    <GroupBox Header="Destino" Margin="11,0,0,87" Name="gbDestinoVuelta" Height="114" VerticalAlignment="Bottom"></GroupBox>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="71,7,0,0" Name="tbAsientoVuelta" VerticalAlignment="Top" Width="120" IsReadOnly="True" Text="N/A" />
+                    <Label Content="Comentarios:" Height="28" Margin="15,257,331,0" Name="lblComentariosVuelta" VerticalAlignment="Top" />
+                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="13,291,0,0" Name="tbComentariosVuelta" Text="" VerticalAlignment="Top" Width="516" />
+                    <Label Content="Avion" Height="28" HorizontalAlignment="Left" Margin="372,257,0,0" Name="lblAvionVuelta" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="418,262,0,0" Name="tbAvionVuelta" Text="" VerticalAlignment="Top" Width="111" />
+                    <Grid Margin="19,154,4,87">
+                        <Label Content="Hora" Height="28" HorizontalAlignment="Left" Margin="9,10,0,0" VerticalAlignment="Top" />
+                        <Label Content="Dia" Height="28" HorizontalAlignment="Left" Margin="11,0,0,10" Name="label2Vuelta" VerticalAlignment="Bottom" />
+                        <Label Content="Puerto" Height="28" HorizontalAlignment="Left" Margin="8,34,0,0" Name="label3Vuelta" VerticalAlignment="Top" />
+                        <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,15,0,0" Name="tbHoraLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                        <TextBlock Height="23" Margin="56,39,11,0" Name="tbPuertoLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                        <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
+                    </Grid>
+                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIdaVuelta" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIdaVuelta_Click" />
+                </Grid>
+            </TabItem>
         </TabControl>
         <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="491,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="75" />
     </Grid>
