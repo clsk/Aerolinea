@@ -38,6 +38,7 @@ namespace BusinessLogic
         public void addAsiento(int X, int Y, TipoClase IdClase, string Numero, int Fila, int Piso)
         {
             LAsiento unAsiento = new LAsiento(X,  Y, IdClase, Numero, Fila, Piso);
+            asientos.Add(unAsiento);
         }
 
         public void Flush()
