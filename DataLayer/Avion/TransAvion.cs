@@ -24,6 +24,7 @@ namespace DataLayer
         {
             persistent = new Avion();
             Serie = serie;
+            plantas = new TransPlantaAvion[0];
         }
 
         public ReadOnlyCollection<TransPlantaAvion> Plantas
