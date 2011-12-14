@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataLayer;
 using BusinessLogic;
+using UI.Reservaciones;
 
 namespace UI
 {
