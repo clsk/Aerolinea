@@ -126,7 +126,7 @@ namespace DataLayer
          */
         public static void DeleteReservacion(int ID)
         {
-            try { Provider.GetProvider().spDeleteReservacion(ID) }
+            try { Provider.GetProvider().spDeleteReservacion(ID); }
             catch (Exception e) { throw e; }
         }
         #endregion

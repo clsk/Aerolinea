@@ -80,6 +80,9 @@
     <Compile Include="Administrativo\AdmVuelo\NewDestino.xaml.cs">
       <DependentUpon>NewDestino.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Administrativo\AdmVuelo\NewVuelo.xaml.cs">
+      <DependentUpon>NewVuelo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Administrativo\MainAdm.xaml.cs">
       <DependentUpon>MainAdm.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Administrativo\AdmVuelo\NewDestino.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administrativo\AdmVuelo\NewVuelo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,6 +210,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\Release V2\AvalonControlsLibrary\AvalonControlsLibrary\AvalonControlsLibrary.csproj">
+      <Project>{F2E7B3F0-E03E-4341-984F-2962ACA8C07E}</Project>
+      <Name>AvalonControlsLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{E534CA4D-FAD0-4664-AD0B-11011D142BC6}</Project>
       <Name>BusinessLogic</Name>
