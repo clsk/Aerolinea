@@ -511,11 +511,17 @@
         <Function Name="spGetPlantasFromAvion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAvion" Type="int" Mode="In" />
         </Function>
+        <Function Name="spGetPreciosFromVuelo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idVuelo" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetReservaFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idReserva" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetSerieAvionFromMarca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idMarca" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetTipoClaseFromAvion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAvion" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetUserFromLoginAndPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
@@ -1024,7 +1030,13 @@
           <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spNewAvion" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
-            <Parameter Name="idSerie" Mode="In" Type="Int32" />
+          <Parameter Name="idSerie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetPreciosFromVuelo" EntitySet="Precios" ReturnType="Collection(ReservaVuelosModel.Precio)">
+            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetTipoClaseFromAvion" EntitySet="TipoClases" ReturnType="Collection(ReservaVuelosModel.TipoClase)">
+            <Parameter Name="idAvion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1578,6 +1590,8 @@
           <FunctionImportMapping FunctionImportName="spUpdateAeropuerto" FunctionName="ReservaVuelosModel.Store.spUpdateAeropuerto" />
           <FunctionImportMapping FunctionImportName="spGetUsuarioFromNombre" FunctionName="ReservaVuelosModel.Store.spGetUsuarioFromNombre" />
           <FunctionImportMapping FunctionImportName="spNewAvion" FunctionName="ReservaVuelosModel.Store.spNewAvion" />
+          <FunctionImportMapping FunctionImportName="spGetPreciosFromVuelo" FunctionName="ReservaVuelosModel.Store.spGetPreciosFromVuelo" />
+          <FunctionImportMapping FunctionImportName="spGetTipoClaseFromAvion" FunctionName="ReservaVuelosModel.Store.spGetTipoClaseFromAvion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
