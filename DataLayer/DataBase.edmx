@@ -461,6 +461,9 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spDeleteReservacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idReservacion" Type="int" Mode="In" />
+        </Function>
         <Function Name="spGetAeropuertoFromID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAeropuerto" Type="int" Mode="In" />
         </Function>
@@ -1033,10 +1036,13 @@
           <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetPreciosFromVuelo" EntitySet="Precios" ReturnType="Collection(ReservaVuelosModel.Precio)">
-            <Parameter Name="idVuelo" Mode="In" Type="Int32" />
+          <Parameter Name="idVuelo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetTipoClaseFromAvion" EntitySet="TipoClases" ReturnType="Collection(ReservaVuelosModel.TipoClase)">
-            <Parameter Name="idAvion" Mode="In" Type="Int32" />
+          <Parameter Name="idAvion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteReservacion">
+            <Parameter Name="idReservacion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
@@ -1592,6 +1598,7 @@
           <FunctionImportMapping FunctionImportName="spNewAvion" FunctionName="ReservaVuelosModel.Store.spNewAvion" />
           <FunctionImportMapping FunctionImportName="spGetPreciosFromVuelo" FunctionName="ReservaVuelosModel.Store.spGetPreciosFromVuelo" />
           <FunctionImportMapping FunctionImportName="spGetTipoClaseFromAvion" FunctionName="ReservaVuelosModel.Store.spGetTipoClaseFromAvion" />
+          <FunctionImportMapping FunctionImportName="spDeleteReservacion" FunctionName="ReservaVuelosModel.Store.spDeleteReservacion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

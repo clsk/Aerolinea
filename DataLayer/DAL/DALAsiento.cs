@@ -134,7 +134,7 @@ namespace DataLayer
          * 
          * @return Un lista TipoClase si todo salió bien, null caso contrário.
          */
-        static public List<TipoClase> GetAllTipoClases(int idAvion)
+        static public List<TipoClase> GetAllTipoClasesFromAvion(int idAvion)
         {
             try { return Provider.GetProvider().spGetTipoClaseFromAvion(idAvion).ToList(); }
             catch (Exception e) { throw e; }

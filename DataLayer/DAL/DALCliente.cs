@@ -116,5 +116,19 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Borrar reservacion
+        /**
+         * @brief Borra una reservacion
+         * 
+         * @param ID          El ID de la reservacion que se desea borrar.
+         * 
+         */
+        public static void DeleteReservacion(int ID)
+        {
+            try { Provider.GetProvider().spDeleteReservacion(ID); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
     }
 }
