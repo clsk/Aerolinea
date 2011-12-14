@@ -2854,6 +2854,82 @@ namespace DataLayer
     
             return base.ExecuteFunction<Avion>("spNewAvion", mergeOption, idSerieParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Precio> spGetPreciosFromVuelo(Nullable<global::System.Int32> idVuelo)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Precio>("spGetPreciosFromVuelo", idVueloParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Precio> spGetPreciosFromVuelo(Nullable<global::System.Int32> idVuelo, MergeOption mergeOption)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Precio>("spGetPreciosFromVuelo", mergeOption, idVueloParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<TipoClase> spGetTipoClaseFromAvion(Nullable<global::System.Int32> idAvion)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<TipoClase>("spGetTipoClaseFromAvion", idAvionParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<TipoClase> spGetTipoClaseFromAvion(Nullable<global::System.Int32> idAvion, MergeOption mergeOption)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<TipoClase>("spGetTipoClaseFromAvion", mergeOption, idAvionParameter);
+        }
 
         #endregion
     }

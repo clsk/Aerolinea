@@ -109,5 +109,20 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Obtener precios de un vuelo
+        /**
+         * @brief Obtiene precios de un vuelo
+         * 
+         * @param idVuelo            EL id del vuelo
+         * 
+         * @return la lista de precio si se pudo encontrar, NULL caso contrário.
+         */
+        public static List<Precio> GetPreciosFromVuelo(int idVuelo)
+        {
+            try { return Provider.GetProvider().spGetPreciosFromVuelo(idVuelo).ToList(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
     }
 }

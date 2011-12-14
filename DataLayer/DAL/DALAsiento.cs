@@ -127,5 +127,18 @@ namespace DataLayer
             catch (Exception e) { throw e; }
         }
         #endregion
+
+        #region Obtener clases de un avion.
+        /**
+         * @brief Obtiene todas la clases de un avion
+         * 
+         * @return Un lista TipoClase si todo salió bien, null caso contrário.
+         */
+        static public List<TipoClase> GetAllTipoClases(int idAvion)
+        {
+            try { return Provider.GetProvider().spGetTipoClaseFromAvion(idAvion).ToList(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
     }
 }
