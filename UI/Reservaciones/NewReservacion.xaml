@@ -34,7 +34,7 @@
                     </Button>
                     <Label Content="Guardar Usuario" Height="28" HorizontalAlignment="Left" Margin="434,289,0,0" Name="lblGuardarUsuario" VerticalAlignment="Top" />
                     <Button Content="Buscar Usuario" Height="23" HorizontalAlignment="Left" Margin="339,114,0,0" Name="btBuscarUsuario" VerticalAlignment="Top" Width="98" Click="btBuscarUsuario_Click" />
-                    <ListBox Height="113" HorizontalAlignment="Left" Margin="7,198,0,0" Name="lbPersonas" VerticalAlignment="Top" Width="421"  ItemTemplate="{DynamicResource personaLayout}"/>
+                    <ListBox Height="113" HorizontalAlignment="Left" Margin="7,198,0,0" Name="lbPersonas" VerticalAlignment="Top" Width="421"  ItemTemplate="{DynamicResource personaLayout}" MouseDoubleClick="lbPersonas_MouseDoubleClick"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Vuelo Ida" Name="tiVueloIda">
@@ -65,7 +65,7 @@
                         <TextBlock Height="23" Margin="56,39,11,0" Name="tbPuertoLlegadaIda" Text="" VerticalAlignment="Top" Width="452"/>
                         <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaIda" Text="" VerticalAlignment="Top" Width="452" />
                     </Grid>
-                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIda" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIda_Click" />
+                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIda" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIda_Click" IsEnabled="False" />
                 </Grid>
             </TabItem>
             <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso">
@@ -96,7 +96,7 @@
                         <TextBlock Height="23" Margin="56,39,11,0" Name="tbPuertoLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
                         <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
                     </Grid>
-                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIdaVuelta" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIdaVuelta_Click" />
+                    <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoVuelta" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIdaVuelta_Click" IsEnabled="False" />
                 </Grid>
             </TabItem>
         </TabControl>

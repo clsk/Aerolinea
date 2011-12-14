@@ -12,6 +12,7 @@ namespace DataLayer
             : base(persistent_object)
         {
             List<PlantaAvion> _plantas = DALAvion.GetPlantaAvionFromAvion(this.ID);
+            plantas = new TransPlantaAvion[_plantas.Count];
 
             foreach (PlantaAvion planta in _plantas)
             {

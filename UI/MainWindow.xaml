@@ -15,7 +15,7 @@
         <Button Height="95" HorizontalAlignment="Center" Name="btReservaciones" VerticalAlignment="Center" Width="95" Margin="49,9,49,55" Grid.Row="1" Click="btReservaciones_Click">
             <Image Source="/UI;component/Images/Reservaciones.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" />
         </Button>
-        <Button Height="95" HorizontalAlignment="Center" Name="butConfiguracionUsuario" VerticalAlignment="Center" Width="95" Grid.Column="1" Margin="49,9,49,55" Grid.Row="1">
+        <Button Height="95" HorizontalAlignment="Center" Name="butConfiguracionUsuario" VerticalAlignment="Center" Width="95" Grid.Column="1" Margin="49,9,49,55" Grid.Row="1" Click="butConfiguracionUsuario_Click">
             <Image Source="/UI;component/Images/Edit_User.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
         </Button>
         <Button Height="95" HorizontalAlignment="Center" Name="btAyuda" VerticalAlignment="Center" Width="95" Grid.Row="2" Margin="0">

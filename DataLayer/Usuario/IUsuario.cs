@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    public interface IUsuario
+    public interface IUsuario : ITrans<Usuario>
     {
         int ID
         {

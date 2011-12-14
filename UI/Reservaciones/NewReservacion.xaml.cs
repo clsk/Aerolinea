@@ -54,6 +54,7 @@ namespace UI
 
             tbComentariosIda.Text = vuelo.Comentario;
             tbAvionIda.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
+            btAsignarAsientoIda.IsEnabled = true;
         }
 
         public void SetVueloVuelta(TransVuelo vuelo)
@@ -70,6 +71,7 @@ namespace UI
 
             tbComentariosVuelta.Text = vuelo.Comentario;
             tbAvionVuelta.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
+            btAsignarAsientoVuelta.IsEnabled = true;
         }
 
         private void btBuscarVuelo_Click(object sender, RoutedEventArgs e)
@@ -90,11 +92,15 @@ namespace UI
 
         private void btAsignarAsientoIda_Click(object sender, RoutedEventArgs e)
         {
-
+            SelectAsiento select_asiento = new SelectAsiento(vuelo_ida);
+            select_asiento.Left = this.Left;
+            select_asiento.Top = this.Top;
+            select_asiento.ShowDialog();
         }
 
         private void btAsignarAsientoIdaVuelta_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
 
@@ -143,9 +149,11 @@ namespace UI
                 if (venta.SetPersona(tbPasaporte.Text))
                 {
                     FillPersona();
+                    return;
                 }
             }
-            else
+            
+            if (tbNombre.Text.Length > 0 && tbApellido.Text.Length > 0)
             {
                 personas.Clear();
                 List<Persona> persona_list = venta.FindPersona(tbNombre.Text, tbApellido.Text);
@@ -154,6 +162,12 @@ namespace UI
                     personas.Add(persona);
                 }
             }
+        }
+
+        private void lbPersonas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            venta.Persona = (Persona)lbPersonas.SelectedItem;
+            FillPersona();
         }
     }
 }

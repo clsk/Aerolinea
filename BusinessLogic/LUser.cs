@@ -65,6 +65,23 @@ namespace BusinessLogic
             }
         }
 
+        public string Password
+        {
+            get
+            {
+                return d_usuario.Password;
+            }
+            set
+            {
+                d_usuario.Password = value;
+            }
+        }
+
+        public void Update()
+        {
+            d_usuario.Flush();
+        }
+
         private static LUser instance;
 
         public static LUser GetInstance()

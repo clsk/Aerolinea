@@ -48,5 +48,14 @@ namespace UI
             admin_main.Show();
             this.Close();
         }
+
+        private void butConfiguracionUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            ConfiguracionUsuario config_usuario = new ConfiguracionUsuario();
+            config_usuario.Top = this.Top;
+            config_usuario.Left = this.Left;
+            config_usuario.Show();
+            this.Close();
+        }
     }
 }
