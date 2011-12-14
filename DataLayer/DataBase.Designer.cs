@@ -2930,6 +2930,25 @@ namespace DataLayer
     
             return base.ExecuteFunction<TipoClase>("spGetTipoClaseFromAvion", mergeOption, idAvionParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idReservacion">No Metadata Documentation available.</param>
+        public int spDeleteReservacion(Nullable<global::System.Int32> idReservacion)
+        {
+            ObjectParameter idReservacionParameter;
+            if (idReservacion.HasValue)
+            {
+                idReservacionParameter = new ObjectParameter("idReservacion", idReservacion);
+            }
+            else
+            {
+                idReservacionParameter = new ObjectParameter("idReservacion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("spDeleteReservacion", idReservacionParameter);
+        }
 
         #endregion
     }
