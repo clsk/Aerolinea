@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AeropuertoView.cs" />
+    <Compile Include="LAvion.cs" />
     <Compile Include="LUser.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

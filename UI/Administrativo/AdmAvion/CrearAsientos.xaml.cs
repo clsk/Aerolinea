@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataLayer;
+using BusinessLogic;
+
 namespace UI.Administrativo.AdmAvion
 {
     /// <summary>
@@ -18,20 +20,16 @@ namespace UI.Administrativo.AdmAvion
     /// </summary>
     public partial class CrearAsientos : Window
     {
-        int idSerie;
-        int idAvion;
+        LAvion elAvion;
         int Piso;
-        int cantPiso;
         bool FilaIsOk;
         Point TempPoint;
         List<TipoClase> lasClases;
         List<UIAsiento> Asientos;
-        public CrearAsientos(int idserie, BitmapImage bitimage, int piso, int cantpiso, int idavion)
+        public CrearAsientos(LAvion elavion, BitmapImage bitimage, int piso)
         {
-            idAvion = idavion;
-            idSerie = idserie;
+            elAvion = elavion;
             Piso = piso;
-            cantPiso = cantpiso;
             InitializeComponent();
             Asientos = new List<UIAsiento>();
             FilaIsOk = false;
@@ -98,7 +96,7 @@ namespace UI.Administrativo.AdmAvion
             TipoClase unTipoAsiento = (TipoClase)cbClase.SelectedItem;
 
             //Agregando asiento a la lista
-            UIAsiento asiento = new UIAsiento(Convert.ToInt32(posx), Convert.ToInt32(posy), Fila, tbNumero.Text, unTipoAsiento.idTipoClase, btNew);
+            UIAsiento asiento = new UIAsiento(Convert.ToInt32(posx), Convert.ToInt32(posy), Fila, tbNumero.Text, unTipoAsiento, btNew);
             Asientos.Add(asiento);
             
             //Agregar boton al canvas
@@ -196,8 +194,7 @@ namespace UI.Administrativo.AdmAvion
                         for(int j=0;;j++)
                         {
                             cbClase.SelectedIndex = j;
-                            TipoClase tempClase = (TipoClase)cbClase.SelectedItem;
-                            if (Asientos[i].IdTipoClase == tempClase.idTipoClase)
+                            if (Asientos[i].Clase == (TipoClase)cbClase.SelectedItem)
                                 break;
                         }
                         break;
@@ -210,22 +207,22 @@ namespace UI.Administrativo.AdmAvion
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //No se ha construido el avion
-            if (idAvion == -1)
+            if(Piso == elAvion.Cantidad)
             {
-                //Si ya se construyeron todos los pisos, volver al meno.
-                if (Piso == cantPiso)
-                    OpenNewAvion();
-                else
-                    OpenAddPlano();
+                for (int i = 0; i < Asientos.Count; i++)
+                {
+                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso);
+                }
+                elAvion.Flush();
+                OpenNewAvion();
             }
             else
             {
-                //Si ya se construyeron todos los pisos, volver al menu
-                if (Piso == cantPiso)
-                    OpenNewAvion();
-                else
-                    OpenAddPlano();
+                for (int i = 0; i < Asientos.Count; i++)
+                {
+                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso);
+                }
+                OpenAddPlano();
             }
         }
         private void OpenNewAvion()
@@ -239,7 +236,8 @@ namespace UI.Administrativo.AdmAvion
 
         private void OpenAddPlano()
         {
-            AddPlano prevWin = new AddPlano(idAvion, Piso++, cantPiso, idAvion);
+            Piso = Piso + 1;
+            AddPlano prevWin = new AddPlano(elAvion, Piso);
             prevWin.Top = this.Top;
             prevWin.Left = this.Left;
             prevWin.Show();

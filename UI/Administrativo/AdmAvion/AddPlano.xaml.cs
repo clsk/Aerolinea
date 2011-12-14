@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using BusinessLogic;
+using System.IO;
 
 namespace UI.Administrativo.AdmAvion
 {
@@ -20,19 +22,15 @@ namespace UI.Administrativo.AdmAvion
     public partial class AddPlano : Window
     {
         int elPiso;
-        int laCant;
-        int idAvion;
-        int idSerie;
         BitmapImage bitmap;
-        public AddPlano(int Piso, int CantPiso, int idserie, int idavion)
+        LAvion elAvion;
+        public AddPlano(LAvion elavion, int piso)
         {
-            idAvion = idavion;
-            InitializeComponent();
-            elPiso = Piso;
-            laCant = CantPiso;
-            idSerie = idserie;
             bitmap = new BitmapImage();
-            tbContar.Text = "Piso " + Piso + "/" + CantPiso;
+            elAvion = elavion;
+            elPiso = piso;
+            InitializeComponent();
+            tbContar.Text = "Piso " + piso + "/" + elavion.Cantidad;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -48,12 +46,12 @@ namespace UI.Administrativo.AdmAvion
                 dlg.InitialDirectory = "c:\\";
                 dlg.Filter =
                 "Image files (*.jpg)|*.jpg|*.bmp)|*.bmp|All Files (*.*)|*.*";
-                dlg.RestoreDirectory = true;
+                dlg.RestoreDirectory =
+                true;
                 Nullable<bool> result = dlg.ShowDialog();
                 if (result == true)
                 {
                     string selectedFileName = dlg.FileName;
-                    FileNameLabel.Content = selectedFileName;
                     bitmap.BeginInit();
                     bitmap.UriSource =
                     new Uri(selectedFileName);
@@ -61,21 +59,32 @@ namespace UI.Administrativo.AdmAvion
                     ImageControl.Source = bitmap;
                     btnNewPlano.IsEnabled = true;
                 }
-            }
+                  
+              }
             catch (Exception)
             {
                 System.Windows.MessageBox.Show("¡Favor seleccionar una imagen!");
                 btnNewPlano.IsEnabled = false;
             }
         }
+        private byte[] getJPG_Byte(BitmapImage imageC)
+        {
+            MemoryStream memStream = new MemoryStream();              
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(imageC));
+            encoder.Save(memStream);
+            return memStream.GetBuffer();
+        }
 
         private void btnNewPlano_Click(object sender, RoutedEventArgs e)
         {
-                CrearAsientos nextWin = new CrearAsientos(idSerie, bitmap, elPiso, laCant, idAvion);
-                nextWin.Top = this.Top;
-                nextWin.Left = this.Left;
-                nextWin.Show();
-                this.Close();
+            byte[] imagen = getJPG_Byte(bitmap);
+            elAvion.addPlanta(imagen);
+            CrearAsientos nextWin = new CrearAsientos(elAvion, bitmap, elPiso);
+            nextWin.Top = this.Top;
+            nextWin.Left = this.Left;
+            nextWin.Show();
+            this.Close();
         }
     }
 }

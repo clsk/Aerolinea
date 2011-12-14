@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataLayer;
 using System.Collections.ObjectModel;
+using BusinessLogic;
 
 namespace UI.Administrativo.AdmAvion
 {
@@ -20,6 +21,7 @@ namespace UI.Administrativo.AdmAvion
     /// </summary>
     public partial class NewAvion : Window
     {
+        LAvion elAvion;
         List<MarcaAvion> lasMarcas;
         ObservableCollection<SerieAvion> seriesAvion;
 
@@ -29,6 +31,7 @@ namespace UI.Administrativo.AdmAvion
 
             try
             {
+                elAvion = new LAvion();
                 lasMarcas = new List<MarcaAvion>();
                 seriesAvion = new ObservableCollection<SerieAvion>();
                 Binding bind = new Binding();
@@ -118,7 +121,9 @@ namespace UI.Administrativo.AdmAvion
             {
                 int pisos = Int32.Parse(tbCantidad.Text);
                 SerieAvion unaSerie = (SerieAvion)cbSerieAvion.SelectedItem;
-                AddPlano nextWin = new AddPlano(1, pisos, unaSerie.idSerie, -1);
+                elAvion.Cantidad = pisos;
+                elAvion.IdSerie = unaSerie;
+                AddPlano nextWin = new AddPlano(elAvion, 1);
                 nextWin.Top = this.Top;
                 nextWin.Left = this.Left;
                 nextWin.Show();

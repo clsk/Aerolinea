@@ -50,15 +50,15 @@
                         <RowDefinition Height="73" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150*" />
-                        <ColumnDefinition Width="250*" />
+                        <ColumnDefinition Width="149*" />
+                        <ColumnDefinition Width="308*" />
                     </Grid.ColumnDefinitions>
                     <ComboBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbPais_Aero" VerticalAlignment="Top" Width="200" SelectedIndex="0" />
                     <ComboBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11" Name="cbCiudad" VerticalAlignment="Top" Width="200" SelectedIndex="0" />
                     <Label Content="País" Height="28" Margin="11" Name="label4" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" />
-                    <Label Content="Ciudad" Grid.Row="1" Height="28" Margin="0,11,11,0" Name="label5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47" />
+                    <Label Content="Ciudad" Grid.Row="1" Height="28" Margin="11" Name="label5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47" />
                     <TextBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="11" Name="tbNombreAero" VerticalAlignment="Top" Width="200" TextChanged="tbNombreAero_TextChanged" />
-                    <Label Content="Nombre Aeropuerto" Grid.Row="2" Height="28" HorizontalAlignment="Right" Margin="0,11,11,0" Name="label6" VerticalAlignment="Top" Width="118" />
+                    <Label Content="Nombre Aeropuerto" Grid.Row="2" Height="28" HorizontalAlignment="Right" Margin="11" Name="label6" VerticalAlignment="Top" Width="118" />
                     <Label Content="Siglas" Grid.Row="3" Height="28" HorizontalAlignment="Right" Margin="11" Name="label7" VerticalAlignment="Top" />
                     <TextBox Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="11" Name="tbSiglas" VerticalAlignment="Top" Width="200" TextChanged="tbSiglas_TextChanged" />
                 </Grid>

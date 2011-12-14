@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Controls;
+using DataLayer;
 
 namespace UI.Administrativo.AdmAvion
 {
     class UIAsiento
     {
-        public UIAsiento(int x, int y, int Numfila, string num, int idClase, Button elBoton)
+        public UIAsiento(int x, int y, int Numfila, string num, TipoClase Clase, Button elBoton)
         {
             posX = x;
             posY = y;
             fila = Numfila;
             numero = num;
-            idTipoClase = idClase;
+            idTipoClase = Clase;
             unBoton = elBoton;
         }
 
@@ -53,8 +54,8 @@ namespace UI.Administrativo.AdmAvion
             set { numero = value; }
         }
 
-        int idTipoClase;
-        public int IdTipoClase
+        TipoClase idTipoClase;
+        public TipoClase Clase
         {
             get { return idTipoClase; }
             set { idTipoClase = value; }
