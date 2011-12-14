@@ -1,0 +1,14 @@
+﻿<Window x:Class="UI.Reservaciones.SelectAsiento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SelectAsiento" Height="600" Width="450">
+    <Grid>
+        <ScrollViewer Background="#FFDFDFDF" BorderBrush="Black" BorderThickness="5" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" IsEnabled="True" Name="svImagen" Opacity="1" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,38,0,0">
+            <Canvas Name="cvsImage" Height="523">
+                <Image Stretch="None" Name="imgPlanta"/>
+            </Canvas>
+        </ScrollViewer>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="61,10,0,0" Name="cbPiso" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="cbPiso_SelectionChanged" />
+        <Label Content="Piso:" Height="28" HorizontalAlignment="Left" Margin="12,10,0,0" Name="label1" VerticalAlignment="Top" />
+    </Grid>
+</Window>

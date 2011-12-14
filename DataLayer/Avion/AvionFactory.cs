@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DataLayer
 {
-    class AvionFactory : AbstractFactory<IAvion, TransAvion, Avion>
+    public class AvionFactory : AbstractFactory<IAvion, TransAvion, Avion>
     {
-        AvionFactory()
+        public AvionFactory()
             : base(DALAvion.GetAvionFromID)
         {
         }
