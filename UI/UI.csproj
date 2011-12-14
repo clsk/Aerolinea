@@ -102,7 +102,6 @@
     <Compile Include="Reservaciones\SelectAsiento.xaml.cs">
       <DependentUpon>SelectAsiento.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reservaciones\UIAsiento.cs" />
     <Page Include="Administrativo\AdmAvion\NewAvion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
