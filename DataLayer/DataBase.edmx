@@ -1023,7 +1023,7 @@
           <FunctionImport Name="spGetUsuarioFromNombre" EntitySet="Usuarios" ReturnType="Collection(ReservaVuelosModel.Usuario)">
           <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spNewAvion" ReturnType="Collection(Int32)">
+          <FunctionImport Name="spNewAvion" EntitySet="Avions" ReturnType="Collection(ReservaVuelosModel.Avion)">
             <Parameter Name="idSerie" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>

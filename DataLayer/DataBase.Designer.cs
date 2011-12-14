@@ -2821,7 +2821,7 @@ namespace DataLayer
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="idSerie">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Int32>> spNewAvion(Nullable<global::System.Int32> idSerie)
+        public ObjectResult<Avion> spNewAvion(Nullable<global::System.Int32> idSerie)
         {
             ObjectParameter idSerieParameter;
             if (idSerie.HasValue)
@@ -2833,7 +2833,26 @@ namespace DataLayer
                 idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Nullable<global::System.Int32>>("spNewAvion", idSerieParameter);
+            return base.ExecuteFunction<Avion>("spNewAvion", idSerieParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idSerie">No Metadata Documentation available.</param>
+        public ObjectResult<Avion> spNewAvion(Nullable<global::System.Int32> idSerie, MergeOption mergeOption)
+        {
+            ObjectParameter idSerieParameter;
+            if (idSerie.HasValue)
+            {
+                idSerieParameter = new ObjectParameter("idSerie", idSerie);
+            }
+            else
+            {
+                idSerieParameter = new ObjectParameter("idSerie", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Avion>("spNewAvion", mergeOption, idSerieParameter);
         }
 
         #endregion

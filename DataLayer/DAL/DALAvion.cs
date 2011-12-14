@@ -56,13 +56,13 @@ namespace DataLayer
          */
         static public int Create(Avion unAvion)
         {
-            Nullable<int> valor;
+            Avion convert = new Avion();
             try
-            { valor = Provider.GetProvider().spNewAvion(unAvion.idSerie).FirstOrDefault(); }
+            { 
+                convert = Provider.GetProvider().spNewAvion(unAvion.idSerie).FirstOrDefault();
+                return convert.idAvion;            
+            }
             catch (Exception e) { throw e; }
-            if(valor.HasValue)
-                return valor.Value;
-            else return -1;
         }
         #endregion
 
