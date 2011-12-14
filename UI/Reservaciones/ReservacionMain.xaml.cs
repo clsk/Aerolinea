@@ -24,11 +24,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main_window = new MainWindow();
@@ -45,6 +40,15 @@ namespace UI
             buscar_vuelo.Left = this.Left;
             this.Close();
             buscar_vuelo.Show();
+        }
+
+        private void btNuevaReservacion_Click(object sender, RoutedEventArgs e)
+        {
+            NewReservacion new_reservacion = new NewReservacion();
+            new_reservacion.Top = this.Top;
+            new_reservacion.Left = this.Left;
+            this.Close();
+            new_reservacion.Show();
         }
     }
 }

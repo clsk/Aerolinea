@@ -46,6 +46,7 @@
     <Compile Include="LUser.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Venta.cs" />
     <Compile Include="VueloView.cs" />
   </ItemGroup>
   <ItemGroup>

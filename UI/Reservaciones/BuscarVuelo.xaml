@@ -16,21 +16,16 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <RadioButton Content="Ida y Vuelta" Height="16" HorizontalAlignment="Center" Margin="11" Name="rbIdaVuelta" VerticalAlignment="Center" IsChecked="{x:Null}" Checked="rbIdaVuelta_Checked" />
-            <RadioButton Content="Solo Ida" Grid.Column="1" Height="16" Margin="11" Name="rbIda" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="rbIda_Checked" />
             <ComboBox Grid.Row="1" Height="23" HorizontalAlignment="Right" Margin="0,12,64,22" Name="cbDesde" VerticalAlignment="Center" Width="120" DataContext="{Binding}" DisplayMemberPath="DisplayName"/>
             <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,12,54,22" Name="cbHacia" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="1" DataContext="{Binding}" DisplayMemberPath="DisplayName"/>
             <DatePicker Grid.Row="2" Height="25" HorizontalAlignment="Left" Margin="106,13,0,0" Name="dpSalida" VerticalAlignment="Top" Width="115" />
-            <DatePicker Height="25" HorizontalAlignment="Left" Margin="116,12,0,0" Name="dpRegreso" VerticalAlignment="Top" Width="115" Grid.Column="1" Grid.Row="2" />
             <Label Content="Desde" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblDesde" VerticalAlignment="Top" />
             <Label Content="Hacia" Grid.Column="1" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="71,12,0,0" Name="lblHacia" VerticalAlignment="Top" />
             <Label Content="Salida" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblSalida" VerticalAlignment="Top" />
-            <Label Content="Regreso" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblRegreso" VerticalAlignment="Top" Grid.Column="1" />
         </Grid>
         <Button Content="Buscar" Height="23" Name="btBuscar" Width="75" Click="btBuscar_Click" />
         <Grid Name="gBottom" Height="196">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.Resources>
@@ -53,15 +48,22 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=HoraSalida}" HorizontalAlignment="Left" />
-                            <TextBlock Text="{Binding Path=HoraLlegada}" Grid.Column="1" HorizontalAlignment="Right" Width="Auto"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <TextBlock Text="{Binding Path=FechaSalida.Date, StringFormat=d}" Grid.Column="0"/>
+                                    <TextBlock Text=" "/>
+                                    <TextBlock Text="{Binding Path=HoraSalida}" Grid.Column="0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                                    <TextBlock Text="{Binding Path=FechaLlegada.Date, StringFormat=d}" />
+                                    <TextBlock Text=" "/>
+                                    <TextBlock Text="{Binding Path=HoraLlegada}" />
+                                </StackPanel>
                         </Grid>
                     </StackPanel>
                     </Border>
                 </DataTemplate>
             </Grid.Resources>
-            <ListBox Name="lbVuelosIda" ItemsSource="{Binding}"  ItemTemplate="{DynamicResource vueloLayout}" />
-            <ListBox Name="lbVuelosVuelta" Grid.Column="1" ItemsSource="{Binding}"  ItemTemplate="{DynamicResource vueloLayout}"/>
+            <ListBox Name="lbVuelos" ItemsSource="{Binding}"  ItemTemplate="{DynamicResource vueloLayout}" MouseDoubleClick="lbVuelos_MouseDoubleClick" />
         </Grid>
     </StackPanel>
 </Window>
