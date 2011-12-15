@@ -23,7 +23,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Asiento_TipoClase", "TipoClase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.TipoClase), "Asiento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Asiento), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Asiento", "Asiento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Asiento), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Reservacion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Avion_SerieAvion", "SerieAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.SerieAvion), "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Avion), true)]
-[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_PlantaAvion_Avion", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Avion), "PlantaAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.PlantaAvion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Ciudad_Pais", "Pais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Pais), "Ciudad", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Ciudad), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_SerieAvion_MarcaAvion", "MarcaAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.MarcaAvion), "SerieAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.SerieAvion), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Usuario_NivelUsuario", "NivelUsuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.NivelUsuario), "Usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Usuario), true)]
@@ -35,6 +34,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Vuelo_Avion1", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Avion), "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Vuelo), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Precio_Vuelo", "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Vuelo), "Precio", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Precio), true)]
 [assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_Reservacion_Vuelo", "Vuelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Vuelo), "Reservacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.Reservacion), true)]
+[assembly: EdmRelationshipAttribute("ReservaVuelosModel", "FK_PlantaAvion_Avion", "Avion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataLayer.Avion), "PlantaAvion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataLayer.PlantaAvion), true)]
 
 #endregion
 
@@ -217,22 +217,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PlantaAvion> PlantaAvions
-        {
-            get
-            {
-                if ((_PlantaAvions == null))
-                {
-                    _PlantaAvions = base.CreateObjectSet<PlantaAvion>("PlantaAvions");
-                }
-                return _PlantaAvions;
-            }
-        }
-        private ObjectSet<PlantaAvion> _PlantaAvions;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Reservacion> Reservacions
         {
             get
@@ -325,6 +309,22 @@ namespace DataLayer
             }
         }
         private ObjectSet<Vuelo> _Vueloes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PlantaAvion> PlantaAvions
+        {
+            get
+            {
+                if ((_PlantaAvions == null))
+                {
+                    _PlantaAvions = base.CreateObjectSet<PlantaAvion>("PlantaAvions");
+                }
+                return _PlantaAvions;
+            }
+        }
+        private ObjectSet<PlantaAvion> _PlantaAvions;
 
         #endregion
         #region AddTo Methods
@@ -394,14 +394,6 @@ namespace DataLayer
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PlantaAvions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPlantaAvions(PlantaAvion plantaAvion)
-        {
-            base.AddObject("PlantaAvions", plantaAvion);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Reservacions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToReservacions(Reservacion reservacion)
@@ -447,6 +439,14 @@ namespace DataLayer
         public void AddToVueloes(Vuelo vuelo)
         {
             base.AddObject("Vueloes", vuelo);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PlantaAvions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPlantaAvions(PlantaAvion plantaAvion)
+        {
+            base.AddObject("PlantaAvions", plantaAvion);
         }
 
         #endregion
@@ -1545,99 +1545,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="idAvion">No Metadata Documentation available.</param>
-        /// <param name="imagen">No Metadata Documentation available.</param>
-        /// <param name="piso">No Metadata Documentation available.</param>
-        public int spNewPlanta(Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
-        {
-            ObjectParameter idAvionParameter;
-            if (idAvion.HasValue)
-            {
-                idAvionParameter = new ObjectParameter("idAvion", idAvion);
-            }
-            else
-            {
-                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter imagenParameter;
-            if (imagen != null)
-            {
-                imagenParameter = new ObjectParameter("Imagen", imagen);
-            }
-            else
-            {
-                imagenParameter = new ObjectParameter("Imagen", typeof(global::System.Byte[]));
-            }
-    
-            ObjectParameter pisoParameter;
-            if (piso.HasValue)
-            {
-                pisoParameter = new ObjectParameter("Piso", piso);
-            }
-            else
-            {
-                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("spNewPlanta", idAvionParameter, imagenParameter, pisoParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="idPlanta">No Metadata Documentation available.</param>
-        /// <param name="idAvion">No Metadata Documentation available.</param>
-        /// <param name="imagen">No Metadata Documentation available.</param>
-        /// <param name="piso">No Metadata Documentation available.</param>
-        public int spUpdatePlanta(Nullable<global::System.Int32> idPlanta, Nullable<global::System.Int32> idAvion, global::System.Byte[] imagen, Nullable<global::System.Int32> piso)
-        {
-            ObjectParameter idPlantaParameter;
-            if (idPlanta.HasValue)
-            {
-                idPlantaParameter = new ObjectParameter("idPlanta", idPlanta);
-            }
-            else
-            {
-                idPlantaParameter = new ObjectParameter("idPlanta", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter idAvionParameter;
-            if (idAvion.HasValue)
-            {
-                idAvionParameter = new ObjectParameter("idAvion", idAvion);
-            }
-            else
-            {
-                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter imagenParameter;
-            if (imagen != null)
-            {
-                imagenParameter = new ObjectParameter("Imagen", imagen);
-            }
-            else
-            {
-                imagenParameter = new ObjectParameter("Imagen", typeof(global::System.Byte[]));
-            }
-    
-            ObjectParameter pisoParameter;
-            if (piso.HasValue)
-            {
-                pisoParameter = new ObjectParameter("Piso", piso);
-            }
-            else
-            {
-                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("spUpdatePlanta", idPlantaParameter, idAvionParameter, imagenParameter, pisoParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectResult<MarcaAvion> spGetAllMarcaAvion()
         {
             return base.ExecuteFunction<MarcaAvion>("spGetAllMarcaAvion");
@@ -1763,44 +1670,6 @@ namespace DataLayer
             }
     
             return base.ExecuteFunction<Avion>("spGetAvionFromID", mergeOption, idAvionParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="idAvion">No Metadata Documentation available.</param>
-        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion)
-        {
-            ObjectParameter idAvionParameter;
-            if (idAvion.HasValue)
-            {
-                idAvionParameter = new ObjectParameter("idAvion", idAvion);
-            }
-            else
-            {
-                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", idAvionParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="idAvion">No Metadata Documentation available.</param>
-        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion, MergeOption mergeOption)
-        {
-            ObjectParameter idAvionParameter;
-            if (idAvion.HasValue)
-            {
-                idAvionParameter = new ObjectParameter("idAvion", idAvion);
-            }
-            else
-            {
-                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", mergeOption, idAvionParameter);
         }
     
         /// <summary>
@@ -2949,6 +2818,137 @@ namespace DataLayer
     
             return base.ExecuteFunction("spDeleteReservacion", idReservacionParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="uRLPlanta">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public int spNewPlanta(Nullable<global::System.Int32> idAvion, global::System.String uRLPlanta, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter uRLPlantaParameter;
+            if (uRLPlanta != null)
+            {
+                uRLPlantaParameter = new ObjectParameter("URLPlanta", uRLPlanta);
+            }
+            else
+            {
+                uRLPlantaParameter = new ObjectParameter("URLPlanta", typeof(global::System.String));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("spNewPlanta", idAvionParameter, uRLPlantaParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPlanta">No Metadata Documentation available.</param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        /// <param name="uRLPlanta">No Metadata Documentation available.</param>
+        /// <param name="piso">No Metadata Documentation available.</param>
+        public int spUpdatePlanta(Nullable<global::System.Int32> idPlanta, Nullable<global::System.Int32> idAvion, global::System.String uRLPlanta, Nullable<global::System.Int32> piso)
+        {
+            ObjectParameter idPlantaParameter;
+            if (idPlanta.HasValue)
+            {
+                idPlantaParameter = new ObjectParameter("idPlanta", idPlanta);
+            }
+            else
+            {
+                idPlantaParameter = new ObjectParameter("idPlanta", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter uRLPlantaParameter;
+            if (uRLPlanta != null)
+            {
+                uRLPlantaParameter = new ObjectParameter("URLPlanta", uRLPlanta);
+            }
+            else
+            {
+                uRLPlantaParameter = new ObjectParameter("URLPlanta", typeof(global::System.String));
+            }
+    
+            ObjectParameter pisoParameter;
+            if (piso.HasValue)
+            {
+                pisoParameter = new ObjectParameter("Piso", piso);
+            }
+            else
+            {
+                pisoParameter = new ObjectParameter("Piso", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("spUpdatePlanta", idPlantaParameter, idAvionParameter, uRLPlantaParameter, pisoParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", idAvionParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idAvion">No Metadata Documentation available.</param>
+        public ObjectResult<PlantaAvion> spGetPlantasFromAvion(Nullable<global::System.Int32> idAvion, MergeOption mergeOption)
+        {
+            ObjectParameter idAvionParameter;
+            if (idAvion.HasValue)
+            {
+                idAvionParameter = new ObjectParameter("idAvion", idAvion);
+            }
+            else
+            {
+                idAvionParameter = new ObjectParameter("idAvion", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", mergeOption, idAvionParameter);
+        }
 
         #endregion
     }
@@ -3661,28 +3661,6 @@ namespace DataLayer
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_PlantaAvion_Avion", "PlantaAvion")]
-        public EntityCollection<PlantaAvion> PlantaAvions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PlantaAvion>("ReservaVuelosModel.FK_PlantaAvion_Avion", "PlantaAvion");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PlantaAvion>("ReservaVuelosModel.FK_PlantaAvion_Avion", "PlantaAvion", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_Vuelo_Avion1", "Vuelo")]
         public EntityCollection<Vuelo> Vueloes
         {
@@ -3695,6 +3673,28 @@ namespace DataLayer
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Vuelo>("ReservaVuelosModel.FK_Vuelo_Avion1", "Vuelo", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ReservaVuelosModel", "FK_PlantaAvion_Avion", "PlantaAvion")]
+        public EntityCollection<PlantaAvion> PlantaAvions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PlantaAvion>("ReservaVuelosModel.FK_PlantaAvion_Avion", "PlantaAvion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PlantaAvion>("ReservaVuelosModel.FK_PlantaAvion_Avion", "PlantaAvion", value);
                 }
             }
         }
@@ -4389,15 +4389,15 @@ namespace DataLayer
         /// </summary>
         /// <param name="idPlanta">Initial value of the idPlanta property.</param>
         /// <param name="idAvion">Initial value of the idAvion property.</param>
-        /// <param name="imagenPlanta">Initial value of the ImagenPlanta property.</param>
         /// <param name="piso">Initial value of the Piso property.</param>
-        public static PlantaAvion CreatePlantaAvion(global::System.Int32 idPlanta, global::System.Int32 idAvion, global::System.Byte[] imagenPlanta, global::System.Int32 piso)
+        /// <param name="uRLPlanta">Initial value of the URLPlanta property.</param>
+        public static PlantaAvion CreatePlantaAvion(global::System.Int32 idPlanta, global::System.Int32 idAvion, global::System.Int32 piso, global::System.String uRLPlanta)
         {
             PlantaAvion plantaAvion = new PlantaAvion();
             plantaAvion.idPlanta = idPlanta;
             plantaAvion.idAvion = idAvion;
-            plantaAvion.ImagenPlanta = imagenPlanta;
             plantaAvion.Piso = piso;
+            plantaAvion.URLPlanta = uRLPlanta;
             return plantaAvion;
         }
 
@@ -4458,7 +4458,7 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.Byte[] ImagenPlanta
         {
@@ -4470,7 +4470,7 @@ namespace DataLayer
             {
                 OnImagenPlantaChanging(value);
                 ReportPropertyChanging("ImagenPlanta");
-                _ImagenPlanta = StructuralObject.SetValidValue(value, false);
+                _ImagenPlanta = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ImagenPlanta");
                 OnImagenPlantaChanged();
             }
@@ -4502,6 +4502,30 @@ namespace DataLayer
         private global::System.Int32 _Piso;
         partial void OnPisoChanging(global::System.Int32 value);
         partial void OnPisoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String URLPlanta
+        {
+            get
+            {
+                return _URLPlanta;
+            }
+            set
+            {
+                OnURLPlantaChanging(value);
+                ReportPropertyChanging("URLPlanta");
+                _URLPlanta = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("URLPlanta");
+                OnURLPlantaChanged();
+            }
+        }
+        private global::System.String _URLPlanta;
+        partial void OnURLPlantaChanging(global::System.String value);
+        partial void OnURLPlantaChanged();
 
         #endregion
     

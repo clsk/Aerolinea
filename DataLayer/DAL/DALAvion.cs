@@ -78,7 +78,7 @@ namespace DataLayer
          */
         static public bool CreatePlantaAvion(PlantaAvion unaPlanta)
         {
-            try { Provider.GetProvider().spNewPlanta(unaPlanta.idAvion, unaPlanta.ImagenPlanta, unaPlanta.Piso); }
+            try { Provider.GetProvider().spNewPlanta(unaPlanta.idAvion, unaPlanta.URLPlanta, unaPlanta.Piso); }
             catch (Exception e) { throw e; }
             return true;
         }
@@ -149,7 +149,7 @@ namespace DataLayer
          */
         static public bool UpdatePlantaAvion(PlantaAvion unaPlanta)
         {
-            try { Provider.GetProvider().spUpdatePlanta(unaPlanta.idPlanta, unaPlanta.idAvion, unaPlanta.ImagenPlanta, unaPlanta.Piso); }
+            try { Provider.GetProvider().spUpdatePlanta(unaPlanta.idPlanta, unaPlanta.idAvion, unaPlanta.URLPlanta, unaPlanta.Piso); }
             catch (Exception e) { throw e; }
             return true;
         }
