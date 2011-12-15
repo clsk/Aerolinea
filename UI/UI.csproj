@@ -84,6 +84,7 @@
     <Compile Include="Administrativo\MainAdm.xaml.cs">
       <DependentUpon>MainAdm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AeropuertoView.cs" />
     <Compile Include="ConfiguracionUsuario.xaml.cs">
       <DependentUpon>ConfiguracionUsuario.xaml</DependentUpon>
     </Compile>
@@ -106,6 +107,7 @@
     <Compile Include="Reservaciones\SelectAsiento.xaml.cs">
       <DependentUpon>SelectAsiento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VueloView.cs" />
     <Page Include="Administrativo\AdmAvion\NewAvion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

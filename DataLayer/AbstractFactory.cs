@@ -5,6 +5,10 @@ using System.Text;
 
 namespace DataLayer
 {
+    /*
+     * @description Clase que abstrae mecanismos generales utilizados para implementar el patron Abstract Factory  
+     * @tparam InterfaceType Interface utilizado 
+     */
     public abstract class AbstractFactory<InterfaceType, ProductType, DBType, ParameterType> where ProductType : InterfaceType 
     {
         public AbstractFactory(Func<ParameterType, DBType> create_delegate)
