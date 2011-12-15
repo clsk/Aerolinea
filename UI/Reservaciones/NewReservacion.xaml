@@ -4,23 +4,20 @@
         Title="Reservacion" Height="450" Width="600" xmlns:my="clr-namespace:GreyableImage;assembly=GreyableImage">
     <Grid>
         <TabControl Height="370" HorizontalAlignment="Left" Margin="12,0,0,0" Name="tcTab" VerticalAlignment="Top" Width="554" TabStripPlacement="Top">
-            <TabItem Header="Datos Personales" Name="tiPersona">
+            <TabItem Header="Datos Personales" Name="tiPersona" Background="Red">
                 <Grid>
                     <Grid.Resources>
                         <DataTemplate x:Key="personaLayout" DataType="Persona">
-                            <Border  BorderBrush="Blue" Background="LightGray" BorderThickness="2">
-                                <StackPanel Orientation="Vertical">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Path=Pasaporte}" FontWeight="Bold" />
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                                        <TextBlock Text="{Binding Path=NombrePersona}" />
-                                        <TextBlock Text=" "/>
-                                        <TextBlock Text="{Binding Path=ApellidosPersona}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">    
+                                    <TextBlock Text="{Binding Path=Pasaporte}" FontWeight="Bold" />
+                                 </StackPanel>
+                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                                     <TextBlock Text="{Binding Path=NombrePersona}" />
+                                     <TextBlock Text=" "/>
+                                     <TextBlock Text="{Binding Path=ApellidosPersona}" />
+                                 </StackPanel>     
+                            </StackPanel>
                         </DataTemplate>
                     </Grid.Resources>
                     <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="18,64,0,0" Name="lblNombre" VerticalAlignment="Top" Width="58" />
@@ -29,15 +26,16 @@
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="72,64,0,0" Name="tbNombre" VerticalAlignment="Top" Width="182" TextChanged="tbNombre_TextChanged" />
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,62,4,0" Name="tbApellido" VerticalAlignment="Top" Width="201" TextChanged="tbApellido_TextChanged" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="72,113,0,0" Name="tbPasaporte" VerticalAlignment="Top" Width="182" TextChanged="tbPasaporte_TextChanged" />
-                    <Button Height="95" HorizontalAlignment="Center" IsEnabled="False" Margin="435,0,14,45" Name="btmSave" VerticalAlignment="Bottom" Width="95">
+                    <Button Height="95" HorizontalAlignment="Center" IsEnabled="False" Margin="72,0,376,61" Name="btNuevoUsuario" VerticalAlignment="Bottom" Width="95" Click="btNuevoUsuario_Click">
                         <my:GreyableImage Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}" Source="/UI;component/Images/Save.png" Stretch="Fill" Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" />
                     </Button>
-                    <Label Content="Guardar Usuario" Height="28" HorizontalAlignment="Left" Margin="434,289,0,0" Name="lblGuardarUsuario" VerticalAlignment="Top" />
-                    <Button Content="Buscar Usuario" Height="23" HorizontalAlignment="Left" Margin="339,114,0,0" Name="btBuscarUsuario" VerticalAlignment="Top" Width="98" Click="btBuscarUsuario_Click" />
-                    <ListBox Height="113" HorizontalAlignment="Left" Margin="7,198,0,0" Name="lbPersonas" VerticalAlignment="Top" Width="421"  ItemTemplate="{DynamicResource personaLayout}" MouseDoubleClick="lbPersonas_MouseDoubleClick"/>
+                    <Label Content="Crear Nuevo Cliente" Height="28" HorizontalAlignment="Left" Margin="61,278,0,0" Name="lblGuardarUsuario" VerticalAlignment="Top" />
+                    <Button Content="Buscar Usuario" Height="23" HorizontalAlignment="Left" Margin="440,307,0,0" Name="btBuscarUsuario" VerticalAlignment="Top" Width="98" Click="btBuscarUsuario_Click" />
+                    <ListBox Height="193" HorizontalAlignment="Left" Margin="275,113,0,0" Name="lbPersonas" VerticalAlignment="Top" Width="263"  ItemTemplate="{DynamicResource personaLayout}" MouseDoubleClick="lbPersonas_MouseDoubleClick"/>
+                    <Button Content="Cancelar Seleccion" Height="23" HorizontalAlignment="Right" Margin="0,307,107,0" Name="btCancelarSeleccion" VerticalAlignment="Top" Width="108" Click="btCancelarSeleccion_Click" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Vuelo Ida" Name="tiVueloIda">
+            <TabItem Header="Vuelo Ida" Name="tiVueloIda" Background="Red">
                 <Grid>
                     <Button Content="Buscar Vuelo" Height="23" HorizontalAlignment="Left" Margin="463,7,0,0" Name="btBuscarVueloIda" VerticalAlignment="Top" Width="75" Click="btBuscarVuelo_Click" />
                     <GroupBox Header="Origen" Margin="15,32,-1,201" Name="gbOrigenIda">
@@ -68,7 +66,7 @@
                     <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIda" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIda_Click" IsEnabled="False" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso">
+            <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso" Background="Yellow">
                 <Grid>
                     <Button Content="Buscar Vuelo" Height="23" HorizontalAlignment="Left" Margin="463,7,0,0" Name="btBuscarVueloVuelta" VerticalAlignment="Top" Width="75" Click="btBuscarVueloVuelta_Click" />
                     <GroupBox Header="Origen" Margin="15,32,-1,201" Name="gbOrigenVuelta">
@@ -100,6 +98,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="491,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="75" />
+        <Button Content="Crear Reservacion" Height="23" HorizontalAlignment="Left" Margin="457,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="109" />
     </Grid>
 </Window>

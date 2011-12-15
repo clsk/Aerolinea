@@ -20,22 +20,57 @@ namespace BusinessLogic
         private TransAsiento asiento_ida;
         private TransAsiento asiento_vuelta;
 
-
-
-        public bool CreateReservacion()
+        public Persona CreatePersona(string pasaporte, string nombre, string apellidos)
         {
+            // Check if person already exist
+            if (FindPersona(pasaporte) != null)
+                return null;
+
+            Persona _persona = new Persona();
+            _persona.Pasaporte = pasaporte;
+            _persona.NombrePersona = nombre;
+            _persona.ApellidosPersona = apellidos;
+            DALCliente.CreatePersona(_persona);
+            Persona = _persona;
+            return _persona;
+        }
+
+        public void CreateReservacion()
+        {
+            if (vuelo_ida == null)
+            {
+                throw new Exception("Debe seleccionar un vuelo de ida");
+            }
+            else
+            {
+                if (asiento_ida == null)
+                    throw new Exception("Debe seleccionar un vuelo de ida");
+            }
+
+            // Determinar si se va a reservar un vuelo de vuelta
+            bool reservar_vuelta = false;
+            if (vuelo_vuelta != null)
+            {
+                reservar_vuelta = true;
+                // Si hay un vuelo seleccionado, pero no hay asiento seleccionado, tirar un error
+                if (asiento_vuelta == null)
+                    throw new Exception("Si hay un vuelo de vuelta seleccionado, un asiento debe ser asignado para este vuelo");
+            }
+
             try
             {
-                TransReservacion reservacion_ida = new TransReservacion(Persona, vuelo_ida, asiento_ida, (TransUsuario)LUser.GetInstance().d_usuario);
+                reservacion_ida = new TransReservacion(Persona, vuelo_ida, asiento_ida, (TransUsuario)LUser.GetInstance().d_usuario);
                 DALCliente.Create(reservacion_ida.PersistentObject);
 
-
-
-                return true;
+                if (reservar_vuelta)
+                {
+                    reservacion_vuelta = new TransReservacion(Persona, vuelo_vuelta, asiento_vuelta, (TransUsuario)LUser.GetInstance().d_usuario);
+                    DALCliente.Create(reservacion_ida.PersistentObject);
+                }
             }
             catch (Exception e)
             {
-                return false;
+                throw e;
             }
         }
 
@@ -80,19 +115,15 @@ namespace BusinessLogic
             set { persona = value; }
         }
 
-        public bool SetPersona(string pasaporte)
-        {
-            persona = DALCliente.GetPersonaFromPasaporte(pasaporte);
-            
-            if (persona != null)
-                return true;
-            else
-                return false;
-        }
 
         public List<Persona> FindPersona(string nombre, string apellido)
         {
             return DALCliente.GetPersonasFromApellidoAndNombre(nombre, apellido);
+        }
+
+        public Persona FindPersona(string pasaporte)
+        {
+            return DALCliente.GetPersonaFromPasaporte(pasaporte);
         }
     }
 }

@@ -30,11 +30,10 @@ namespace DataLayer
          * 
          * @return true si se pudo crear la nueva persona, false caso contrário.
          */
-        static public bool CreatePersona(Persona unaPersona)
+        static public void CreatePersona(Persona unaPersona)
         {
             try { Provider.GetProvider().spNewPersona(unaPersona.NombrePersona, unaPersona.ApellidosPersona, unaPersona.Pasaporte); }
             catch (Exception e) { throw e; }
-            return true;
         }
         #endregion
         

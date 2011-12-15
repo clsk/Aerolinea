@@ -26,6 +26,8 @@ namespace UI
         {
             InitializeComponent();
             btBuscarUsuario.IsEnabled = false;
+            btCancelarSeleccion.IsEnabled = false;
+            btNuevoUsuario.IsEnabled = false;
             venta = new Venta();
 
             personas = new ObservableCollection<Persona>();
@@ -34,16 +36,13 @@ namespace UI
             lbPersonas.SetBinding(ListBox.ItemsSourceProperty, binding);
         }
 
-
-        TransVuelo vuelo_ida;
-        TransVuelo vuelo_vuelta;
         Venta venta;
         ObservableCollection<Persona> personas;
         
 
         public void SetVueloIda(TransVuelo vuelo)
         {
-            vuelo_ida = vuelo;
+            venta.VueloIda = vuelo;
 
             tbHoraSalidaIda.Text = vuelo.HoraSalida.ToString();
             tbDiaSalidaIda.Text = vuelo.FechaSalida.ToString("d");
@@ -56,11 +55,12 @@ namespace UI
             tbComentariosIda.Text = vuelo.Comentario;
             tbAvionIda.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
             btAsignarAsientoIda.IsEnabled = true;
+            tiVueloIda.Background = Brushes.Green;
         }
 
         public void SetVueloVuelta(TransVuelo vuelo)
         {
-            vuelo_vuelta = vuelo;
+            venta.VueloVuelta = vuelo;
 
             tbHoraSalidaVuelta.Text = vuelo.HoraSalida.ToString();
             tbDiaSalidaVuelta.Text = vuelo.FechaSalida.ToString("d");
@@ -73,6 +73,7 @@ namespace UI
             tbComentariosVuelta.Text = vuelo.Comentario;
             tbAvionVuelta.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
             btAsignarAsientoVuelta.IsEnabled = true;
+            tiVueloRegreso.Background = Brushes.Green;
         }
 
         private void btBuscarVuelo_Click(object sender, RoutedEventArgs e)
@@ -93,7 +94,7 @@ namespace UI
 
         private void btAsignarAsientoIda_Click(object sender, RoutedEventArgs e)
         {
-            SelectAsiento select_asiento = new SelectAsiento(vuelo_ida);
+            SelectAsiento select_asiento = new SelectAsiento(venta.VueloIda);
             select_asiento.Left = this.Left;
             select_asiento.Top = this.Top;
             select_asiento.ShowDialog();
@@ -117,46 +118,66 @@ namespace UI
             }
         }
 
+        void ValidarNuevoUsuario()
+        {
+            if (tbPasaporte.Text.Length > 0 && tbNombre.Text.Length > 0 && tbApellido.Text.Length > 0 && venta.Persona == null)
+            {
+                btNuevoUsuario.IsEnabled = true;
+            }
+            else
+            {
+                btNuevoUsuario.IsEnabled = false;
+            }
+        }
+
         private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
             ValidarBuscarUsuario();
+            ValidarNuevoUsuario();
         }
 
         private void tbPasaporte_TextChanged(object sender, TextChangedEventArgs e)
         {
             ValidarBuscarUsuario();
+            ValidarNuevoUsuario();
         }
 
         private void tbApellido_TextChanged(object sender, TextChangedEventArgs e)
         {
             ValidarBuscarUsuario();
+            ValidarNuevoUsuario();
         }
 
         private void FillPersona()
         {
-            if (venta.Persona == null)
-                return;
-
             tbNombre.Text = venta.Persona.NombrePersona;
             tbApellido.Text = venta.Persona.ApellidosPersona;
             tbPasaporte.Text = venta.Persona.Pasaporte;
         }
 
+        private void ClearPersona()
+        {
+            tbNombre.Text = "";
+            tbApellido.Text = "";
+            tbPasaporte.Text = "";
+        }
+
         private void btBuscarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            // Primero buscar por pasaporte
+            personas.Clear();
+            // Buscar por pasaporte
             if (tbPasaporte.Text.Length > 0)
             {
-                if (venta.SetPersona(tbPasaporte.Text))
+                Persona persona = venta.FindPersona(tbPasaporte.Text);
+                if (persona != null)
                 {
-                    FillPersona();
-                    return;
+                    personas.Add(persona);
                 }
             }
             
             if (tbNombre.Text.Length > 0 && tbApellido.Text.Length > 0)
             {
-                personas.Clear();
+                
                 List<Persona> persona_list = venta.FindPersona(tbNombre.Text, tbApellido.Text);
                 foreach (Persona persona in persona_list)
                 {
@@ -168,7 +189,32 @@ namespace UI
         private void lbPersonas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             venta.Persona = (Persona)lbPersonas.SelectedItem;
-            FillPersona();
+            if (venta.Persona != null)
+            {
+                FillPersona();
+                btCancelarSeleccion.IsEnabled = true;
+                tiPersona.Background = Brushes.Green;
+            }
+        }
+
+        private void btCancelarSeleccion_Click(object sender, RoutedEventArgs e)
+        {
+            venta.Persona = null;
+            btCancelarSeleccion.IsEnabled = false;
+            ClearPersona();
+            tiPersona.Background = Brushes.Red;
+        }
+
+        private void btNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (venta.CreatePersona(tbPasaporte.Text, tbNombre.Text, tbApellido.Text) == null)
+            {
+                MessageBox.Show("Error: Ya existe un cliente con ese pasaporte en el sistema. Utilice la opcion de buscar y seleccione el cliente");
+                return;
+            }
+
+            btNuevoUsuario.IsEnabled = false;
+            tiPersona.Background = Brushes.Green;
         }
     }
 }
