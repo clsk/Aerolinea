@@ -66,7 +66,7 @@ namespace BusinessLogic
         {
             string url;
             url= Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
-            url += "\\PlantaImages\\" + avion_id.ToString() + "_" + piso.ToString() + image.Substring(image.LastIndexOf('.') + 1);
+            url += "\\PlantaImages\\" + avion_id.ToString() + "_" + piso.ToString() + image.Substring(image.LastIndexOf('.'));
 
             System.IO.File.Copy(image, url);
             return url;
@@ -94,7 +94,7 @@ namespace BusinessLogic
             TransAvion unAvion = new TransAvion(IdSerie);
             unAvion.Create();
             for(int i=0; i<plantas.Count; i++)
-                unAvion.AddPlanta(SaveImageToURL(plantas[i],unAvion.ID, idSerie.idSerie));
+                unAvion.AddPlanta(SaveImageToURL(plantas[i],unAvion.ID, i));
             for(int j=0; j<asientos.Count; j++)
             {
                 TransAsiento unAsiento = new TransAsiento(unAvion, asientos[j].Clase, asientos[j].Numero, asientos[j].Fila, asientos[j].X, asientos[j].Y, asientos[j].Piso);

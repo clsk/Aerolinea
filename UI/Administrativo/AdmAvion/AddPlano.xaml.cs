@@ -69,19 +69,9 @@ namespace UI.Administrativo.AdmAvion
                 btnNewPlano.IsEnabled = false;
             }
         }
-        private byte[] getJPG_Byte(BitmapImage imageC)
-        {
-                Stream input = imageC.StreamSource;
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    input.CopyTo(ms);
-                    return ms.ToArray();
-                }
-        }
 
         private void btnNewPlano_Click(object sender, RoutedEventArgs e)
         {
-            byte[] imagen = getJPG_Byte(bitmap);
             elAvion.addPlanta(urlImagen);
             CrearAsientos nextWin = new CrearAsientos(elAvion, bitmap, elPiso);
             nextWin.Top = this.Top;

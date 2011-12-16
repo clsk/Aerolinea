@@ -29,6 +29,7 @@ namespace UI.Reservaciones
 
         public SelectAsiento(TransVuelo elvuelo)
         {
+            bitmap = new BitmapImage();
             losBotones = new Dictionary<int, Button>();
             elVuelo = elvuelo;
             AvionFactory factory = new AvionFactory();
@@ -36,11 +37,13 @@ namespace UI.Reservaciones
             elAvion = (TransAvion) factory.GetProduct();
             InitializeComponent();
 
-            for (int i = 0; i < elAvion.Plantas.Count; i++)
+           /* for (int i = 0; i < elAvion.Plantas.Count; i++)
             {
-                cbPiso.Items.Add(i+1);
-            }
-            cbPiso.SelectedIndex = 0;
+                string j;
+                j = Convert.ToString(i+1);
+                cbPiso.Items.Add(j);
+            }*/
+            cbPiso.SelectedItem = 0;
             SetImageSource();
             CreateAllBoton();
             InactiveOcupados();
@@ -75,7 +78,7 @@ namespace UI.Reservaciones
         /// </summary>
         private void SetImageSource()
         {
-            int elpiso = (int)cbPiso.SelectedItem;
+            int elpiso = cbPiso.SelectedIndex;
             bitmap.BeginInit();
             bitmap.UriSource =
             new Uri(elAvion.Plantas[elpiso].URL);
