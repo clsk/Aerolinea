@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SeleccionarAsiento" Height="583" Width="483">
     <Grid>
-        <ScrollViewer HorizontalAlignment="Stretch" Name="scrollViewer1" VerticalAlignment="Stretch">
+        <ScrollViewer HorizontalAlignment="Stretch" Name="scrollViewer1" VerticalAlignment="Stretch" Margin="0,44,0,0">
             <Canvas Name="cnvImg">
                 <Image Stretch="None" Name="imgPlanta" />
             </Canvas>
         </ScrollViewer>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="143,0,0,509" Name="cbPisos" VerticalAlignment="Bottom" Width="120" SelectionChanged="cbPisos_SelectionChanged" />
+        <Label Content="Piso:" Height="28" HorizontalAlignment="Left" Margin="103,9,0,0" Name="label1" VerticalAlignment="Top" />
     </Grid>
 </Window>

@@ -22,7 +22,7 @@ namespace UI.Reservaciones
         TransVuelo elVuelo;
         TransAvion elAvion;
         List<unAsiento> losAsientos;
-        BitmapImage laImagen;
+        
         int elPiso;
         Action<TransAsiento> callback;
         public SeleccionarAsiento(TransVuelo unVuelo, Action<TransAsiento> _callback)
@@ -33,8 +33,13 @@ namespace UI.Reservaciones
             AvionFactory factory = new AvionFactory();
             factory.BuildProduct(unVuelo.Avion.ID);
             elAvion = (TransAvion)factory.GetProduct();
-            laImagen = new BitmapImage();
             InitializeComponent();
+            for (int i = 0; i < elAvion.Plantas.Count; i++)
+            {
+                string piso = Convert.ToString(i+1);
+                cbPisos.Items.Add(piso);
+            }
+            cbPisos.SelectedIndex = 0;
             elPiso = 0;
             LoadImage();
             LoadAsientos();
@@ -44,18 +49,19 @@ namespace UI.Reservaciones
 
         public void LoadImage()
         {
+            BitmapImage laImagen;
+            laImagen = new BitmapImage();
             laImagen.BeginInit();
             laImagen.UriSource = new Uri(elAvion.Plantas[elPiso].URL);
-            laImagen.EndInit();
             imgPlanta.Source = laImagen;
-
+            laImagen.EndInit();
             cnvImg.Height = laImagen.Height;
             cnvImg.Width = laImagen.Width;
         }
 
         public void LoadAsientos()
         {
-            List<Asiento> asientos = DALAsiento.GetAsientoFromPisoAvion(elAvion.ID, 0);
+            List<Asiento> asientos = DALAsiento.GetAsientoFromPisoAvion(elAvion.ID, elPiso);
             foreach (Asiento unasiento in asientos)
             {
                 Button btNew = new Button();
@@ -88,6 +94,17 @@ namespace UI.Reservaciones
             }
         }
 
+        private void PisoChanged()
+        {
+            elPiso = cbPisos.SelectedIndex;
+            foreach (unAsiento asiento in losAsientos)
+                cnvImg.Children.Remove(asiento.UnBoton);
+            losAsientos.Clear();
+            LoadImage();
+            LoadAsientos();
+            InabAsientos();
+        }
+
         private void AsientoClick(object sender, EventArgs e)
         {
             Button clicked = (Button)sender;
@@ -104,6 +121,11 @@ namespace UI.Reservaciones
                     }
                 }
             }
+        }
+
+        private void cbPisos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PisoChanged();
         }
     }
 
