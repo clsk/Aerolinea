@@ -25,6 +25,7 @@ namespace UI.Reservaciones
         TransVuelo elVuelo;
         TransAvion elAvion;
         Dictionary<int, Button> losBotones;
+        BitmapImage bitmap;
 
         public SelectAsiento(TransVuelo elvuelo)
         {
@@ -66,8 +67,12 @@ namespace UI.Reservaciones
         }
         private void SetImageSource()
         {
-            int elpiso = (int)cbPiso.SelectedItem;
-            imgPlanta.Source = ConverToBitMap(elAvion.Plantas[elpiso - 1].Imagen);
+            int elpiso = (int)cbPiso.SelectedItem -1;
+            bitmap.BeginInit();
+            bitmap.UriSource =
+            new Uri(elAvion.Plantas[elpiso].URL);
+            bitmap.EndInit();
+            imgPlanta.Source = bitmap;
             cvsImage.Height = imgPlanta.ActualHeight;
             cvsImage.Width = imgPlanta.ActualWidth;
         }
@@ -86,15 +91,6 @@ namespace UI.Reservaciones
                 }
 
             }
-        }
-        private BitmapImage ConverToBitMap(byte[] bytes)
-        {
-            MemoryStream byteStream = new MemoryStream(bytes);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = byteStream;
-            image.EndInit();
-            return image;
         }
 
         private void ChangePiso()
