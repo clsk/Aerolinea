@@ -46,9 +46,8 @@ namespace BusinessLogic
         }
 
 
-
         /// <summary>
-        /// Guarda una planta temporalmente en el avión.
+        /// Guarda una dirección de la planta a la lista.
         /// </summary>
         /// <param name="imagen"></param>
         public void addPlanta(string imagen)
@@ -88,7 +87,7 @@ namespace BusinessLogic
             asientos.Add(unAsiento);
         }
         /// <summary>
-        /// Envía todos los datos temporales a la base de datos.
+        /// Construye el avión apartir de todos los datos proveeidos.
         /// </summary>
         public void Flush()
         {
