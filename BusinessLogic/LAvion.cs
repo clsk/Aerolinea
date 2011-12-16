@@ -94,7 +94,7 @@ namespace BusinessLogic
             TransAvion unAvion = new TransAvion(IdSerie);
             unAvion.Create();
             for(int i=0; i<plantas.Count; i++)
-                unAvion.AddPlanta(SaveImageToURL(plantas[i],unAvion.ID,idSerie));
+                unAvion.AddPlanta(SaveImageToURL(plantas[i],unAvion.ID, idSerie.idSerie));
             for(int j=0; j<asientos.Count; j++)
             {
                 TransAsiento unAsiento = new TransAsiento(unAvion, asientos[j].Clase, asientos[j].Numero, asientos[j].Fila, asientos[j].X, asientos[j].Y, asientos[j].Piso);
