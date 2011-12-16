@@ -110,10 +110,16 @@ namespace UI
 
         private void btAsignarAsientoIda_Click(object sender, RoutedEventArgs e)
         {
-            SelectAsiento select_asiento = new SelectAsiento(venta.VueloIda);
+            Reservaciones.SeleccionarAsiento select_asiento = new SeleccionarAsiento(venta.VueloIda, SetAsientoIda);
             select_asiento.Left = this.Left;
             select_asiento.Top = this.Top;
             select_asiento.ShowDialog();
+        }
+
+        public void SetAsientoIda(TransAsiento asiento)
+        {
+            venta.AsientoIda = asiento;
+            tbAsientoIda.Text = venta.AsientoIda.Fila.ToString() + venta.AsientoIda.Numero;
         }
 
         private void btAsignarAsientoIdaVuelta_Click(object sender, RoutedEventArgs e)

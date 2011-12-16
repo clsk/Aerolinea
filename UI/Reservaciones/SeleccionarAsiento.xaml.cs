@@ -24,10 +24,12 @@ namespace UI.Reservaciones
         List<unAsiento> losAsientos;
         BitmapImage laImagen;
         int elPiso;
-        public SeleccionarAsiento(TransVuelo unVuelo)
+        Action<TransAsiento> callback;
+        public SeleccionarAsiento(TransVuelo unVuelo, Action<TransAsiento> _callback)
         {
+            callback = _callback;
             elVuelo = unVuelo;
-            losAsientos =  new List<unAsiento>();
+            losAsientos = new List<unAsiento>();
             AvionFactory factory = new AvionFactory();
             factory.BuildProduct(unVuelo.Avion.ID);
             elAvion = (TransAvion)factory.GetProduct();
@@ -61,7 +63,7 @@ namespace UI.Reservaciones
                 btNew.Height = 15;
                 btNew.IsEnabled = false;
                 btNew.Click += new RoutedEventHandler(AsientoClick);
-                unAsiento elasiento = new unAsiento(unasiento.idAsiento,btNew);
+                unAsiento elasiento = new unAsiento(unasiento.idAsiento, btNew);
                 losAsientos.Add(elasiento);
 
                 cnvImg.Children.Add(btNew);
@@ -92,6 +94,13 @@ namespace UI.Reservaciones
             MessageBoxResult result = MessageBox.Show(this, "¿Desea seleccionar este asiento?", "Seleccionar asiento", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
             if (result == MessageBoxResult.Yes)
             {
+                foreach (unAsiento asiento in losAsientos)
+                {
+                    if (asiento.UnBoton == clicked)
+                    {
+                        callback(new TransAsiento(DALAsiento.GetAsientoFromID(asiento.id)));
+                    }
+                }
             }
         }
     }
