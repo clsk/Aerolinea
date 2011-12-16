@@ -231,9 +231,49 @@ namespace UI
             tiPersona.Background = Brushes.Green;
         }
 
+        bool ValidarVueloIda()
+        {
+            if (venta.VueloIda != null && venta.AsientoIda != null)
+            {
+                tiVueloIda.Background = Brushes.Green;
+                return true;
+            }
+
+            return false;
+        }
+
+        bool ValidarVueloVuelta()
+        {
+            if (venta.VueloVuelta != null)
+            {
+                if (venta.AsientoVuelta == null)
+                {
+                    tiVueloRegreso.Background = Brushes.Red;
+                    return false;
+                }
+                else
+                {
+                    tiVueloRegreso.Background = Brushes.Green;
+                    return true;
+                }
+            }
+            else
+            {
+                tiVueloRegreso.Background = Brushes.Yellow;
+                return true;
+            }
+        }
+
         private void btGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                venta.CreateReservacion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
