@@ -5,6 +5,7 @@ using System.Text;
 using DataLayer;
 using System.IO;
 using System.Reflection;
+using Microsoft.CSharp;
 
 namespace BusinessLogic
 {
@@ -43,11 +44,13 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="image">URL actual dodne se encuentra la imagen</param>
         /// <returns>El URL completo donde se guardó la imagen </returns>
-        private string SaveImageToURL(string image)
+        private string SaveImageToURL(string image, int avion_id, int piso)
         {
             string url;
             url= Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            url += "\\PlantaImages\\" + avion_id.ToString() + "_" + piso.ToString() + image.Substring(image.LastIndexOf('.') + 1);
 
+            System.IO.File.Copy(image, url);
             //Implementar guardar la imagen en el directorio.
             return url;
         }

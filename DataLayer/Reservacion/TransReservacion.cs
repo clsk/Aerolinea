@@ -51,7 +51,7 @@ namespace DataLayer
 
         public void Create()
         {
-            base.Flush(DALCliente.Create);
+            persistent = DALCliente.Create(persistent);
         }
     }
 }

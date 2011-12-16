@@ -7,10 +7,6 @@ namespace DataLayer
 {
     public interface IUsuario : ITrans<Usuario>
     {
-        int ID
-        {
-            get;
-        }
 
         string Nombre
         {
