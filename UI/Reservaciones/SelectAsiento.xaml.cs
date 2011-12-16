@@ -45,6 +45,10 @@ namespace UI.Reservaciones
             CreateAllBoton();
             InactiveOcupados();
         }
+
+        /// <summary>
+        /// Crea todos lo botones de los asientos en el Canvas.
+        /// </summary>
         private void CreateAllBoton()
         {
             List<Asiento> asientos = DALAsiento.GetAsientoFromPisoAvion(elAvion.ID, (int)cbPiso.SelectedItem);
@@ -65,6 +69,10 @@ namespace UI.Reservaciones
                 Canvas.SetLeft(btNew, posx);
             }
         }
+
+        /// <summary>
+        /// Pone la imagen correspondiente en el canvas.
+        /// </summary>
         private void SetImageSource()
         {
             int elpiso = (int)cbPiso.SelectedItem -1;
@@ -76,6 +84,10 @@ namespace UI.Reservaciones
             cvsImage.Height = imgPlanta.ActualHeight;
             cvsImage.Width = imgPlanta.ActualWidth;
         }
+
+        /// <summary>
+        /// Inactiva los asientos que están ocupados.
+        /// </summary>
         private void InactiveOcupados()
         {
             List<Asiento> noOcupados = DALAsiento.GetAsientosNoOcupados(elVuelo.ID);
@@ -93,6 +105,9 @@ namespace UI.Reservaciones
             }
         } 
 
+        /// <summary>
+        /// Hace el cambio de piso, cargando los nuevos datos.
+        /// </summary>
         private void ChangePiso()
         {
             cvsImage.Children.Clear();
@@ -102,6 +117,11 @@ namespace UI.Reservaciones
             InactiveOcupados();
         }
 
+        /// <summary>
+        /// Confirma si el usuario desea seleccionar ese asiento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AsientoClick(object sender, EventArgs e)
         {
             Button clicked = (Button)sender;
