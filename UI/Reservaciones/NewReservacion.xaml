@@ -98,6 +98,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Crear Reservacion" Height="23" HorizontalAlignment="Left" Margin="457,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="109" />
+        <Button Content="Crear Reservacion" Height="23" HorizontalAlignment="Left" Margin="457,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="109" Click="btGuardar_Click" />
     </Grid>
 </Window>
