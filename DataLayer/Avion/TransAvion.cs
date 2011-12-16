@@ -57,12 +57,12 @@ namespace DataLayer
         }
 
         // @returns El numero de piso en que se agrego esta planta
-        public int AddPlanta(byte[] imagen)
+        public int AddPlanta(string URL)
         {
             // Create object in database
             PlantaAvion planta = new PlantaAvion();
             planta.idAvion = ID;
-            planta.ImagenPlanta = imagen;
+            planta.URLPlanta = URL;
             planta.Piso = plantas.Length;
             DALAvion.CreatePlantaAvion(planta);
 

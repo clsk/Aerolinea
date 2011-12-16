@@ -36,10 +36,10 @@ namespace DataLayer
             asiento.Create();
         }
 
-        public byte[] Imagen
+        public string URL
         {
-            get { return persistent.ImagenPlanta; }
-            set { persistent.ImagenPlanta = value; }
+            get { return persistent.URLPlanta; }
+            set { persistent.URLPlanta = value; }
         }
 
         public int Piso
