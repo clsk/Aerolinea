@@ -104,8 +104,8 @@
       <DependentUpon>CrearAsientos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\AdmAvion\UIAsiento.cs" />
-    <Compile Include="Reservaciones\SelectAsiento.xaml.cs">
-      <DependentUpon>SelectAsiento.xaml</DependentUpon>
+    <Compile Include="Reservaciones\SeleccionarAsiento.xaml.cs">
+      <DependentUpon>SeleccionarAsiento.xaml</DependentUpon>
     </Compile>
     <Compile Include="VueloView.cs" />
     <Page Include="Administrativo\AdmAvion\NewAvion.xaml">
@@ -180,7 +180,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Reservaciones\SelectAsiento.xaml">
+    <Page Include="Reservaciones\SeleccionarAsiento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

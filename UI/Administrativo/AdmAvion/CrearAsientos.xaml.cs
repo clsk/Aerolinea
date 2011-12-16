@@ -211,7 +211,7 @@ namespace UI.Administrativo.AdmAvion
             {
                 for (int i = 0; i < Asientos.Count; i++)
                 {
-                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso);
+                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso-1);
                 }
                 elAvion.Flush();
                 OpenNewAvion();
@@ -220,7 +220,7 @@ namespace UI.Administrativo.AdmAvion
             {
                 for (int i = 0; i < Asientos.Count; i++)
                 {
-                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso);
+                    elAvion.addAsiento(Asientos[i].PosX, Asientos[i].PosY, Asientos[i].Clase, Asientos[i].Numero, Asientos[i].Fila, Piso-1);
                 }
                 OpenAddPlano();
             }

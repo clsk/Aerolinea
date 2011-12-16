@@ -1,0 +1,12 @@
+﻿<Window x:Class="UI.Reservaciones.SeleccionarAsiento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SeleccionarAsiento" Height="583" Width="483">
+    <Grid>
+        <ScrollViewer HorizontalAlignment="Stretch" Name="scrollViewer1" VerticalAlignment="Stretch">
+            <Canvas Name="cnvImg">
+                <Image Stretch="None" Name="imgPlanta" />
+            </Canvas>
+        </ScrollViewer>
+    </Grid>
+</Window>

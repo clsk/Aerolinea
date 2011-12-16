@@ -20,7 +20,7 @@ namespace DataLayer
             Numero = numero;
             Fila  = fila;
             PosX = posX;
-            PosX = posX;
+            PosY = posY;
             Piso = piso;
         }
 
