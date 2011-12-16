@@ -1357,44 +1357,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="idVuelo">No Metadata Documentation available.</param>
-        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo)
-        {
-            ObjectParameter idVueloParameter;
-            if (idVuelo.HasValue)
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
-            }
-            else
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", idVueloParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="idVuelo">No Metadata Documentation available.</param>
-        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo, MergeOption mergeOption)
-        {
-            ObjectParameter idVueloParameter;
-            if (idVuelo.HasValue)
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
-            }
-            else
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", mergeOption, idVueloParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
         public int spNewMarcaAvion(global::System.String nombre)
         {
@@ -3038,6 +3000,44 @@ namespace DataLayer
             }
     
             return base.ExecuteFunction<Reservacion>("spGetReservaFromPersona", mergeOption, idPersonaParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", idVueloParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        public ObjectResult<Asiento> spGetAsientosNoOcupados(Nullable<global::System.Int32> idVuelo, MergeOption mergeOption)
+        {
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Asiento>("spGetAsientosNoOcupados", mergeOption, idVueloParameter);
         }
 
         #endregion
