@@ -1612,6 +1612,7 @@
           <FunctionImportMapping FunctionImportName="spGetReservaFromPersona" FunctionName="ReservaVuelosModel.Store.spGetReservaFromPersona" />
           <FunctionImportMapping FunctionImportName="spGetAsientosNoOcupados" FunctionName="ReservaVuelosModel.Store.spGetAsientosNoOcupados" />
           <FunctionImportMapping FunctionImportName="spGetAsientoFromID" FunctionName="ReservaVuelosModel.Store.spGetAsientoFromID" />
+          <FunctionImportMapping FunctionImportName="spGetAvionFromID" FunctionName="ReservaVuelosModel.Store.spGetAvionesFromID" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

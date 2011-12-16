@@ -100,6 +100,7 @@ namespace UI.Reservaciones
                     {
                         callback(new TransAsiento(DALAsiento.GetAsientoFromID(asiento.id)));
                         this.Close();
+                        break;
                     }
                 }
             }
