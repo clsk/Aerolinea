@@ -1675,58 +1675,6 @@ namespace DataLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="idPersona">No Metadata Documentation available.</param>
-        /// <param name="idVuelo">No Metadata Documentation available.</param>
-        /// <param name="idAsiento">No Metadata Documentation available.</param>
-        /// <param name="idUsuario">No Metadata Documentation available.</param>
-        public int spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
-        {
-            ObjectParameter idPersonaParameter;
-            if (idPersona.HasValue)
-            {
-                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
-            }
-            else
-            {
-                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter idVueloParameter;
-            if (idVuelo.HasValue)
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
-            }
-            else
-            {
-                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter idAsientoParameter;
-            if (idAsiento.HasValue)
-            {
-                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
-            }
-            else
-            {
-                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter idUsuarioParameter;
-            if (idUsuario.HasValue)
-            {
-                idUsuarioParameter = new ObjectParameter("idUsuario", idUsuario);
-            }
-            else
-            {
-                idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("spNewReservacion", idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         /// <param name="nombre">No Metadata Documentation available.</param>
         /// <param name="apellidos">No Metadata Documentation available.</param>
         /// <param name="pasaporte">No Metadata Documentation available.</param>
@@ -2948,6 +2896,148 @@ namespace DataLayer
             }
     
             return base.ExecuteFunction<PlantaAvion>("spGetPlantasFromAvion", mergeOption, idAvionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        /// <param name="idUsuario">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idUsuarioParameter;
+            if (idUsuario.HasValue)
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", idUsuario);
+            }
+            else
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spNewReservacion", idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        /// <param name="idVuelo">No Metadata Documentation available.</param>
+        /// <param name="idAsiento">No Metadata Documentation available.</param>
+        /// <param name="idUsuario">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spNewReservacion(Nullable<global::System.Int32> idPersona, Nullable<global::System.Int32> idVuelo, Nullable<global::System.Int32> idAsiento, Nullable<global::System.Int32> idUsuario, MergeOption mergeOption)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idVueloParameter;
+            if (idVuelo.HasValue)
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", idVuelo);
+            }
+            else
+            {
+                idVueloParameter = new ObjectParameter("idVuelo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idAsientoParameter;
+            if (idAsiento.HasValue)
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", idAsiento);
+            }
+            else
+            {
+                idAsientoParameter = new ObjectParameter("idAsiento", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter idUsuarioParameter;
+            if (idUsuario.HasValue)
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", idUsuario);
+            }
+            else
+            {
+                idUsuarioParameter = new ObjectParameter("idUsuario", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spNewReservacion", mergeOption, idPersonaParameter, idVueloParameter, idAsientoParameter, idUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spGetReservaFromPersona(Nullable<global::System.Int32> idPersona)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spGetReservaFromPersona", idPersonaParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="idPersona">No Metadata Documentation available.</param>
+        public ObjectResult<Reservacion> spGetReservaFromPersona(Nullable<global::System.Int32> idPersona, MergeOption mergeOption)
+        {
+            ObjectParameter idPersonaParameter;
+            if (idPersona.HasValue)
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", idPersona);
+            }
+            else
+            {
+                idPersonaParameter = new ObjectParameter("idPersona", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Reservacion>("spGetReservaFromPersona", mergeOption, idPersonaParameter);
         }
 
         #endregion
