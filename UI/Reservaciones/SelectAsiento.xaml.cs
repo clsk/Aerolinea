@@ -37,13 +37,12 @@ namespace UI.Reservaciones
             elAvion = (TransAvion) factory.GetProduct();
             InitializeComponent();
 
-           /* for (int i = 0; i < elAvion.Plantas.Count; i++)
+            for (int i = 0; i < elAvion.Plantas.Count; i++)
             {
-                string j;
-                j = Convert.ToString(i+1);
+                int j=i;
+                j++;
                 cbPiso.Items.Add(j);
-            }*/
-            cbPiso.SelectedItem = 0;
+            }
             SetImageSource();
             CreateAllBoton();
             InactiveOcupados();
@@ -54,7 +53,7 @@ namespace UI.Reservaciones
         /// </summary>
         private void CreateAllBoton()
         {
-            List<Asiento> asientos = DALAsiento.GetAsientoFromPisoAvion(elAvion.ID, (int)cbPiso.SelectedItem);
+            List<Asiento> asientos = DALAsiento.GetAsientoFromPisoAvion(elAvion.ID, cbPiso.SelectedIndex);
             foreach(Asiento asiento in asientos)
             {
                 Button btNew = new Button();

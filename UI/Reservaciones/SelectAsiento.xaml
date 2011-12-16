@@ -8,10 +8,7 @@
                 <Image Stretch="None" Name="imgPlanta"/>
             </Canvas>
         </ScrollViewer>
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="61,10,0,0" Name="cbPiso" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="cbPiso_SelectionChanged">
-            <ComboBoxItem Content="1" />
-            <ComboBoxItem Content="2" />
-        </ComboBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="61,10,0,0" Name="cbPiso" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="cbPiso_SelectionChanged"></ComboBox>
         <Label Content="Piso:" Height="28" HorizontalAlignment="Left" Margin="12,10,0,0" Name="label1" VerticalAlignment="Top" />
     </Grid>
 </Window>
