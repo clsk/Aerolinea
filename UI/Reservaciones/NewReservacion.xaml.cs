@@ -44,9 +44,11 @@ namespace UI
             btGuardar.Content = "Modificar Reservacion";
             FillPersona();
             SetVueloIda(venta.VueloIda);
+            tbAsientoIda.Text = venta.AsientoIda.Fila.ToString() + venta.AsientoIda.Numero;
             if (venta.VueloVuelta != null)
             {
                 SetVueloVuelta(venta.VueloVuelta);
+                tbAsientoVuelta.Text = venta.AsientoVuelta.Fila.ToString() + venta.AsientoVuelta.Numero;
             }
         }
 
@@ -269,6 +271,8 @@ namespace UI
             try
             {
                 venta.CreateReservacion();
+                tbId.Text = "ID Reservacion Ida: " + venta.ReservacionIda.ID;
+                
             }
             catch (Exception ex)
             {

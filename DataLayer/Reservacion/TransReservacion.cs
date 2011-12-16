@@ -11,6 +11,11 @@ namespace DataLayer
         {
         }
 
+        public int ID
+        {
+            get { return persistent.idReservacion; }
+        }
+
         public TransReservacion(Persona persona, TransVuelo vuelo, TransAsiento asiento, TransUsuario usuario) : base(null)
         {
             persistent = new Reservacion();

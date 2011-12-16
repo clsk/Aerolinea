@@ -7,6 +7,10 @@ namespace DataLayer
 {
     public interface IReservacion
     {
+        int ID
+        {
+            get;
+        }
         Persona Persona
         {
             get;
