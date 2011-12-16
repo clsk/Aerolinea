@@ -109,8 +109,8 @@ namespace BusinessLogic
                     else
                     {
                         reservacion_vuelta.Persona = persona;
-                        reservacion_vuelta.Vuelo = vuelo_ida;
-                        reservacion_vuelta.Asiento = asiento_ida;
+                        reservacion_vuelta.Vuelo = vuelo_vuelta;
+                        reservacion_vuelta.Asiento = asiento_vuelta;
                         reservacion_vuelta.Flush();
                     }
                 }
