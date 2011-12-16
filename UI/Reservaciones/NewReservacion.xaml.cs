@@ -36,6 +36,20 @@ namespace UI
             lbPersonas.SetBinding(ListBox.ItemsSourceProperty, binding);
         }
 
+        public NewReservacion(Venta _venta)
+        {
+            InitializeComponent();
+            btNuevoUsuario.IsEnabled = false;
+            venta = _venta;
+            btGuardar.Content = "Modificar Reservacion";
+            FillPersona();
+            SetVueloIda(venta.VueloIda);
+            if (venta.VueloVuelta != null)
+            {
+                SetVueloVuelta(venta.VueloVuelta);
+            }
+        }
+
         Venta venta;
         ObservableCollection<Persona> personas;
         
@@ -215,6 +229,11 @@ namespace UI
 
             btNuevoUsuario.IsEnabled = false;
             tiPersona.Background = Brushes.Green;
+        }
+
+        private void btGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
