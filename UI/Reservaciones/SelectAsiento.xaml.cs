@@ -40,7 +40,7 @@ namespace UI.Reservaciones
             {
                 cbPiso.Items.Add(i+1);
             }
-            cbPiso.SelectedItem = 0;
+            cbPiso.SelectedIndex = 0;
             SetImageSource();
             CreateAllBoton();
             InactiveOcupados();
@@ -75,7 +75,7 @@ namespace UI.Reservaciones
         /// </summary>
         private void SetImageSource()
         {
-            int elpiso = (int)cbPiso.SelectedItem -1;
+            int elpiso = (int)cbPiso.SelectedItem;
             bitmap.BeginInit();
             bitmap.UriSource =
             new Uri(elAvion.Plantas[elpiso].URL);

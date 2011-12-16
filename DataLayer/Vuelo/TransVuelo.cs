@@ -5,8 +5,15 @@ using System.Text;
 
 namespace DataLayer
 {
+    /// <summary>
+    /// Representa un Vuelo
+    /// </summary>
     public class TransVuelo : AbstractTrans<Vuelo>, IVuelo
     {
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="persistent_object"></param>
         public TransVuelo(Vuelo persistent_object) : base(persistent_object)
         {
             puerto_salida = null;
