@@ -13,11 +13,11 @@ namespace DataLayer
          * 
          * @param unaReserva        reservación que se desea agregar.
          * 
-         * @return true si se pudo crear la nueva reserva, false caso contrário.
+         * @return la reservacion si se pudo crear, null caso contrário.
          */
-        static public void Create(Reservacion unaReserva)
+        static public Reservacion Create(Reservacion unaReserva)
         {
-            try { Provider.GetProvider().spNewReservacion(unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario); }
+            try { return Provider.GetProvider().spNewReservacion(unaReserva.idPersona, unaReserva.idVuelo, unaReserva.idAsiento, unaReserva.idUsuario).FirstOrDefault(); }
             catch (Exception e) { throw e; }
         }
         #endregion
@@ -94,6 +94,21 @@ namespace DataLayer
         public static Persona GetPersonaFromPasaporte(string pasaporte)
         {
             try { return Provider.GetProvider().spGetPersonaFromPasaporte(pasaporte).FirstOrDefault(); }
+            catch (Exception e) { throw e; }
+        }
+        #endregion
+
+        #region Obtener lista de reservacion dado una persona
+        /**
+         * @brief Obtiene una persona dado su pasaporte
+         * 
+         * @param idPersona        El ID de la persona que se desea encontrar las reservaciones.
+         * 
+         * @return La lista de reservacion si se pudo encontrar, null caso contrário.
+         */
+        public static List<Reservacion> GetPersonaFromPasaporte(int idPersona)
+        {
+            try { return Provider.GetProvider().spGetReservaFromPersona(idPersona).ToList(); }
             catch (Exception e) { throw e; }
         }
         #endregion
