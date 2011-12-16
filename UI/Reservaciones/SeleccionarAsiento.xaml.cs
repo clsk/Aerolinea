@@ -26,6 +26,7 @@ namespace UI.Reservaciones
 
         int elPiso;
         Action<TransAsiento> callback;
+
         public SeleccionarAsiento(TransVuelo unVuelo, Action<TransAsiento> _callback)
         {
             callback = _callback;
@@ -70,6 +71,7 @@ namespace UI.Reservaciones
                 btNew.Height = 15;
                 btNew.IsEnabled = false;
                 btNew.Click += new RoutedEventHandler(AsientoClick);
+                btNew.Background = Brushes.Red;
                 unAsiento elasiento = new unAsiento(unasiento.idAsiento, btNew, unasiento.TipoClase.NombreClase, unasiento.Fila, unasiento.Numero);
                 losAsientos.Add(elasiento);
 
@@ -90,6 +92,7 @@ namespace UI.Reservaciones
                     if (unasiento.idAsiento == asiento.id)
                     {
                         asiento.UnBoton.IsEnabled = true;
+                        asiento.UnBoton.Background = Brushes.Green;
                     }
                 }
             }
