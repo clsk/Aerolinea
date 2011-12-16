@@ -9,31 +9,48 @@ using Microsoft.CSharp;
 
 namespace BusinessLogic
 {
+    /// <summary>
+    /// Clase que maneja las transacciones de un avión.
+    /// </summary>
     public class LAvion
     {
+        //Serie del avion.
         SerieAvion idSerie;
+
+        //Una lista de direcciones (URL) de las plantas.
+        List<string> plantas;
+
+        //Una lista de asientos temporales.
+        List<LAsiento> asientos;
+
+        //Cantidad de pisos que tendrá el avión
+        int cantidad;
+
         public LAvion()
         {
             plantas = new List<string>();
             asientos = new List<LAsiento>();
         }
+
         public SerieAvion IdSerie
         {
             get { return idSerie; }
             set { idSerie = value; }
         }
 
-        int cantidad;
+        
         public int Cantidad
         {
             get { return cantidad; }
             set { cantidad = value; }
         }
 
-        List<string> plantas;
 
-        List<LAsiento> asientos;
 
+        /// <summary>
+        /// Guarda una planta temporalmente en el avión.
+        /// </summary>
+        /// <param name="imagen"></param>
         public void addPlanta(string imagen)
         {
             plantas.Add(imagen);
@@ -56,12 +73,23 @@ namespace BusinessLogic
             return url;
         }
 
+        /// <summary>
+        /// Agrega un asiento temporalmente al avión.
+        /// </summary>
+        /// <param name="X">Coordenada en X del asiento.</param>
+        /// <param name="Y">Coordenada en Y del asiento.</param>
+        /// <param name="IdClase">Clase del asiento.</param>
+        /// <param name="Numero">Numero del asiento.</param>
+        /// <param name="Fila">Numero de la fila ubicada.</param>
+        /// <param name="Piso">Piso en el cual está ubicado el asiento.</param>
         public void addAsiento(int X, int Y, TipoClase IdClase, string Numero, int Fila, int Piso)
         {
             LAsiento unAsiento = new LAsiento(X,  Y, IdClase, Numero, Fila, Piso);
             asientos.Add(unAsiento);
         }
-
+        /// <summary>
+        /// Envía todos los datos temporales a la base de datos.
+        /// </summary>
         public void Flush()
         {
             TransAvion unAvion = new TransAvion(IdSerie);
@@ -75,7 +103,10 @@ namespace BusinessLogic
             }
         }
     }
-
+    
+    /// <summary>
+    /// Clase que define un asiento.
+    /// </summary>
     public class LAsiento
     {
         int x;
