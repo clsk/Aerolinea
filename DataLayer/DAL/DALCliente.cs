@@ -106,7 +106,7 @@ namespace DataLayer
          * 
          * @return La lista de reservacion si se pudo encontrar, null caso contrário.
          */
-        public static List<Reservacion> GetPersonaFromPasaporte(int idPersona)
+        public static List<Reservacion> GetReservacionFromPersona(int idPersona)
         {
             try { return Provider.GetProvider().spGetReservaFromPersona(idPersona).ToList(); }
             catch (Exception e) { throw e; }
