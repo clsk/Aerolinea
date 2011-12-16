@@ -22,7 +22,8 @@ namespace UI.Reservaciones
         TransVuelo elVuelo;
         TransAvion elAvion;
         List<unAsiento> losAsientos;
-        
+        int AsientoSeleccionado;
+
         int elPiso;
         Action<TransAsiento> callback;
         public SeleccionarAsiento(TransVuelo unVuelo, Action<TransAsiento> _callback)
@@ -69,7 +70,7 @@ namespace UI.Reservaciones
                 btNew.Height = 15;
                 btNew.IsEnabled = false;
                 btNew.Click += new RoutedEventHandler(AsientoClick);
-                unAsiento elasiento = new unAsiento(unasiento.idAsiento, btNew);
+                unAsiento elasiento = new unAsiento(unasiento.idAsiento, btNew, unasiento.TipoClase.NombreClase, unasiento.Fila, unasiento.Numero);
                 losAsientos.Add(elasiento);
 
                 cnvImg.Children.Add(btNew);
@@ -108,33 +109,47 @@ namespace UI.Reservaciones
         private void AsientoClick(object sender, EventArgs e)
         {
             Button clicked = (Button)sender;
-            MessageBoxResult result = MessageBox.Show(this, "¿Desea seleccionar este asiento?", "Seleccionar asiento", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-            if (result == MessageBoxResult.Yes)
-            {
+            cnvImg.IsEnabled = false;
+            puInfos.IsOpen = true;
                 foreach (unAsiento asiento in losAsientos)
                 {
                     if (asiento.UnBoton == clicked)
                     {
-                        callback(new TransAsiento(DALAsiento.GetAsientoFromID(asiento.id)));
-                        this.Close();
-                        break;
+                        tbClase.Text = asiento.Clase;
+                        tbFila.Text = Convert.ToString(asiento.Fila);
+                        tbNumero.Text = asiento.Numero;
+                        AsientoSeleccionado = asiento.id;
                     }
                 }
-            }
         }
 
         private void cbPisos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             PisoChanged();
         }
+
+        private void btmGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            callback(new TransAsiento(DALAsiento.GetAsientoFromID(AsientoSeleccionado)));
+            this.Close();
+        }
+
+        private void btmCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            cnvImg.IsEnabled = true;
+            puInfos.IsOpen = false;
+        }
     }
 
     public class unAsiento
     {
-        public unAsiento(int id, Button elboton)
+        public unAsiento(int id, Button elboton, string laClase, int laFila, string elNumero)
         {
             ID = id;
             unBoton = elboton;
+            clase = laClase;
+            fila = laFila;
+            numero = elNumero;
         }
         int ID;
 
@@ -150,6 +165,30 @@ namespace UI.Reservaciones
         {
             get { return unBoton; }
             set { unBoton = value; }
+        }
+
+        string numero;
+
+        public string Numero
+        {
+            get { return numero; }
+            set { numero = value; }
+        }
+
+        int fila;
+
+        public int Fila
+        {
+            get { return fila; }
+            set { fila = value; }
+        }
+
+        string clase;
+
+        public string Clase
+        {
+            get { return clase; }
+            set { clase = value; }
         }
     }
 }
