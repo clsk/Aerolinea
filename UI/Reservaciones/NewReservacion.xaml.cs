@@ -45,10 +45,16 @@ namespace UI
             FillPersona();
             SetVueloIda(venta.VueloIda);
             tbAsientoIda.Text = venta.AsientoIda.Fila.ToString() + venta.AsientoIda.Numero;
+            tbIDIda.Text = "ID Reservacion: " + venta.ReservacionIda.ID;
+            tiPersona.Background = Brushes.Green;
+            tiVueloIda.Background = Brushes.Green;
+            tiVueloRegreso.Background = Brushes.Yellow;
             if (venta.VueloVuelta != null)
             {
                 SetVueloVuelta(venta.VueloVuelta);
                 tbAsientoVuelta.Text = venta.AsientoVuelta.Fila.ToString() + venta.AsientoVuelta.Numero;
+                tbIDVuelta.Text = "ID Reservacion: " + venta.ReservacionVuelta.ID;
+                tiVueloRegreso.Background = Brushes.Green;
             }
         }
 
@@ -71,7 +77,6 @@ namespace UI
             tbComentariosIda.Text = vuelo.Comentario;
             tbAvionIda.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
             btAsignarAsientoIda.IsEnabled = true;
-            tiVueloIda.Background = Brushes.Green;
         }
 
         public void SetVueloVuelta(TransVuelo vuelo)
@@ -89,7 +94,7 @@ namespace UI
             tbComentariosVuelta.Text = vuelo.Comentario;
             tbAvionVuelta.Text = vuelo.Avion.Serie.MarcaAvion.NombreMarca + " " + vuelo.Avion.Serie.NombreSerie;
             btAsignarAsientoVuelta.IsEnabled = true;
-            tiVueloRegreso.Background = Brushes.Green;
+            tiVueloRegreso.Background = Brushes.Red;
         }
 
         private void btBuscarVuelo_Click(object sender, RoutedEventArgs e)
@@ -120,12 +125,22 @@ namespace UI
         {
             venta.AsientoIda = asiento;
             tbAsientoIda.Text = venta.AsientoIda.Fila.ToString() + venta.AsientoIda.Numero;
+            tiVueloIda.Background = Brushes.Green;
+        }
+
+        public void SetAsientoVuelta(TransAsiento asiento)
+        {
+            venta.AsientoVuelta = asiento;
+            tbAsientoVuelta.Text = venta.AsientoVuelta.Fila.ToString() + venta.AsientoVuelta.Numero;
+            tiVueloRegreso.Background = Brushes.Green;
         }
 
         private void btAsignarAsientoIdaVuelta_Click(object sender, RoutedEventArgs e)
         {
-
-
+            Reservaciones.SeleccionarAsiento select_asiento = new SeleccionarAsiento(venta.VueloVuelta, SetAsientoVuelta);
+            select_asiento.Left = this.Left;
+            select_asiento.Top = this.Top;
+            select_asiento.ShowDialog();
         }
 
         void ValidarBuscarUsuario()
@@ -274,16 +289,58 @@ namespace UI
 
         private void btGuardar_Click(object sender, RoutedEventArgs e)
         {
+            if (ValidarVueloIda() == false)
+            {
+                MessageBox.Show("Error: Debe seleccionar un vuelo y asiento de Ida");
+                return;
+            }
+
+            if (ValidarVueloVuelta() == false)
+            {
+                MessageBox.Show("Error: Si selecciono un vuelo de vuelta, debe seleccionar un asiento para ese vuelo");
+                return;
+            }
+
+            if (venta.Persona == null)
+            {
+                MessageBox.Show("Debe crear o seleccionar un cliente para esta reservacion");
+                return;
+            }
+
             try
             {
-                venta.CreateReservacion();
-                tbId.Text = "ID Reservacion Ida: " + venta.ReservacionIda.ID;
+                bool modificando = false;
+                if (venta.ReservacionIda != null)
+                {
+                    modificando = true;
+                    // La reservacion ya existe, esto es una modificacion
+                }
+
+                venta.CreateReservacion(modificando);
+                tbIDIda.Text = "ID Reservacion: " + venta.ReservacionIda.ID;
+                if (venta.ReservacionVuelta != null)
+                    tbIDVuelta.Text = "ID Reservacion: " + venta.ReservacionVuelta.ID;
+
+                if (modificando)
+                    MessageBox.Show("La reservacion fue modificada satisfactoriamente.");
+                else
+                    MessageBox.Show("La reservacion fue realizada satisfactoriamente.\nRevise la pestaña correspondiente a cada vuelo para obtener el numero de reservacion");
+
                 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            UI.ReservacionMain main = new ReservacionMain();
+            main.Left = this.Left;
+            main.Top = this.Top;
+            main.Show();
+            this.Close();
         }
     }
 }

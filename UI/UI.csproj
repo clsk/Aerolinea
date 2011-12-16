@@ -88,6 +88,9 @@
     <Compile Include="ConfiguracionUsuario.xaml.cs">
       <DependentUpon>ConfiguracionUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reservaciones\BuscarReservacion.xaml.cs">
+      <DependentUpon>BuscarReservacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reservaciones\BuscarVuelo.xaml.cs">
       <DependentUpon>BuscarVuelo.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConfiguracionUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reservaciones\BuscarReservacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

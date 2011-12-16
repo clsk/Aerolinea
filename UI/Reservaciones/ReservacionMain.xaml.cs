@@ -50,5 +50,14 @@ namespace UI
             this.Close();
             new_reservacion.Show();
         }
+
+        private void btEditarReservacion_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarReservacion buscar_reservacion = new BuscarReservacion();
+            buscar_reservacion.Top = this.Top;
+            buscar_reservacion.Left = this.Left;
+            this.Close();
+            buscar_reservacion.Show();
+        }
     }
 }

@@ -19,8 +19,8 @@
             <ComboBox Grid.Row="1" Height="23" HorizontalAlignment="Right" Margin="0,12,64,22" Name="cbDesde" VerticalAlignment="Center" Width="120" DataContext="{Binding}" DisplayMemberPath="DisplayName"/>
             <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,12,54,22" Name="cbHacia" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="1" DataContext="{Binding}" DisplayMemberPath="DisplayName"/>
             <DatePicker Grid.Row="2" Height="25" HorizontalAlignment="Left" Margin="106,13,0,0" Name="dpSalida" VerticalAlignment="Top" Width="115" />
-            <Label Content="Desde" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblDesde" VerticalAlignment="Top" />
-            <Label Content="Hacia" Grid.Column="1" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="71,12,0,0" Name="lblHacia" VerticalAlignment="Top" />
+            <Label Content="Desde" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="57,21,0,0" Name="lblDesde" VerticalAlignment="Top" />
+            <Label Content="Hacia" Grid.Column="1" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="71,21,0,0" Name="lblHacia" VerticalAlignment="Top" />
             <Label Content="Salida" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="57,12,0,0" Name="lblSalida" VerticalAlignment="Top" />
         </Grid>
         <Button Content="Buscar" Height="23" Name="btBuscar" Width="75" Click="btBuscar_Click" />

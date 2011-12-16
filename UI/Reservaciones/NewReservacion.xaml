@@ -1,9 +1,9 @@
 ﻿<Window x:Class="UI.NewReservacion"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Reservacion" Height="450" Width="600" xmlns:my="clr-namespace:GreyableImage;assembly=GreyableImage">
+        Title="Reservacion" Height="500" Width="599" xmlns:my="clr-namespace:GreyableImage;assembly=GreyableImage">
     <Grid>
-        <TabControl Height="370" HorizontalAlignment="Left" Margin="12,0,0,0" Name="tcTab" VerticalAlignment="Top" Width="554" TabStripPlacement="Top">
+        <TabControl Height="370" HorizontalAlignment="Left" Margin="12,43,0,0" Name="tcTab" VerticalAlignment="Top" Width="559" TabStripPlacement="Top">
             <TabItem Header="Datos Personales" Name="tiPersona" Background="Red">
                 <Grid>
                     <Grid.Resources>
@@ -64,6 +64,7 @@
                         <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaIda" Text="" VerticalAlignment="Top" Width="452" />
                     </Grid>
                     <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoIda" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIda_Click" IsEnabled="False" />
+                    <TextBlock Height="23" Margin="141,262,199,0" Name="tbIDIda" Text="" VerticalAlignment="Top" Foreground="#FF00C800" />
                 </Grid>
             </TabItem>
             <TabItem Header="Vuelo Regreso" Name="tiVueloRegreso" Background="Yellow">
@@ -95,10 +96,13 @@
                         <TextBlock Height="23" HorizontalAlignment="Left" Margin="56,63,0,0" Name="tbDiaLlegadaVuelta" Text="" VerticalAlignment="Top" Width="452" />
                     </Grid>
                     <Button Content="Asignar Asiento" Height="23" HorizontalAlignment="Left" Margin="197,5,0,0" Name="btAsignarAsientoVuelta" VerticalAlignment="Top" Width="91" Click="btAsignarAsientoIdaVuelta_Click" IsEnabled="False" />
+                    <TextBlock Foreground="#FF00C800" Height="23" Margin="141,262,199,0" Name="tbIDVuelta" Text="" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Crear Reservacion" Height="23" HorizontalAlignment="Left" Margin="457,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="109" Click="btGuardar_Click" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,380,0,0" Name="tbId" Text="" VerticalAlignment="Top" Width="285" />
+        <Button Content="Crear Reservacion" Height="23" HorizontalAlignment="Left" Margin="425,0,0,12" Name="btGuardar" VerticalAlignment="Bottom" Width="141" Click="btGuardar_Click" />
+        <Button Height="27" HorizontalAlignment="Left" Margin="10,10,0,0" Name="btBack" VerticalAlignment="Top" Width="49" Click="btBack_Click">
+            <Image Source="/UI;component/Images/left_32.png" Stretch="Fill" />
+        </Button>
     </Grid>
 </Window>

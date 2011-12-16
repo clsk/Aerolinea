@@ -12,6 +12,21 @@ namespace BusinessLogic
         {
         }
 
+        public Venta(TransReservacion reserva_ida, TransReservacion reserva_vuelta)
+        {
+            reservacion_ida = reserva_ida;
+            VueloIda = reservacion_ida.Vuelo;
+            AsientoIda = reservacion_ida.Asiento;
+            if (reserva_vuelta != null)
+            {
+                reservacion_vuelta = reserva_vuelta;
+                VueloVuelta = reservacion_vuelta.Vuelo;
+                AsientoVuelta = reservacion_vuelta.Asiento;
+            }
+
+            persona = reservacion_ida.Persona;
+        }
+
         Persona persona;
         private TransReservacion reservacion_ida;
         private TransReservacion reservacion_vuelta;
@@ -35,7 +50,19 @@ namespace BusinessLogic
             return _persona;
         }
 
-        public void CreateReservacion()
+        /// <summary>
+        /// Modifica las reservaciones
+        /// </summary>
+        public void UpdateReservacion()
+        {
+            CreateReservacion(true);
+        }
+
+        /// <summary>
+        /// Crea las reservaciones de Ida y Vuelta (si esta definida)
+        /// </summary>
+        /// <param name="modificando">Especifica si se esta modificando una reservacion, o es una nueva reservacion</param>
+        public void CreateReservacion(bool modificando = false)
         {
             if (vuelo_ida == null)
             {
@@ -59,13 +86,33 @@ namespace BusinessLogic
 
             try
             {
-                reservacion_ida = new TransReservacion(Persona, vuelo_ida, asiento_ida, (TransUsuario)LUser.GetInstance().d_usuario);
-                DALCliente.Create(reservacion_ida.PersistentObject);
+                if (modificando)
+                {
+                    reservacion_ida.Persona = persona;
+                    reservacion_ida.Vuelo = vuelo_ida;
+                    reservacion_ida.Asiento = asiento_ida;
+                    reservacion_ida.Flush();
+                }
+                else
+                {
+                    reservacion_ida = new TransReservacion(Persona, vuelo_ida, asiento_ida, (TransUsuario)LUser.GetInstance().d_usuario);
+                    reservacion_ida.Create();
+                }
 
                 if (reservar_vuelta)
                 {
-                    reservacion_vuelta = new TransReservacion(Persona, vuelo_vuelta, asiento_vuelta, (TransUsuario)LUser.GetInstance().d_usuario);
-                    DALCliente.Create(reservacion_ida.PersistentObject);
+                    if (reservacion_vuelta == null)
+                    {
+                        reservacion_vuelta = new TransReservacion(Persona, vuelo_vuelta, asiento_vuelta, (TransUsuario)LUser.GetInstance().d_usuario);
+                        reservacion_vuelta.Create();
+                    }
+                    else
+                    {
+                        reservacion_vuelta.Persona = persona;
+                        reservacion_vuelta.Vuelo = vuelo_ida;
+                        reservacion_vuelta.Asiento = asiento_ida;
+                        reservacion_vuelta.Flush();
+                    }
                 }
             }
             catch (Exception e)
