@@ -40,9 +40,11 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// Se guarda una imagen un directorio dado
+        /// Copia una imagen para un directorio controlado.
         /// </summary>
-        /// <param name="image">URL actual dodne se encuentra la imagen</param>
+        /// <param name="image">El URL actual de la imagen.</param>
+        /// <param name="avion_id">ID del avion al cual le pertenece la planta</param>
+        /// <param name="piso">Piso de la planta</param>
         /// <returns>El URL completo donde se guardó la imagen </returns>
         private string SaveImageToURL(string image, int avion_id, int piso)
         {
@@ -51,7 +53,6 @@ namespace BusinessLogic
             url += "\\PlantaImages\\" + avion_id.ToString() + "_" + piso.ToString() + image.Substring(image.LastIndexOf('.') + 1);
 
             System.IO.File.Copy(image, url);
-            //Implementar guardar la imagen en el directorio.
             return url;
         }
 
@@ -66,7 +67,7 @@ namespace BusinessLogic
             TransAvion unAvion = new TransAvion(IdSerie);
             unAvion.Create();
             for(int i=0; i<plantas.Count; i++)
-                unAvion.AddPlanta(plantas[i]);
+                unAvion.AddPlanta(SaveImageToURL(plantas[i],unAvion.ID,idSerie));
             for(int j=0; j<asientos.Count; j++)
             {
                 TransAsiento unAsiento = new TransAsiento(unAvion, asientos[j].Clase, asientos[j].Numero, asientos[j].Fila, asientos[j].X, asientos[j].Y, asientos[j].Piso);

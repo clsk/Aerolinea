@@ -91,7 +91,7 @@ namespace UI.Reservaciones
                 }
 
             }
-        }
+        } 
 
         private void ChangePiso()
         {
