@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataLayer;
+using System.IO;
+using System.Reflection;
+
 namespace BusinessLogic
 {
     public class LAvion
@@ -10,7 +13,7 @@ namespace BusinessLogic
         SerieAvion idSerie;
         public LAvion()
         {
-            plantas = new List<Byte[]>();
+            plantas = new List<string>();
             asientos = new List<LAsiento>();
         }
         public SerieAvion IdSerie
@@ -26,13 +29,27 @@ namespace BusinessLogic
             set { cantidad = value; }
         }
 
-        List<Byte[]> plantas;
+        List<string> plantas;
 
         List<LAsiento> asientos;
 
-        public void addPlanta(byte[] imagen)
+        public void addPlanta(string imagen)
         {
             plantas.Add(imagen);
+        }
+
+        /// <summary>
+        /// Se guarda una imagen un directorio dado
+        /// </summary>
+        /// <param name="image">URL actual dodne se encuentra la imagen</param>
+        /// <returns>El URL completo donde se guardó la imagen </returns>
+        private string SaveImageToURL(string image)
+        {
+            string url;
+            url= Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+
+            //Implementar guardar la imagen en el directorio.
+            return url;
         }
 
         public void addAsiento(int X, int Y, TipoClase IdClase, string Numero, int Fila, int Piso)
